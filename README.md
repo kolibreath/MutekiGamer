@@ -1,3 +1,8 @@
 # MutekiGamer
 Muteki Gamer is platform for hard core gamers!
-朱香宁
+## Group members
+* Yutian
+* Wangmengqi 
+* Xiawanqi
+* Zhuxiangning
+## See you tomorrow!
