@@ -1,0 +1,270 @@
+.division{
+	height: 40px;
+	width: 100%;
+}
+
+.main-body .main-content{
+	margin: 0px auto !important;
+	width: 100%;
+	max-width: 1440px;
+	height: auto;
+}
+
+.main-content .postContext{
+	margin: 40px auto;
+	width: 100%;
+	background-color: white;
+	overflow: hidden;
+	border-radius: 10px;
+	max-width: 1440px;
+}
+
+.main-content .postContext .postOperate{
+	width: 90%;
+	margin: 20px auto;
+	border-bottom-style: dashed;
+	border-bottom-width: 2px;
+	border-bottom-color: black;
+	overflow: hidden;
+}
+
+.main-content .postContext .postOperate .pageConctrl{
+	float: right;
+	margin-right: 5px;
+}
+
+.main-content .postContext .postOperate button{
+	margin: 5px 0px;
+	height: 30px;
+	line-height: 30px;
+	vertical-align:middle;
+	background-color: black;
+	color: white;
+	border-width: 0px;
+	border-radius: 5px;
+	width: 60px;
+	cursor: pointer;
+	float: left;
+}
+
+.main-content .postContext .postOperate img{
+	height: 20px;
+	width: 20px;
+	margin: 10px 10px;
+	float: left;
+	display: block;
+	cursor: pointer;
+	margin-right: 2px;
+}
+
+.main-content .postContext .postHeader{
+	margin: 10px auto;
+	width: 100%;
+	max-width: 980px;
+	background-color: black;
+	height: auto;
+	overflow: hidden;
+	height: 40px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	margin-bottom: 0px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: lightgray;
+}
+
+.main-content .postContext .postHeader h1{
+	text-align: center;
+	color: white;
+}
+
+.main-content .postContext .postMainbody{
+	width: 100%;
+	max-width: 980px;
+	border-width: 1px;
+	border-color: lightgray;
+	border-style: solid;
+	margin: 0px auto;
+	margin-bottom: 20px;
+	background-color: lightgray;
+}
+
+.main-content .postContext .postMainbody .postTitle{
+	width: 100%;
+	height: auto;
+	border-bottom-color: lightgray;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	background-color: white;
+}
+.main-content .postContext .postMainbody .postTitle h2{
+	margin-left: 20px;
+}
+
+.main-content .postContext .postMainbody .postContext{
+	width: 100%;
+	height: 300px;
+	border-bottom-color: lightgray;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-top-color: lightgray;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-radius: 0px;
+}
+
+.postContext .postMainbody .postContext .postUser{
+	width: 29%;
+	border-bottom-color: lightgray;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-right-color: lightgray;
+	border-right-width: 1px;
+	border-right-style: solid;
+	height: 300px;
+	float: left;
+}
+
+.postContext .postMainbody .postContext .postUser img{
+	width: 140px;
+	height: 140px;
+	margin: 5px auto;
+	display: block;
+	cursor: pointer;
+}
+
+.postContext .postMainbody .postContext .postUser p{
+	margin: 5px auto;
+	color: black;
+	cursor: pointer;
+	display: block;
+	text-align: center;
+}
+
+.postContext .postMainbody .postContext .postText{
+	float: left;
+	width: 70%;
+	border-bottom-color: lightgray;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	height: 300px;
+	overflow-y: scroll;
+}
+
+.main-content .postContext .postMainbody .postPager{
+	width: 100%;
+	height: auto;
+	background-color: lightgray;
+	overflow: hidden;
+}
+
+.main-content .postContext .postMainbody .postPager button{
+	margin: 5px 2px;
+	height: 30px;
+	line-height: 30px;
+	vertical-align:middle;
+	background-color: black;
+	color: white;
+	border-width: 0px;
+	border-radius: 5px;
+	width: 60px;
+	cursor: pointer;
+	float: right;
+}
+
+
+
+
+.main-content .newPost{
+	margin: 40px auto;
+	width: 100%;
+	background-color: white;
+	overflow: hidden;
+	border-radius: 10px;
+	max-width: 1440px;
+}
+
+.main-content .newPost .listTitle{
+	margin: 10px auto;
+	max-width: 1080px;
+	overflow: hidden;
+	width: 100%;
+	margin-top: 30px;
+}
+
+.main-content .newPost .listTitle img{
+	display: inline-block;
+	float: left;
+	height: 24px;
+	width: auto;
+}
+
+.main-content .newPost .listTitle p{
+	float: left;
+	color: black;
+	font-size: 28px;
+	margin-left: 20px;
+}
+
+.main-content .newPost .post{
+	margin: 10px auto;
+	max-width: 1080px;
+	overflow: hidden;
+	width: 100%;
+}
+
+.main-content .newPost .post .postTitle{
+	width: 100%;
+	max-width: 980px;
+	margin: 10px auto;
+}
+
+.main-content .newPost .post .postTitle input{
+	width: 78%;
+	height: 40px;
+	font-size: 20px;
+	outline: none;
+	border-style: double;
+	border-width: 1px;
+	text-indent: 0.5em;
+}
+
+.main-content .newPost .post .postTitle select{
+	width: 20.5%;
+	height: 40px;
+	font-size: 20px;
+	outline: none;
+	border-style: double;
+	border-width: 1px
+}
+
+.main-content .newPost .post .postTitle .postStyle{
+	width: 100%;
+	overflow: hidden;
+	height: 40px;
+	line-height: 20px;
+	margin: 10px auto;
+	border-width: 1px;
+	border-color: black;
+	border-style: solid;
+	background-color: lightgray;
+}
+
+.main-content .newPost .post .postTitle .postStyle img{
+	float: left;
+	width: 20px;
+	height: 20px;
+	margin-left: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+
+.main-content .newPost .post .postTitle textarea{
+	resize: none;
+	width: 100%;
+	height: 400px;
+	font-size: 18px;
+	text-indent: 0.5em;
+}
+

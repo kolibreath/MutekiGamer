@@ -1,0 +1,130 @@
+/*general*/
+
+body{
+    background-image: url("../img/background.jpg");
+    background-repeat:repeat;
+    background-size: cover;
+}
+
+.division{
+	height: 60px;
+	width: 100%;
+	opacity: 100%;
+}
+
+.logContext{
+	padding: 140px 0px;
+	margin: 0px auto;
+	height: 100%;
+	min-width: 400px;
+	max-width: 600px;
+}
+
+.main-body{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(227,225,225,0.7);
+    background-size: auto;
+}
+
+/*Login*/
+
+.logContext .login{
+	height: 100%;
+	padding: 20px 0px;
+	text-align: center;
+	font-size: 16px;
+	background-color: white;
+	min-width: 400px;
+	opacity: 0.8;
+	font-family: Trebuchet MS’, ‘Lucida Sans Unicode’, 
+	‘Lucida Grande’, ‘Lucida Sans’, Arial, sans-serif;
+}
+
+.logContext .login h1{
+	margin: 20px auto;
+	text-align: center;
+}
+
+.logContext .login .input-form{
+	margin: 5px auto;
+	text-align: center;
+}
+
+.logContext .login .input-form form{
+	margin: 30px auto;
+	width: 400px;
+}
+
+.logContext .login .input-form div{
+	height: 20px;
+	width: 400px;
+}
+
+.logContext .login .input-form hr{
+	width: 190px;
+	margin: 0 auto;
+	border-color: black;
+	border-style: dashed;
+}
+
+.logContext .login .input-form input{
+	border: 0px !important;
+	outline: none;
+
+}
+
+.logContext .login .input-form .uid{
+	height: 20px;
+	line-height: 20px;
+	color: gray;
+	width: 190px;
+	text-align: center;
+	font-size: 18px !important
+}
+
+.logContext .login .input-form .pw{
+	color: black;
+	line-height: 20px;
+	font-size: 18px !important;
+	width: 190px;
+	text-align: center;
+}
+
+.logContext .login .input-form .Login-button{
+	height: 40px;
+	width: 190px;
+	border: 0px;
+	border-radius: 10px;
+	background-color: black;
+	color: white;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+/*Register*/
+
+.logContext .register{
+	height: 100%;
+	padding: 20px 0px;
+	text-align: center;
+	font-size: 14px;
+	background-color: black;
+	min-width: 400px;
+	opacity: 0.8;
+	color: white;
+}
+
+.logContext .register button{
+	margin-top: 30px;
+	margin-bottom: 10px;
+	background-color: white;
+	color: black;
+	width: 190px !important;
+	height: 50px;
+	border: 0px;
+	border-radius: 10px;
+	font-size: 16px;
+	cursor: pointer;
+
+}

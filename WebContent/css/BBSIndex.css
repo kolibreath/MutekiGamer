@@ -1,0 +1,232 @@
+
+.division{
+	height: 40px;
+	width: 100%;
+}
+
+.main-body .main-content{
+	margin: 0px auto !important;
+	width: 100%;
+	max-width: 1440px;
+	height: auto;
+}
+
+.main-content .clubList{
+	margin-top: 40px !important;
+	width: 100%;
+	max-width: 1080px;
+	background-color: lightgray;
+	overflow: hidden;
+	border-radius: 10px;
+	margin: 0 auto;
+}
+
+.main-content .clubList .listTitle{
+	margin: 30px auto;
+	width: 100%;
+	max-width: 1080px;
+	text-align: center;
+}
+
+.clubList .head{
+	margin-top: 0px !important;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 880px;
+	text-align: center;
+	background-color: #686565;
+	opacity: 0.8;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	overflow: hidden;
+}
+
+.clubList .head ul{
+	padding-left: 20px;
+	list-style: none;
+	overflow: hidden;
+}
+
+.clubList .head li{
+	float: left;
+	display: block;
+	height: 40px;
+	padding: 10px 20px;
+}
+
+.clubList .head a:hover{
+	color: 	black;
+}
+
+.clubList .head a{
+	color: white;
+	height: 100%;
+	line-height: 40px;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.clubList .body{
+	margin: 5px auto;
+	width: 100%;
+	max-width: 880px;
+	border-style: solid;
+	border-color: lightgray;
+	margin-top: 0px;
+	padding-bottom: 60px
+}
+
+.clubList .body .contextList{
+	margin: 10px auto;
+	border-left-style: solid;
+	border-right-style: solid;
+	border-left-width: 1px;
+	border-right-width: 1px;
+	border-color: black;
+	margin-top: 0px;
+	background-color: #FFF0F5;
+}
+
+.clubList .body .contextList .context{
+	border-bottom-style: dashed;
+	border-bottom-width: 1px;
+	border-bottom-color: black;
+	padding: 5px 0px;
+	padding-top: 15px;
+	padding-left: 30px;
+	overflow: hidden;
+}
+
+.clubList .body .contextList .lastContext{
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: black;
+	padding: 5px 0px;
+	padding-top: 15px;
+	padding-left: 30px;
+	overflow: hidden;
+}
+
+.clubList .body .contextList .context a{
+	line-height: 30px;
+}
+
+.clubList .body .contextList .context button{
+	height: 30px;
+	width: 100px;
+	float: right;
+	margin-right: 20px;
+	background-color: black;
+	outline: none;
+	border-radius: 5px;
+	color: white;
+	border-style: none;
+	margin-bottom: 5px;
+	cursor: pointer;
+}
+
+.clubList .body .contextList .context .pageConctrl{
+	height: 30px;
+	width: 30px;
+	float: right;
+	margin-right: 10px;
+	background-color: black;
+	outline: none;
+	border-radius: 5px;
+	color: white;
+	border-style: none;
+	margin-bottom: 5px;
+	cursor: pointer;
+}
+
+.main-content .newPost{
+	margin-top: 40px;
+	width: 100%;
+	background-color: white;
+	overflow: hidden;
+	border-radius: 10px;
+}
+
+.main-content .newPost .listTitle{
+	margin: 10px auto;
+	max-width: 1080px;
+	overflow: hidden;
+	width: 100%;
+	margin-top: 30px;
+}
+
+.main-content .newPost .listTitle img{
+	display: inline-block;
+	float: left;
+	height: 24px;
+	width: auto;
+}
+
+.main-content .newPost .listTitle p{
+	float: left;
+	color: black;
+	font-size: 28px;
+	margin-left: 20px;
+}
+
+.main-content .newPost .post{
+	margin: 10px auto;
+	max-width: 1080px;
+	overflow: hidden;
+	width: 100%;
+}
+
+.main-content .newPost .post .postTitle{
+	width: 100%;
+	max-width: 980px;
+	margin: 10px auto;
+}
+
+.main-content .newPost .post .postTitle input{
+	width: 78%;
+	height: 40px;
+	font-size: 20px;
+	outline: none;
+	border-style: double;
+	border-width: 1px;
+	text-indent: 0.5em;
+}
+
+.main-content .newPost .post .postTitle select{
+	width: 20.5%;
+	height: 40px;
+	font-size: 20px;
+	outline: none;
+	border-style: double;
+	border-width: 1px
+}
+
+.main-content .newPost .post .postTitle .postStyle{
+	width: 100%;
+	overflow: hidden;
+	height: 40px;
+	line-height: 20px;
+	margin: 10px auto;
+	border-width: 1px;
+	border-color: black;
+	border-style: solid;
+	background-color: lightgray;
+}
+
+.main-content .newPost .post .postTitle .postStyle img{
+	float: left;
+	width: 20px;
+	height: 20px;
+	margin-left: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+
+.main-content .newPost .post .postTitle textarea{
+	resize: none;
+	width: 100%;
+	height: 400px;
+	font-size: 18px;
+	text-indent: 0.5em;
+}

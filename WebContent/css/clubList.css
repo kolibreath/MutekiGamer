@@ -1,0 +1,138 @@
+
+.division{
+	height: 40px;
+	width: 100%;
+}
+
+.main-body .main-content{
+	margin: 0px auto !important;
+	width: 100%;
+	max-width: 1440px;
+	height: auto;
+}
+
+.main-content .clubList{
+	margin-top: 40px;
+	width: 100%;
+	background-color: lightgray;
+	overflow: hidden;
+	border-radius: 10px;
+}
+
+.main-content .clubList .listTitle{
+	margin: 30px auto;
+	width: 100%;
+	max-width: 1080px;
+	text-align: center;
+}
+
+.clubList .head{
+	margin-top: 0px !important;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1080px;
+	text-align: center;
+	background-color: #686565;
+	opacity: 0.8;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	overflow: hidden;
+}
+
+.clubList .head ul{
+	padding-left: 60px;
+	list-style: none;
+	overflow: hidden;
+}
+
+.clubList .head li{
+	float: left;
+	display: block;
+	height: 40px;
+	padding: 10px 20px;
+}
+
+.clubList .head a:hover{
+	color: 	black;
+}
+
+.clubList .head a{
+	color: white;
+	height: 100%;
+	line-height: 40px;
+	font-size: 30px;
+	cursor: pointer;
+}
+
+.clubList .body{
+	margin: 5px auto;
+	width: 100%;
+	max-width: 1080px;
+	border-style: solid;
+	border-color: lightgray;
+	margin-top: 0px;
+	padding-bottom: 60px
+}
+
+.clubList .body .contextList{
+	margin: 10px auto;
+	border-left-style: solid;
+	border-right-style: solid;
+	border-left-width: 1px;
+	border-right-width: 1px;
+	border-color: black;
+	margin-top: 0px;
+	background-color: #FFF0F5;
+}
+
+.clubList .body .contextList .context{
+	border-bottom-style: dashed;
+	border-bottom-width: 1px;
+	border-bottom-color: black;
+	padding: 5px 0px;
+	padding-top: 15px;
+	padding-left: 30px;
+	overflow: hidden;
+}
+
+.clubList .body .contextList .lastContext{
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: black;
+	padding: 5px 0px;
+	padding-top: 15px;
+	padding-left: 30px;
+	overflow: hidden;
+}
+
+.clubList .body .contextList .context a{
+	line-height: 30px;
+}
+
+.clubList .body .contextList .context button{
+	height: 30px;
+	width: 100px;
+	float: right;
+	margin-right: 20px;
+	background-color: black;
+	outline: none;
+	border-radius: 5px;
+	color: white;
+	border-style: none;
+	margin-bottom: 5px;
+	cursor: pointer;
+}
+
+.clubList .body .contextList .context .pageConctrl{
+	height: 30px;
+	width: 30px;
+	float: right;
+	margin-right: 10px;
+	background-color: black;
+	outline: none;
+	border-radius: 5px;
+	color: white;
+	border-style: none;
+	margin-bottom: 5px;
+	cursor: pointer;
+}
