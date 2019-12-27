@@ -32,7 +32,7 @@ public class AuthController {
         return "login";
     }
 
-    @RequestMapping(name = "/dologin",method = RequestMethod.POST)
+    @RequestMapping("/dologin")
     public String dologin(HttpServletRequest httpServletRequest, HttpSession httpSession) {
         String name = httpServletRequest.getParameter("name");
         String password = httpServletRequest.getParameter("password");
