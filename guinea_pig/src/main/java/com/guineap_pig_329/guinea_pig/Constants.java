@@ -2,8 +2,7 @@ package com.guineap_pig_329.guinea_pig;
 
 public class Constants {
 
-
-
+    public static String USE_SESSION_KEY = "SESSION_KEY";
     public static String THUMBNAIL = "https://upload-images.jianshu.io/upload_images/4714178-09a9914e262deefe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240";
 
     public static String OVERWATCH_THUMBNAIL = "https://img4.nga.178.com/proxy/cache_attach/ficon/459u.png?448.invert.png";
