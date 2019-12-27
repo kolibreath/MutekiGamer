@@ -1,31 +1,32 @@
 package com.guineap_pig_329.guinea_pig.dao;
 
-
 import javax.persistence.*;
 
 @Entity
-@Table(name = "userinfo")
+@Table(name = "user_info")
 public class UserInfo {
 
     @Id
     @GeneratedValue
     private int userInfoId;
-    @Column(length = 255)
-    private String userIntro;
-    @Column
-    //序列化完成
-    private String statics;
-    @Column
-    private String avatar;
-    @Column
-    private int level;
 
-    public UserInfo(String userIntro, String statics, String avatar, int level) {
-        this.userIntro = userIntro;
-        this.statics = statics;
-        this.avatar = avatar;
-        this.level = level;
-    }
+    @Column
+    private int userId;
+
+    @Column
+    private String userAvatar;
+
+    @Column
+    private String userIntro;
+
+    @Column
+    private int userSex;
+
+    @Column
+    private String userCity;
+
+    @Column
+    private String userAge;
 
     public int getUserInfoId() {
         return userInfoId;
@@ -33,6 +34,22 @@ public class UserInfo {
 
     public void setUserInfoId(int userInfoId) {
         this.userInfoId = userInfoId;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public String getUserAvatar() {
+        return userAvatar;
+    }
+
+    public void setUserAvatar(String userAvatar) {
+        this.userAvatar = userAvatar;
     }
 
     public String getUserIntro() {
@@ -43,75 +60,27 @@ public class UserInfo {
         this.userIntro = userIntro;
     }
 
-    public String getStatics() {
-        return statics;
+    public int getUserSex() {
+        return userSex;
     }
 
-    public void setStatics(String statics) {
-        this.statics = statics;
+    public void setUserSex(int userSex) {
+        this.userSex = userSex;
     }
 
-    public String getAvatar() {
-        return avatar;
+    public String getUserCity() {
+        return userCity;
     }
 
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
+    public void setUserCity(String userCity) {
+        this.userCity = userCity;
     }
 
-    public int getLevel() {
-        return level;
+    public String getUserAge() {
+        return userAge;
     }
 
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
-
-    public static class Statics{
-
-        private String name ;
-        private String season;
-        private int score;
-        private int rank;
-
-        public Statics(String name, String season, int score, int rank) {
-            this.name = name;
-            this.season = season;
-            this.score = score;
-            this.rank = rank;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getSeason() {
-            return season;
-        }
-
-        public void setSeason(String season) {
-            this.season = season;
-        }
-
-        public int getScore() {
-            return score;
-        }
-
-        public void setScore(int score) {
-            this.score = score;
-        }
-
-        public int getRank() {
-            return rank;
-        }
-
-        public void setRank(int rank) {
-            this.rank = rank;
-        }
+    public void setUserAge(String userAge) {
+        this.userAge = userAge;
     }
 }

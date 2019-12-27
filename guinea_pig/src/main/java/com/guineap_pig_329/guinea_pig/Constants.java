@@ -31,4 +31,16 @@ public class Constants {
     public static int STARCRAFT_ID   = 4;
 
 
+    public static int MALE=1;
+    public static int FEMALE=0;
+
+    //好友关注模式
+    public static int U1LIKEU2=0;
+    public static int U2LIKEU1=1;
+    public static int MUTUARAL=2;
+
+    //游戏结果
+    public static int VICTORY=1;
+    public static int DEFEAT=0;
+
 }

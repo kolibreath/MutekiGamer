@@ -12,19 +12,18 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userId;
     @Column
-    private String username;
-    @Column
-    private String userEmail;
+    private String userName;
     @Column
     private int userType;
     @Column
-    private int userInfoId;
+    private String userPermission;
     @Column
-    private String managementElement;
+    private String userEmail;
 
-    //默认情况下会设置成Personal
-    public static int OFFICIAL ;
-    public static int PERSONAL;
+
+
+    public User() {
+    }
 
     public int getUserId() {
         return userId;
@@ -34,20 +33,12 @@ public class User {
         this.userId = userId;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getUserEmail() {
-        return userEmail;
-    }
-
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public int getUserType() {
@@ -58,29 +49,19 @@ public class User {
         this.userType = userType;
     }
 
-    public void setManagementElement(String managementElement){
-        this. managementElement = managementElement;
+    public String getUserPermission() {
+        return userPermission;
     }
 
-    public int getUserInfoId() {
-        return userInfoId;
+    public void setUserPermission(String userPermission) {
+        this.userPermission = userPermission;
     }
 
-    public void setUserInfoId(int userInfoId) {
-        this.userInfoId = userInfoId;
+    public String getUserEmail() {
+        return userEmail;
     }
 
-    public String getManagementElement(){
-        return managementElement;
-    }
-
-    public User(){}
-    public User(String username, String userEmail, int userType, int userInfoId, String managementElement) {
-        this.username = username;
+    public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
-        this.userType = userType;
-        this.userInfoId = userInfoId;
-        this.managementElement = managementElement;
     }
-
 }

@@ -1,39 +1,32 @@
 package com.guineap_pig_329.guinea_pig.dao;
 
-
 import javax.persistence.*;
 
+/*
+帖子表
+ */
 @Entity
 @Table(name = "post")
 public class Post {
-
-    //组队邀请 陪练
-    public static int INVATATION= 1;
-    //前沿资讯
-    public static int NEWS  =2;
-    //游戏攻略
-    public static int WALKTHROUGH = 3;
-    //有感而发
-    public static int THOUGHTS = 4;
-    //长期施工
-    public static int LONG_TERM = 5;
-    //置顶内容
-    public static int PLACE_TOP = 6;
-    //Banner 内容
-    public static int BANNER    = 7;
 
     @Id
     @GeneratedValue
     private int postId;
 
     @Column
+    private int userId;
+
+    @Column
     private long time;
 
     @Column
-    private String title;
+    private String content;
 
     @Column
-    private String content;
+    private int tag;
+
+    @Column
+    private String title;
 
     public int getPostId() {
         return postId;
@@ -41,6 +34,14 @@ public class Post {
 
     public void setPostId(int postId) {
         this.postId = postId;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public long getTime() {
@@ -51,14 +52,6 @@ public class Post {
         this.time = time;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getContent() {
         return content;
     }
@@ -67,27 +60,19 @@ public class Post {
         this.content = content;
     }
 
-    public int getPart() {
-        return part;
+    public int getTag() {
+        return tag;
     }
 
-    public void setPart(int part) {
-        this.part = part;
+    public void setTag(int tag) {
+        this.tag = tag;
     }
 
-    public String getBannerUrl() {
-        return bannerUrl;
+    public String getTitle() {
+        return title;
     }
 
-    public void setBannerUrl(String bannerUrl) {
-        this.bannerUrl = bannerUrl;
+    public void setTitle(String title) {
+        this.title = title;
     }
-
-    @Column
-    private int part;
-
-    @Column
-    private String bannerUrl;
-
 }
-
