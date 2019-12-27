@@ -45,5 +45,24 @@ public class AuthController {
             return "login";
 
     }
+
+    @RequestMapping("/doregister")
+    public String doregister(HttpServletRequest httpServletRequest,HttpSession httpSession)
+    {
+        String name=httpServletRequest.getParameter("name");
+        String password=httpServletRequest.getParameter("password");
+        String email=httpServletRequest.getParameter("email");
+
+        //TODO
+        if(userRepo.findAllByUserEmail(email)!=null){
+            return "register";//ajax
+        }
+        else
+        {
+            User user=new User(name,password,email);
+            userRepo.save(user);
+            return "login";
+        }
+    }
 }
 
