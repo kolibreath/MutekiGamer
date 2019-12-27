@@ -13,11 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("/forum")
 public class AuthController {
 
     @Autowired
     private UserRepo userRepo;
+
 
     @RequestMapping("/test")
     public void inject() {

@@ -10,9 +10,4 @@ public class GuineaPigApplication {
     public static void main(String[] args) {
         SpringApplication.run(GuineaPigApplication.class, args);
     }
-    @RequestMapping("/")
-    public String index() {
-        return "forum/login";
-    }
-
 }
