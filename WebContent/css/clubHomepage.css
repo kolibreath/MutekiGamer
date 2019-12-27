@@ -1,0 +1,195 @@
+
+.division{
+	height: 30px;
+	width: 100%;
+}
+
+.main-body .main-content{
+	margin: 0px auto !important;
+	width: 100%;
+	max-width: 1440px;
+	height: 100%;
+	
+}
+
+/*topPic*/
+
+.main-content .picFrame{
+	max-width: 1440px;
+	margin: 0px auto;
+	height: auto;
+	min-width: 600px;
+	background-color: lightgray;
+	border-radius: 10px;
+	padding: 10px;
+
+}
+
+.main-content .picFrame .picContent{
+	max-width: 1080px;
+	margin: 0px auto !important;
+	height: auto;
+}
+
+.main-content .picFrame .picContent button{
+	background-color: black;
+	color: white;
+	width: 1080px !important;
+	height: 50px;
+	border: 0px;
+	border-radius: 10px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.main-content .picFrame .picContent img{
+	max-width: 1080px;
+	height: auto;
+	margin: 0px auto;
+}
+
+/*maincontext*/
+
+.main-content .contextFrame{
+	width: 100%;
+	border-radius: 10px;
+	height: auto;
+	outline-style: solid;
+	outline-color: lightgray;
+	outline-width: 1px;
+	background-color: white;
+}
+
+.main-content  .contextFrame .notice{
+	padding-top: 40px;
+	padding-bottom: 40px;
+	margin: 0px auto;
+	min-height: 400px;
+	max-width: 1080px;
+}
+
+.main-content  .contextFrame .notice .listContent{
+	padding: 20px 0px;
+	width: 100%;
+	height: auto;
+	outline-style: solid;
+	outline-color: lightgray;
+	outline-width: 1px;
+	display: inline-block;
+}
+
+.main-content .contextFrame .notice .listContent .noticeTitle{
+	padding-top: 40px;
+	margin-left: 40px;
+	padding-bottom: 10px;
+	line-height: 40px;
+	border-bottom-style: solid;
+	border-bottom-color: lightgray;
+	border-bottom-width: 1px;
+	display:block;
+	float: left;
+}
+
+.main-content .contextFrame .notice .listContent .noticeBBS{
+	padding-top: 20px;
+	padding-bottom: 10px;
+	margin-left: 60px;
+	margin-right: 60px;
+	line-height: 30px;
+	border-bottom-style: solid;
+	border-bottom-color: lightgray;
+	border-bottom-width: 1px;
+	display:block;
+	float: left;
+	width: 90%;
+}
+
+/*clubDetail*/
+
+.main-content  .contextFrame .notice{
+	padding-top: 40px;
+	padding-bottom: 40px;
+	margin: 0px auto;
+	min-height: 400px;
+	max-width: 1080px;
+}
+
+.main-content  .contextFrame .notice .clubInfoContent{
+	padding: 40px 0px;
+	width: 100%;
+	height: 100%;
+	outline-style: solid;
+	outline-color: lightgray;
+	outline-width: 1px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.main-content  .contextFrame .notice .clubInfoContent .clubIntro{
+	width: 60%;
+	float: right;
+	padding-right: 40px;
+}
+
+.main-content .contextFrame .notice .clubInfoContent .clubIntro .clubName{
+	
+	padding-bottom: 10px;
+	line-height: 40px;
+	border-bottom-style: solid;
+	border-bottom-color: lightgray;
+	border-bottom-width: 1px;
+}
+
+.main-content .contextFrame .notice .clubInfoContent .clubIntro .intro{
+	padding-top: 20px;
+	padding-bottom: 10px;
+	line-height: 30px;
+	border-style: solid;
+	border-color: lightgray;
+	border-width: 1px;
+	width: 100%;
+	height: auto;
+	word-wrap:break-word;
+    word-break:break-all;
+    overflow: hidden;
+    padding-right: 10px;
+    padding-left: 10px;
+    text-indent:2em
+}
+
+.main-content  .contextFrame .notice .clubInfoContent .clubLogo{
+	float: left;
+	padding-left: 20px;
+	width: 30%;
+	height: 100%;
+	display: inline-block;
+}
+
+.main-content  .contextFrame .notice .clubInfoContent .clubLogo img{
+
+	width: 220px;
+	height: 220px;
+	margin: 0px auto;
+	display: block;
+}
+
+.joinButton{
+	margin: 0px auto;
+	border-top-width: 2px;
+	border-top-color: lightgray;
+	border-top-style: dashed;
+}
+
+.joinButton button{
+	float: right;
+	background-color: black;
+	color: white;
+	width: 190px !important;
+	height: 50px;
+	border: 0px;
+	border-radius: 10px;
+	font-size: 16px;
+	cursor: pointer;
+	margin: 20px auto;
+	display: inline-block;
+}

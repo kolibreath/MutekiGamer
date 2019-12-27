@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>管理系统</title>
+
+    
+
+</head>
+<body>
+<div>武汉天气</div>
+<div>日期：<span id="date"></span></div>
+<div>温度：<span id="weather"></span></div>
+<div>建议：<span id="suggest"></span></div>
+</body>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script language="JavaScript">
+
+    $(function() {   
+              var weather = {};
+              var url = `http://api.map.baidu.com/telematics/v3/weather?location=武汉&output=json&ak=hZSj3ImvmHUOpIGPTKZr5NPftcYNpKW1`;
+              // ajax请求
+              $.ajax({
+                url: url,
+                dataType: 'jsonp',
+                xhrFields: {
+                  withCredentials: true // 设置运行跨域操作
+                },
+                success: data => {
+                    // 成功  
+                     weather = data.results[0];
+                     // 日期
+                     $("#date").text(JSON.stringify(weather.weather_data[0].date)); 
+                     // 温度
+                     $("#weather").text(JSON.stringify(weather.weather_data[0].temperature) + '  ' + JSON.stringify(weather.weather_data[0].weather)); 
+                     // 建议
+                     for (var i = 0; i < weather.index.length; i++) {
+                        $("#suggest").append("<li>" + weather.index[i].des + "</li>");
+                     }
+                },
+                // 失败
+                error: data => {   
+                 alert('请求错误');   
+                }   
+              }); 
+    }); 
+
+</script>
+
+
+
+</html>

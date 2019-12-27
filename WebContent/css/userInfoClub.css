@@ -1,0 +1,87 @@
+.main-content{
+	margin-left: 180px;
+	height: 100%;
+	width: 100%;
+}
+
+/*leftpart*/
+
+.main-content .userInfo{
+	float: left;
+	width: 10%;
+	height: 400px;
+	margin: 100px 5%;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 10px;
+	border-color: lightgray;
+	background-color: white;
+}
+
+.main-content .userInfo .welcome{
+	margin: 40px auto;
+}
+
+.main-content .userInfo .welcome b{
+	width: 90%;
+	font-style: italic;
+	font-style: bold;
+	font-size: 20px;
+	margin-top: 10px;
+	margin-left: 10%;
+}
+
+.main-content .userInfo .welcome p{
+	color: gray;
+	margin-top: 10px;
+	margin-left: 20%;
+}
+
+/*rightpart*/
+
+.main-content .userClub{
+	float: left;
+	width: 50%;
+	height: 600px;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 10px;
+	border-color: lightgray;
+	background-color: white;
+	margin: 100px 8%;
+}
+
+.main-content .userClub .clubList{
+	width: 80%;
+	height: 520px;
+	margin: 40px auto;
+	border-width: 1px;
+	border-style: solid;
+	border-color: lightgray;
+}
+
+.main-content .userClub .clubList ul{
+	margin: 3% 2%;
+	width: 96%;
+	border-style: none;
+	height: 94%;
+	margin-top: 0px !important;
+}
+
+.main-content .userClub .clubList ul .clubListTitle{
+	height: 50px;
+	line-height: 50px;
+	margin: 0px;
+}
+
+.main-content .userClub .clubList li{
+	height: auto;
+	line-height: 30px;
+	width: 100%;
+	border-bottom-style: solid;
+	border-bottom-color: lightgray;
+	border-bottom-width: 1px;
+	margin-left: 5px;
+	word-break: break-all;
+	word-wrap : break-word;
+}

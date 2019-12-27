@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+   <!-- <meta http-equiv="Content-Type" content="text/html" /> -->
+    <meta name="keyword" content="HTML, CSS, image, navigation" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VULCAN!</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+</head>
+
+    <body>
+    <!-- Navigation Bar -->
+    <div class="container">
+
+            <div class="nav-content">
+                <div class="nav-title">
+                    <span>
+                        <img src="img/logo-new.png" alt="VULCAN logo">
+                    </span>
+                </div>
+
+                <div class="nav-text">
+                    <span class="active" style="float: left"><a href="#index">Home</a></span>
+                    <span style="float: left"><a href="#BBS">BBS</a></span>
+                    <span style="float: left"><a href="#Reservation">Reservation</a></span>
+                    <span style="float: left"><a href="#Clubs">Clubs</a></span>
+                    <span style="float: left"><a href="#School's Index">School's Index</a></span>
+                    <span style="float:right"><a href="#Login">Login</a></span>
+                    <!-- <span class="user">
+                    	<a href="#Login">user1</a>
+                	</span>
+                	<span class="user">
+                    	<img src="">
+                	</span> -->
+                </div>
+                
+            </div>
+    </div>
+
+   
+
+            <footer>
+                Designed by Vulcan.
+            </footer>
+
+
+
+
+
+    </body>
+</html>

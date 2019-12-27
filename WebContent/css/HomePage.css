@@ -1,0 +1,107 @@
+.main-content{
+	max-width: 1440px;
+	height: auto;
+	margin: 0 auto;
+}
+
+.division{
+	height: 40px;
+	width: 100%;
+}
+
+/*topPic*/
+
+/*.main-content*/ .picFrame{
+	/*max-width: 1440px;*/
+	margin: 10px auto;
+	height: auto;
+	min-width: 600px;
+	background-color: lightgray;
+	border-radius: 10px;
+	padding: 10px;
+
+}
+
+/*.main-content .picFrame .picContent{
+	max-width: 1080px;
+	margin: 0px auto !important;
+	height: auto;
+}*/
+
+.main-content .picFrame .picContent img{
+	width: 100%;
+	height: auto;
+	margin: 0px auto;
+}
+
+/*mainContext*/
+
+.main-content .contextFrame{
+	margin-top: 40px;
+	width: 100%;
+	border-radius: 10px;
+	height: auto;
+	outline-style: solid;
+	outline-color: lightgray;
+	outline-width: 1px;
+	background-color: white;
+}
+
+.main-content .contextFrame .innerFrame{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin: 0px auto;
+	max-width: 1080px;
+	height: 100%;
+	overflow: hidden;
+}
+
+.contextFrame .innerFrame .left{
+	float: left;
+	width: 48%;
+	margin: 10px auto;
+	height: auto;
+}
+
+.contextFrame .innerFrame .right{
+	float: right;
+	width: 48%;
+	margin: 10px auto;
+	height: auto;
+}
+
+.contextFrame .innerFrame .textList{
+	width: 100%;
+	height: auto;
+	display: inline-block;
+	border-width: 1px;
+	border-style: solid;
+	border-color: lightgray;
+	border-radius: 10px;
+}
+
+.contextFrame .innerFrame .textList ul{
+	padding: 20px 10px;
+}
+
+.contextFrame .innerFrame .textList .listTitle{
+	padding-left: 0px !important;
+	border-bottom-style: solid;
+	border-bottom-color: lightgray;
+	border-bottom-width: 1px;
+}
+
+.contextFrame .innerFrame .textList li{
+	padding: 10px 10px;
+	border-bottom-style: solid;
+	border-bottom-color: lightgray;
+	border-bottom-width: 1px;
+}
+
+.contextFrame .innerFrame img{
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+
