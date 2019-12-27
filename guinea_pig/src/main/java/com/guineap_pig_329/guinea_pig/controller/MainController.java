@@ -46,6 +46,7 @@ public class MainController {
         int userId  = user.getUserId();
         List<Post> posts = sortPost(postRepo.findAllByUserId(userId));
         ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/main");
         modelAndView.addObject("sorted_posts",posts);
         return modelAndView;
     }

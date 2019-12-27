@@ -31,7 +31,6 @@ public class AuthController {
     public String login(){
         return "login";
     }
-
     @RequestMapping("/dologin")
     public String dologin(HttpServletRequest httpServletRequest, HttpSession httpSession) {
         String name = httpServletRequest.getParameter("name");
@@ -47,6 +46,30 @@ public class AuthController {
 
     }
 
+    @RequestMapping("/register")
+    public String register(){
+        return "register";
+    }
 
+    @RequestMapping("/doregister")
+    public String doregister(HttpServletRequest httpServletRequest,HttpSession httpSession)
+    {
+        String name=httpServletRequest.getParameter("name");
+        String password=httpServletRequest.getParameter("password");
+        String email=httpServletRequest.getParameter("email");
+
+        //TODO
+        if(userRepo.findAllByUserEmail(email)!=null){
+            return "register";//ajax
+        }
+        else
+        {
+            User user=new User(name,password,email);
+            userRepo.save(user);
+            return "login";
+        }
+    }
+
+//    private String default
 }
 

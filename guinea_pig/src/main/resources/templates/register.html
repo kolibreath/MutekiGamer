@@ -8,8 +8,8 @@
 <form accept-charset="utf-8"
       action="/doregister" method="post">
     <div>
-        <label>用户名称</label><input type="text" id="username" placeholder=" 用户名"
-                                  name="username" required><br> <br>
+        <label>用户名</label><input type="text" id="name"
+                                  placeholder="用户名" required name="name">
     </div>
 
 
@@ -24,18 +24,11 @@
     </div>
 
 
-    <td>
-        <select name = "部门名称" id ="departmentId">
-              <option th:each="department : ${departments}"
-                      th:value="${department.departmentName}"
-                      th:utext="${department.departmentName}"></option>
-        </select>
-    </td>
-
-
     <div>
         <span>已有账号去</span><a href="/login">登录</a> <input type="submit" value="同意协议并注册" />
     </div>
+    <title>register</title>
+</head>
 </form>
 </body>
 </html>
