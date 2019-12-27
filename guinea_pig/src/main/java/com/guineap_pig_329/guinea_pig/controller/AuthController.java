@@ -8,16 +8,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("/forum")
 public class AuthController {
 
     @Autowired
     private UserRepo userRepo;
+
 
     @RequestMapping("/test")
     public void inject() {
@@ -27,7 +28,12 @@ public class AuthController {
     }
 
     @RequestMapping("/login")
-    public String login(HttpServletRequest httpServletRequest, HttpSession httpSession) {
+    public String login(){
+        return "login";
+    }
+
+    @RequestMapping("/dologin")
+    public String dologin(HttpServletRequest httpServletRequest, HttpSession httpSession) {
         String name = httpServletRequest.getParameter("name");
         String password = httpServletRequest.getParameter("password");
 

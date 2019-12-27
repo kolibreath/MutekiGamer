@@ -11,10 +11,9 @@ public class GuineaPigApplication {
         SpringApplication.run(GuineaPigApplication.class, args);
     }
 
-    @RequestMapping("/")
-    public String index() {
-//        contolpunch();
-        return "forum/login";
-    }
 
+    @RequestMapping("/")
+    public String index(){
+        return "index";
+    }
 }

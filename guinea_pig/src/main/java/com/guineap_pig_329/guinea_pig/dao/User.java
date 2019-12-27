@@ -1,6 +1,8 @@
 package com.guineap_pig_329.guinea_pig.dao;
 
 
+import org.springframework.lang.Nullable;
+
 import javax.persistence.*;
 
 @Entity
@@ -17,6 +19,8 @@ public class User {
     private String userPassword;
     @Column
     private int userType;
+
+    @Nullable
     @Column
     private String userPermission;
     @Column
