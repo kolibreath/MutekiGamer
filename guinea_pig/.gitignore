@@ -30,6 +30,6 @@ build/
 
 ### VS Code ###
 .vscode/
-**/src/main/resources/application.properties
+guinea_pig/src/main/resources/application.properties
 
 © 2019 GitHub, Inc.
