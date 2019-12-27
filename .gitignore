@@ -29,3 +29,5 @@ build/
 ### VS Code ###
 .vscode/
 out/
+
+guinea_pig/src/main/resources/application.properties
