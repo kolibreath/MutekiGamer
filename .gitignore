@@ -31,3 +31,5 @@ build/
 out/
 
 guinea_pig/src/main/resources/application.properties
+!guinea_pig/src/main/resources/templates/
+
