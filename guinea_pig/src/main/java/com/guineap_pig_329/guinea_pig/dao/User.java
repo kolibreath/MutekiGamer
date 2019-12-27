@@ -14,15 +14,24 @@ public class User {
     @Column
     private String userName;
     @Column
+    private String userPassword;
+    @Column
     private int userType;
     @Column
     private String userPermission;
     @Column
     private String userEmail;
 
-
-
     public User() {
+
+    }
+
+    public User(String userName, String userPassword, int userType, String userPermission, String userEmail) {
+        this.userName = userName;
+        this.userPassword = userPassword;
+        this.userType = userType;
+        this.userPermission = userPermission;
+        this.userEmail = userEmail;
     }
 
     public int getUserId() {
@@ -64,4 +73,12 @@ public class User {
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
     }
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
+    }
+
 }
