@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="css/clubHomepage.css" />
 </head>
 
-<body>
+<body>oss
     <!-- Navigation Bar -->
     <div class="barContainer">
         <div class="nav-content">

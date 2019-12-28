@@ -16,9 +16,14 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class AuthController {
 
-    @Autowired
+  //  @Autowired
     private UserRepo userRepo;
+   // private UserDao userDao;
 
+    @Autowired
+    public void setUserRepo (UserRepo userRepo) {
+        this.userRepo = userRepo;
+    }
 
     @RequestMapping("/test")
     public void inject() {
