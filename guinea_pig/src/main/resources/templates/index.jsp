@@ -21,7 +21,7 @@
 			<!-- title -->
 			<div class="top-bar clear">
 				<div class="logo clear">
-					<img src="../img/logo-new.png" alt="VULCAN logo">
+					<img src="../static/img/logo-new.png" alt="VULCAN logo">
 				</div>
 				<div class="row-fluid">
 					<div class="span1"></div>
