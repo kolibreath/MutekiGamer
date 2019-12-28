@@ -55,4 +55,8 @@ public class Response {
     public void setContent(String content) {
         this.content = content;
     }
+
+    public Response(){
+
+    }
 }

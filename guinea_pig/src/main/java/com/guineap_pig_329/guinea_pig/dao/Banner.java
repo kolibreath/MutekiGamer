@@ -20,6 +20,8 @@ public class Banner {
     @Column
     private long time;
 
+    public Banner(){}
+
     public Banner(String bannerPicId, String bannerContentId, long time) {
         this.bannerPicId = bannerPicId;
         this.bannerContentId = bannerContentId;

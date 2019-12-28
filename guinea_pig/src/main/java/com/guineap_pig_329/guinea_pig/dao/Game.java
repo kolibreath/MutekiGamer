@@ -41,4 +41,14 @@ public class Game {
     public void setGameIntro(String gameIntro) {
         this.gameIntro = gameIntro;
     }
+
+
+    public Game(){
+
+    }
+
+    public Game(String gameName, String gameIntro) {
+        this.gameName = gameName;
+        this.gameIntro = gameIntro;
+    }
 }

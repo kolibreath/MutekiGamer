@@ -27,6 +27,8 @@ public class User {
     @Column
     private int level;
 
+
+
     public User() {
 
     }
@@ -44,6 +46,14 @@ public class User {
         this.userName = userName;
         this.userPassword = userPassword;
         this.userEmail = userEmail;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     public int getUserId() {
