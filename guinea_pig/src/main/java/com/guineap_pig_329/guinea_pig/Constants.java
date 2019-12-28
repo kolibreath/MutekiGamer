@@ -10,10 +10,6 @@ public class Constants {
     public static String HEARTHSTONE_THUMBNAIL = "https://img4.nga.178.com/proxy/cache_attach/ficon/422u.png?586)";
     public static String STAR_CRAFT = "https://img4.nga.178.com/proxy/cache_attach/ficon/406u.png?471)";
 
-    public static String OVERWATCH = "守望先锋";
-    public static String HEARTHSTONE = "炉石传说";
-    public static String WOW = "魔兽世界";
-    public static String STARCRAFT = "星际争霸";
 
     public static int PERSONAL = 0;
     public static int OFFICLA  = 1;

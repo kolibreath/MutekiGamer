@@ -18,6 +18,17 @@ public class Game {
     @Column
     private String gameIntro;
 
+    @Column
+    private String picture;
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
     public int getGameId() {
         return gameId;
     }
@@ -47,8 +58,9 @@ public class Game {
 
     }
 
-    public Game(String gameName, String gameIntro) {
+    public Game(String gameName, String gameIntro, String picture) {
         this.gameName = gameName;
         this.gameIntro = gameIntro;
+        this.picture = picture;
     }
 }

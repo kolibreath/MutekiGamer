@@ -20,12 +20,32 @@ public class Banner {
     @Column
     private long time;
 
+    @Column
+    private String bannerIntro;
+
     public Banner(){}
 
-    public Banner(String bannerPicId, String bannerContentId, long time) {
+    public Banner(String bannerPicId, String bannerContentId, long time, String bannerIntro) {
         this.bannerPicId = bannerPicId;
         this.bannerContentId = bannerContentId;
         this.time = time;
+        this.bannerIntro = bannerIntro;
+    }
+
+    public long getTime() {
+        return time;
+    }
+
+    public void setTime(long time) {
+        this.time = time;
+    }
+
+    public String getBannerIntro() {
+        return bannerIntro;
+    }
+
+    public void setBannerIntro(String bannerIntro) {
+        this.bannerIntro = bannerIntro;
     }
 
     public int getBannerId() {

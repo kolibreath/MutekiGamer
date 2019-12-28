@@ -21,8 +21,6 @@ public class User {
     private int userType;
     @Nullable
     @Column
-    private String userPermission;
-    @Column
     private String userEmail;
     @Column
     private int level;
@@ -33,11 +31,10 @@ public class User {
 
     }
 
-    public User(String userName, String userPassword, int userType, @Nullable String userPermission, String userEmail, int level) {
+    public User(String userName, String userPassword, int userType, String userEmail, int level) {
         this.userName = userName;
         this.userPassword = userPassword;
         this.userType = userType;
-        this.userPermission = userPermission;
         this.userEmail = userEmail;
         this.level = level;
     }
@@ -80,13 +77,6 @@ public class User {
         this.userType = userType;
     }
 
-    public String getUserPermission() {
-        return userPermission;
-    }
-
-    public void setUserPermission(String userPermission) {
-        this.userPermission = userPermission;
-    }
 
     public String getUserEmail() {
         return userEmail;
