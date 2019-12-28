@@ -45,7 +45,7 @@ public class AuthController {
         if (password.equals(user.getUserPassword())) {
             UserSession usrSession = new UserSession(user.getUserId(), user.getUserName(), user.getUserPassword());
             httpSession.setAttribute(Constants.USE_SESSION_KEY, usrSession);
-            return "main";
+            return "HomePage";
         } else
             return "login";
 
