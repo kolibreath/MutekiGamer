@@ -1,8 +1,10 @@
 package com.guineap_pig_329.guinea_pig.controller;
 
 import com.guineap_pig_329.guinea_pig.Constants;
+import com.guineap_pig_329.guinea_pig.dao.Banner;
 import com.guineap_pig_329.guinea_pig.dao.User;
 import com.guineap_pig_329.guinea_pig.model.UserSession;
+import com.guineap_pig_329.guinea_pig.repo.BannerRepo;
 import com.guineap_pig_329.guinea_pig.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
@@ -18,14 +20,9 @@ public class AuthController {
 
     @Autowired
     private UserRepo userRepo;
+    @Autowired
+    private BannerRepo bannerRepo;
 
-
-    @RequestMapping("/test")
-    public void inject() {
-        User user = new User("rick","rickpass",Constants.PERSONAL,"hahah",
-                "rick@rick.com" );
-        userRepo.save(user);
-    }
 
     @RequestMapping("/login")
     public String login(){
@@ -37,10 +34,11 @@ public class AuthController {
         String password = httpServletRequest.getParameter("password");
 
         User user = userRepo.findAllByUserEmail(name);
+//        TODO 处理一个失败的请求
         if (password.equals(user.getUserPassword())) {
             UserSession usrSession = new UserSession(user.getUserId(), user.getUserName(), user.getUserPassword());
             httpSession.setAttribute(Constants.USE_SESSION_KEY, usrSession);
-            return "main";
+            return "HomePage";
         } else
             return "login";
 
@@ -70,6 +68,9 @@ public class AuthController {
         }
     }
 
-//    private String default
+//    // 修改用户的密码
+//    //TODO 修改用户的密码
+//    @RequestMapping
+//    public
 }
 

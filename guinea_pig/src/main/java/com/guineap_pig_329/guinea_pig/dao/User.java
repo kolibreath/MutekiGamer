@@ -19,23 +19,25 @@ public class User {
     private String userPassword;
     @Column
     private int userType;
-
     @Nullable
     @Column
     private String userPermission;
     @Column
     private String userEmail;
+    @Column
+    private int level;
 
     public User() {
 
     }
 
-    public User(String userName, String userPassword, int userType, String userPermission, String userEmail) {
+    public User(String userName, String userPassword, int userType, @Nullable String userPermission, String userEmail, int level) {
         this.userName = userName;
         this.userPassword = userPassword;
         this.userType = userType;
         this.userPermission = userPermission;
         this.userEmail = userEmail;
+        this.level = level;
     }
 
     public User(String userName, String userPassword, String userEmail) {

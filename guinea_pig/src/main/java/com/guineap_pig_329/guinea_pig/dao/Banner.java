@@ -17,6 +17,14 @@ public class Banner {
     @Column
     private String bannerContentId;
 
+    @Column
+    private long time;
+
+    public Banner(String bannerPicId, String bannerContentId, long time) {
+        this.bannerPicId = bannerPicId;
+        this.bannerContentId = bannerContentId;
+        this.time = time;
+    }
 
     public int getBannerId() {
         return bannerId;

@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-
     <meta charset="utf-8" />
     <!-- <meta http-equiv="Content-Type" content="text/html" /> -->
     <meta name="keyword" content="HTML, CSS, image, navigation" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>MutekiGamer - Join Us</title>
+    <title>MutekiGamer - Login</title>
     <link rel="stylesheet" type="text/css" href="./static/css/index.css" />
-    <link rel="stylesheet" type="text/css" href="./static/css/register.css" />
+    <link rel="stylesheet" type="text/css" href="./static/css/login.css" />
 </head>
 
 <body>
@@ -23,7 +22,6 @@
         </div>
         <!-- context -->
         <div class="nav-text">
-            <!--跳转逻辑-->
             <span style="float: left"><a href="HomePage.html">Home</a></span>
             <span style="float: left"><a href="BBSIndex.html">BBS</a></span>
             <span style="float: left"><a href="">Games</a></span>
@@ -36,50 +34,43 @@
     </div>
 </div>
 <div class="clear"></div>
+<!--TODO 多了一个Login按钮 -->
 <!-- body -->
 <div class="main-body">
     <div class="logContext">
-        <div class="reg">
-            <h1>Sign Up</h1>
+        <div class="login">
+            <h1>Login</h1>
             <div class="input-form">
-                <form action="/doregister" method="post">
+                <form action="/dologin" accept-charset="utf-8" method="post">
                     <b class="element">E-mail</b>
                     <div></div>
-                    <input class="element" type="email" id="email" placeholder="邮箱" required name="email">
-                    <hr>
-                    <div></div>
-                    <b class="element">Name</b>
-                    <div></div>
-                    <input type="text" id="username" placeholder=" 用户名" name="name" required>
+                    <input class="uid" type="text" name="name" value="" autocomplete="off">
                     <hr>
                     <div></div>
                     <b class="element">Password</b>
                     <div></div>
-                    <input class="pw" type="password" id="password" placeholder=" 密码" required  name="password">
+                    <input class="pw" type="password" name="password" value="">
                     <hr>
                     <div></div>
-
-                    <input class="reg-button" type="submit" value="同意协议并注册">
-                    <div><span id="warning"></span></div>
-
+                    <input class="Login-button" type="submit" name="hand_in" value="提交">
                 </form>
             </div>
         </div>
         <div class="division">
 
         </div>
-        <div class="login">
-            <h1>Already a MutekiGamer Member?</h1>
-            <a href="login">
-                <button>LOGIN NOW</button>
+        <div class="register">
+            <h1>Don't Have a MutekiGamer Account?</h1>
+            <a href="register">
+                <button >JOIN US NOW!</button>
             </a>
         </div>
     </div>
 </div>
-
 <!-- footer -->
 <footer class="bottom-bar">
     Designed by GKD.
 </footer>
 </body>
+
 </html>
