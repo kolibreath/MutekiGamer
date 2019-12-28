@@ -38,4 +38,10 @@ public class Constants {
     public static int VICTORY=1;
     public static int DEFEAT=0;
 
+    //帖子模式
+    public static int LONG_TERM = 1;
+    public static int THOUGHTS  = 2;
+    public static int WALK_THOUGH = 3;
+    public static int PREVIEWS= 4;
+
 }

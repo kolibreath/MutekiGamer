@@ -2,22 +2,16 @@ package com.guineap_pig_329.guinea_pig.controller;
 
 
 import com.guineap_pig_329.guinea_pig.Constants;
-import com.guineap_pig_329.guinea_pig.dao.Banner;
-import com.guineap_pig_329.guinea_pig.dao.Game;
-import com.guineap_pig_329.guinea_pig.dao.Post;
-import com.guineap_pig_329.guinea_pig.dao.User;
-import com.guineap_pig_329.guinea_pig.repo.BannerRepo;
-import com.guineap_pig_329.guinea_pig.repo.GameRepo;
-import com.guineap_pig_329.guinea_pig.repo.PostRepo;
-import org.aspectj.apache.bcel.classfile.ConstantString;
+import com.guineap_pig_329.guinea_pig.dao.*;
+import com.guineap_pig_329.guinea_pig.model.UserSession;
+import com.guineap_pig_329.guinea_pig.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -26,14 +20,20 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("homepage")
-public class MainController {
+public class HomepageController {
 
     @Autowired
     private BannerRepo bannerRepo;
     @Autowired
     private PostRepo postRepo;
     @Autowired
-    private GameRepo gameRepo;
+    private UserGameRepo userGameRepo;
+    @Autowired
+    private UserInfoRepo userInfoRepo;
+    @Autowired
+    private UserRepo userRepo;
+    @Autowired
+    private ResponseRepo responseRepo;
 
     //社区跳转
     @RequestMapping("/community")
@@ -55,34 +55,42 @@ public class MainController {
     public String my(){
         return "my";
     }
+
+
     //Banner指的是所有的Banner 不做内容的分类
     @RequestMapping("/banners")
     public List<Banner> getBanners(){
-        List<Banner> banner  = bannerRepo.findByBannerContentId("fuck");
+        List<Banner> banner  = bannerRepo.findAll();
         return banner;
     }
 
     @RequestMapping("/posts")
     public List<Post> getPosts(HttpSession session){
-        //todo 之后调试 和注册登陆连接
-//        User user  = (User) session.getAttribute(Constants.USE_SESSION_KEY);
-//        int userId  = user.getUserId();
-//        List<Post> posts = sortPost(postRepo.findAllByUserId(userId));
-        List<Post> posts = postRepo.findAllByUserId(1);
+        UserSession user  = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
+        int userId  = user.getId();
+        List<Post> posts = postRepo.findAllByUserId(userId);
         return posts;
     }
 
     //TODO Usergame
     @RequestMapping("/games")
-    public List<Game> getGames(HttpSession session){
-//        User use =
-        return gameRepo.findAllByGameName("OVERWATCH");
+    public List<UserGame> getGames(HttpSession session){
+        UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
+        return userGameRepo.findAllByUserId(user.getId());
     }
 
 
     //重新排序帖子的方法
     private List<Post> sortPost(List<Post> post){
-        //TODO 算法
+        for(Post p : post) {
+            User user = userRepo.findUserByUserId(p.getUserId());
+            int level = user.getLevel();
+            int responseSize = responseRepo.findAllByPostId(p.getPostId()).size();
+            long currentTime = System.currentTimeMillis();
+            long timeSubstract = p.getTime() - currentTime;
+            int weight = level * 10+ responseSize * 25 - (int)timeSubstract/100;
+            Collections.sort(post, (o1, o2) -> weight);
+        }
         return post;
     }
 

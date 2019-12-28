@@ -20,12 +20,8 @@ public class AuthController {
 
   //  @Autowired
     private UserRepo userRepo;
-<<<<<<< HEAD
-   // private UserDao userDao;
-=======
     @Autowired
     private BannerRepo bannerRepo;
->>>>>>> 6530ce38c329ceb13386115e626269ded8502167
 
     @Autowired
     public void setUserRepo (UserRepo userRepo) {
@@ -80,15 +76,5 @@ public class AuthController {
             return "login";
         }
     }
-
-<<<<<<< HEAD
-
-//    private String default
-=======
-//    // 修改用户的密码
-//    //TODO 修改用户的密码
-//    @RequestMapping
-//    public
->>>>>>> 6530ce38c329ceb13386115e626269ded8502167
 }
 
