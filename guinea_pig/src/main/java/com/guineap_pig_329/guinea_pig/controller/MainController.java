@@ -28,6 +28,26 @@ public class MainController {
     @Autowired
     private PostRepo postRepo;
 
+    //社区跳转
+    @RequestMapping("/community")
+    public String commuinty(){
+        return "community";
+    }
+    //头条跳转
+    @RequestMapping("/news")
+    public String news(){
+        return "news";
+    }
+    //战场
+    @RequestMapping("/battle")
+    public String battle(){
+        return "battle";
+    }
+    //我
+    @RequestMapping("/my")
+    public String my(){
+        return "my";
+    }
     //Banner指的是所有的Banner 不做内容的分类
     @RequestMapping("/banners")
     public ModelAndView getBanners(){
