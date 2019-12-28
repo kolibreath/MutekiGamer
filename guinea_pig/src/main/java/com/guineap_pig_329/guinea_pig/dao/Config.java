@@ -71,4 +71,10 @@ public class Config {
     public void setHarddrive(int harddrive) {
         this.harddrive = harddrive;
     }
+
+    public Config(){
+
+    }
 }
+
+

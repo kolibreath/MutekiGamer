@@ -57,4 +57,8 @@ public class Friends {
     public void setRelationship(int relationship) {
         this.relationship = relationship;
     }
+
+    public Friends(){
+
+    }
 }

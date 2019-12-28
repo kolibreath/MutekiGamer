@@ -64,4 +64,8 @@ public class GameData {
     public void setScore(int score) {
         this.score = score;
     }
+
+    public GameData(){
+
+    }
 }
