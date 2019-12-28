@@ -75,4 +75,16 @@ public class    Post {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    public Post(){
+
+    }
+
+    public Post(int userId, long time, String content, int tag, String title) {
+        this.userId = userId;
+        this.time = time;
+        this.content = content;
+        this.tag = tag;
+        this.title = title;
+    }
 }

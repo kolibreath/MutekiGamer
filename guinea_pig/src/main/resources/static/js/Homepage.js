@@ -14,6 +14,7 @@ function homepage(requestNum) {
     //完成完了所有的业务调用
     $(document).bind(allRequestComplete, function () {
         //调用具体的函数
+        console.log(allData);
         return allData;
     });
 

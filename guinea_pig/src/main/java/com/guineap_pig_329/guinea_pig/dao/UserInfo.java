@@ -83,4 +83,8 @@ public class UserInfo {
     public void setUserAge(String userAge) {
         this.userAge = userAge;
     }
+
+    public UserInfo(){
+
+    }
 }
