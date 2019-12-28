@@ -1,8 +1,10 @@
 package com.guineap_pig_329.guinea_pig.controller;
 
 import com.guineap_pig_329.guinea_pig.Constants;
+import com.guineap_pig_329.guinea_pig.dao.Banner;
 import com.guineap_pig_329.guinea_pig.dao.User;
 import com.guineap_pig_329.guinea_pig.model.UserSession;
+import com.guineap_pig_329.guinea_pig.repo.BannerRepo;
 import com.guineap_pig_329.guinea_pig.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
@@ -18,18 +20,16 @@ public class AuthController {
 
   //  @Autowired
     private UserRepo userRepo;
+<<<<<<< HEAD
    // private UserDao userDao;
+=======
+    @Autowired
+    private BannerRepo bannerRepo;
+>>>>>>> 6530ce38c329ceb13386115e626269ded8502167
 
     @Autowired
     public void setUserRepo (UserRepo userRepo) {
         this.userRepo = userRepo;
-    }
-
-    @RequestMapping("/test")
-    public void inject() {
-        User user = new User("rick","rickpass",Constants.PERSONAL,"hahah",
-                "rick@rick.com" );
-        userRepo.save(user);
     }
 
     @RequestMapping("/login")
@@ -42,13 +42,19 @@ public class AuthController {
         String password = httpServletRequest.getParameter("password");
 
         User user = userRepo.findAllByUserEmail(name);
+//        TODO 处理一个失败的请求
         if (password.equals(user.getUserPassword())) {
             UserSession usrSession = new UserSession(user.getUserId(), user.getUserName(), user.getUserPassword());
             httpSession.setAttribute(Constants.USE_SESSION_KEY, usrSession);
-            return "HomePage";
+            return "HomePage1";
         } else
             return "login";
 
+    }
+
+    @RequestMapping("/HomePage1")
+    public String HomePage1(){
+        return "HomePage1";
     }
 
     @RequestMapping("/register")
@@ -75,7 +81,14 @@ public class AuthController {
         }
     }
 
+<<<<<<< HEAD
 
 //    private String default
+=======
+//    // 修改用户的密码
+//    //TODO 修改用户的密码
+//    @RequestMapping
+//    public
+>>>>>>> 6530ce38c329ceb13386115e626269ded8502167
 }
 

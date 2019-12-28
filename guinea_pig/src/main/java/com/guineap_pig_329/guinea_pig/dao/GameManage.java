@@ -40,4 +40,8 @@ public class GameManage {
     public void setGameId(int gameId) {
         this.gameId = gameId;
     }
+
+    public GameManage(){
+
+    }
 }

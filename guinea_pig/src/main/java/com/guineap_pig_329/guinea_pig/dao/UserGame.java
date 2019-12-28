@@ -42,4 +42,8 @@ public class UserGame {
     public void setGameId(int gameId) {
         this.gameId = gameId;
     }
+
+    public UserGame(){
+
+    }
 }

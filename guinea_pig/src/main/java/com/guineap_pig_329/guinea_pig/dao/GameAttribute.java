@@ -106,4 +106,8 @@ public class GameAttribute {
     public void setTime(long time) {
         this.time = time;
     }
+
+    public GameAttribute(){
+
+    }
 }

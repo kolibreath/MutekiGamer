@@ -41,4 +41,8 @@ public class GroupMember {
     public void setMemberId(int memberId) {
         this.memberId = memberId;
     }
+
+    public GroupMember(){
+
+    }
 }
