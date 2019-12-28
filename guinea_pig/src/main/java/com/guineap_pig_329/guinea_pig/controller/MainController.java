@@ -34,7 +34,7 @@ public class MainController {
         List<Banner> list = bannerRepo.findAll();
         ModelAndView modelAndView = new ModelAndView();
         //指定对应的html
-        modelAndView.setViewName("/main");
+        modelAndView.setViewName("/HomePage");
         //banners 对应的key 是 banners
         modelAndView.addObject("banners",list);
         return modelAndView;
@@ -46,7 +46,7 @@ public class MainController {
         int userId  = user.getUserId();
         List<Post> posts = sortPost(postRepo.findAllByUserId(userId));
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("/main");
+        modelAndView.setViewName("/HomePage");
         modelAndView.addObject("sorted_posts",posts);
         return modelAndView;
     }
