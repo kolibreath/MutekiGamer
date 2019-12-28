@@ -8,9 +8,16 @@
     <title>Title</title>
     <h1>fuck </h1>
     <script type="text/javascript">
-        console.log("fuck");
-        var data = homepage(3);
-        console.log(data);
+        //home
+        homepage(function(result){
+            // console.log(result);
+            let games = result.banner;
+
+            console.log(result.game);
+            console.log(result.banner);
+            console.log(result.post);
+            // console.log(Object.assign({}, result), result);
+        })
     </script>
 
 </head>
