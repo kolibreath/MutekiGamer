@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BannerRepo  extends JpaRepository<Banner,Integer> {
+
+    Banner findBannerByBannerId(int id);
 }

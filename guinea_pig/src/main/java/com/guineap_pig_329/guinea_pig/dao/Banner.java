@@ -18,6 +18,11 @@ public class Banner {
     private String bannerContentId;
 
 
+    public Banner(String bannerPicId, String bannerContentId) {
+        this.bannerPicId = bannerPicId;
+        this.bannerContentId = bannerContentId;
+    }
+
     public int getBannerId() {
         return bannerId;
     }

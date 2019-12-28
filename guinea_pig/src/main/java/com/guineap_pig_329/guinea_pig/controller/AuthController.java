@@ -1,8 +1,10 @@
 package com.guineap_pig_329.guinea_pig.controller;
 
 import com.guineap_pig_329.guinea_pig.Constants;
+import com.guineap_pig_329.guinea_pig.dao.Banner;
 import com.guineap_pig_329.guinea_pig.dao.User;
 import com.guineap_pig_329.guinea_pig.model.UserSession;
+import com.guineap_pig_329.guinea_pig.repo.BannerRepo;
 import com.guineap_pig_329.guinea_pig.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
@@ -18,13 +20,14 @@ public class AuthController {
 
     @Autowired
     private UserRepo userRepo;
+    @Autowired
+    private BannerRepo bannerRepo;
 
-
+//
     @RequestMapping("/test")
     public void inject() {
-        User user = new User("rick","rickpass",Constants.PERSONAL,"hahah",
-                "rick@rick.com" );
-        userRepo.save(user);
+        Banner banner = new Banner("fuck","fuck");
+        bannerRepo.save(banner);
     }
 
     @RequestMapping("/login")
