@@ -18,11 +18,19 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class AuthController {
 
-    @Autowired
+  //  @Autowired
     private UserRepo userRepo;
+<<<<<<< HEAD
+   // private UserDao userDao;
+=======
     @Autowired
     private BannerRepo bannerRepo;
+>>>>>>> 6530ce38c329ceb13386115e626269ded8502167
 
+    @Autowired
+    public void setUserRepo (UserRepo userRepo) {
+        this.userRepo = userRepo;
+    }
 
     @RequestMapping("/login")
     public String login(){
@@ -38,10 +46,15 @@ public class AuthController {
         if (password.equals(user.getUserPassword())) {
             UserSession usrSession = new UserSession(user.getUserId(), user.getUserName(), user.getUserPassword());
             httpSession.setAttribute(Constants.USE_SESSION_KEY, usrSession);
-            return "HomePage";
+            return "HomePage1";
         } else
             return "login";
 
+    }
+
+    @RequestMapping("/HomePage1")
+    public String HomePage1(){
+        return "HomePage1";
     }
 
     @RequestMapping("/register")
@@ -68,9 +81,14 @@ public class AuthController {
         }
     }
 
+<<<<<<< HEAD
+
+//    private String default
+=======
 //    // 修改用户的密码
 //    //TODO 修改用户的密码
 //    @RequestMapping
 //    public
+>>>>>>> 6530ce38c329ceb13386115e626269ded8502167
 }
 
