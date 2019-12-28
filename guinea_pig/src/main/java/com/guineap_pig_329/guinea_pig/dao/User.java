@@ -38,6 +38,12 @@ public class User {
         this.userEmail = userEmail;
     }
 
+    public User(String userName, String userPassword, String userEmail) {
+        this.userName = userName;
+        this.userPassword = userPassword;
+        this.userEmail = userEmail;
+    }
+
     public int getUserId() {
         return userId;
     }

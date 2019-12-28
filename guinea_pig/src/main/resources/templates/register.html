@@ -1,10 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 
+    <meta charset="utf-8" />
+    <!-- <meta http-equiv="Content-Type" content="text/html" /> -->
+    <meta name="keyword" content="HTML, CSS, image, navigation" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MutekiGamer - Join Us</title>
+    <link rel="stylesheet" type="text/css" href="./static/index.css" />
+    <link rel="stylesheet" type="text/css" href="./static/register.css" />
+</head>
+
+<body>
+<!-- Navigation Bar -->
+<div class="barContainer">
+    <div class="nav-content">
+        <!-- logo -->
+        <div class="nav-title">
+                <span>
+                    <img src="img/logo-new.png" alt="VULCAN logo">
+                </span>
+        </div>
+        <!-- context -->
+        <div class="nav-text">
+            <span style="float: left"><a href="HomePage.jsp">Home</a></span>
+            <span style="float: left"><a href="BBSIndex.jsp">BBS</a></span>
+            <span style="float: left"><a href="">Games</a></span>
+            <span style="float: left"><a href="">News</a></span>
+            <span style="float: left"><a href="">My</a></span>
+            <span class="user">
+                    <a href="login.html">Login</a>
+                </span>
+        </div>
+    </div>
+</div>
+<div class="clear"></div>
+<!-- body -->
+<div class="main-body">
+    <div class="logContext">
+        <div class="reg">
+            <h1>Sign Up</h1>
+            <div class="input-form">
+                <form action="/doregister" method="post">
+                    <b class="element">E-mail</b>
+                    <div></div>
+                    <input class="element" type="email" id="email" placeholder="邮箱" required name="email">
+                    <hr>
+                    <div></div>
+                    <b class="element">Name</b>
+                    <div></div>
+                    <input type="text" id="username" placeholder=" 用户名" name="name" required>
+                    <hr>
+                    <div></div>
+                    <b class="element">Password</b>
+                    <div></div>
+                    <input class="pw" type="password" id="password" placeholder=" 密码" required  name="password">
+                    <hr>
+                    <div></div>
+
+                    <input class="reg-button" type="submit" value="同意协议并注册">
+                    <div><span id="warning"></span></div>
+
+                </form>
+            </div>
+        </div>
+        <div class="division">
+
+        </div>
+        <div class="login">
+            <h1>Already a MutekiGamer Member?</h1>
+            <a href="login.html">
+                <button>LOGIN NOW</button>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- footer -->
+<footer class="bottom-bar">
+    Designed by GKD.
+</footer>
 </body>
 </html>
