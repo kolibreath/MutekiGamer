@@ -23,12 +23,6 @@ public class AuthController {
     @Autowired
     private BannerRepo bannerRepo;
 
-//
-    @RequestMapping("/test")
-    public void inject() {
-        Banner banner = new Banner("fuck","fuck");
-        bannerRepo.save(banner);
-    }
 
     @RequestMapping("/login")
     public String login(){
