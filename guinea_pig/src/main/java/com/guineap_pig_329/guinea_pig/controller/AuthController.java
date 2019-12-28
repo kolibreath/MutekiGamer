@@ -23,12 +23,6 @@ public class AuthController {
     @Autowired
     private BannerRepo bannerRepo;
 
-//
-    @RequestMapping("/test")
-    public void inject() {
-        Banner banner = new Banner("fuck","fuck");
-        bannerRepo.save(banner);
-    }
 
     @RequestMapping("/login")
     public String login(){
@@ -40,6 +34,7 @@ public class AuthController {
         String password = httpServletRequest.getParameter("password");
 
         User user = userRepo.findAllByUserEmail(name);
+//        TODO 处理一个失败的请求
         if (password.equals(user.getUserPassword())) {
             UserSession usrSession = new UserSession(user.getUserId(), user.getUserName(), user.getUserPassword());
             httpSession.setAttribute(Constants.USE_SESSION_KEY, usrSession);
@@ -77,6 +72,9 @@ public class AuthController {
         }
     }
 
-//    private String default
+//    // 修改用户的密码
+//    //TODO 修改用户的密码
+//    @RequestMapping
+//    public
 }
 

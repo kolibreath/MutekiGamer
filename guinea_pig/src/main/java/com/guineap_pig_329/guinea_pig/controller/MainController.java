@@ -21,6 +21,7 @@ import java.util.List;
  * 管理整个主页面的逻辑请求
  */
 @Controller
+@RequestMapping("homepage")
 public class MainController {
 
     @Autowired
@@ -60,7 +61,7 @@ public class MainController {
         return modelAndView;
     }
 
-    @RequestMapping("/post")
+    @RequestMapping("/posts")
     public ModelAndView getPosts(HttpSession session){
         User user  = (User) session.getAttribute(Constants.USE_SESSION_KEY);
         int userId  = user.getUserId();
@@ -68,6 +69,12 @@ public class MainController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/HomePage");
         modelAndView.addObject("sorted_posts",posts);
+        return modelAndView;
+    }
+
+    @RequestMapping("/games")
+    public ModelAndView getGames(){
+        ModelAndView modelAndView = new ModelAndView();
         return modelAndView;
     }
 
