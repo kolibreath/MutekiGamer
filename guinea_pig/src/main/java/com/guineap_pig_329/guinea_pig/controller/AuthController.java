@@ -48,6 +48,7 @@ public class AuthController {
     public String HomePage1(){
         return "HomePage1";
     }
+
     @RequestMapping("/register")
     public String register(){
         return "register";

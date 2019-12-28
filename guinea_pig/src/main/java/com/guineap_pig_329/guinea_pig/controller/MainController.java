@@ -31,7 +31,7 @@ public class MainController {
 
     //社区跳转
     @RequestMapping("/community")
-    public String commuinty(){
+    public String community(){
         return "community";
     }
     //头条跳转
