@@ -7,18 +7,32 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <h1>fuck </h1>
+
+    <body>
+    <button id="test_all_data">test all data</button>
+    <button id="test_data_by_id">test data by id</button>
+    </body>
     <script type="text/javascript">
         //home
-        homepage(function(result){
-            // console.log(result);
-            let games = result.banner;
+        document.getElementById("test_all_data").onclick = function(){
+            homepage(function (result) {
+                // console.log(result);
+                let games = result.banner;
 
-            console.log(result.game[0].gameName);
-            console.log(result.banner);
-            console.log(result.post);
-            console.log(result);
-            // console.log(Object.assign({}, result), result);
-        })
+                console.log(result.game[0].gameName);
+                console.log(result.banner);
+                console.log(result.post);
+                console.log(result);
+            });
+        };
+
+        document.getElementById("test_data_by_id").onclick = function () {
+            let gameId = 1;
+            getPostByGameId(gameId,function(result){
+                console.log(result);
+                console.log(result.post)
+            });
+        }
     </script>
 
 </head>

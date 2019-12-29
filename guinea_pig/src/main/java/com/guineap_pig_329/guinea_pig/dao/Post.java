@@ -28,6 +28,17 @@ public class    Post {
     @Column
     private String title;
 
+    @Column
+    private int gameId;
+
+    public int getGameId() {
+        return gameId;
+    }
+
+    public void setGameId(int gameId) {
+        this.gameId = gameId;
+    }
+
     public int getPostId() {
         return postId;
     }
@@ -80,11 +91,12 @@ public class    Post {
 
     }
 
-    public Post(int userId, long time, String content, int tag, String title) {
+    public Post(int userId, long time, String content, int tag, String title, int gameId) {
         this.userId = userId;
         this.time = time;
         this.content = content;
         this.tag = tag;
         this.title = title;
+        this.gameId = gameId;
     }
 }

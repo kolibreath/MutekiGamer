@@ -10,6 +10,7 @@ import com.guineap_pig_329.guinea_pig.repo.ResponseRepo;
 import com.guineap_pig_329.guinea_pig.repo.UserGameRepo;
 import com.guineap_pig_329.guinea_pig.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -37,15 +38,17 @@ public class PostController {
         return sortPost(posts);
     }
 
+    @RequestMapping("/user/{id}")
+    public List<Post> getPostByGameId(@PathVariable("id") Integer gameId){
+        List<Post> posts  = postRepo.findAllByGameId(gameId);
+        return posts;
+        //todo 排序方式
+    }
+
 
     //重新排序帖子的方法
     private List<Post> sortPost(List<Post> posts){
-        Collections.sort(posts, new Comparator<Post>() {
-            @Override
-            public int compare(Post o1, Post o2) {
-                return weight(o1) - weight(o2);
-            }
-        });
+        Collections.sort(posts, Comparator.comparingInt(this::weight));
         return posts;
     }
 

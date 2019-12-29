@@ -79,10 +79,10 @@ public class TestController {
         bannerRepo.save(LOL);
         bannerRepo.save(anime);
 
-        Post post1 = new Post(rick.getUserId(),System.currentTimeMillis(),"this is a test",Constants.PREVIEWS,"守望先锋模式修改");
-        Post post2 = new Post(rick.getUserId(),System.currentTimeMillis(),"this is a test",Constants.PREVIEWS,"炉石传说模式修改");
-        Post post3 = new Post(rick.getUserId(),System.currentTimeMillis(),"this is a test",Constants.PREVIEWS,"星际争霸模式修改");
-        Post post4 = new Post(rick.getUserId(),System.currentTimeMillis(),"this is a test",Constants.PREVIEWS,"魔兽世界模式修改");
+        Post post1 = new Post(rick.getUserId(),System.currentTimeMillis(),"this is a test",Constants.PREVIEWS,"守望先锋模式修改",overwatch.getGameId());
+        Post post2 = new Post(rick.getUserId(),System.currentTimeMillis(),"this is a test",Constants.PREVIEWS,"炉石传说模式修改",hearthStone.getGameId());
+        Post post3 = new Post(rick.getUserId(),System.currentTimeMillis(),"this is a test",Constants.PREVIEWS,"星际争霸模式修改",starcraft.getGameId());
+        Post post4 = new Post(rick.getUserId(),System.currentTimeMillis(),"this is a test",Constants.PREVIEWS,"魔兽世界模式修改",wow.getGameId());
 
         postRepo.save(post1);
         postRepo.save(post2);

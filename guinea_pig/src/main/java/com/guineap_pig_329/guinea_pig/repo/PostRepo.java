@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface PostRepo extends JpaRepository<Post,Integer> {
     List<Post> findAllByUserId(int userid);
+    List<Post> findAllByGameId(int gameId);
 }

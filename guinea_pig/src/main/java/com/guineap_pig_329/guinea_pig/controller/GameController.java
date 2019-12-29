@@ -21,7 +21,7 @@ public class GameController {
     @Autowired
     private UserInfoRepo userInfoRepo;
 
-    //TODO Usergame
+
     @RequestMapping("/user")
     public List<UserGame> getGames(HttpSession session){
         UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);

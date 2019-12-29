@@ -50,3 +50,22 @@ function homepage(call) {
     $.when(gamesRequest,bannerRequest,postRequest).done(() => {call(allData)});
 }
 
+function getPostByGameId(gameId,call){
+    let allData = {};
+    let post =$.ajax(({
+        url:"post/user/"+gameId,
+        type:"GET",
+        success:function(result){
+            allData.post = result;
+        },
+        //todo 错误处理
+        error:function (result) {
+
+        },
+        complete:function (result) {
+
+        }
+    }));
+    $.when(post).done(() =>{call(allData)});
+
+}
