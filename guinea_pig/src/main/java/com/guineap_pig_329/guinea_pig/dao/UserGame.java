@@ -46,4 +46,9 @@ public class UserGame {
     public UserGame(){
 
     }
+
+    public UserGame(int userId, int gameId) {
+        this.userId = userId;
+        this.gameId = gameId;
+    }
 }

@@ -44,4 +44,9 @@ public class GameManage {
     public GameManage(){
 
     }
+
+    public GameManage(int userId, int gameId) {
+        this.userId = userId;
+        this.gameId = gameId;
+    }
 }

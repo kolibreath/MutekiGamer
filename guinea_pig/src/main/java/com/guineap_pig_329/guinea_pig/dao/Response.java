@@ -2,13 +2,13 @@ package com.guineap_pig_329.guinea_pig.dao;
 
 import org.omg.CORBA.PRIVATE_MEMBER;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /*
 帖子回复情况表
  */
+@Entity
+@Table(name = "response")
 public class Response {
 
     @Id
@@ -58,5 +58,11 @@ public class Response {
 
     public Response(){
 
+    }
+
+    public Response(int userId, int postId, String content) {
+        this.userId = userId;
+        this.postId = postId;
+        this.content = content;
     }
 }

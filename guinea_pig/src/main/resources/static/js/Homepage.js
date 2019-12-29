@@ -1,26 +1,10 @@
 
-function homepage(requestNum) {
+function homepage(call) {
     let allData = {};
-    const allRequestComplete = "allRequestComplete";
-
-    const completeFunction = function(result){
-        requestNum --;
-        if(requestNum == 0){
-            $(document).trigger((allRequestComplete));
-        }
-    };
-
-
-    //完成完了所有的业务调用
-    $(document).bind(allRequestComplete, function () {
-        //调用具体的函数
-        console.log(allData);
-        return allData;
-    });
 
     //请求banner 数据
-    $.ajax(({
-        url:"homepage/banners",
+    let bannerRequest= $.ajax(({
+        url:"/banner/all",
         type:"GET",
         success:function(result){
             allData.banner = result;
@@ -29,13 +13,13 @@ function homepage(requestNum) {
             allData.banner = result;
         },
         complete:function (result) {
-            completeFunction(result)
+            // completeFunction(result)
         }
     }));
 
     //请求用户游戏数据
-    $.ajax(({
-        url:"homepage/games",
+    let gamesRequest = $.ajax(({
+        url:"/game/user",
         type: "GET",
         success:function (result) {
             allData.game  = result;
@@ -44,13 +28,13 @@ function homepage(requestNum) {
             allData.game  = result;
         },
         complete:function (result) {
-            completeFunction(result);
+            // completeFunction(result);
         }
     }));
 
     //请求帖子数据
-    $.ajax(({
-        url:"homepage/posts",
+    let postRequest = $.ajax(({
+        url:"/post/selected",
         type:"GET",
         success:function (result) {
             allData.post = result;
@@ -59,8 +43,29 @@ function homepage(requestNum) {
             allData.post = result;
         },
         complete:function (result) {
-            completeFunction(result);
+            // completeFunction(result);
         }
-    }))
+    }));
+
+    $.when(gamesRequest,bannerRequest,postRequest).done(() => {call(allData)});
 }
 
+function getPostByGameId(gameId,call){
+    let allData = {};
+    let post =$.ajax(({
+        url:"post/user/"+gameId,
+        type:"GET",
+        success:function(result){
+            allData.post = result;
+        },
+        //todo 错误处理
+        error:function (result) {
+
+        },
+        complete:function (result) {
+
+        }
+    }));
+    $.when(post).done(() =>{call(allData)});
+
+}

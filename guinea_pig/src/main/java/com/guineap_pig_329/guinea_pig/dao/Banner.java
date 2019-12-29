@@ -20,12 +20,44 @@ public class Banner {
     @Column
     private long time;
 
+    @Column
+    private String bannerIntro;
+
+    @Column
+    private int gameId;
+
     public Banner(){}
 
-    public Banner(String bannerPicId, String bannerContentId, long time) {
+    public Banner(String bannerPicId, String bannerContentId, long time, String bannerIntro, int gameId) {
         this.bannerPicId = bannerPicId;
         this.bannerContentId = bannerContentId;
         this.time = time;
+        this.bannerIntro = bannerIntro;
+        this.gameId = gameId;
+    }
+
+    public int getGameId() {
+        return gameId;
+    }
+
+    public void setGameId(int gameId) {
+        this.gameId = gameId;
+    }
+
+    public long getTime() {
+        return time;
+    }
+
+    public void setTime(long time) {
+        this.time = time;
+    }
+
+    public String getBannerIntro() {
+        return bannerIntro;
+    }
+
+    public void setBannerIntro(String bannerIntro) {
+        this.bannerIntro = bannerIntro;
     }
 
     public int getBannerId() {

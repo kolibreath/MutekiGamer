@@ -9,20 +9,28 @@ import com.guineap_pig_329.guinea_pig.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Map;
 
+/**
+ * 用户注册登录
+ * 用户修改密码
+ */
 @Controller
 public class AuthController {
 
-    @Autowired
+  //  @Autowired
     private UserRepo userRepo;
     @Autowired
     private BannerRepo bannerRepo;
 
+    @Autowired
+    public void setUserRepo (UserRepo userRepo) {
+        this.userRepo = userRepo;
+    }
 
     @RequestMapping("/login")
     public String login(){
@@ -73,9 +81,26 @@ public class AuthController {
         }
     }
 
-//    // 修改用户的密码
-//    //TODO 修改用户的密码
-//    @RequestMapping
-//    public
+    //修改密码
+
+    /**
+     *
+     * @param session
+     * @param map
+     * @return
+     * 没有传新的用户密码 400
+     * 出现异常500
+     * 成功   200
+     */
+    @PostMapping("/password")
+    @ResponseBody
+    public int changePassword(HttpSession session ,@RequestBody Map<String,Object> map){
+        UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
+        String newPassword = (String) map.get("new_password");
+        if(newPassword == null) return 400;
+        int result = userRepo.updateUser(newPassword,user.getId());
+        return 200;
+    }
+
 }
 

@@ -10,10 +10,6 @@ public class Constants {
     public static String HEARTHSTONE_THUMBNAIL = "https://img4.nga.178.com/proxy/cache_attach/ficon/422u.png?586)";
     public static String STAR_CRAFT = "https://img4.nga.178.com/proxy/cache_attach/ficon/406u.png?471)";
 
-    public static String OVERWATCH = "守望先锋";
-    public static String HEARTHSTONE = "炉石传说";
-    public static String WOW = "魔兽世界";
-    public static String STARCRAFT = "星际争霸";
 
     public static int PERSONAL = 0;
     public static int OFFICLA  = 1;
@@ -41,5 +37,11 @@ public class Constants {
     //游戏结果
     public static int VICTORY=1;
     public static int DEFEAT=0;
+
+    //帖子模式
+    public static int LONG_TERM = 1;
+    public static int THOUGHTS  = 2;
+    public static int WALK_THOUGH = 3;
+    public static int PREVIEWS= 4;
 
 }
