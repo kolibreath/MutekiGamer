@@ -11,16 +11,14 @@
     <title>yu</title>
 </head>
 <body>
-<input id="userId" value="用户ID">
 <input id="postId" value="帖子">
 <button id="delete" >删除</button>
 </body>
 <script>
     document.getElementById("delete").onclick=function () {
         let postId = document.getElementById("postId").value;
-        let userId = document,getElementById("userId").value;
 
-        deleteP (postId,userId,function (result) {
+        deleteP (postId,function (result) {
             if(result==200)
                 alert("成功");
             else

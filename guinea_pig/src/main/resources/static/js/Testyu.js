@@ -1,10 +1,9 @@
 
-function deleteP(postId,userId,call){
+function deleteP(postId,call){
 
     let resultCode;
     let delPost={
         postId:postId,
-        userId:userId
     };
     let deletePost=$.ajax(({
         type:"POST",
