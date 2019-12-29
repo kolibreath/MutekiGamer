@@ -4,7 +4,7 @@ function homepage(call) {
 
     //请求banner 数据
     let bannerRequest= $.ajax(({
-        url:"homepage/banners",
+        url:"/banner/all",
         type:"GET",
         success:function(result){
             allData.banner = result;
@@ -19,7 +19,7 @@ function homepage(call) {
 
     //请求用户游戏数据
     let gamesRequest = $.ajax(({
-        url:"homepage/games",
+        url:"/game/user",
         type: "GET",
         success:function (result) {
             allData.game  = result;
@@ -34,7 +34,7 @@ function homepage(call) {
 
     //请求帖子数据
     let postRequest = $.ajax(({
-        url:"homepage/posts",
+        url:"/post/selected",
         type:"GET",
         success:function (result) {
             allData.post = result;

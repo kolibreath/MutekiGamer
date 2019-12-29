@@ -66,12 +66,15 @@ public class TestController {
         userGameRepo.save(rick2starcraft);
 
         //Banner
-        Banner LOL = new Banner("https://upload-images.jianshu.io/upload_images/4714178-222cf9be94eb28f8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
-        ,"https://www.bilibili.com/video/av79860792",System.currentTimeMillis(),"英雄联盟万岁！");
+        Banner LOL = new Banner(
+                "https://upload-images.jianshu.io/upload_images/4714178-222cf9be94eb28f8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+        ,"https://www.bilibili.com/video/av79860792"
+                ,System.currentTimeMillis(),
+                "守望先锋无敌！",overwatch.getGameId());
 
         Banner anime = new Banner("https://upload-images.jianshu.io/upload_images/4714178-260647096c1ca369.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240",
         "https://www.bilibili.com/blackboard/topic/activity-2020bangumiQ1_web.html?spm_id_from=333.851.b_7265706f7274466972737431.1",
-                System.currentTimeMillis(),"新番导视");
+                System.currentTimeMillis(),"暗黑破坏神万岁",diablo.getGameId());
 
         bannerRepo.save(LOL);
         bannerRepo.save(anime);
