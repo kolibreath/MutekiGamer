@@ -2,8 +2,10 @@
 <html lang="en">
 <script type="text/javascript"
         src="webjars/jquery/2.2.4/jquery.min.js"></script>
+<!--引入相关的js-->
 <script type="text/javascript" src="./static/js/Homepage.js"></script>
-    <head>
+<script type="text/javascript" src="./static/js/Post.js"></script>
+<head>
     <meta charset="UTF-8">
     <title>Title</title>
     <h1>fuck </h1>
@@ -11,14 +13,30 @@
     <body>
     <button id="test_all_data">test all data</button>
     <button id="test_data_by_id">test data by id</button>
-    </body>
+
+    <br>
+
+    <input id="postContent" value="内容">
+    <input id="postTitle"   value="标题">
+    <input id="gameId"      value="游戏Id">
+    <input id="tag"         value="帖子Tag">
+
+    <button  id="new_post">发帖</button>
+
+    <br>
+
+    <input id="responseContent" value="内容">
+    <input id="postId"      value="帖子Id">
+    <button  id="new_response">发帖</button>
+
+
+</body>
     <script type="text/javascript">
         //home
         document.getElementById("test_all_data").onclick = function(){
             homepage(function (result) {
                 // console.log(result);
                 let games = result.banner;
-
                 console.log(result.game[0].gameName);
                 console.log(result.banner);
                 console.log(result.post);
@@ -32,7 +50,35 @@
                 console.log(result);
                 console.log(result.post)
             });
-        }
+        };
+
+        document.getElementById("new_post").onclick = function () {
+            let postContent = document.getElementById("postContent").value;
+            let postTitle =   document.getElementById("postTitle").value;
+            let gameId =      document.getElementById("gameId").value;
+            let tag =         document.getElementById("tag").value;
+
+            newPost(postContent,postTitle,tag,gameId,function (result) {
+                if(result== 200)
+                    alert("成功");
+                else
+                    alert(result);
+            })
+        };
+
+        document.getElementById("new_response").onclick = function () {
+            let responseContent = document.getElementById("responseContent").value;
+            //假定postId为1
+            let postId =    1;
+            newResponse(responseContent,postId,function (result) {
+                if(result== 200)
+                    alert("成功");
+                else
+                    alert(result);
+            })
+        };
+
+
     </script>
 
 </head>

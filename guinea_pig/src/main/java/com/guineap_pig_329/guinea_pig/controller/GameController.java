@@ -24,6 +24,7 @@ public class GameController {
 
     @RequestMapping("/user")
     public List<UserGame> getGames(HttpSession session){
+        //todo 需要在处理
         UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
         return userGameRepo.findAllByUserId(user.getId());
     }

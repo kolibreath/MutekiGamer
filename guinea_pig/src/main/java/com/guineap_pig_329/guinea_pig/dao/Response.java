@@ -59,4 +59,10 @@ public class Response {
     public Response(){
 
     }
+
+    public Response(int userId, int postId, String content) {
+        this.userId = userId;
+        this.postId = postId;
+        this.content = content;
+    }
 }

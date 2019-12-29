@@ -92,7 +92,7 @@ public class TestController {
 
     @RequestMapping("/1")
     public String turn2TestAjax(){
-        return "TestAjax";
+        return "test_request_yu";
     }
 
     @RequestMapping("/2")

@@ -3,22 +3,25 @@ package com.guineap_pig_329.guinea_pig.controller;
 
 import com.guineap_pig_329.guinea_pig.Constants;
 import com.guineap_pig_329.guinea_pig.dao.Post;
+import com.guineap_pig_329.guinea_pig.dao.Response;
 import com.guineap_pig_329.guinea_pig.dao.User;
 import com.guineap_pig_329.guinea_pig.model.UserSession;
 import com.guineap_pig_329.guinea_pig.repo.PostRepo;
 import com.guineap_pig_329.guinea_pig.repo.ResponseRepo;
-import com.guineap_pig_329.guinea_pig.repo.UserGameRepo;
 import com.guineap_pig_329.guinea_pig.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 
+
+/**
+ * 发帖 删帖 回复帖子 等
+ */
 @RestController
 @RequestMapping("post")
 public class PostController {
@@ -45,6 +48,63 @@ public class PostController {
         //todo 排序方式
     }
 
+    @PostMapping(value = "/new_post")
+    //成功 200 错误 返回 500
+    //从当前的userSession中取出
+    public int newPost(HttpSession session, @RequestBody Map<String,Object> map){
+        UserSession user  = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
+        int userId = user.getId();
+        String postContent = (String) map.get("postContent");
+        String postTitle = (String) map.get("postTitle");
+        int tag , gameId;
+        long time ;
+        try {
+            tag = Integer.parseInt((String) map.get("tag"));
+            gameId = Integer.parseInt((String) map.get("gameId"));
+            time = (long) map.get("time");
+        }catch (Exception e){
+            return 500;
+        }
+        if(postContent == null || postTitle == null)
+            return 400;
+        Post post = new Post(
+                userId,time,postContent,tag,postTitle,gameId
+        );
+        postRepo.save(post);
+        return 200;
+    }
+
+    @PostMapping("/new_response")
+    public int newResponse(HttpSession session, @RequestBody Map<String, Object> map){
+        UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
+        int userId = user.getId();
+        String responseContent =(String) map.get("responseContent");
+        int postId;
+        try {
+            postId = Integer.parseInt((String) map.get("postId"));
+        }catch (Exception e){
+            return 500;
+        }
+        Response response = new Response(userId, postId, responseContent);
+        if(responseContent == null){
+            return 400;
+        }
+        responseRepo.save(response);
+        return 200;
+    }
+
+    @PostMapping("/delete_post")
+    public int deletePost(HttpSession session, @RequestBody Map<String,Object> map)
+    {
+        int postId;
+        try {
+            postId = Integer.parseInt((String) map.get("postId"));
+        }catch (Exception e){
+            return 500;
+        }
+       postRepo.deleteById(postId);
+        return 200;
+    }
 
     //重新排序帖子的方法
     private List<Post> sortPost(List<Post> posts){

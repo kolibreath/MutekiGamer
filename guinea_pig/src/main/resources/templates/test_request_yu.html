@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="text/javascript"
+        src="webjars/jquery/2.2.4/jquery.min.js"></script>
+<!--引入相关的js-->
+<script type="text/javascript" src="./static/js/Homepage.js"></script>
+<script type="text/javascript" src="./static/js/Post.js"></script>
+<script type="text/javascript" src="./static/js/Testyu.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>yu</title>
+</head>
+<body>
+<input id="userId" value="用户ID">
+<input id="postId" value="帖子">
+<button id="delete" >删除</button>
+</body>
+<script>
+    document.getElementById("delete").onclick=function () {
+        let postId = document.getElementById("postId").value;
+        let userId = document,getElementById("userId").value;
+
+        deleteP (postId,userId,function (result) {
+            if(result==200)
+                alert("成功");
+            else
+                alert(result);
+        })
+    };
+</script>
+</html>
