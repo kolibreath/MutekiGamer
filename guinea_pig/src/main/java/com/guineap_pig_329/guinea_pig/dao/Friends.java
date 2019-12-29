@@ -61,4 +61,10 @@ public class Friends {
     public Friends(){
 
     }
+
+    public Friends(int userId1, int userId2, int relationship) {
+        this.userId1 = userId1;
+        this.userId2 = userId2;
+        this.relationship = relationship;
+    }
 }

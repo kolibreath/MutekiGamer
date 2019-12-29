@@ -2,134 +2,221 @@
 <html>
 <head>
     <meta charset="utf-8" />
-   <!-- <meta http-equiv="Content-Type" content="text/html" /> -->
+    <!-- <meta http-equiv="Content-Type" content="text/html" /> -->
     <meta name="keyword" content="HTML, CSS, image, navigation" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>VULCAN! - HomePage</title>
-    <link rel="stylesheet" type="text/css" href="./static/css/index.css" />
-    <link rel="stylesheet" type="text/css" href="./static/css/HomePage.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/HomePage.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js">  </script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-    <!-- Navigation Bar -->
-    <div class="barContainer">
-        <div class="nav-content">
-            <!-- logo -->
-            <div class="nav-title">
+<!-- Navigation Bar-->
+<div class="barContainer">
+    <div class="nav-content" >
+        <div class="nav-title">
                 <span>
-                    <img src="./static/img/logo-new.png" alt="VULCAN logo">
+                    <img src="https://static.dingtalk.com/media/lALPDgQ9rZl6KXPNAljNB0Q_1860_600.png?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222028145409841%22%7D&bizType=im&open_id=267508618" alt="MutekiGamer logo">
                 </span>
-            </div>
-            <!-- context -->
-			<div class="nav-text">
-				<span style="float: left"><a href="HomePage1">主页</a></span>
-				<span style="float: left"><a href="/homepage/community">社区</a></span>
-				<span style="float: left"><a href="/homepage/news">头条</a></span>
-				<span style="float: left"><a href="/homepage/battle">战场</a></span>
-				<span style="float: right"><a href="/homepage/my">我</a></span>
-				<span class="user">
-                    <a href="login">Login</a>
+        </div>
+        <div class="nav-text">
+            <span style="float: left"><a href="HomePage.html">Home</a></span>
+            <span style="float: left"><a href="BBSIndex.html">BBS</a></span>
+            <span style="float: left"><a href="">Games</a></span>
+            <span style="float: left"><a href="">News</a></span>
+            <span style="float: left"><a href="">My</a></span>
+            <span class="user">
+                    <a href="login.html">Login</a>
                 </span>
-			</div>
         </div>
     </div>
-    <!-- body -->
-    <div class="main-body">
-    	<div class="picFrame">
-                <div class="picContent">
-                    <img src="./static/img/scCyberPunk2/scCyberPunk2/cyberpunk/0171005ab0062ea80120be14ad1c1d.jpg@1280w_1l_2o_100sh.jpg">
+</div>
+<!--video-->
+<div>
+    <video autoplay loop muted style="width: 100%;height: auto;position: obsolute;">
+        <source src="https://blz.nosdn.127.net/1/tm/hearthstone/gameguide/descent-of-dragons/video/header_announcement.webm" type="video/mp4">
+    </video>
+</div>
+<!-- body -->
+<div class="main-body" style="margin-top: 0px;padding-top: 0px;">
+    <div style="padding-left: 10%;opacity: 0.8;" >
+        <div id="demo" class="carousel slide" data-ride="carousel" style="width: 90%;height: 90%;">
+            <!-- 指示符 -->
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+                <li data-target="#demo" data-slide-to="3"></li>
+                <li data-target="#demo" data-slide-to="4"></li>
+            </ul>
+
+            <!-- 轮播图片 -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="img/0.png">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/1.png">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/2.png">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/3.png">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/4.png">
                 </div>
             </div>
-    	<div class="main-content">
-    		
-    		<div class="contextFrame">
-    			<div class="innerFrame">
-    				<div class="left">
-    					<img src="./static/img/scCyberPunk2/scCyberPunk2/8-bit_gif/015e415a378710a80121db8064c92c.gif">
-    				</div>
-    				<div class="right">
-    					<div class="textList">
-    						<ul>
-    							<li class="listTitle"><h1>Latest News</h1></li>
-    							<li><a href="">Soccer Club: FIFA World Cup Semi-Final is approaching</a></li>
-    							<li><a href="">E-sport Club: R6S new update released</a></li>
-    							<li><a href="">Piano Club: Pianist Langlang is coming</a></li>
-    							<li><a href="">VULCAN: Freshmen is coming soon</a></li>
-    							<li><a href="">BNU: Summer vacation starts now</a></li>
-    						</ul>
-    					</div>
-    				</div>
-    			</div>
-    		</div>
 
-    		<div class="contextFrame">
-    			<div class="innerFrame">
-    				<div class="left">
-    					<div class="textList">
-    						<ul>
-    							<li class="listTitle"><h1>Latest Events</h1></li>
-    							<li><a href="">Soccer Match between THU and BNU</a></li>
-    							<li><a href="">CS:GO mathc between CCNU and PKU</a></li>
-    							<li><a href="">Party of FIFA World Cup Final</a></li>
-    							<li><a href="">NCEE is over, freshmen will come soon</a></li>
-    						</ul>
-    					</div>
-    				</div>
-    				<div class="right">
-    					<div class="textList">
-    						<ul>
-    							<li class="listTitle"><h1>Top Clubs</h1></li>
-    							<li><a href="">THU Soccer Club</a></li>
-    							<li><a href="">BNU E-sport Club</a></li>
-    							<li><a href="">WHU Piano Club</a></li>
-    							<li><a href="">CCNU Robot Club</a></li>
-    							<li><a href="">BNU Anime Club</a></li>
-    						</ul>
-    					</div>
-    				</div>
-    			</div>
-    		</div>
-
-    		<div class="division"></div>
-    		<div class="division"></div>
-    		<div class="division"></div>
-    	</div>
+            <!-- 左右切换按钮 -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
     </div>
-    <!-- footer -->
-    <footer class="bottom-bar">
-        Designed by Vulcan.
-    </footer>
-    <script type="text/javascript">
-    	 var slideIndex = 0;
-        showSlides();
 
-        function showSlides() {
-            var i;
-            var slides = document.getElementsByClassName("mySlides");
-            var dots = document.getElementsByClassName("dot");
-            for (i = 0; i < slides.length; i++) {
-               slides[i].style.display = "none";  
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) {slideIndex = 1}    
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-            slides[slideIndex-1].style.display = "block";  
-            dots[slideIndex-1].className += " active";
-            setTimeout(showSlides, 2000); // Change image every 2 seconds
-        }
+    <div class="main-content">
+        <div class="contextFrame" style="padding-left: 50px;">
+                <span>
+                    <img src="https://blznav.akamaized.net/img/games/logo-ow-4be5755bc0a4cbaf.png" style="width: 80px;height: 80px;margin-left: 50px;">
+                </span>
+            <span>
+                    <img src="https://blznav.akamaized.net/img/games/logo-wow-3dd2cfe06df74407.png" style="width: 80px;height: 80px;margin-left: 50px;">
+                </span>
+            <span>
+                    <img src="https://blznav.akamaized.net/img/games/logo-hs-93512467e87f82c6.png" style="width: 80px;height: 80px;margin-left: 50px;">
+                </span>
+            <span>
+                    <img src="https://blznav.akamaized.net/img/games/logo-heroes-78cae505b7a524fb.png" style="width: 80px;height: 80px;margin-left: 50px;">
+                </span>
+            ......
+            <button>
+                <a href="#">
+                    <button class="login-button" style="float: right;width: 80px;height: 35px;opacity: 0.8">
+                        <img src="img/change.png" style="height: 15px;width: 15px;opacity: 0.5">
+                        换一批</button>
+                </a>
+            </button>
+        </div>
+        <div class="contextFrame">
+            <div class="innerFrame">
+                <div class="left">
+                    <video autoplay loop muted style="position: static;width: 30%;height: 30%">
+                        <source src="https://overwatch.nosdn.127.net/1/assets/img/pages/home/header-mobile.webm">
+                    </video>
+                </div>
+                <div class="right">
+                    <div class="textList">
+                        <ul>
+                            <li class="listTitle"><h1>Banner</h1></li>
+                            <li><a href="">Soccer Club: FIFA World Cup Semi-Final is approaching</a></li>
 
-        function Jump(){
-            document.getElementById("jumpLogin").style.display = "block";
-        }
-        function Hide(){
-            document.getElementById("jumpLogin").style.display = "none";
-        }
-        function submit(){
-            alert("Your request has been sent successfully");
-        }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    </script>
+        <div class="contextFrame">
+            <div class="innerFrame">
+                <div class="left">
+                    <div class="textList">
+                        <ul>
+                            <li class="listTitle"><h1>Post</h1></li>
+                            <li><a href="">Soccer Match between THU and BNU</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="textList">
+                        <ul>
+                            <li class="listTitle"><h1>Games</h1></li>
+                            <li><a href="">THU Soccer Club</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="division"></div>
+        <div class="division"></div>
+        <div class="division"></div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h3 class="footer_title">Product</h3>
+                <ul class="footer_list">
+                    <li>Integrations</li>
+                    <li>Slack Bot</li>
+                    <li>Customers</li>
+                    <li>Case Studies</li>
+                    <li>Pricing</li>
+                </ul>
+            </div>
+            <div class="col">
+                <h3 class="footer_title">Company</h3>
+                <ul class="footer_list">
+                    <li>About</li>
+                    <li>Blog</li>
+                    <li>Newsletter</li>
+                    <li>Community</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+            <div class="col">
+                <h3 class="footer_title">Help</h3>
+                <ul class="footer_list">
+                    <li>Knowledge Base</li>
+                    <li>Forum</li>
+                </ul>
+            </div>
+            <div class="col">
+                <ul style="text-align: right;padding-top: 100px;">
+                    <li><img src="img/twitter.png" style="width: 20px;height: 20px;"></li>
+                    <li><img src="img/facebook.png" style="width: 20px;height: 20px;"></li>
+                    <li><img src="img/email.png" style="width: 20px;height: 20px;"></li>
+                    <li>© MutekiGamer 2019</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript">
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+
+</script>
 </body>
 </html>
