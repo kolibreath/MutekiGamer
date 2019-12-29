@@ -52,6 +52,12 @@ public class TestController {
 
         userRepo.save(rick);
 
+        User morty = new User("morty",
+                "mortypass",0 ,"morty@morty.com",10);
+
+        userRepo.save(rick);
+        userRepo.save(morty);
+
         //用户管理权限
         GameManage gameManage = new GameManage(rick.getUserId(),overwatch.getGameId());
         userPermissionRepo.save(gameManage);

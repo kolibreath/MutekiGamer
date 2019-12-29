@@ -9,7 +9,5 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public interface FriendsRepo extends JpaRepository<Friends,Integer> {
 
-    @Transactional
-    @Query
-    int
+    Friends findByUserId1AndUserId2(int userId1, int userId2);
 }

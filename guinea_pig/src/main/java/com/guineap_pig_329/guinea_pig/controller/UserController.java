@@ -47,14 +47,15 @@ public class UserController {
     @RequestMapping("/unfollow")
     public int  unfollow(HttpSession session, Map<String,Object> map){
         UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
-        int userId = user.getId();
         int otherUserId;
         try {
             otherUserId = (int) map.get("otherUserId");
         }catch (Exception e){
             return 500;
         }
-        friendsRepo.save(friends);
+        //todo test here
+        Friends friend = friendsRepo.findByUserId1AndUserId2(user.getId(),otherUserId);
+        friendsRepo.deleteById(friend.getFriendsId());
         return 200;
     }
 }

@@ -94,7 +94,7 @@ public class PostController {
     }
 
     @PostMapping("/delete_post")
-    public int deletePost(HttpSession session, @RequestBody Map<String,Object> map)
+    public int deletePost(@RequestBody Map<String,Object> map)
     {
         int postId;
         try {
