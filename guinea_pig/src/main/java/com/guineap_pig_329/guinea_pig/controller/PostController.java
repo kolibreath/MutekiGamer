@@ -93,6 +93,19 @@ public class PostController {
         return 200;
     }
 
+    @PostMapping("/delete_post")
+    public int deletePost(HttpSession session, @RequestBody Map<String,Object> map)
+    {
+        int postId;
+        try {
+            postId = Integer.parseInt((String) map.get("postId"));
+        }catch (Exception e){
+            return 500;
+        }
+       postRepo.deleteById(postId);
+        return 200;
+    }
+
     //重新排序帖子的方法
     private List<Post> sortPost(List<Post> posts){
         Collections.sort(posts, Comparator.comparingInt(this::weight));
