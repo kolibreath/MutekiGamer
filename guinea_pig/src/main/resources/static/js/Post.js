@@ -37,7 +37,7 @@ function newResponse(responseContent,postId,call){
     let time= Date.parse( new Date());
     let post = {
         time:time,
-        postContent:responseContent,
+        responseContent:responseContent,
         postId:postId
     };
 
