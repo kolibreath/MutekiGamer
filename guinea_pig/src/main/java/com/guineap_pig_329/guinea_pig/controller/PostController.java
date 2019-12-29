@@ -3,6 +3,7 @@ package com.guineap_pig_329.guinea_pig.controller;
 
 import com.guineap_pig_329.guinea_pig.Constants;
 import com.guineap_pig_329.guinea_pig.dao.Post;
+import com.guineap_pig_329.guinea_pig.dao.Response;
 import com.guineap_pig_329.guinea_pig.dao.User;
 import com.guineap_pig_329.guinea_pig.model.UserSession;
 import com.guineap_pig_329.guinea_pig.repo.PostRepo;
@@ -19,6 +20,10 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
+
+/**
+ * 发帖 删帖 回复帖子 等
+ */
 @RestController
 @RequestMapping("post")
 public class PostController {
@@ -68,6 +73,25 @@ public class PostController {
                 userId,time,postContent,tag,postTitle,gameId
         );
         postRepo.save(post);
+        return 200;
+    }
+
+    @PostMapping("response/")
+    public int newResponse(HttpSession session, @RequestBody Map<String, Object> map){
+        UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
+        int userId = user.getId();
+        String responseContent =(String) map.get("responseContent");
+        int postId;
+        try {
+            postId = Integer.parseInt((String) map.get("postId"));
+        }catch (Exception e){
+            return 500;
+        }
+        Response response = new Response(userId, postId, responseContent);
+        if(responseContent == null){
+            return 400;
+        }
+        responseRepo.save(response);
         return 200;
     }
 
