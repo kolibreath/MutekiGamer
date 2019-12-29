@@ -46,15 +46,15 @@ public class AuthController {
         if (password.equals(user.getUserPassword())) {
             UserSession usrSession = new UserSession(user.getUserId(), user.getUserName(), user.getUserPassword());
             httpSession.setAttribute(Constants.USE_SESSION_KEY, usrSession);
-            return "HomePage1";
+            return "HomePage";
         } else
             return "login";
 
     }
 
-    @RequestMapping("/HomePage1")
+    @RequestMapping("/HomePage")
     public String HomePage1(){
-        return "HomePage1";
+        return "HomePage";
     }
 
     @RequestMapping("/register")
