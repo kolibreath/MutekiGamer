@@ -89,7 +89,7 @@ public class PostController {
         if(responseContent == null){
             return 400;
         }
-        responseRepo.save(response);
+            responseRepo.save(response);
         return 200;
     }
 

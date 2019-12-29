@@ -5,6 +5,7 @@
 <!--引入相关的js-->
 <script type="text/javascript" src="./static/js/Homepage.js"></script>
 <script type="text/javascript" src="./static/js/Post.js"></script>
+<script type="text/javascript" src="./static/js/Auth.js"></script>
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -28,6 +29,12 @@
     <input id="responseContent" value="内容">
     <input id="postId"      value="帖子Id">
     <button  id="new_response">发帖</button>
+
+
+    <br>
+
+    <input id="new_password" value="新密码">
+    <button  id="change_password">修改密码</button>
 
 
 </body>
@@ -78,6 +85,12 @@
             })
         };
 
+        document.getElementById("change_password").onclick = function () {
+            let newPassword = document.getElementById("new_password").value;
+            changePasword(newPassword,function(result){
+                alert(result);
+            });
+        }
 
     </script>
 
