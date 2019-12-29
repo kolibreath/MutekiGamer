@@ -81,7 +81,7 @@ public class PostController {
         String responseContent =(String) map.get("responseContent");
         int postId;
         try {
-            postId = Integer.parseInt((String) map.get("postId"));
+            postId = (int) map.get("postId");
         }catch (Exception e){
             return 500;
         }
