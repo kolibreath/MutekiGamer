@@ -8,12 +8,10 @@ import com.guineap_pig_329.guinea_pig.dao.User;
 import com.guineap_pig_329.guinea_pig.model.UserSession;
 import com.guineap_pig_329.guinea_pig.repo.PostRepo;
 import com.guineap_pig_329.guinea_pig.repo.ResponseRepo;
-import com.guineap_pig_329.guinea_pig.repo.UserGameRepo;
 import com.guineap_pig_329.guinea_pig.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Collections;
 import java.util.Comparator;
@@ -68,7 +66,7 @@ public class PostController {
             return 500;
         }
         if(postContent == null || postTitle == null)
-            return 500;
+            return 400;
         Post post = new Post(
                 userId,time,postContent,tag,postTitle,gameId
         );
@@ -76,7 +74,7 @@ public class PostController {
         return 200;
     }
 
-    @PostMapping("response/")
+    @PostMapping("/new_response")
     public int newResponse(HttpSession session, @RequestBody Map<String, Object> map){
         UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
         int userId = user.getId();

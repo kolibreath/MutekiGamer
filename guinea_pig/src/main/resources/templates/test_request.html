@@ -23,6 +23,12 @@
 
     <button  id="new_post">发帖</button>
 
+    <br>
+
+    <input id="responseContent" value="内容">
+    <input id="postId"      value="帖子Id">
+    <button  id="new_response">发帖</button>
+
 
 </body>
     <script type="text/javascript">
@@ -31,7 +37,6 @@
             homepage(function (result) {
                 // console.log(result);
                 let games = result.banner;
-
                 console.log(result.game[0].gameName);
                 console.log(result.banner);
                 console.log(result.post);
@@ -49,12 +54,23 @@
 
         document.getElementById("new_post").onclick = function () {
             let postContent = document.getElementById("postContent").value;
-            alert(postContent);
             let postTitle =   document.getElementById("postTitle").value;
             let gameId =      document.getElementById("gameId").value;
             let tag =         document.getElementById("tag").value;
 
             newPost(postContent,postTitle,tag,gameId,function (result) {
+                if(result== 200)
+                    alert("成功");
+                else
+                    alert(result);
+            })
+        };
+
+        document.getElementById("new_response").onclick = function () {
+            let responseContent = document.getElementById("responseContent").value;
+            //假定postId为1
+            let postId =    1;
+            newResponse(responseContent,postId,function (result) {
                 if(result== 200)
                     alert("成功");
                 else
