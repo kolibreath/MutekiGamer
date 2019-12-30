@@ -8,9 +8,9 @@ public class ResultBean<T> {
     private int code ;
     private String message;
 
-    private static int success_code = 200;
-    private static int internal_error = 500;
-    private static int resources_not_found = 400;
+    public static int success_code = 200;
+    public static int internal_error = 500;
+    public static int resources_not_found = 400;
 
     public ResultBean(){
 
