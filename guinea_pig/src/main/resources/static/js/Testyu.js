@@ -1,5 +1,5 @@
 
-function deleteP(postId,call){
+function deletePost(postId, call){
 
     let resultCode;
     let delPost={

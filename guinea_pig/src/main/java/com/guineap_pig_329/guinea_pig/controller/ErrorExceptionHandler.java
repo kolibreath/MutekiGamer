@@ -47,4 +47,9 @@ public class ErrorExceptionHandler {
         modelAndView.setViewName("nullPointerException");
         return modelAndView;
     }
+
+
+    /**
+     * 处理UnknownAccountException
+     **/
 }
