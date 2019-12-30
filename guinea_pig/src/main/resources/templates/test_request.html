@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <script type="text/javascript"
         src="webjars/jquery/2.2.4/jquery.min.js"></script>
 <!--引入相关的js-->
@@ -43,6 +43,8 @@
     <button  id="follow">关注用户</button>
     <button  id="unfollow">取消关注用户</button>
 
+    <br>
+    <button id="test_get_username">测试获取用户名</button>
 
 </body>
     <script type="text/javascript">
@@ -114,6 +116,13 @@
                 alert("取消关注关注"+result);
             })
         };
+
+        document.getElementById("test_get_username").onclick = function () {
+            getUserInfo(function(result){
+                alert(result);
+                console.log(result);
+            })
+        }
 
 
     </script>

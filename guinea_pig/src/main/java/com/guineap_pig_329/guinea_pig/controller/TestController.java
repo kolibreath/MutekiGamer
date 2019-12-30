@@ -3,6 +3,7 @@ package com.guineap_pig_329.guinea_pig.controller;
 import com.guineap_pig_329.guinea_pig.Constants;
 import com.guineap_pig_329.guinea_pig.dao.*;
 import com.guineap_pig_329.guinea_pig.repo.*;
+import org.apache.tomcat.util.bcel.Const;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +24,8 @@ public class TestController {
     private UserPermissionRepo userPermissionRepo;
     @Autowired
     private UserGameRepo userGameRepo;
+    @Autowired
+    private UserInfoRepo userInfoRepo;
 
 
 //    private Game
@@ -31,7 +34,7 @@ public class TestController {
         //todo 修改游戏介绍的图片
 
         //游戏内容介绍
-        Game overwatch  = new Game("守望先锋","《守望先锋》是暴雪出品的首款团队射击游戏，" +
+        Game overwatch  = new Game("overwatch","《守望先锋》是暴雪出品的首款团队射击游戏，" +
                 "现已正式来到中国。游戏以近未来地球为背景，来自全球的超级英雄们将使用自己独特的能力在战场上厮杀，带给玩家顶尖的射击体验。"
         , Constants.OVERWATCH_THUMBNAIL);
         Game diablo = new Game("暗黑破坏神","《暗黑破坏神》是1996年暴雪娱乐公司推出的一款动作RPG经典游戏系列" +
@@ -94,6 +97,9 @@ public class TestController {
         postRepo.save(post2);
         postRepo.save(post3);
         postRepo.save(post4);
+
+        UserInfo rickInfo = new UserInfo(rick.getUserId(),Constants.OVERWATCH_THUMBNAIL,"the universe destroy", Constants.MALE,"Washington",70);
+        userInfoRepo.save(rickInfo);
     }
 
     @RequestMapping("/1")
