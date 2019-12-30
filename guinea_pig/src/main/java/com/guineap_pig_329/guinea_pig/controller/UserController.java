@@ -3,6 +3,7 @@ package com.guineap_pig_329.guinea_pig.controller;
 
 import com.guineap_pig_329.guinea_pig.Constants;
 import com.guineap_pig_329.guinea_pig.dao.Friends;
+import com.guineap_pig_329.guinea_pig.dao.User;
 import com.guineap_pig_329.guinea_pig.model.UserSession;
 import com.guineap_pig_329.guinea_pig.repo.FriendsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,4 +59,10 @@ public class UserController {
         friendsRepo.deleteById(friend.getFriendsId());
         return 200;
     }
+    @RequestMapping("/myname")
+    public String myimage(HttpSession httpSession, Map<String,Object> map){
+        UserSession user=(UserSession)httpSession.getAttribute(Constants.USE_SESSION_KEY);
+        return user.getName();
+    }
+
 }
