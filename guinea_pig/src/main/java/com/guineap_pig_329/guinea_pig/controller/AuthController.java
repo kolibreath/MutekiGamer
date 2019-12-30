@@ -41,12 +41,12 @@ public class AuthController {
         String name = httpServletRequest.getParameter("name");
         String password = httpServletRequest.getParameter("password");
 
-        User user = userRepo.findAllByUserEmail(name);
+        User user = userRepo.findByUserEmail(name);
 //        TODO 处理一个失败的请求
         if (password.equals(user.getUserPassword())) {
             UserSession usrSession = new UserSession(user.getUserId(), user.getUserName(), user.getUserPassword());
             httpSession.setAttribute(Constants.USE_SESSION_KEY, usrSession);
-            return "HomePage1";
+            return "HomePage";
         } else
             return "login";
 
