@@ -1,4 +1,4 @@
-function mypage(call) {
+function myPage(call) {
     let allData={};
 
     let mynameRequest=$.ajax({

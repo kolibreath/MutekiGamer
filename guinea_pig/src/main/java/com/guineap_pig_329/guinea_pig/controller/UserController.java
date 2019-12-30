@@ -60,7 +60,7 @@ public class UserController {
         return 200;
     }
     @RequestMapping("/myname")
-    public String myimage(HttpSession httpSession, Map<String,Object> map){
+    public String myimage(HttpSession httpSession){
         UserSession user=(UserSession)httpSession.getAttribute(Constants.USE_SESSION_KEY);
         return user.getName();
     }

@@ -1,24 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-/*
-我的主页面
-*/
+<!--1. 引入namespace-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
     <!-- <meta http-equiv="Content-Type" content="text/html" /> -->
+    <!--<img th:src="@{/timg.jpg}"/>-->
     <meta name="keyword" content="HTML, CSS, image, navigation"/>
+    <script type="text/javascript" th:src="@{/js/Homepage.js}"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>MutekiGamer - Login</title>
-    <link rel="stylesheet" type="text/css" href="./static/css/index.css"/>
-    <link rel="stylesheet" type="text/css" href="./static/css/login.css"/>
-    <script type="text/javascript" src="./static/js/TestMypage.js"></script>
-    <!--<script>-->
-       <!--function myfunction(){-->
-           <!--alert()-->
-       <!--}-->
-    <!--</script>-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}"/>
+    <script type="text/javascript" th:src="@{/js/TestMypage.js}"></script>
 </head>
-<body onload="mypage(function(result) {
+<body onload="myPage(function(result) {
   alert(result);
 })">
 <div class="barContainer">
