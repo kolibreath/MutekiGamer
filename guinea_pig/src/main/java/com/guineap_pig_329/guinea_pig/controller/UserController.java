@@ -3,7 +3,6 @@ package com.guineap_pig_329.guinea_pig.controller;
 
 import com.guineap_pig_329.guinea_pig.Constants;
 import com.guineap_pig_329.guinea_pig.dao.Friends;
-import com.guineap_pig_329.guinea_pig.dao.User;
 import com.guineap_pig_329.guinea_pig.dao.UserInfo;
 import com.guineap_pig_329.guinea_pig.model.UserSession;
 import com.guineap_pig_329.guinea_pig.repo.FriendsRepo;
@@ -64,6 +63,12 @@ public class UserController {
         friendsRepo.deleteById(friend.getFriendsId());
         return 200;
     }
+
+    /**
+     * 返回用户的好友 游戏 关注 粉丝 等等信息
+     * @param session
+     * @return
+     */
 
     @RequestMapping("/info")
     public UserInfo getUserInfo(HttpSession session){
