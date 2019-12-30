@@ -3,7 +3,7 @@ function mypage(call) {
 
     let mynameRequest=$.ajax({
         url:"/user/myname",
-    type:"GET",
+        type:"GET",
         success:function(result){
         allData.name= result;
     },
