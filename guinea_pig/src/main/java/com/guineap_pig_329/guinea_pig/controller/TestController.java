@@ -28,7 +28,8 @@ public class TestController {
     private UserInfoRepo userInfoRepo;
     @Autowired
     private FriendsRepo friendsRepo;
-
+    @Autowired
+    private OfficialRepo officialRepo;
 
 //    private Game
     @RequestMapping("/inject")
@@ -115,6 +116,9 @@ public class TestController {
 
         UserInfo rickInfo = new UserInfo(rick.getUserId(),Constants.OVERWATCH_THUMBNAIL,"the universe destroy", Constants.MALE,"Washington",70);
         userInfoRepo.save(rickInfo);
+
+        Official official=new Official(1,1);
+        officialRepo.save(official);
 
         return "fuck";
     }
