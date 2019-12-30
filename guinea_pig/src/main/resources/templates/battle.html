@@ -13,6 +13,7 @@
     <script type="text/javascript"
             src="webjars/jquery/2.2.4/jquery.min.js"></script>
     <script type="text/javascript" th:src="@{/js/Team.js}"></script>
+    <script type="text/javascript" th:src="@{/js/Battle.js}"></script>
 </head>
 <body>
 <div class="barContainer">
@@ -45,17 +46,17 @@
 </div>
 <script type="text/javascript">
     document.getElementById("test_search").onclick = function () {
-        alert("fuck ");
+        alert("fuck");
         let content=document.getElementById("search").value;
         search(content, function (result) {
             console.log(result);
         })
     };
 </script>
-<script>
+<script type="text/javascript">
     document.getElementById("news").onclick =function () {
+        alert("fuck news");
         newResponse(function (result) {
-            alert("fucknews");
         });
     }
 </script>
