@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 public interface GameRepo  extends JpaRepository<Game,Integer> {
-    @Query("select game from Game game where game.gameName like %?1%")
-    List<Game>  findAllByGameName(String gameName);
+
+    List<Game>  findByGameNameLike(String name);
 
 }

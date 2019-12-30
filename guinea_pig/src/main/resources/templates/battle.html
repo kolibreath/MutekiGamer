@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en"  xmlns:th="http://www.thymeleaf.org">
+
+<title>MutekiGamer - Login</title>
+
 <head>
     <meta charset="utf-8"/>
     <!-- <meta http-equiv="Content-Type" content="text/html" /> -->
@@ -14,6 +17,8 @@
             src="webjars/jquery/2.2.4/jquery.min.js"></script>
     <script type="text/javascript" th:src="@{/js/Team.js}"></script>
     <script type="text/javascript" th:src="@{/js/Battle.js}"></script>
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 <body>
 <div class="barContainer">
@@ -37,6 +42,7 @@
 </div>
 
 战场！！！
+
 <div>
     <input id="search" value="搜索游戏名称">
     <button id="test_search">搜索</button>
@@ -48,15 +54,18 @@
     document.getElementById("test_search").onclick = function () {
         alert("fuck");
         let content=document.getElementById("search").value;
-        search(content, function (result) {
+        alert("fuck "+ content);
+        search(content,function(result){
+            alert("fuck" + content);
             console.log(result);
         })
     };
 </script>
 <script type="text/javascript">
     document.getElementById("news").onclick =function () {
-        alert("fuck news");
-        newResponse(function (result) {
+        news(function (result) {
+            console.log(result);
+            alert("fuck u");
         });
     }
 </script>
