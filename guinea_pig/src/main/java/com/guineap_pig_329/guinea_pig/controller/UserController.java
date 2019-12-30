@@ -2,16 +2,16 @@ package com.guineap_pig_329.guinea_pig.controller;
 
 
 import com.guineap_pig_329.guinea_pig.Constants;
-import com.guineap_pig_329.guinea_pig.dao.Friends;
-import com.guineap_pig_329.guinea_pig.dao.UserInfo;
+import com.guineap_pig_329.guinea_pig.dao.*;
 import com.guineap_pig_329.guinea_pig.model.UserSession;
-import com.guineap_pig_329.guinea_pig.repo.FriendsRepo;
-import com.guineap_pig_329.guinea_pig.repo.UserInfoRepo;
+import com.guineap_pig_329.guinea_pig.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -27,6 +27,14 @@ public class UserController {
     private FriendsRepo friendsRepo;
     @Autowired
     private UserInfoRepo userInfoRepo;
+    @Autowired
+    private GameRepo gameRepo;
+    @Autowired
+    private UserGameRepo userGameRepo;
+    @Autowired
+    private PostRepo postRepo;
+    @Autowired
+    private UserRepo userRepo;
 
     /**
      * @param session
@@ -43,7 +51,8 @@ public class UserController {
         }catch (Exception e){
             return 500;
         }
-        Friends friends = new Friends(userId, otherUserId, 0);
+        //todo code check
+        Friends friends = new Friends(userId, otherUserId);
         friendsRepo.save(friends);
         return 200;
     }
@@ -58,7 +67,6 @@ public class UserController {
         }catch (Exception e){
             return 500;
         }
-        //todo test here
         Friends friend = friendsRepo.findByUserId1AndUserId2(user.getId(),otherUserId);
         friendsRepo.deleteById(friend.getFriendsId());
         return 200;
@@ -71,9 +79,61 @@ public class UserController {
      */
 
     @RequestMapping("/info")
-    public UserInfo getUserInfo(HttpSession session){
+    public ResultBean getUserInfo(HttpSession session){
         UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
         int userId = user.getId();
-        return userInfoRepo.findUserInfoByUserId(userId);
+
+        UserHomePage userHomePage = new UserHomePage();
+        userHomePage.setUserName(user.getName());
+
+        List<Game> games = new LinkedList<>();
+        List<UserGame> user2Game =  userGameRepo.findAllByUserId(userId);
+        for(UserGame userGame : user2Game){
+            int gameId = userGame.getGameId();
+            //如果存在
+            Game game = gameRepo.findById(gameId).get();
+            games.add(game);
+        }
+
+        //todo 返回内容确定 缩减
+        List<Post> posts = postRepo.findAllByUserId(userId);
+        userHomePage.setPosts(posts);
+
+        //找到所有的粉丝
+        List<Friends> followed = friendsRepo.findFollowed(userId);
+        //找到所有的关注者
+        List<Friends> following = friendsRepo.findFollowing(userId);
+
+        userHomePage.setFollowingNum(following.size());
+        userHomePage.setFollowerNum(following.size());
+
+        //所有的粉丝列表
+        List<User> followers = new LinkedList<>();
+        //所有的关注者列表
+        List<User> followings = new LinkedList<>();
+
+        for(Friends fd:followed){
+            int fdId = fd.getUserId1();
+            User fdUser = userRepo.findUserByUserId(fdId);
+            followers.add(fdUser);
+        }
+
+        for(Friends fg:following){
+            int fgId = fg.getUserId2();
+            User fgUser = userRepo.findUserByUserId(fgId);
+            followings.add(fgUser);
+        }
+
+        userHomePage.setFollowers(followers);
+        userHomePage.setFollowing(followings);
+
+        ResultBean bean = new ResultBean();
+        bean.setCode(200);
+        bean.setData(userHomePage);
+        bean.setMessage("成功请求");
+
+
+        return bean;
     }
+
 }

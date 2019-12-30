@@ -44,7 +44,10 @@ function unfollow(otherUserId,call){
     $.when(createNewPost).done(()=>call(resultCode))
 }
 
-
+/**
+ * 获取用户个人页面信息
+ * @param call
+ */
 function getUserInfo(call) {
     let allData={};
 
