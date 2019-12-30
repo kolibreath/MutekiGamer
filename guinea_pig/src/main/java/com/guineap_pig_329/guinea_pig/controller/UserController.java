@@ -4,8 +4,10 @@ package com.guineap_pig_329.guinea_pig.controller;
 import com.guineap_pig_329.guinea_pig.Constants;
 import com.guineap_pig_329.guinea_pig.dao.Friends;
 import com.guineap_pig_329.guinea_pig.dao.User;
+import com.guineap_pig_329.guinea_pig.dao.UserInfo;
 import com.guineap_pig_329.guinea_pig.model.UserSession;
 import com.guineap_pig_329.guinea_pig.repo.FriendsRepo;
+import com.guineap_pig_329.guinea_pig.repo.UserInfoRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,11 +20,13 @@ import java.util.Map;
  * 用户请求个人页面 详细信息 好友信息等
  */
 
-@RestController("/user")
+@RestController("user")
 public class UserController {
 
     @Autowired
     private FriendsRepo friendsRepo;
+    @Autowired
+    private UserInfoRepo userInfoRepo;
 
     /**
      * @param session
@@ -59,10 +63,11 @@ public class UserController {
         friendsRepo.deleteById(friend.getFriendsId());
         return 200;
     }
-    @RequestMapping("/myname")
-    public String myimage(HttpSession httpSession){
-        UserSession user=(UserSession)httpSession.getAttribute(Constants.USE_SESSION_KEY);
-        return user.getName();
-    }
 
+    @RequestMapping("/info")
+    public UserInfo getUserInfo(HttpSession session){
+        UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
+        int userId = user.getId();
+        return userInfoRepo.findUserInfoByUserId(userId);
+    }
 }

@@ -3,6 +3,7 @@ package com.guineap_pig_329.guinea_pig.controller;
 import com.guineap_pig_329.guinea_pig.Constants;
 import com.guineap_pig_329.guinea_pig.dao.*;
 import com.guineap_pig_329.guinea_pig.repo.*;
+import org.apache.tomcat.util.bcel.Const;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +24,8 @@ public class TestController {
     private UserPermissionRepo userPermissionRepo;
     @Autowired
     private UserGameRepo userGameRepo;
+    @Autowired
+    private UserInfoRepo userInfoRepo;
 
 
 //    private Game
@@ -94,6 +97,9 @@ public class TestController {
         postRepo.save(post2);
         postRepo.save(post3);
         postRepo.save(post4);
+
+        UserInfo rickInfo = new UserInfo(rick.getUserId(),Constants.OVERWATCH_THUMBNAIL,"the universe destroy", Constants.MALE,"Washington",70);
+        userInfoRepo.save(rickInfo);
     }
 
     @RequestMapping("/1")
