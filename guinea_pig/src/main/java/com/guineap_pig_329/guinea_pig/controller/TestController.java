@@ -26,11 +26,13 @@ public class TestController {
     private UserGameRepo userGameRepo;
     @Autowired
     private UserInfoRepo userInfoRepo;
+    @Autowired
+    private FriendsRepo friendsRepo;
 
 
 //    private Game
     @RequestMapping("/inject")
-    public void inject() {
+    public String inject() {
         //todo 修改游戏介绍的图片
 
         //游戏内容介绍
@@ -56,10 +58,23 @@ public class TestController {
         userRepo.save(rick);
 
         User morty = new User("morty",
-                "mortypass",0 ,"morty@morty.com",10);
+                "mortypass",0 ,"morty@morty.com",3);
+
+
+        User summer = new User("summer",
+                "summerpass",0 ,"summer@summer.com",4);
 
         userRepo.save(rick);
         userRepo.save(morty);
+        userRepo.save(summer);
+
+        Friends rick2morty = new Friends(rick.getUserId(),morty.getUserId());
+        Friends summer2morty = new Friends(summer.getUserId(),morty.getUserId());
+
+        friendsRepo.save(rick2morty);
+        friendsRepo.save(summer2morty);
+
+
 
         //用户管理权限
         GameManage gameManage = new GameManage(rick.getUserId(),overwatch.getGameId());
@@ -100,6 +115,8 @@ public class TestController {
 
         UserInfo rickInfo = new UserInfo(rick.getUserId(),Constants.OVERWATCH_THUMBNAIL,"the universe destroy", Constants.MALE,"Washington",70);
         userInfoRepo.save(rickInfo);
+
+        return "fuck";
     }
 
     @RequestMapping("/1")

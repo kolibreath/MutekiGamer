@@ -44,7 +44,8 @@
     <button  id="unfollow">取消关注用户</button>
 
     <br>
-    <button id="test_get_username">测试获取用户名</button>
+    <button id="test_get_username">测试获取用户主页信息</button>
+
 
 </body>
     <script type="text/javascript">
@@ -119,11 +120,9 @@
 
         document.getElementById("test_get_username").onclick = function () {
             getUserInfo(function(result){
-                alert(result);
                 console.log(result);
             })
-        }
-
+        };
 
     </script>
 
