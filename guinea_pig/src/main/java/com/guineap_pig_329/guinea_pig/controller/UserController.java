@@ -6,6 +6,7 @@ import com.guineap_pig_329.guinea_pig.dao.Friends;
 import com.guineap_pig_329.guinea_pig.dao.User;
 import com.guineap_pig_329.guinea_pig.model.UserSession;
 import com.guineap_pig_329.guinea_pig.repo.FriendsRepo;
+import com.guineap_pig_329.guinea_pig.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,6 +25,8 @@ public class UserController {
     @Autowired
     private FriendsRepo friendsRepo;
 
+    @Autowired
+    private UserRepo userRepo;
     /**
      * @param session
      * @param map
@@ -60,9 +63,9 @@ public class UserController {
         return 200;
     }
     @RequestMapping("/myname")
-    public String myname(HttpSession httpSession, Map<String,Object> map){
+    public User myname(HttpSession httpSession){
         UserSession user=(UserSession)httpSession.getAttribute(Constants.USE_SESSION_KEY);
-        return user.getName();
+        User u=
+        return user;
     }
-
 }

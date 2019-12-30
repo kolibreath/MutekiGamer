@@ -1,7 +1,7 @@
-function mypage(call) {
+function myPage(call) {
     let allData={};
 
-    let mynameRequest=$.ajax({
+    let mynameRequest=$.ajax(({
         url:"/user/myname",
         type:"GET",
         success:function(result){
@@ -13,6 +13,6 @@ function mypage(call) {
     complete:function (result) {
         // completeFunction(result)
     }
-    });
+    }));
     $.when(mynameRequest).done(() =>{call(allData)});
 }

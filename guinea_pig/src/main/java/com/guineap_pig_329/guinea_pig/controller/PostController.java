@@ -41,6 +41,11 @@ public class PostController {
         return sortPost(posts);
     }
 
+    /**
+     * 获取用户的关注的某个游戏的游戏帖子列表
+     * @param gameId
+     * @return
+     */
     @RequestMapping("/user/{id}")
     public List<Post> getPostByGameId(@PathVariable("id") Integer gameId){
         List<Post> posts  = postRepo.findAllByGameId(gameId);

@@ -12,11 +12,14 @@ import java.util.List;
 @Repository
 public interface UserRepo extends JpaRepository<User,Integer> {
     User findAllByUserEmail(String useremail);
+    User findByUserEmail(String userEmail);
     User findUserByUserId(int userId);
 
     @Transactional
     @Query("update User u set u.userPassword = ?1 where u.userId = ?2")
     @Modifying
     int updateUser(String password,int userId);
+
+    User findByUserEmailAndUserPassword(String userEmail,String userPassword);
 }
 
