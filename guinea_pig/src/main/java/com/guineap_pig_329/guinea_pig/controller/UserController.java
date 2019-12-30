@@ -20,7 +20,8 @@ import java.util.Map;
  * 用户请求个人页面 详细信息 好友信息等
  */
 
-@RestController("user")
+@RestController
+@RequestMapping("user")
 public class UserController {
 
     @Autowired
