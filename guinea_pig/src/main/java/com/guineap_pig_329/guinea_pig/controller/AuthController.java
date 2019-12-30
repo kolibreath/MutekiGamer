@@ -52,9 +52,9 @@ public class AuthController {
 
     }
 
-    @RequestMapping("/HomePage1")
+    @RequestMapping("/HomePage")
     public String HomePage1(){
-        return "HomePage1";
+        return "HomePage";
     }
 
     @RequestMapping("/register")

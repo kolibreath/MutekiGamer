@@ -18,7 +18,7 @@
     document.getElementById("delete").onclick=function () {
         let postId = document.getElementById("postId").value;
 
-        deleteP (postId,function (result) {
+        deletePost (postId,function (result) {
             if(result==200)
                 alert("成功");
             else
