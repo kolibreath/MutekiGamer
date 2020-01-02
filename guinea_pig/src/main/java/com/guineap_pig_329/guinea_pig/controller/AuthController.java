@@ -2,6 +2,7 @@ package com.guineap_pig_329.guinea_pig.controller;
 
 import com.guineap_pig_329.guinea_pig.Constants;
 import com.guineap_pig_329.guinea_pig.dao.Banner;
+import com.guineap_pig_329.guinea_pig.dao.ResultBean;
 import com.guineap_pig_329.guinea_pig.dao.User;
 import com.guineap_pig_329.guinea_pig.model.UserSession;
 import com.guineap_pig_329.guinea_pig.repo.BannerRepo;
@@ -94,12 +95,14 @@ public class AuthController {
      */
     @PostMapping("/password")
     @ResponseBody
-    public int changePassword(HttpSession session ,@RequestBody Map<String,Object> map){
+    public ResultBean changePassword(HttpSession session , @RequestBody Map<String,Object> map){
         UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
         String newPassword = (String) map.get("new_password");
-        if(newPassword == null) return 400;
+        if(newPassword == null) return  ResultBean.error(ResultBean.resources_not_found
+        ,"失败");
         int result = userRepo.updateUser(newPassword,user.getId());
-        return 200;
+
+        return ResultBean.success("修改成功");
     }
 
 }

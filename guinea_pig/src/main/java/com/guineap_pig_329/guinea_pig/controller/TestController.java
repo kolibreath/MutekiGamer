@@ -3,6 +3,7 @@ package com.guineap_pig_329.guinea_pig.controller;
 import com.guineap_pig_329.guinea_pig.Constants;
 import com.guineap_pig_329.guinea_pig.dao.*;
 import com.guineap_pig_329.guinea_pig.repo.*;
+import org.apache.tomcat.util.bcel.Const;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,15 +24,20 @@ public class TestController {
     private UserPermissionRepo userPermissionRepo;
     @Autowired
     private UserGameRepo userGameRepo;
-
+    @Autowired
+    private UserInfoRepo userInfoRepo;
+    @Autowired
+    private FriendsRepo friendsRepo;
+    @Autowired
+    private OfficialRepo officialRepo;
 
 //    private Game
     @RequestMapping("/inject")
-    public void inject() {
+    public String inject() {
         //todo 修改游戏介绍的图片
 
         //游戏内容介绍
-        Game overwatch  = new Game("守望先锋","《守望先锋》是暴雪出品的首款团队射击游戏，" +
+        Game overwatch  = new Game("overwatch","《守望先锋》是暴雪出品的首款团队射击游戏，" +
                 "现已正式来到中国。游戏以近未来地球为背景，来自全球的超级英雄们将使用自己独特的能力在战场上厮杀，带给玩家顶尖的射击体验。"
         , Constants.OVERWATCH_THUMBNAIL);
         Game diablo = new Game("暗黑破坏神","《暗黑破坏神》是1996年暴雪娱乐公司推出的一款动作RPG经典游戏系列" +
@@ -53,10 +59,23 @@ public class TestController {
         userRepo.save(rick);
 
         User morty = new User("morty",
-                "mortypass",0 ,"morty@morty.com",10);
+                "mortypass",0 ,"morty@morty.com",3);
+
+
+        User summer = new User("summer",
+                "summerpass",0 ,"summer@summer.com",4);
 
         userRepo.save(rick);
         userRepo.save(morty);
+        userRepo.save(summer);
+
+        Friends rick2morty = new Friends(rick.getUserId(),morty.getUserId());
+        Friends summer2morty = new Friends(summer.getUserId(),morty.getUserId());
+
+        friendsRepo.save(rick2morty);
+        friendsRepo.save(summer2morty);
+
+
 
         //用户管理权限
         GameManage gameManage = new GameManage(rick.getUserId(),overwatch.getGameId());
@@ -84,7 +103,7 @@ public class TestController {
 
         bannerRepo.save(LOL);
         bannerRepo.save(anime);
-
+//贴子
         Post post1 = new Post(rick.getUserId(),System.currentTimeMillis(),"this is a test",Constants.PREVIEWS,"守望先锋模式修改",overwatch.getGameId());
         Post post2 = new Post(rick.getUserId(),System.currentTimeMillis(),"this is a test",Constants.PREVIEWS,"炉石传说模式修改",hearthStone.getGameId());
         Post post3 = new Post(rick.getUserId(),System.currentTimeMillis(),"this is a test",Constants.PREVIEWS,"星际争霸模式修改",starcraft.getGameId());
@@ -94,6 +113,27 @@ public class TestController {
         postRepo.save(post2);
         postRepo.save(post3);
         postRepo.save(post4);
+
+        Post p1=new Post(2,System.currentTimeMillis(),"i love szy1",Constants.PREVIEWS,"title1!",2);
+        Post p2=new Post(3,System.currentTimeMillis(),"i love szy2",Constants.PREVIEWS,"title2!",3);
+
+        postRepo.save(p1);
+        postRepo.save(p2);
+
+        UserInfo rickInfo = new UserInfo(rick.getUserId(),Constants.OVERWATCH_THUMBNAIL,"the universe destroy", Constants.MALE,"Washington",70);
+        userInfoRepo.save(rickInfo);
+
+        Official official1=new Official(1,1);
+        officialRepo.save(official1);
+
+        Official official2=new Official(2,2);
+        officialRepo.save(official2);
+
+        Official official3=new Official(3,3);
+        officialRepo.save(official3);
+
+        return "fuck";
+
     }
 
     @RequestMapping("/1")

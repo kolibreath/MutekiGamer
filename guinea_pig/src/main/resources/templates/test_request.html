@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <script type="text/javascript"
         src="webjars/jquery/2.2.4/jquery.min.js"></script>
 <!--引入相关的js-->
@@ -42,6 +42,9 @@
     <input id="other_user_id" value="其他的用户的Id">
     <button  id="follow">关注用户</button>
     <button  id="unfollow">取消关注用户</button>
+
+    <br>
+    <button id="test_get_username">测试获取用户主页信息</button>
 
 
 </body>
@@ -115,6 +118,11 @@
             })
         };
 
+        document.getElementById("test_get_username").onclick = function () {
+            getUserInfo(function(result){
+                console.log(result);
+            })
+        };
 
     </script>
 

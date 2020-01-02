@@ -26,7 +26,7 @@ public class UserInfo {
     private String userCity;
 
     @Column
-    private String userAge;
+    private int userAge;
 
     public int getUserInfoId() {
         return userInfoId;
@@ -76,15 +76,24 @@ public class UserInfo {
         this.userCity = userCity;
     }
 
-    public String getUserAge() {
+    public UserInfo() {
+
+    }
+
+    public int getUserAge() {
         return userAge;
     }
 
-    public void setUserAge(String userAge) {
+    public void setUserAge(int userAge) {
         this.userAge = userAge;
     }
 
-    public UserInfo(){
-
+    public UserInfo(int userId, String userAvatar, String userIntro, int userSex, String userCity, int userAge) {
+        this.userId = userId;
+        this.userAvatar = userAvatar;
+        this.userIntro = userIntro;
+        this.userSex = userSex;
+        this.userCity = userCity;
+        this.userAge = userAge;
     }
 }

@@ -1,13 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+
+<title>MutekiGamer - Login</title>
+
 <head>
     <meta charset="utf-8"/>
     <!-- <meta http-equiv="Content-Type" content="text/html" /> -->
     <meta name="keyword" content="HTML, CSS, image, navigation"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>MutekiGamer - Login</title>
-    <link rel="stylesheet" type="text/css" href="./static/css/index.css"/>
-    <link rel="stylesheet" type="text/css" href="./static/css/login.css"/>
+    <base th:href="@{/}">
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="css/login.css"/>
+
+    <script type="text/javascript"
+            src="webjars/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/Team.js}"></script>
+    <script type="text/javascript" th:src="@{/js/Battle.js}"></script>
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 <body>
 <div class="barContainer">
@@ -31,5 +42,32 @@
 </div>
 
 战场！！！
+
+<div>
+    <input id="search" value="搜索游戏名称">
+    <button id="test_search">搜索</button>
+</div>
+<div>
+    <button id="news">显示战场资讯</button>
+</div>
+<script type="text/javascript">
+    document.getElementById("test_search").onclick = function () {
+        alert("fuck");
+        let content=document.getElementById("search").value;
+        alert("fuck "+ content);
+        search(content,function(result){
+            alert("fuck" + content);
+            console.log(result);
+        })
+    };
+</script>
+<script type="text/javascript">
+    document.getElementById("news").onclick =function () {
+        news(function (result) {
+            console.log(result);
+            alert("fuck u");
+        });
+    }
+</script>
 </body>
 </html>

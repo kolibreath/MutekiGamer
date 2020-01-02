@@ -2,12 +2,13 @@ package com.guineap_pig_329.guinea_pig.dao;
 
 import javax.persistence.*;
 
-/*
-好友表
+/**
+好友表 rick 关注了 morty  那样就是 rick 为 userId1 morty 为 userId2
  */
 @Entity
 @Table(name = "friends")
 public class Friends {
+
     @Id
     @GeneratedValue
     private int friendsId;
@@ -17,14 +18,6 @@ public class Friends {
 
     @Column
     private int userId2;
-
-    @Column
-    private int relationship;
-    /*
-    0=user1关注user2
-    1=user2关注user1
-    2=互相关注
-     */
 
     public int getFriendsId() {
         return friendsId;
@@ -50,21 +43,12 @@ public class Friends {
         this.userId2 = userId2;
     }
 
-    public int getRelationship() {
-        return relationship;
-    }
-
-    public void setRelationship(int relationship) {
-        this.relationship = relationship;
-    }
-
     public Friends(){
 
     }
 
-    public Friends(int userId1, int userId2, int relationship) {
+    public Friends(int userId1, int userId2) {
         this.userId1 = userId1;
         this.userId2 = userId2;
-        this.relationship = relationship;
     }
 }
