@@ -21,3 +21,16 @@ function changePasword(password,call){
     $.when(createNewPost).done(()=>call(resultCode))
 
 }
+
+/**
+ *
+ * @param ajaxNum 需要请求的数量
+ * @param data    传入的data的个数，是一个数组
+ * @param call    回掉
+ */
+function sendData(ajaxNum,data,call){
+
+    for(let i = 0 ;i < ajaxNum;i++){
+
+    }
+}
