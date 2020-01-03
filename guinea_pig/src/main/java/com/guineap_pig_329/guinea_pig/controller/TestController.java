@@ -28,7 +28,8 @@ public class TestController {
     private UserInfoRepo userInfoRepo;
     @Autowired
     private FriendsRepo friendsRepo;
-
+    @Autowired
+    private OfficialRepo officialRepo;
 
 //    private Game
     @RequestMapping("/inject")
@@ -102,7 +103,7 @@ public class TestController {
 
         bannerRepo.save(LOL);
         bannerRepo.save(anime);
-
+//贴子
         Post post1 = new Post(rick.getUserId(),System.currentTimeMillis(),"this is a test",Constants.PREVIEWS,"守望先锋模式修改",overwatch.getGameId());
         Post post2 = new Post(rick.getUserId(),System.currentTimeMillis(),"this is a test",Constants.PREVIEWS,"炉石传说模式修改",hearthStone.getGameId());
         Post post3 = new Post(rick.getUserId(),System.currentTimeMillis(),"this is a test",Constants.PREVIEWS,"星际争霸模式修改",starcraft.getGameId());
@@ -113,10 +114,26 @@ public class TestController {
         postRepo.save(post3);
         postRepo.save(post4);
 
+        Post p1=new Post(2,System.currentTimeMillis(),"i love szy1",Constants.PREVIEWS,"title1!",2);
+        Post p2=new Post(3,System.currentTimeMillis(),"i love szy2",Constants.PREVIEWS,"title2!",3);
+
+        postRepo.save(p1);
+        postRepo.save(p2);
+
         UserInfo rickInfo = new UserInfo(rick.getUserId(),Constants.OVERWATCH_THUMBNAIL,"the universe destroy", Constants.MALE,"Washington",70);
         userInfoRepo.save(rickInfo);
 
+        Official official1=new Official(1,1);
+        officialRepo.save(official1);
+
+        Official official2=new Official(2,2);
+        officialRepo.save(official2);
+
+        Official official3=new Official(3,3);
+        officialRepo.save(official3);
+
         return "fuck";
+
     }
 
     @RequestMapping("/1")
