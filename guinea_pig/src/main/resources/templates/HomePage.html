@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.thymeleaf.org">
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8" />
     <!-- <meta http-equiv="Content-Type" content="text/html" /> -->
@@ -13,6 +13,9 @@
     <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js">  </script>
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/template-web.js}"></script>
+    <script type="text/javascript" th:src="@{/js/Homepage.js}"></script>
+
 </head>
 
 <body>
@@ -38,7 +41,7 @@
 </div>
 <!--video-->
 <div>
-    <video autoplay loop muted style="width: 100%;height: auto;position: obsolute;">
+    <video autoplay loop muted style="width: 100%;height: auto;position: absolute;">
         <source src="https://blz.nosdn.127.net/1/tm/hearthstone/gameguide/descent-of-dragons/video/header_announcement.webm" type="video/mp4">
     </video>
 </div>
@@ -116,16 +119,12 @@
                 </div>
                 <div class="right">
                     <div class="textList">
-                        <ul>
-                            <li class="listTitle"><h1>Banner</h1></li>
-                            <li><a href="">Soccer Club: FIFA World Cup Semi-Final is approaching</a></li>
-
-                        </ul>
+                            <div class="listTitle"><h1>test</h1></div>
+                            <div id="content"></div>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="contextFrame">
             <div class="innerFrame">
                 <div class="left">
@@ -155,6 +154,22 @@
     </div>
 </div>
 
+
+<script id="all" type="text/html">
+    <ul>
+        {{each data}}
+        <li>{{$index+1}}:{{$value.content}}</li>
+        {{/each}}
+    </ul>
+</script>
+
+<script>
+    homepage(function(result){
+        var html = template('all', result.post);
+        console.log(html);
+        document.getElementById('content').innerHTML = html;
+    });
+</script>
 <footer>
     <div class="container">
         <div class="row">
@@ -197,27 +212,27 @@
     </div>
 </footer>
 
-<script type="text/javascript">
-    var slideIndex = 0;
-    showSlides();
+<!--<script type="text/javascript">-->
+    <!--var slideIndex = 0;-->
+    <!--showSlides();-->
 
-    function showSlides() {
-        var i;
-        var slides = document.getElementsByClassName("mySlides");
-        var dots = document.getElementsByClassName("dot");
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) {slideIndex = 1}
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex-1].style.display = "block";
-        dots[slideIndex-1].className += " active";
-        setTimeout(showSlides, 2000); // Change image every 2 seconds
-    }
+    <!--function showSlides() {-->
+        <!--var i;-->
+        <!--var slides = document.getElementsByClassName("mySlides");-->
+        <!--var dots = document.getElementsByClassName("dot");-->
+        <!--for (i = 0; i < slides.length; i++) {-->
+            <!--slides[i].style.display = "none";-->
+        <!--}-->
+        <!--slideIndex++;-->
+        <!--if (slideIndex > slides.length) {slideIndex = 1}-->
+        <!--for (i = 0; i < dots.length; i++) {-->
+            <!--dots[i].className = dots[i].className.replace(" active", "");-->
+        <!--}-->
+        <!--slides[slideIndex-1].style.display = "block";-->
+        <!--dots[slideIndex-1].className += " active";-->
+        <!--setTimeout(showSlides, 2000); // Change image every 2 seconds-->
+    <!--}-->
 
-</script>
+<!--</script>-->
 </body>
 </html>

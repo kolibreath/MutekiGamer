@@ -8,7 +8,7 @@ function homepage(call) {
         type:"GET",
         success:function(result){
             allData.banner = result;
-            console.log(result);
+           // console.log(result);
         },
         error:function (result) {
             allData.banner = result;
