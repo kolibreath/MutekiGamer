@@ -1,29 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <script type="text/javascript"
         src="webjars/jquery/2.2.4/jquery.min.js"></script>
 <!--引入相关的js-->
+<base th:href="@{/}">
 <script type="text/javascript" src="./static/js/Homepage.js"></script>
 <script type="text/javascript" src="./static/js/Post.js"></script>
 <script type="text/javascript" src="./static/js/Testyu.js"></script>
+<script type="text/javascript" th:src="@{/js/template-web.js}"></script>
+<script type="text/javascript" th:src="@{/js/testArtTemplate.js}"></script>
+
 <head>
     <meta charset="UTF-8">
     <title>yu</title>
 </head>
 <body>
-<input id="postId" value="帖子">
-<button id="delete" >删除</button>
-</body>
-<script>
-    document.getElementById("delete").onclick=function () {
-        let postId = document.getElementById("postId").value;
-
-        deletePost (postId,function (result) {
-            if(result==200)
-                alert("成功");
-            else
-                alert(result);
-        })
-    };
+<div id="content"></div>
+<div id="content2"></div>
+<script id="test" type="text/html">
+    姓名：{{userName}}
+    关注：{{followerNum}}
 </script>
+
+<script>
+    var data1={};
+        test(function(result){
+            data1=result.info.data;
+            console.log(data1);
+            var html = template('test', data1);
+            document.getElementById('content').innerHTML = html;
+        });
+</script>
+<script id="test2" type="text/html">
+    <p>{{title}}</p>
+</script>
+<script>
+    var data = {
+        title:"hello world"
+    };
+    var html = template("test2",data);
+    document.getElementById('content2').innerHTML = html;
+</script>
+
+</body>
 </html>
