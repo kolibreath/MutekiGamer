@@ -46,6 +46,9 @@
     <br>
     <button id="test_get_username">测试获取用户主页信息</button>
 
+    <br>
+    <button id="test_send_email">测试邮箱</button>
+
 
 </body>
     <script type="text/javascript">
@@ -123,6 +126,13 @@
                 console.log(result);
             })
         };
+
+        document.getElementById("test_send_email").onclick = function () {
+            alert("fuck 豚鼠");
+            sendEmail(function (result) {
+               console.log(result);
+            });
+        }
 
     </script>
 

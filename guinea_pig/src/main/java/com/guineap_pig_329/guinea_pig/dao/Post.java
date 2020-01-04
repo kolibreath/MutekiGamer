@@ -1,5 +1,7 @@
 package com.guineap_pig_329.guinea_pig.dao;
 
+import org.springframework.lang.Nullable;
+
 import javax.persistence.*;
 
 /*
@@ -30,6 +32,10 @@ public class    Post {
 
     @Column
     private int gameId;
+
+    @Nullable
+    @Column
+    private String link;
 
     public int getGameId() {
         return gameId;
@@ -98,5 +104,15 @@ public class    Post {
         this.tag = tag;
         this.title = title;
         this.gameId = gameId;
+    }
+
+    public Post(int userId, long time, String content, int tag, String title, int gameId, @Nullable String link) {
+        this.userId = userId;
+        this.time = time;
+        this.content = content;
+        this.tag = tag;
+        this.title = title;
+        this.gameId = gameId;
+        this.link = link;
     }
 }

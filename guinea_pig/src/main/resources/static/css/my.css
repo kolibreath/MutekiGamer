@@ -1,157 +1,120 @@
-body
-{
-	background-image: url('https://overwatch.nosdn.127.net/2/media/screenshots/busan-screenshot-002.jpg');
+body{
+	background:url("https://static.dingtalk.com/media/lALPDgQ9rapm9-3NBEzNB4A_1920_1100.png?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222035009758014%22%7D&bizType=im&open_id=267540834") no-repeat;
+	position: relative;
 	background-size: cover;
-	background-repeat:no-repeat;
-	background-attachment:fixed;
-	background-image: 
+	background-attachment: fixed;
+
 }
 
-.main-content{
-	max-width: 1440px;
+.divbox1{
+	width:100%;
+	height: 150px;
+}
+.left1{
+	width:100px;
+	height:100px;
+	margin-left:240px;
+	margin-top: 100px;
+	position:absolute;
+}
+.right1{
+	margin-left: 400px;
+
+	font-size:20px;
+	margin-top: 100px;
+	position: absolute;
+}
+
+
+.divbox2{
+	width:100%;
+	padding-top: 120px;
+}
+.name{
+	position: absolute;
+	margin-left: 80px;
+	margin-top: 20px;
+	font-size:20px;
+
+}
+
+
+
+div.col-sm-9 div {
+	height: 150px;
+	font-size: 18px;
+}
+#section1 {color: #000; background-color: rgba(255,255,255,0.5);}
+#section2 {color: #000; background-color: rgba(255,255,255,0.5);}
+#section3 {color: #000; background-color: rgba(255,255,255,0.5);}
+#section41 {color: #000; background-color: rgba(255,255,255,0.5);}
+#section42 {color: #000; background-color: rgba(255,255,255,0.5);}
+
+@media screen and (max-width: 405px) {
+	#section1, #section2, #section3, #section41, #section42  {
+		margin-left: 150px;
+
+	}
+}
+ul.nav-pills {
+	top: 300px;
+	margin-top: 20px;
+	margin-left:220px;
+	position: fixed;
+
+
+}
+div.col-8 div {
 	height: auto;
-	margin: 0 auto;
+	font-size: 50px;
+
+
+	margin-left: 50px;
+	margin-right: 150px;
+
+
 }
-
-.attention{
-	max-width: 1440px;
-	height: auto;
-	margin: 0 auto;
+.ui{
+	width:700px;
+	height:50px;
+	list-style: none;
+	margin:0;
+	padding:0;
 }
-
-.division{
-	height: 40px;
-	width: 100%;
-}
-
-/*topPic*/
-
-/*.main-content*/ .picFrame{
-	/*max-width: 1440px;*/
-	margin-top: 50px;
-	margin: 10px auto;
-	height: auto;
-	min-width: 600px;
-	background-color: lightgray;
-	border-radius: 10px;
-	padding: 50px;
+.ui li{
+	width:170px;
+	margin:0 10px;
+	float: left;/*该处换为display:inline-block;同样效果*/
 
 }
 
-/*.main-content .picFrame .picContent{
-	max-width: 1080px;
-	margin: 0px auto !important;
-	height: auto;
-}
-
-.main-content .picFrame .picContent img{
-	width: 100%;
-	height: auto;
-	margin: 0px auto;
-}*/
-
-/*mainContext*/
-
-  .carousel-inner img {
-      width: 100%;
-      height: 100%;
-  }
-
-.main-content .contextFrame{
-	margin-top: 40px;
-	width: 80%;
-	margin-left: 10%;
-	border-radius: 10px;
-	height: auto;
-	outline-style: none;
-	background: rgba(244,244,244,0.3);
-	outline-width: 1px;
-}
-
-.attention .attentionFrame{
-	/* margin-top: 40px; */
-	width: 80%;
-	margin-left: 10%;
-	border-radius: 10px;
-	height: auto;
-	outline-style: none;
-	background: rgba(244,244,244,0.3);
-	outline-width: 1px;
-}
-
-.attention .attentionFrame .attention-button{
-	width: 80px;
-	height: 25px;
-	opacity: 0.8; 
-	border-radius: 15px; 
-	background: #FF4500; 
-	border: none; 
-	outline: none;
-}
-.attention .attentionFrame .attention-button:hover{
-
-	opacity:0.8;
-}
-
-.main-content .contextFrame .innerFrame{
-	padding-top: 20px;
-	padding-bottom: 20px;
-	margin: 0px auto;
-	max-width: 1080px;
-	height: 100%;
-	overflow: hidden;
-}
-
-.contextFrame .innerFrame .left{
-	float: left;
-	width: 48%;
-	margin: 10px auto;
-	height: auto;
-}
-
-.contextFrame .innerFrame .right{
-	float: right;
-	width: 48%;
-	margin: 10px auto;
-	height: auto;
-}
-
-.contextFrame .innerFrame .textList{
-	width: 100%;
-	height: auto;
+.ui li a{
+	width:150px;
+	height:50px;
+	margin-left: 0px;
+	font-size: 20px;
+	line-height:50px;
 	display: inline-block;
-	border-width: 1px;
-	border-style: solid;
-	border-color: lightgray;
-	border-radius: 10px;
 }
 
-.contextFrame .innerFrame .textList ul{
-	padding: 20px 10px;
+.ul{/*动态反馈的格式*/
+	width:700px;
+	height:60px;
+	list-style: none;
+	margin:0;
+	padding:0;
+
+}
+.ul li{
+	width:170px;
+	height: 50px;
+	margin:0 10px;
+	float: left;/*该处换为display:inline-block;同样效果*/
+	font-size: 17px;
+	line-height:60px;
 }
 
-.contextFrame .innerFrame .textList .listTitle{
-	padding-left: 0px !important;
-	border-bottom-style: solid;
-	border-bottom-color: lightgray;
-	border-bottom-width: 1px;
-}
 
-.contextFrame .innerFrame .textList li{
-	padding: 10px 10px;
-	border-bottom-style: solid;
-	border-bottom-color: lightgray;
-	border-bottom-width: 1px;
+.nav-pills .nav-link.active{
+	background-color: rgba(255,255,255,0.5);
 }
-
-.contextFrame .innerFrame img{
-	width: 100%;
-	height: auto;
-	display: block;
-}
-
-.contextFrame .innerFrame a{text-decoration: none;}
-.contextFrame .innerFrame a:link {color:#141414;}    
-.contextFrame .innerFrame a:visited {color:	#FFFFF0;}  
-.contextFrame .innerFrame a:hover {color:#141414;}    
-.contextFrame .innerFrame a:active {color:#696969;}

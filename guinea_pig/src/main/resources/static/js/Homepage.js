@@ -8,12 +8,12 @@ function homepage(call) {
         type:"GET",
         success:function(result){
             allData.banner = result;
+            console.log(result);
         },
         error:function (result) {
             allData.banner = result;
         },
         complete:function (result) {
-            // completeFunction(result)
         }
     }));
 
@@ -47,7 +47,12 @@ function homepage(call) {
         }
     }));
 
-    $.when(gamesRequest,bannerRequest,postRequest).done(() => {call(allData)});
+    // let array = {};
+    // array[0] = bannerRequest;
+    // array[1] = postRequest;
+    // array[2] = gamesRequest;
+    //todo 前端ajax filter
+    $.when(gamesRequest, postRequest, bannerRequest).done(() => {call(allData)});
 }
 
 function getPostByGameId(gameId,call){
@@ -66,6 +71,7 @@ function getPostByGameId(gameId,call){
 
         }
     }));
+
     $.when(post).done(() =>{call(allData)});
 
 }

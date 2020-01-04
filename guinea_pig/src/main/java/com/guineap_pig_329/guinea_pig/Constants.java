@@ -11,8 +11,13 @@ public class Constants {
     public static String STAR_CRAFT = "https://img4.nga.178.com/proxy/cache_attach/ficon/406u.png?471)";
 
 
+    public static int MATCH_GAMING = 0;
+    public static int MATCH_END   = 1;
+
+
+
     public static int PERSONAL = 0;
-    public static int OFFICLA  = 1;
+    public static int OFFICLAL  = 1;
 
     /***
      * 用户是否管理了某一个论坛 板块
@@ -43,5 +48,6 @@ public class Constants {
     public static int THOUGHTS  = 2;
     public static int WALK_THOUGH = 3;
     public static int PREVIEWS= 4;
+    public static int OFFICIAL_NEWS_PRESS = 5;
 
 }

@@ -1,4 +1,4 @@
-package com.guineap_pig_329.guinea_pig.model;
+package com.guineap_pig_329.guinea_pig.dao;
 
 public class UserSession {
     private int id;

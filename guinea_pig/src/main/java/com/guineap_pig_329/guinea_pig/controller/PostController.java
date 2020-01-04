@@ -6,7 +6,7 @@ import com.guineap_pig_329.guinea_pig.dao.Post;
 import com.guineap_pig_329.guinea_pig.dao.Response;
 import com.guineap_pig_329.guinea_pig.dao.ResultBean;
 import com.guineap_pig_329.guinea_pig.dao.User;
-import com.guineap_pig_329.guinea_pig.model.UserSession;
+import com.guineap_pig_329.guinea_pig.dao.UserSession;
 import com.guineap_pig_329.guinea_pig.repo.PostRepo;
 import com.guineap_pig_329.guinea_pig.repo.ResponseRepo;
 import com.guineap_pig_329.guinea_pig.repo.UserRepo;
@@ -35,11 +35,11 @@ public class PostController {
     private ResponseRepo responseRepo;
 
     @RequestMapping("/selected")
-    public List<Post> getPosts(HttpSession session){
+    public ResultBean getPosts(HttpSession session){
         UserSession user  = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
         int userId  = user.getId();
         List<Post> posts = postRepo.findAllByUserId(userId);
-        return sortPost(posts);
+        return ResultBean.success(sortPost(posts));
     }
 
     /**
@@ -48,16 +48,16 @@ public class PostController {
      * @return
      */
     @RequestMapping("/user/{id}")
-    public List<Post> getPostByGameId(@PathVariable("id") Integer gameId){
+    public ResultBean getPostByGameId(@PathVariable("id") Integer gameId){
         List<Post> posts  = postRepo.findAllByGameId(gameId);
-        return posts;
+        return ResultBean.success(posts);
         //todo 排序方式
     }
 
     @PostMapping(value = "/new_post")
     //成功 200 错误 返回 500
     //从当前的userSession中取出
-    public int newPost(HttpSession session, @RequestBody Map<String,Object> map){
+    public ResultBean newPost(HttpSession session, @RequestBody Map<String,Object> map){
         UserSession user  = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
         int userId = user.getId();
         String postContent = (String) map.get("postContent");
@@ -69,19 +69,19 @@ public class PostController {
             gameId = Integer.parseInt((String) map.get("gameId"));
             time = (long) map.get("time");
         }catch (Exception e){
-            return 500;
+            return ResultBean.error(ResultBean.internal_error,"解析失败");
         }
         if(postContent == null || postTitle == null)
-            return 400;
+            return ResultBean.error(ResultBean.resources_not_found,"解析失败");
         Post post = new Post(
                 userId,time,postContent,tag,postTitle,gameId
         );
         postRepo.save(post);
-        return 200;
+        return ResultBean.success(null);
     }
 
     @PostMapping("/new_response")
-    public int newResponse(HttpSession session, @RequestBody Map<String, Object> map){
+    public ResultBean newResponse(HttpSession session, @RequestBody Map<String, Object> map){
         UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
         int userId = user.getId();
         String responseContent =(String) map.get("responseContent");
@@ -89,28 +89,40 @@ public class PostController {
         try {
             postId = (int) map.get("postId");
         }catch (Exception e){
-            return 500;
+            return ResultBean.error(ResultBean.internal_error,"解析失败");
         }
         Response response = new Response(userId, postId, responseContent);
         if(responseContent == null){
-            return 400;
+            return ResultBean.error(ResultBean.resources_not_found,"解析失败");
         }
             responseRepo.save(response);
-        return 200;
+        return ResultBean.success(null);
     }
 
     @PostMapping("/delete_post")
-    public int deletePost(@RequestBody Map<String,Object> map)
+    public ResultBean deletePost(@RequestBody Map<String,Object> map)
     {
         int postId;
         try {
             postId = Integer.parseInt((String) map.get("postId"));
         }catch (Exception e){
-            return 500;
+            return ResultBean.error(ResultBean.internal_error,"解析失败");
         }
        postRepo.deleteById(postId);
-        return 200;
+        return ResultBean.success(null);
     }
+
+    @PostMapping("/filter/{tag}")
+    public ResultBean filterByTag(@PathVariable("tag") int tag){
+        List<Post> filteredPost ;
+        try{
+            filteredPost = postRepo.findByTag(tag);
+        }catch (Exception e){
+            return ResultBean.error(ResultBean.internal_error,"没有帖子内容");
+        }
+        return ResultBean.success(filteredPost);
+    }
+
 
     //重新排序帖子的方法
     private List<Post> sortPost(List<Post> posts){
