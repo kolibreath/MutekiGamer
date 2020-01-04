@@ -1,38 +1,39 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <!-- <meta http-equiv="Content-Type" content="text/html" /> -->
-    <meta name="keyword" content="HTML, CSS, image, navigation"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="keyword" content="HTML, CSS, image, navigation" />
     <title>MutekiGamer - News</title>
     <base th:href="@{}">
-    <link rel="stylesheet" type="text/css" href="css/index.css"/>
-    <link rel="stylesheet" type="text/css" href="css/my.css"/>
-    .body
+    <html lang=”en”xmlns=”http：//www.thymeleaf.org”>
+    <link rel="stylesheet" type="text/css" href="css/news.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="css/HomePage.css" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js">  </script>
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </head></html>
 
-</head>
 <body>
+<!-- Navigation Bar-->
 <div class="barContainer">
-    <div class="nav-content">
+    <div class="nav-content" >
         <div class="nav-title">
                 <span>
                     <img src="https://static.dingtalk.com/media/lALPDgQ9rZl6KXPNAljNB0Q_1860_600.png?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222028145409841%22%7D&bizType=im&open_id=267508618" alt="MutekiGamer logo">
                 </span>
         </div>
         <div class="nav-text">
-            <span style="float: left"><a href="HomePage">主页</a></span>
-            <span style="float: left"><a href="/homepage/community">社区</a></span>
-            <span style="float: left"><a href="/homepage/news">头条</a></span>
-            <span style="float: left"><a href="/homepage/battle">战场</a></span>
-            <span style="float: right"><a href="/homepage/my">我</a></span>
+            <span style="float: left"><a href="HomePage.html">Home</a></span>
+            <span style="float: left"><a href="BBSIndex.html">BBS</a></span>
+            <span style="float: left"><a href="">Games</a></span>
+            <span style="float: left"><a href="">News</a></span>
+            <span style="float: left"><a href="">My</a></span>
             <span class="user">
-                    <a href="login">Login</a>
+                    <a href="login.html">Login</a>
                 </span>
         </div>
     </div>
@@ -73,7 +74,7 @@
     </div>
 
     <div class="main-content">
-        <div class="contextFrame" style="padding-left:0px">
+        <div class="contextFrame" style="padding-left: 0px;">
                 <span>
                     <img src="https://blznav.akamaized.net/img/games/logo-ow-4be5755bc0a4cbaf.png" style="width: 80px;height: 80px;margin-left: 50px;">
                 </span>
@@ -104,7 +105,7 @@
             </button>
         </div>
         <div class="attention">
-            <div class="attentionFrame" style="padding-left:0px; padding-top: 10px">
+            <div class="attentionFrame" style="padding-left: 0px; padding-top: 10px">
                 <button>
                     <a href="https://ow.blizzard.cn/home">
                         <button class="attention-button" style="margin-left:45px;  " >
@@ -134,7 +135,6 @@
                         <button class="attention-button" style="margin-left:60px; ">
                             关注Ta</button>
                     </a>
-                    </a>
                 </button>
             </div>
         </div>
@@ -159,6 +159,7 @@
         <div class="division"></div>
     </div>
 </div>
+
 <footer>
     <div class="container">
         <div class="row">
@@ -201,5 +202,27 @@
     </div>
 </footer>
 
+<script type="text/javascript">
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+
+</script>
 </body>
 </html>
