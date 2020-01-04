@@ -41,34 +41,34 @@ public class UserController {
      * @return 关注成功 返回 200 关注失败返回 400 发生异常返回 500
      */
     @RequestMapping("/follow")
-    public int  follow(HttpSession session, Map<String,Object> map){
+    public ResultBean  follow(HttpSession session, Map<String,Object> map){
         UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
         int userId = user.getId();
         int otherUserId;
         try {
             otherUserId = (int) map.get("otherUserId");
         }catch (Exception e){
-            return 500;
+            return ResultBean.error(ResultBean.internal_error,"服务器错误");
         }
         //todo code check
         Friends friends = new Friends(userId, otherUserId);
         friendsRepo.save(friends);
-        return 200;
+        return ResultBean.success(null);
     }
 
 
     @RequestMapping("/unfollow")
-    public int  unfollow(HttpSession session, Map<String,Object> map){
+    public ResultBean  unfollow(HttpSession session, Map<String,Object> map){
         UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
         int otherUserId;
         try {
             otherUserId = (int) map.get("otherUserId");
         }catch (Exception e){
-            return 500;
+            return ResultBean.error(ResultBean.internal_error,"服务器错误");
         }
         Friends friend = friendsRepo.findByUserId1AndUserId2(user.getId(),otherUserId);
         friendsRepo.deleteById(friend.getFriendsId());
-        return 200;
+        return ResultBean.success(null);
     }
 
     /**

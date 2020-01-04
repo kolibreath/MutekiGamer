@@ -2,7 +2,7 @@ package com.guineap_pig_329.guinea_pig.controller;
 
 
 import com.guineap_pig_329.guinea_pig.Constants;
-import com.guineap_pig_329.guinea_pig.dao.UserGame;
+import com.guineap_pig_329.guinea_pig.dao.ResultBean;
 import com.guineap_pig_329.guinea_pig.dao.UserSession;
 import com.guineap_pig_329.guinea_pig.repo.UserGameRepo;
 import com.guineap_pig_329.guinea_pig.repo.UserInfoRepo;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
 @RestController
 @RequestMapping("game")
@@ -23,10 +22,10 @@ public class GameController {
 
 
     @RequestMapping("/user")
-    public List<UserGame> getGames(HttpSession session){
+    public ResultBean getGames(HttpSession session){
         //todo 需要在处理
         UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
-        return userGameRepo.findAllByUserId(user.getId());
+        return ResultBean.success(userGameRepo.findAllByUserId(user.getId()) );
     }
 
 
