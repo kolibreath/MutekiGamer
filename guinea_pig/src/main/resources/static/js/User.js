@@ -64,3 +64,25 @@ function getUserInfo(call) {
 
     $.when(request).done( () => { call(allData) } );
 }
+
+
+function sendEmail(call){
+    let allData={};
+
+    alert("fuck 豚鼠邮箱");
+
+    let request = $.ajax(({
+        type:"GET",
+        url:"/mail/send",
+        success:function (result) {
+            alert("fuck 豚鼠大邮箱");
+            allData.info = result;
+        },
+        error:function (result) {
+            alert("fuck 豚鼠大邮箱" + result);
+            //todo 错误处理
+        }
+    }));
+
+    $.when(request).done( () => { call(allData) } );
+}

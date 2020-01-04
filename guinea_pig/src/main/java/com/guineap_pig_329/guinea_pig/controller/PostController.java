@@ -6,7 +6,7 @@ import com.guineap_pig_329.guinea_pig.dao.Post;
 import com.guineap_pig_329.guinea_pig.dao.Response;
 import com.guineap_pig_329.guinea_pig.dao.ResultBean;
 import com.guineap_pig_329.guinea_pig.dao.User;
-import com.guineap_pig_329.guinea_pig.model.UserSession;
+import com.guineap_pig_329.guinea_pig.dao.UserSession;
 import com.guineap_pig_329.guinea_pig.repo.PostRepo;
 import com.guineap_pig_329.guinea_pig.repo.ResponseRepo;
 import com.guineap_pig_329.guinea_pig.repo.UserRepo;
@@ -111,6 +111,18 @@ public class PostController {
        postRepo.deleteById(postId);
         return 200;
     }
+
+    @PostMapping("/filter/{tag}")
+    public ResultBean filterByTag(@PathVariable("tag") int tag){
+        List<Post> filteredPost ;
+        try{
+            filteredPost = postRepo.findByTag(tag);
+        }catch (Exception e){
+            return ResultBean.error(ResultBean.internal_error,"没有帖子内容");
+        }
+        return ResultBean.success(filteredPost);
+    }
+
 
     //重新排序帖子的方法
     private List<Post> sortPost(List<Post> posts){

@@ -4,6 +4,9 @@ import org.springframework.stereotype.Controller;
 
 import javax.persistence.*;
 
+/*
+战队信息
+ */
 @Entity
 @Table(name="team")
 public class Team {
@@ -18,12 +21,21 @@ public class Team {
     private String teamName;
 
     @Column
-    private int teamInfoId;
+    private String officialWeb;
 
-    public Team(int gameId, String teamName, int teamInfoId) {
+
+    public Team(int gameId, String teamName, String officialWeb) {
         this.gameId = gameId;
         this.teamName = teamName;
-        this.teamInfoId = teamInfoId;
+        this.officialWeb = officialWeb;
+    }
+
+    public String getOfficialWeb() {
+        return officialWeb;
+    }
+
+    public void setOfficialWeb(String officialWeb) {
+        this.officialWeb = officialWeb;
     }
 
     public Team(){
@@ -53,11 +65,4 @@ public class Team {
         this.teamName = teamName;
     }
 
-    public int getTeamInfoId() {
-        return teamInfoId;
-    }
-
-    public void setTeamInfoId(int teamInfoId) {
-        this.teamInfoId = teamInfoId;
-    }
 }

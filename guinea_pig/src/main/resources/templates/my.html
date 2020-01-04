@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <!--1. 引入namespace-->
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en"  xmlns="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8"/>
-    <!-- <meta http-equiv="Content-Type" content="text/html" /> -->
-    <!--<img th:src="@{/timg.jpg}"/>-->
-    <meta name="keyword" content="HTML, CSS, image, navigation"/>
-    <script type="text/javascript" th:src="@{/js/Homepage.js}"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>MutekiGamer - Login</title>
+    <meta charset="utf-8" />
+    <meta name="keyword" content="HTML, CSS, image, navigation" />
+    <title>MY</title>
     <base th:href="@{/}">
-    <link rel="stylesheet" type="text/css" href="css/index.css"/>
-    <link rel="stylesheet" type="text/css" href="css/login.css"/>
 
-    <script type="text/javascript" th:src="@{/js/User.js}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./static/css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="./static/css/login.css"/>
+    <link rel="stylesheet" type="text/css" href="./static/css/my.css"/>
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
 </head>
-<!--<body onload="loadPage()">-->
-
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="300">
+<!-- Navigation Bar -->
 <div class="barContainer">
     <div class="nav-content">
         <div class="nav-title">
@@ -32,12 +35,224 @@
             <span style="float: right"><a href="/homepage/my">我</a></span>
             <span class="user">
                     <a href="login">Login</a>
-                </span>
+            </span>
         </div>
     </div>
 </div>
-<div>
-    <button id="test_load"></button>
+
+<!--photo-->
+<div class="divbox1">
+    <div class="left1">
+        <img src="./static/img/photo.png">
+    </div>
+    <div  class=right1>用户名<br><br>
+        <ul class="ui">
+            <li><a href="#">发帖数</a></li>
+            <li><a href="#">关注人数</a></li>
+            <li><a href="#">粉丝数</a></li>
+        </ul>
+
+    </div>
 </div>
+<!--scroll-->
+<div class=divbox2 >
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-sm-3 col-4" id="myScrollspy">
+                <ul class="nav nav-pills flex-column" style="text-align: center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#section1"><img src="img/lushi.png"   style="width:60px; height:60;"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section2"><img src="img/anhei.png"    style="width:60px; height:60;"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section3"><img src="img/moshou.png"   style="width:60px; height:60;"></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"><img src="img/fengbao.png"   style="width:60px; height:60;"></a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#section41">Link 1</a>
+                            <a class="dropdown-item" href="#section42">Link 2</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="col-sm-9 col-8">
+                <div id="section1" >
+                    <ul>
+                        <li>
+                            <div style="font-size: 20px; padding-top:20px">24分钟前
+                            </div>
+                            <div style="font-size: 18px;margin-top: 20px">虽败犹荣,9倍的快乐你想象不到（狗头）<br>为早上的莽撞自罚一杯！
+                            </div>
+                            <div style="border: 0.5px solid gray;width:680px;height:1px"></div>
+                            <div>
+                                <ul class="ul">
+                                    <li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128" style="width: 25px;height: 17px">&nbsp浏览数</li>
+                                    <li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128" style="width: 18px;height: 18px">&nbsp评论数</li>
+                                    <li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128" style="width: 20px;height: 20px">&nbsp点赞数</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li style="border: 0.5px solid gray;width:780px;height:2px"></li>
+                        <li>
+                            <div style="font-size: 20px; padding-top: 20px">一天前</div>
+                            <div style="font-size: 18px; margin-top: 20px">#炉石传说#圣光指引我！<br>
+                                我觉得鲍勃在骗我，只有小粉，我的恶魔呢？
+                            </div>
+                            <div style="border: 0.5px solid gray;width:680px;height:1px"></div>
+                            <div>
+                                <ul class="ul">
+                                    <li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128" style="width: 25px;height: 17px">&nbsp浏览数</li>
+                                    <li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128" style="width: 18px;height: 18px">&nbsp评论数</li>
+                                    <li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128" style="width: 20px;height: 20px">&nbsp点赞数</li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="section2" >
+                    <ul>
+                        <li>
+                            <div style="font-size: 20px; padding-top:20px">24分钟前
+                            </div>
+                            <div style="font-size: 18px;margin-top: 20px">#暗黑破坏神#虽败犹荣,9倍的快乐你想象不到（狗头）<br>为早上的莽撞自罚一杯！
+                            </div>
+                            <div style="border: 0.5px solid gray;width:680px;height:1px"></div>
+                            <div>
+                                <ul class="ul">
+                                    <li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128" style="width: 25px;height: 17px">&nbsp浏览数</li>
+                                    <li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128" style="width: 18px;height: 18px">&nbsp评论数</li>
+                                    <li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128" style="width: 20px;height: 20px">&nbsp点赞数</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li style="border: 0.5px solid gray;width:780px;height:2px"></li>
+                        <li>
+                            <div style="font-size: 20px; padding-top: 20px">一天前
+                            </div>
+                            <div style="font-size: 18px; margin-top: 20px">圣光指引我！<br>
+                                我觉得鲍勃在骗我，只有小粉，我的恶魔呢？
+                            </div>
+                            <div style="border: 0.5px solid gray;width:680px;height:1px"></div>
+                            <div>
+                                <ul class="ul">
+                                    <li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128" style="width: 25px;height: 17px">&nbsp浏览数</li>
+                                    <li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128" style="width: 18px;height: 18px">&nbsp评论数</li>
+                                    <li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128" style="width: 20px;height: 20px">&nbsp点赞数</li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="section3" >
+                    <ul>
+                        <li>
+                            <div style="font-size: 20px; padding-top:20px">24分钟前
+                            </div>
+                            <div style="font-size: 18px;margin-top: 20px">#魔兽世界#虽败犹荣,9倍的快乐你想象不到（狗头）<br>为早上的莽撞自罚一杯！
+                            </div>
+                            <div style="border: 0.5px solid gray;width:680px;height:1px"></div>
+                            <div>
+                                <ul class="ul">
+                                    <li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128" style="width: 25px;height: 17px">&nbsp浏览数</li>
+                                    <li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128" style="width: 18px;height: 18px">&nbsp评论数</li>
+                                    <li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128" style="width: 20px;height: 20px">&nbsp点赞数</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li style="border: 0.5px solid gray;width:780px;height:2px"></li>
+                        <li>
+                            <div style="font-size: 20px; padding-top: 20px">一天前
+                            </div>
+                            <div style="font-size: 18px; margin-top: 20px">圣光指引我！<br>
+                                我觉得鲍勃在骗我，只有小粉，我的恶魔呢？
+                            </div>
+                            <div style="border: 0.5px solid gray;width:680px;height:1px"></div>
+                            <div>
+                                <ul class="ul">
+                                    <li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128" style="width: 25px;height: 17px">&nbsp浏览数</li>
+                                    <li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128" style="width: 18px;height: 18px">&nbsp评论数</li>
+                                    <li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128" style="width: 20px;height: 20px">&nbsp点赞数</li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="section41" >
+                    <ul>
+                        <li>
+                            <div style="font-size: 20px; padding-top:20px">24分钟前
+                            </div>
+                            <div style="font-size: 18px;margin-top: 20px">#风暴英雄1#虽败犹荣,9倍的快乐你想象不到（狗头）<br>为早上的莽撞自罚一杯！
+                            </div>
+                            <div style="border: 0.5px solid gray;width:680px;height:1px"></div>
+                            <div>
+                                <ul class="ul">
+                                    <li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128" style="width: 25px;height: 17px">&nbsp浏览数</li>
+                                    <li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128" style="width: 18px;height: 18px">&nbsp评论数</li>
+                                    <li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128" style="width: 20px;height: 20px">&nbsp点赞数</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li style="border: 0.5px solid gray;width:780px;height:2px"></li>
+                        <li>
+                            <div style="font-size: 20px; padding-top: 20px">一天前
+                            </div>
+                            <div style="font-size: 18px; margin-top: 20px">圣光指引我！<br>
+                                我觉得鲍勃在骗我，只有小粉，我的恶魔呢？
+                            </div>
+                            <div style="border: 0.5px solid gray;width:680px;height:1px"></div>
+                            <div>
+                                <ul class="ul">
+                                    <li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128" style="width: 25px;height: 17px">&nbsp浏览数</li>
+                                    <li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128" style="width: 18px;height: 18px">&nbsp评论数</li>
+                                    <li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128" style="width: 20px;height: 20px">&nbsp点赞数</li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="section42" >
+                    <ul>
+                        <li>
+                            <div style="font-size: 20px; padding-top:20px">24分钟前
+                            </div>
+                            <div style="font-size: 18px;margin-top: 20px">#风暴英雄2#虽败犹荣,9倍的快乐你想象不到（狗头）<br>为早上的莽撞自罚一杯！
+                            </div>
+                            <div style="border: 0.5px solid gray;width:680px;height:1px"></div>
+                            <div>
+                                <ul class="ul">
+                                    <li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128" style="width: 25px;height: 17px">&nbsp浏览数</li>
+                                    <li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128" style="width: 18px;height: 18px">&nbsp评论数</li>
+                                    <li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128" style="width: 20px;height: 20px">&nbsp点赞数</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li style="border: 0.5px solid gray;width:780px;height:2px"></li>
+                        <li>
+                            <div style="font-size: 20px; padding-top: 20px">一天前
+                            </div>
+                            <div style="font-size: 18px; margin-top: 20px">圣光指引我！<br>
+                                我觉得鲍勃在骗我，只有小粉，我的恶魔呢？
+                            </div>
+                            <div style="border: 0.5px solid gray;width:680px;height:1px"></div>
+                            <div>
+                                <ul class="ul">
+                                    <li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128" style="width: 25px;height: 17px">&nbsp浏览数</li>
+                                    <li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128" style="width: 18px;height: 18px">&nbsp评论数</li>
+                                    <li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128" style="width: 20px;height: 20px">&nbsp点赞数</li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </body>
 </html>
