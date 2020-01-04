@@ -1,73 +1,331 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.thymeleaf.org">
-
-<title>MutekiGamer - Login</title>
-
+<html lang="en" xmlns="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
     <!-- <meta http-equiv="Content-Type" content="text/html" /> -->
     <meta name="keyword" content="HTML, CSS, image, navigation"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>MutekiGamer - Login</title>
+    <title>MutekiGamer - Battle</title>
     <base th:href="@{/}">
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
     <link rel="stylesheet" type="text/css" href="css/login.css"/>
-
-    <script type="text/javascript"
-            src="webjars/jquery/2.2.4/jquery.min.js"></script>
-    <script type="text/javascript" th:src="@{/js/Team.js}"></script>
-    <script type="text/javascript" th:src="@{/js/Battle.js}"></script>
-    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="css/battle.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js">  </script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-autohidingnavbar/4.0.0/jquery.bootstrap-autohidingnavbar.js"></script>
 </head>
-<body>
-<div class="barContainer">
-    <div class="nav-content">
-        <div class="nav-title">
-                <span>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
+    <!-- Navigation Bar -->
+    <!-- <nav class="navbar navbar-expand-md  nav-content fixed-top" style="padding-top: 0;padding-bottom: 0;padding-left: 20%;">
+        <a class="navbar-brand" href="#" style="padding-top: 0;padding-bottom: 0;">
+            <img src="https://static.dingtalk.com/media/lALPDgQ9rZl6KXPNAljNB0Q_1860_600.png?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222028145409841%22%7D&bizType=im&open_id=267508618" alt="MutekiGamer logo" style="height: 65px;width: 150px;">
+        </a>
+        <button class="navbar-toggler bg-secondary" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon">
+                <hr style="margin-top: 0.3rem;margin-bottom: 0.5rem;  background-color: white;">
+                <hr style="margin-top: 0.5rem;margin-bottom: 0.5rem;background-color: white;">
+                <hr style="margin-top: 0.5rem;background-color: white;">
+            </span>
+        </button>
+        <div class="collapse navbar-collapse nav-text nav-justified" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="HomePage1">主页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/homepage/community">社区</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/homepage/news">头条</a>
+                </li> 
+                <li class="nav-item">
+                    <a class="nav-link" href="/homepage/my">战场</a>
+                </li> 
+                <li style="padding-left: 80%;font-size: 12px;">
+                    <a href="Login">Login</a>
+                </li>  
+            </ul>
+        </div>
+        <div class="user"> 
+        <span style="">
+            <a href="Login">Login</a>
+        </span>
+        </div>  
+    </nav>
+    <br> -->
+    <div class="barContainer">
+        <div class="nav-content" >
+            <div class="nav-title">
+                <span >
                     <img src="https://static.dingtalk.com/media/lALPDgQ9rZl6KXPNAljNB0Q_1860_600.png?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222028145409841%22%7D&bizType=im&open_id=267508618" alt="MutekiGamer logo">
                 </span>
-        </div>
-        <div class="nav-text">
-            <span style="float: left"><a href="HomePage">主页</a></span>
+            </div>  
+            <div class="nav-text">
+            <span style="float: left"><a href="HomePage1">主页</a></span>
             <span style="float: left"><a href="/homepage/community">社区</a></span>
             <span style="float: left"><a href="/homepage/news">头条</a></span>
             <span style="float: left"><a href="/homepage/battle">战场</a></span>
             <span style="float: right"><a href="/homepage/my">我</a></span>
             <span class="user">
-                    <a href="login">Login</a>
-                </span>
+                    <a href="Login">Login</a>
+            </span>
+            </div>
         </div>
     </div>
-</div>
 
-战场！！！
+    <div class="gamechose" style="position: sticky;margin-bottom: 80px;top: 0;">
+        <div class="card" style="background: rgba(244,244,244,0.8);height: 80%;">
+            <div class="card-body">
+                <form class="form-inline" style="margin-left: 30px;">
+                    <input class="form-control" type="text" placeholder="Search">
+                    <button class="btn btn-dark" type="button">Search</button>
+                </form>
+                <div class="container">
+                <ul class="nav flex-column">
+                    <li style="margin: 20px;height: 80px;">
+                        <img src="https://game.gtimg.cn/images/lol/v3/logo-public.png" class="imgsize" style="  margin-top: 30px;">
+                        <a class="nav-link gamelink" href="#">英雄联盟</a>
+                        </li>
+                    <li style="margin: 20px;height: 80px;">
+                        <img src="https://blznav.akamaized.net/img/games/logo-heroes-78cae505b7a524fb.png" class="imgsize">
+                        <a class="nav-link gamelink" href="#">风暴英雄</a>
+                    </li>
+                    <li style="margin: 20px;height: 80px;">
+                        <img src="https://blznav.akamaized.net/img/games/logo-ow-4be5755bc0a4cbaf.png" class="imgsize">
+                        <a class="nav-link gamelink" href="#" >守望先锋</a>
+                    </li>
+                    <li style="margin: 20px;height: 80px;">
+                        <img src="https://game.gtimg.cn/images/pubg/act/a20171114feature/logo_b.png" class="imgsize" style="  margin-top: 25px;">
+                        <a class="nav-link gamelink" href="#" >绝地求生</a>
+                    </li>
+                    <li class="nav-item dropdown" style="text-align: center;">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">更多游戏
+                        </a>
+                        <div class="dropdown-menu" style="text-align: center;width: 60%;margin-left: 20%;">
+                            <a class="dropdown-item" href="#">星际争霸2</a>
+                            <a class="dropdown-item" href="#">炉石传说</a>
+                            <a class="dropdown-item" href="#">魔兽重置</a>
+                        </div>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="width: 50%;float: right;margin-right: 10%;margin-top: 50px;">
+        <img src="https://static.dingtalk.com/media/lADPDgQ9rZ-VKL7NAgnNBbA_1456_521.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222030464972053%22%7D&bizType=im&open_id=267508618">
+    </div>
+    <div class="navbars" style="z-index: 22;">
+        <nav class="navroll" >
+            <ul class="nav nav-tabs" role="tablist" style="height: 100%;text-align: center;width: 100%;">
+                <li class="nav-item" style="width: 25%;">
+                    <a class="nav-link active" data-toggle="tab" href="#home" style="height: 100%;">资讯</a>
+                </li>
+                <li class="nav-item" style="width: 25%">
+                    <a class="nav-link" data-toggle="tab" href="#menu1" style="height: 100%;">社区</a>
+                </li>
+                <li class="nav-item" style="width: 25%">
+                    <a class="nav-link" data-toggle="tab" href="#menu2" style="height: 100%;">战队</a>
+                </li>
+                <li class="nav-item chosebut">
+                    <a class="nav-link" data-toggle="tab" href="#menu3" style="height: 100%;">赛事</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- <div class="card" style="background: rgba(244,244,244,0.8);width: 50%;float: right;height: auto;margin-right: 10%;margin-top: 50px;"> -->
+        <div class="tab-content tabchose">
+            <!-- 资讯 -->
+            <div id="home" class="container tab-pane active">
+                <ul class="flex-column" style="height: auto;">
+                    <li class="newspage">
+                        <h1 class="titledetail"><a href="http://dj.sina.com.cn/article/ihnzahk0855468.shtml" target="_blank" title="" style="text-decoration: none;">德玛西亚杯冠军RNG赛后群访：拿到这个冠军算是一个新的开始吧</a></h1>
+                        <p id="" class="newsdetail">北京时间12月29日，在2019德玛西亚杯决赛中，RNG成功让一追三EDG夺得冠军！赛后RNG战队接受了媒体群访。</p>
+                        <div>
+                            <a href="#" title="作者">大电竞</a>
+                            <span style="float: right;">2019-12-30 14:30:21</span>
+                        </div>
+                    </li>
+                    <li class="newspage">
+                        <h1 class="titledetail"><a href="http://dj.sina.com.cn/article/ihnzahi1835305.shtml" target="_blank" title="" style="text-decoration: none;">从偏见中走出的炉石夺冠女生</a></h1>
+                        <p id="" class="newsdetail">本月初的暴雪嘉年华上，Liooon夺得了《炉石传说》特级大师赛的冠军，成为首位拿到这项赛事冠军的国服选手，而更吸引人眼球的是，Liooon还是一名女选手。</p>
+                        <div>
+                            <a href="#" title="作者">冲浪鸽</a>
+                            <span style="float: right;">2019-11-19 09:24</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- 社区 -->
+            <div id="menu1" class="container tab-pane fade">
+                <ul class="flex-column" style="height: auto;">
+                    <li class="newspage">
+                        <h1 class="titledetail"><a href="" target="_blank" title="" style="text-decoration: none;">第一天揭幕战就太劲爆了吧！FPX VS IG</a></h1>
+                        <p id="" class="newsdetail">1月13号 17:00 LPL春季赛开赛，第一场由FPX对阵iG~你们觉得谁将获得春季赛第一场胜利呢？</p>
+                        <div>
+                            <a href="#" title="作者">callmeGKD</a>
+                            <span style="float: right;">2020-1-1 09:24</span>
+                        </div>
+                    </li>
+                    <li class="newspage">
+                        <h1 class="titledetail"><a href="" target="_blank" title="" style="text-decoration: none;">三个女汉子，剑姬，刀妹，瑞文，谁的操作最难，谁的操作最简单</a></h1>
+                        <p id="" class="newsdetail">最近想玩上单，不知道玩哪个，老年人了操作跟不上。</p>
+                        <div>
+                            <a href="#" title="作者">小凤凰</a>
+                            <span style="float: right;">2019-12-30 14:30:21</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- 战队 -->
+            <div id="menu2" class="container tab-pane fade">
+                <dl>
+                    <dd class="clublist">
+                        <a href="">
+                            <img src="http://img.crawler.qq.com/lolwebvideo/20180925110059/69d20800d8dad53348ff74ce3d1ab737/0" alt="EDG" style="width: 50%;height: auto;">
+                            <p class="clubname text-muted">EDG</p>
+                        </a>
+                    </dd>
+                    <dd class="clublist">
+                        <a href="">
+                            <img src="https://img.crawler.qq.com/lolwebvideo/20190908174443/f40e23c19e85c9b3c50a3ed36e84ff41/0" alt="FPX" style="width: 50%;height: auto;">
+                            <p class="clubname text-muted">FPX</p>
+                        </a>
+                    </dd>
+                    <dd class="clublist">
+                        <a href="">
+                            <img src="https://img.crawler.qq.com/lolwebvideo/20190424151401/5985071337c7c4a785fbbdd3b8a75ae8/0" alt="IG" style="width: 50%;height: auto;">
+                            <p class="clubname text-muted">IG</p>
+                        </a>
+                    </dd>
+                    <dd class="clublist">
+                        <a href="">
+                            <img src="http://img.crawler.qq.com/lolwebvideo/20180925105909/296e9851a4a4ad7d170a6b103006d045/0" alt="RNG" style="width: 50%;height: auto;">
+                            <p class="clubname text-muted">RNG</p>
+                        </a>
+                    </dd>
+                </dl>
+            </div>
+            <!-- 赛事 -->
+            <div id="menu3" class="container tab-pane fade">
+                <ul style="padding-top: 0px;padding-left: 5%;">
+                    <li class="clublist" style="padding-top: 0px;">
+                        <p class="battlemsg">
+                            <span style="float: left;">已结束</span>
+                            <span style="float: right;">16:30</span>
+                            <span style="float: right;margin-right: 10px;">12-28</span>
+                            
+                        </p>
+                        <div class="gameteama">
+                            <span>
+                                <a href="" target="_blank">
+                                    <img src="http://img.crawler.qq.com/lolwebvideo/20180925110059/69d20800d8dad53348ff74ce3d1ab737/0">
+                                </a>
+                            </span>
+                            <a>EDG</a>
+                        </div>
+                        <div class="gameteamb">
+                            <span>
+                                <a href="" target="_blank">
+                                    <img src="http://img.crawler.qq.com/lolwebvideo/20180925105909/296e9851a4a4ad7d170a6b103006d045/0">
+                                </a>
+                            </span>
+                            <a>RNG</a>
+                        </div>
+                        <span class="gamelist-score">
+                            <a style="color: white;">0</a>
+                            <a class="win">3</a>
+                        </span>
+                        <p class="gamevideo">
+                            <a href="" type="button" class="btn btn-outline-info" style="text-decoration: none;display: inline-block;border: 1px solid;padding: 1px 6px;">视频回顾</a>
+                        </p>
+                        <p class="matchname">
+                            <span>2019德玛西亚杯 淘汰赛 季军赛 BO5</span>
+                        </p>
+                    </li>
+                    <li  class="clublist" style="padding-top: 0px;">
+                        <p class="battlemsg">
+                            <span style="float: left;">已结束</span>
+                            <span style="float: right;">20:00</span>
+                            <span style="float: right;margin-right: 10px;">11-10</span>
+                            
+                        </p>
+                        <div class="gameteama">
+                            <span>
+                                <a href="" target="_blank">
+                                    <img src="https://img.crawler.qq.com/lolwebvideo/20190908174443/f40e23c19e85c9b3c50a3ed36e84ff41/0">
+                                </a>
+                            </span>
+                            <a>FPX</a>
+                        </div>
+                        <div class="gameteamb">
+                            <span>
+                                <a href="" target="_blank">
+                                    <img src="https://img.crawler.qq.com/lolwebvideo/20190919151523/2a9931322ed5750213ab6204adadaec1/0">
+                                </a>
+                            </span>
+                            <a>G2</a>
+                        </div>
+                        <span class="gamelist-score">
+                            <a class="win">3</a>
+                            <a style="color: white;">0</a>
+                        </span>
+                        <p class="gamevideo">
+                            <a href="" type="button" class="btn btn-outline-info" style="text-decoration: none;display: inline-block;border: 1px solid;padding: 1px 6px;">视频回顾</a>
+                        </p>
+                        <p class="matchname">
+                            <span>2019全球总决赛 淘汰赛 决赛 BO5</span>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+ -->
+<!--footer-->
+    <footer class="navbar navbar-expand-sm navbar-fixed-bottom" style="height: 20px;">
+        <!-- <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3 class="footer_title">Product</h3>
+                    <ul class="footer_list">                        
+                        <li>Integrations</li>
+                        <li>Slack Bot</li>
+                        <li>Customers</li>
+                        <li>Case Studies</li>
+                        <li>Pricing</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h3 class="footer_title">Company</h3>
+                    <ul class="footer_list">
+                        <li>About</li>
+                        <li>Blog</li>
+                        <li>Newsletter</li>
+                        <li>Community</li>
+                        <li>Contact</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h3 class="footer_title">Help</h3>
+                    <ul class="footer_list">
+                        <li>Knowledge Base</li>
+                        <li>Forum</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <ul style="text-align: right;padding-top: 100px;">
+                        <li><img src="img/twitter.png" style="width: 20px;height: 20px;"></li>
+                        <li><img src="img/facebook.png" style="width: 20px;height: 20px;"></li>
+                        <li><img src="img/email.png" style="width: 20px;height: 20px;"></li>
+                        <li>© MutekiGamer 2019</li>
+                    </ul>
+                </div>
+            </div>
+        </div>      -->
+    </footer>
 
-<div>
-    <input id="search" value="搜索游戏名称">
-    <button id="test_search">搜索</button>
-</div>
-<div>
-    <button id="news">显示战场资讯</button>
-</div>
-<script type="text/javascript">
-    document.getElementById("test_search").onclick = function () {
-        alert("fuck");
-        let content=document.getElementById("search").value;
-        alert("fuck "+ content);
-        search(content,function(result){
-            alert("fuck" + content);
-            console.log(result);
-        })
-    };
-</script>
-<script type="text/javascript">
-    document.getElementById("news").onclick =function () {
-        news(function (result) {
-            console.log(result);
-            alert("fuck u");
-        });
-    }
-</script>
 </body>
 </html>
