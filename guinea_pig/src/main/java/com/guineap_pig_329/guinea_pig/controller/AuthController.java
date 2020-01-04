@@ -1,14 +1,16 @@
 package com.guineap_pig_329.guinea_pig.controller;
 
 import com.guineap_pig_329.guinea_pig.Constants;
-import com.guineap_pig_329.guinea_pig.dao.Banner;
+import com.guineap_pig_329.guinea_pig.dao.Email;
 import com.guineap_pig_329.guinea_pig.dao.ResultBean;
 import com.guineap_pig_329.guinea_pig.dao.User;
-import com.guineap_pig_329.guinea_pig.model.UserSession;
+import com.guineap_pig_329.guinea_pig.dao.UserSession;
 import com.guineap_pig_329.guinea_pig.repo.BannerRepo;
 import com.guineap_pig_329.guinea_pig.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,20 +25,27 @@ import java.util.Map;
 @Controller
 public class AuthController {
 
-  //  @Autowired
+    @Autowired
+    private JavaMailSender mailSender;
+
+    @Autowired
     private UserRepo userRepo;
     @Autowired
     private BannerRepo bannerRepo;
 
+    @Value("${spring.mail.username}")
+    private String from;
+
     @Autowired
-    public void setUserRepo (UserRepo userRepo) {
+    public void setUserRepo(UserRepo userRepo) {
         this.userRepo = userRepo;
     }
 
     @RequestMapping("/login")
-    public String login(){
+    public String login() {
         return "login";
     }
+
     @RequestMapping("/dologin")
     public String dologin(HttpServletRequest httpServletRequest, HttpSession httpSession) {
         String name = httpServletRequest.getParameter("name");
@@ -53,29 +62,27 @@ public class AuthController {
     }
 
     @RequestMapping("/HomePage")
-    public String HomePage1(){
+    public String HomePage1() {
         return "HomePage";
     }
 
     @RequestMapping("/register")
-    public String register(){
+    public String register() {
         return "register";
     }
 
+
     @RequestMapping("/doregister")
-    public String doregister(HttpServletRequest httpServletRequest,HttpSession httpSession)
-    {
-        String name=httpServletRequest.getParameter("name");
-        String password=httpServletRequest.getParameter("password");
-        String email=httpServletRequest.getParameter("email");
+    public String doregister(HttpServletRequest httpServletRequest) {
+        String name = httpServletRequest.getParameter("name");
+        String password = httpServletRequest.getParameter("password");
+        String email = httpServletRequest.getParameter("email");
 
         //TODO
-        if(userRepo.findAllByUserEmail(email)!=null){
+        if (userRepo.findAllByUserEmail(email) != null) {
             return "register";//ajax
-        }
-        else
-        {
-            User user=new User(name,password,email);
+        } else {
+            User user = new User(name, password, email);
             userRepo.save(user);
             return "login";
         }
@@ -84,25 +91,24 @@ public class AuthController {
     //修改密码
 
     /**
-     *
      * @param session
      * @param map
-     * @return
-     * 没有传新的用户密码 400
+     * @return 没有传新的用户密码 400
      * 出现异常500
      * 成功   200
      */
     @PostMapping("/password")
     @ResponseBody
-    public ResultBean changePassword(HttpSession session , @RequestBody Map<String,Object> map){
+    public ResultBean changePassword(HttpSession session, @RequestBody Map<String, Object> map) {
         UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
         String newPassword = (String) map.get("new_password");
-        if(newPassword == null) return  ResultBean.error(ResultBean.resources_not_found
-        ,"失败");
-        int result = userRepo.updateUser(newPassword,user.getId());
+        if (newPassword == null) return ResultBean.error(ResultBean.resources_not_found
+                , "失败");
+        int result = userRepo.updateUser(newPassword, user.getId());
 
         return ResultBean.success("修改成功");
     }
+
 
 }
 

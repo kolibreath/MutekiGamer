@@ -3,7 +3,7 @@ package com.guineap_pig_329.guinea_pig.controller;
 
 import com.guineap_pig_329.guinea_pig.Constants;
 import com.guineap_pig_329.guinea_pig.dao.UserGame;
-import com.guineap_pig_329.guinea_pig.model.UserSession;
+import com.guineap_pig_329.guinea_pig.dao.UserSession;
 import com.guineap_pig_329.guinea_pig.repo.UserGameRepo;
 import com.guineap_pig_329.guinea_pig.repo.UserInfoRepo;
 import org.springframework.beans.factory.annotation.Autowired;

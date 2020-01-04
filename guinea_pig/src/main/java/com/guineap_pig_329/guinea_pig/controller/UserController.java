@@ -3,10 +3,8 @@ package com.guineap_pig_329.guinea_pig.controller;
 
 import com.guineap_pig_329.guinea_pig.Constants;
 import com.guineap_pig_329.guinea_pig.dao.*;
-import com.guineap_pig_329.guinea_pig.model.UserSession;
 import com.guineap_pig_329.guinea_pig.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -137,11 +135,4 @@ public class UserController {
         return bean;
     }
 
-
-    @RequestMapping("//search?p={gameName}")
-    public List<Game> search(@PathVariable("gameName")String gameName){
-        LinkedList<Game> list = new LinkedList<>();
-        list.addAll(gameRepo.findByGameNameLike(gameName));
-        return list;
-    }
 }

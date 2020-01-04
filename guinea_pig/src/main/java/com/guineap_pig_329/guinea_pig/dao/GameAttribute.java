@@ -18,7 +18,7 @@ public class GameAttribute {
     private String paintingStyle;//游戏画风
 
     @Column
-    private String gameBackgroud;
+    private String gameBackground;
 
     @Column
     private int gamePrice;
@@ -59,12 +59,12 @@ public class GameAttribute {
         this.paintingStyle = paintingStyle;
     }
 
-    public String getGameBackgroud() {
-        return gameBackgroud;
+    public String getGameBackground() {
+        return gameBackground;
     }
 
-    public void setGameBackgroud(String gameBackgroud) {
-        this.gameBackgroud = gameBackgroud;
+    public void setGameBackground(String gameBackground) {
+        this.gameBackground = gameBackground;
     }
 
     public int getGamePrice() {
