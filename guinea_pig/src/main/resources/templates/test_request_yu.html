@@ -20,11 +20,14 @@
 <script id="test" type="text/html">
     姓名：{{userName}}
     关注：{{followerNum}}
+    {{}}
 </script>
 
 <script>
     var data1={};
         test(function(result){
+            var te=result.info;
+            console.log(te);
             data1=result.info.data;
             console.log(data1);
             var html = template('test', data1);
