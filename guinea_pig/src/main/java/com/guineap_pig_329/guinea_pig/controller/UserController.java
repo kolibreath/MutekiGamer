@@ -131,7 +131,6 @@ public class UserController {
         bean.setData(userHomePage);
         bean.setMessage("成功请求");
 
-
         return bean;
     }
 

@@ -27,7 +27,7 @@ function unfollow(otherUserId,call){
     let follow = {
         otherUserId:otherUserId,
     };
-
+x
     let createNewPost = $.ajax(({
         type:"POST",
         url:"/user/unfollow",
