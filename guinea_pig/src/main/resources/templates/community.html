@@ -2,6 +2,7 @@
 <html lang="en"xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8" />
+    <meta name="referrer" content="no-referrer" />
     <!-- <meta http-equiv="Content-Type" content="text/html" /> -->
     <meta name="keyword" content="HTML, CSS, image, navigation" />
     <title>VULCAN! - HomePage</title>
@@ -17,6 +18,15 @@
     <script type="text/javascript" th:src="@{/js/template-web.js}"></script>
     <script type="text/javascript" th:src="@{/js/Homepage.js}"></script>
 
+   <script>
+       $(function () {
+           $(".game").click(function () {
+               alert("fuck");
+               var val = $(this).attr("id");
+               alert(val);
+           })
+       })
+   </script>
 </head>
 <body>
 <!-- Navigation Bar-->
@@ -76,6 +86,7 @@
 
     <div class="main-content">
         <div class="contextFrame" style="padding-left:0PX;">
+            <!--用户关注的游戏-->
             <div id="games"></div>
                 <!--<span>-->
                     <!--<img src="https://blznav.akamaized.net/img/games/logo-ow-4be5755bc0a4cbaf.png" style="width: 80px;height: 80px;margin-left: 70px;">-->
@@ -98,36 +109,58 @@
             <!--<span>-->
                     <!--<img src="https://blznav.akamaized.net/img/games/logo-sc2-6e33583ba0547b6a.png" style="width: 80px;height: 80px;margin-left: 70px;">-->
                 <!--</span>-->
+        <div class="contextFrame">
+                <!--<span>-->
+                    <!--<img src="https://blznav.akamaized.net/img/games/logo-ow-4be5755bc0a4cbaf.png" style="width: 80px;height: 80px;margin-left: 6.5%;">-->
+                <!--</span>-->
+            <!--<span>-->
+                    <!--<img src="https://blznav.akamaized.net/img/games/logo-wow-3dd2cfe06df74407.png" style="width: 80px;height: 80px;margin-left: 6%;">-->
+                <!--</span>-->
+            <!--<span>-->
+                    <!--<img src="https://blznav.akamaized.net/img/games/logo-hs-93512467e87f82c6.png" style="width: 80px;height: 80px;margin-left: 6%;">-->
+                <!--</span>-->
+            <!--<span>-->
+                    <!--<img src="https://blznav.akamaized.net/img/games/logo-heroes-78cae505b7a524fb.png" style="width: 80px;height: 80px;margin-left: 6%;">-->
+                <!--</span>-->
+            <!--<span>-->
+                    <!--<img src="https://blznav.akamaized.net/img/games/logo-w3r-c8a76eea272dbd55.png" style="width: 80px;height: 80px;margin-left: 6%;">-->
+                <!--</span>-->
+            <!--<span>-->
+                    <!--<img src="https://blznav.akamaized.net/img/games/logo-di-01f9ac836ec31eed.png" style="width: 80px;height: 80px;margin-left: 6%;">-->
+                <!--</span>-->
+            <!--<span>-->
+                    <!--<img src="https://blznav.akamaized.net/img/games/logo-sc2-6e33583ba0547b6a.png" style="width: 80px;height: 80px;margin-left: 6%;">-->
+                <!--</span>-->
         </div>
         <div class="attention">
-            <div class="attentionFrame" style="padding-left:0PX;  padding-top: 10px">
+            <div class="attentionFrame" style="padding-left; padding-top: 10px">
                 <button>
                     <a href="https://ow.blizzard.cn/home">
-                        <button class="attention-button" style="margin-left:67px;  " >
+                        <button class="attention-button" style="margin-left:6%;  " >
                             已关注</button>
                     </a>
                     <a href="https://www.wowchina.com/zh-cn/">
-                        <button class="attention-button" style="margin-left:70px; background-color: #FF4500;">
+                        <button class="attention-button" style="margin-left:6%; background-color: #FF4500;">
                             关注Ta</button>
                     </a>
                     <a href="https://hs.blizzard.cn/landing">
-                        <button class="attention-button" style="margin-left:70px; ">
+                        <button class="attention-button" style="margin-left:6%; ">
                             已关注</button>
                     </a>
                     <a href="https://heroes.blizzard.cn/landing">
-                        <button class="attention-button" style="margin-left:70px; background-color: #FF4500;">
+                        <button class="attention-button" style="margin-left:6%; background-color: #FF4500;">
                             关注Ta</button>
                     </a>
                     <a href="">
-                        <button class="attention-button" style="margin-left: 70px; ">
+                        <button class="attention-button" style="margin-left: 6%; ">
                             已关注</button>
                     </a>
                     <a>
-                        <button class="attention-button" style="margin-left:70px; background-color: #FF4500;">
+                        <button class="attention-button" style="margin-left:6%; background-color: #FF4500;">
                             关注Ta</button>
                     </a>
                     <a>
-                        <button class="attention-button" style="margin-left:70px; background-color: #FF4500;">
+                        <button class="attention-button" style="margin-left:6%; background-color: #FF4500;">
                             关注Ta</button>
                     </a>
                 </button>
@@ -135,6 +168,7 @@
         </div>
         <div class="contextFrame">
             <div class="innerFrame">
+                <!--游戏对应的帖子-->
                 <div id="game_posts"></div>
                 <!--<div class="left">-->
                     <!--<div class="textList">-->
@@ -161,11 +195,12 @@
         <div class="division"></div>
     </div>
 </div>
+    <a href="#" class="game">fuck</a>
 <!--渲染游戏图标-->
 <script id="game" type="text/html">
    <ul>
        {{each data}}
-       <li><img src="{{$value.picture}}" class="gameclass"  id="{{$value.gameId}}"></li>
+       <li><a href="#" class= "game" id="{{$value.gameId}}"><img src="{{$value.picture}}" style="width:50px;height: 50px"></a></li>
        {{/each}}
    </ul>
 </script>
@@ -187,16 +222,7 @@
        document.getElementById('games').innerHTML = html;
    })
 </script>
-<script>
-    $(function () {
-        $(".gameclass").onclick(function (){
-            var  val=$(this).attr("id");
-            console.log(val);
 
-        })
-
-    })
-</script>
 <footer>
     <div class="container">
         <div class="row">

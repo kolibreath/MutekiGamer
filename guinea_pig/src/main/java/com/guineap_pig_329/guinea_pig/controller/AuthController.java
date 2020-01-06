@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -100,12 +102,17 @@ public class AuthController {
      */
     @PostMapping("/password")
     @ResponseBody
-    public ResultBean changePassword(HttpSession session, @RequestBody Map<String, Object> map) {
-        UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
+    public ResultBean changePassword(HttpSession session,
+                                     HttpServletResponse response,
+                                     @RequestBody Map<String, Object> map) throws IOException {
+        int userId = UserSession.getInstance(session).getCode();
+        if(userId == ResultBean.SESSION_OUT_OF_DATE){
+            response.sendRedirect("login");
+        }
         String newPassword = (String) map.get("new_password");
         if (newPassword == null) return ResultBean.error(ResultBean.resources_not_found
                 , "失败");
-        int result = userRepo.updateUser(newPassword, user.getId());
+        int result = userRepo.updateUser(newPassword, userId);
 
         return ResultBean.success("修改成功");
     }

@@ -5,6 +5,7 @@ import com.guineap_pig_329.guinea_pig.Constants;
 import com.guineap_pig_329.guinea_pig.dao.*;
 import com.guineap_pig_329.guinea_pig.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,13 +36,9 @@ public class UserController {
     @Autowired
     private UserRepo userRepo;
 
-    /**
-     * @param session
-     * @param map
-     * @return 关注成功 返回 200 关注失败返回 400 发生异常返回 500
-     */
+
     @RequestMapping("/follow")
-    public ResultBean  follow(HttpSession session, Map<String,Object> map){
+    public ResultBean  follow(HttpSession session, @RequestBody Map<String,Object> map){
         UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
         int userId = user.getId();
         int otherUserId;
@@ -51,6 +48,8 @@ public class UserController {
             return ResultBean.error(ResultBean.internal_error,"服务器错误");
         }
         //todo code check
+        if(friendsRepo.findByUserId1AndUserId2(userId,otherUserId)!= null)
+            return ResultBean.error(ResultBean.internal_error,"重复创建好友关系");
         Friends friends = new Friends(userId, otherUserId);
         friendsRepo.save(friends);
         return ResultBean.success(null);
@@ -58,7 +57,7 @@ public class UserController {
 
 
     @RequestMapping("/unfollow")
-    public ResultBean  unfollow(HttpSession session, Map<String,Object> map){
+    public ResultBean  unfollow(HttpSession session, @RequestBody Map<String,Object> map){
         UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
         int otherUserId;
         try {
