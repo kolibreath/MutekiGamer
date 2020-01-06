@@ -17,16 +17,6 @@
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" th:src="@{/js/template-web.js}"></script>
     <script type="text/javascript" th:src="@{/js/Homepage.js}"></script>
-
-   <script>
-       $(function () {
-           $(".game").click(function () {
-               alert("fuck");
-               var val = $(this).attr("id");
-               alert(val);
-           })
-       })
-   </script>
 </head>
 <body>
 <!-- Navigation Bar-->
@@ -195,7 +185,6 @@
         <div class="division"></div>
     </div>
 </div>
-    <a href="#" class="game">fuck</a>
 <!--渲染游戏图标-->
 <script id="game" type="text/html">
    <ul>
@@ -223,6 +212,15 @@
    })
 </script>
 
+    <script>
+        $(function () {
+            console.log($(".game"));
+            $(".game").click(function () {
+                let val = $(this).attr("id");
+                console.log(val);
+            })
+        })
+    </script>
 <footer>
     <div class="container">
         <div class="row">

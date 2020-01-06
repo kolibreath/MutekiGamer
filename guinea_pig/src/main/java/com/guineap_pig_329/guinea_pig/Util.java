@@ -48,6 +48,8 @@ public class Util {
      * @param className
      * @param string 输出的内容
      */
+
+
     public static void info(Class className,String string){
         getInstance(className).info(string);
     }
@@ -69,6 +71,6 @@ public class Util {
         getInstance(className).error(string);
     }
 
-
+//    private static
 
 }
