@@ -68,5 +68,12 @@ public class ResultBean<T> {
         return bean;
     }
 
+    public static ResultBean relogin(String message){
+        ResultBean bean = new ResultBean();
+        bean.setCode(ResultBean.SESSION_OUT_OF_DATE);
+        bean.setMessage(message);
+        return bean;
+    }
+
 
 }
