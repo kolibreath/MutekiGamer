@@ -4,8 +4,8 @@ public class Cen {
     private String url;
     private String repoName;
     private String endpoint;
-    private String accessKeyIdl;
-    private String accessKeySecrect;
+    private String accessKeyId;
+    private String accessKeySecret;
     private String bucketName;
 
     public String getUrl() {
@@ -32,20 +32,20 @@ public class Cen {
         this.endpoint = endpoint;
     }
 
-    public String getAccessKeyIdl() {
-        return accessKeyIdl;
+    public String getAccessKeyId() {
+        return accessKeyId;
     }
 
-    public void setAccessKeyIdl(String accessKeyIdl) {
-        this.accessKeyIdl = accessKeyIdl;
+    public void setAccessKeyId(String accessKeyId) {
+        this.accessKeyId = accessKeyId;
     }
 
-    public String getAccessKeySecrect() {
-        return accessKeySecrect;
+    public String getAccessKeySecret() {
+        return accessKeySecret;
     }
 
-    public void setAccessKeySecrect(String accessKeySecrect) {
-        this.accessKeySecrect = accessKeySecrect;
+    public void setAccessKeySecret(String accessKeySecret) {
+        this.accessKeySecret = accessKeySecret;
     }
 
     public String getBucketName() {
@@ -58,12 +58,12 @@ public class Cen {
 
     public Cen(){}
 
-    public Cen(String url, String repoName, String endpoint, String accessKeyIdl, String accessKeySecrect, String bucketName) {
+    public Cen(String url, String repoName, String endpoint, String accessKeyId, String accessKeySecret, String bucketName) {
         this.url = url;
         this.repoName = repoName;
         this.endpoint = endpoint;
-        this.accessKeyIdl = accessKeyIdl;
-        this.accessKeySecrect = accessKeySecrect;
+        this.accessKeyId = accessKeyId;
+        this.accessKeySecret = accessKeySecret;
         this.bucketName = bucketName;
     }
 }
