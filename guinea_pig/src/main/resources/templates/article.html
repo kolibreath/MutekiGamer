@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <!-- <meta http-equiv="Content-Type" content="text/html" /> -->
+    <meta name="keyword" content="HTML, CSS, image, navigation"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>MutekiGamer - article</title>
+    <base th:href="@{/}">
+    <link rel="stylesheet" type="text/css" href="./static/css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="./static/css/login.css"/>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js">  </script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-autohidingnavbar/4.0.0/jquery.bootstrap-autohidingnavbar.js"></script>
+  
+    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="./static/js/article.js" type="text/javascript" charset="utf-8"></script>
+
+  
+
+    <style type="text/css">
+     body{
+  background-color: #F5F5F5;
+}
+
+.divbox{
+     width:70px;
+     height: 130px;
+    margin-top: 160px;
+    margin-left:3%;
+   background-color:rgba(255,255,255,0.8);
+   float:left;
+
+  
+}
+.divbox1{
+     width:800px;
+     height: auto;
+    margin-top: 80px;
+    margin-left:150px;
+   background-color:rgba(255,255,255,0.8);
+   float: left;
+   position: absolute;
+
+}
+.divbox2{
+     width:350px;
+     height: auto;
+   margin-top: 160px;
+   margin-left: 975px;
+    margin-right:50px;
+   background-color:rgba(255,255,255,0.8);
+   float: right;
+   position: absolute;
+
+}
+
+.sharechose{
+    position: sticky;
+  /*  margin-top: 20px;*/
+    /*float: left;*/
+    width: 20px;
+   
+    /*position: fixed;*/
+    padding-left: 1000px;
+    margin-top: 100px;
+    height:400px;
+    
+}
+.main-content .contextFrame .innerFrame{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 0px auto;
+    max-width: 1080px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.contextFrame .innerFrame .textList{
+    width: 100%;
+    height: 100px;
+    display: inline-block;
+    border-width: 1px;
+    border-style: solid;
+    border-color: lightgray;
+    border-radius: 10px;
+}
+.contextFrame .innerFrame .textList .listTitle{
+    padding-left: 0px !important;
+    border-bottom-style: solid;
+    border-bottom-color: lightgray;
+    border-bottom-width: 1px;
+}
+
+.font1{
+    text-overflow:ellipsis; 
+    white-space:nowrap; 
+    overflow:hidden;
+
+}
+.te{
+    background: #474747;
+    color: #fff;
+    display: block;
+    width: 23px;
+    height: 23px;
+    text-align: center;
+    float: left;
+    margin-right: 15px;
+    font-style: normal;
+}
+
+
+
+
+    </style>
+</head>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
+<!-- Navigation Bar -->
+<div class="barContainer">
+    <div class="nav-content" >
+        <div class="nav-title">
+                <span>
+                    <img src="https://static.dingtalk.com/media/lALPDgQ9rZl6KXPNAljNB0Q_1860_600.png?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222028145409841%22%7D&bizType=im&open_id=267508618" alt="MutekiGamer logo">
+                </span>
+        </div>
+        <div class="nav-text">
+            <span style="float: left"><a href="HomePage">主页</a></span>
+            <span style="float: left"><a href="/homepage/community">社区</a></span>
+            <span style="float: left"><a href="/homepage/news">头条</a></span>
+            <span style="float: left"><a href="/homepage/battle">战场</a></span>
+            <span style="float: right"><a href="/homepage/my">我</a></span>
+            <span class="user">
+                    <a href="login">Login</a>
+                </span>
+        </div>
+    </div>
+</div>
+<!--share-->
+<div>
+ <div class="divbox" id="share">
+
+    <ul  style="text-align: center">
+
+        <li><a  href="javascript:window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?title='+encodeURIComponent(document.title.substring(0,76))+'&amp;url='+encodeURIComponent(location.href)+'&amp;rcontent=','_blank','scrollbars=no,width=600,height=450,left=75,top=20,status=no,resizable=yes'); void 0;"><img src="https://www.easyicon.net/api/resizeApi.php?id=1193405&size=128"    style="width:38px; height:55px;padding-top: 25px;"></a></li>
+
+        <li><a  href="javascript:window.open('http://v.t.sina.com.cn/share/share.php?title='+encodeURIComponent(document.title.substring(0,76))+'&amp;url='+encodeURIComponent(location.href)+'&amp;rcontent=','_blank','scrollbars=no,width=600,height=450,left=75,top=20,status=no,resizable=yes'); void 0"><img src="https://www.easyicon.net/api/resizeApi.php?id=1193419&size=128"    style="width:40px; height:50px; padding-top: 25px;"></a></li>
+    </ul>
+       
+        <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+    
+
+
+
+
+</div>
+<!--mainbody-->
+<div class="divbox1" style="padding-left: 50px;padding-right: 50px;">
+    <!--top-->
+    <div class="">
+        <h1 style="padding-top: 50px;">虎啸龙吟，狼行天下！RNG问鼎德玛西亚杯</h1>
+        <div class="">
+            <span class="timer">2019-12-29 18:53</span>&nbsp&nbsp<span class="Author">作者：几页</span>&nbsp&nbsp<span class="from">来源：VPGAME</span>
+        </div>
+    </div>
+    <!--body-->
+    <div style="padding-top: 20px;">
+         <p>　　德玛西亚杯总决赛，EDG和RNG这对老对手再度站在了决战舞台上。</p>
+<p>　　<strong>第一局</strong></p>
+<p>　　<strong>EDG：上单铁男，打野酒桶，中单奇亚娜，下路ADC霞和辅助日女</strong></p>
+<p>　　<strong>RNG：上单剑魔，打野奥拉夫，中单潘森，下路ADC赛娜和辅助慎</strong></p>
+<div ><img src="http://n.sinaimg.cn/games/crawl/2/w550h252/20191229/8616-imkzenp5566206.jpg" alt=""><span class="img_descr"></span></div>
+<p style="padding-top: 20px;">　　开局3分钟，狼行在上路遭到铁男和酒桶的动手，无奈送出一血。下路RNG潘森赶到，追死霞后拿下双杀，好在随后EDG将其终结。11分钟，EDG上路召唤峡谷先锋撞塔，最终缓缓将防御塔拿下。15分钟，双方在上路爆发一波团战，但此时的铁男已然难以阻挡，一夫当关将RNG击溃。随后的16分钟，酒桶位置尴尬随后被秒，慎也在EDG的攻势下阵亡。随后奇亚娜找到机会，在红色方野区一波单杀剑魔振奋士气。</p>
+<div class="img_wrapper"><img src="http://n.sinaimg.cn/games/crawl/7/w550h257/20191229/5eea-imkzenp5566235.jpg" alt=""><span class="img_descr"></span></div>
+<p style="padding-top: 20px;">　　23分钟，RNG中野选择在上路动手Scout，但酒桶带队赶来，铁男和霞分别将RNG中野人头收下。26分钟，带着大龙BUFF的EDG推进中路，小明遭到动手后直接被霞收掉人头。随后小龙堡的阵亡，EDG顺势拿下中路高地。高地告破后，铁男无人能挡先斩剑魔，随后将RNG双C带走，EDG由此一波拿下了比赛。</p>
+<p>　　<strong>第二局</strong></p>
+<p>　　<strong>EDG：上单鳄鱼，打野蜘蛛，中单梦魇，下路ADC霞和日女</strong></p>
+<p>　　<strong>RNG：上单吸血鬼，打野盲僧，中单奎因，下路ADC女枪和辅助莫甘娜</strong></p>
+<div class="img_wrapper">
+<div class="img_wrapper"><img src="http://n.sinaimg.cn/games/crawl/56/w550h306/20191229/3771-imkzenp5566285.jpg" alt=""><span class="img_descr"></span></div>
+</div>
+<p style="padding-top: 20px;">　　6分钟，上路EDG三人动手吸血鬼，鳄鱼并未等到蜘蛛第一时间赶到，直接强上携手梦魇二越一，却被吸血鬼天秀反杀两人。10分钟，日女抓住敌方辅助不在的时间，直指女枪动了先手，尽管女枪开出秒表，但在秒表结束后仍然难逃一死。</p>
+<div class="img_wrapper"><img src="http://n.sinaimg.cn/games/crawl/777/w550h227/20191229/d26f-imkzenp5566328.jpg" alt=""><span class="img_descr"></span></div>
+<p style="padding-top: 20px;">　　13分钟，EDG拿下小龙，但随后的撤退中莫甘娜Q中小明，女枪开大扫过将日女带走。随后RNG拿下下路一塔。14分钟，上路吸血鬼骑脸三人，两个技能交出将蜘蛛秒掉。16分钟，蜘蛛结茧动到吸血鬼，梦魇带队跟上输出将其终结，随后为吸血鬼护驾的盲僧也被梦魇击杀。此前解说Cat思考了无敌吸血鬼阵亡的方式，现在比赛中吸血鬼就阵亡了，猫皇，真有你的！</p>
+<div class="img_wrapper"><img src="http://n.sinaimg.cn/games/crawl/773/w550h223/20191229/d927-imkzenp5566355.jpg" alt=""><span class="img_descr"></span></div>
+<p style="padding-top: 20px;">　　19分钟，RNG在下路破掉二塔后一路利用峡谷先锋破掉了下路高地，而梦魇则是在上路带线破掉了一座防御塔。21分钟，梦魇动手奎因，随后佯装撤退，日女赶到配合蜘蛛将冲出防御塔追击的奎因带走。</p>
+<div class="img_wrapper"><img src="http://n.sinaimg.cn/games/crawl/60/w550h310/20191229/f383-imkzenp5566398.jpg" alt=""><span class="img_descr"></span></div>
+<p style="padding-top: 20px;">　　25分钟，RNG动手大龙，EDG选择开团，盲僧在大龙和梦魇的输出下自己秒躺，但随后女枪枪林弹雨和奎因的输出带走梦魇，好在蜘蛛抢下大龙。生气的RNG展开追击，EDG仅有霞和鳄鱼逃出生天。此后吸血鬼带队顺利拿下红色方上路高地。30分钟，RNG推进中路高地塔，日女果断先手，梦魇进场却被盲僧完成了一换一。随后尽管防御塔告破，但吸血鬼却被鳄鱼开到一波带走。</p>
+<div class="img_wrapper"><img src="http://n.sinaimg.cn/games/crawl/59/w550h309/20191229/f46d-imkzenp5566425.jpg" alt=""><span class="img_descr"></span></div>
+<p style="padding-top: 20px;">　　31分钟，EDG亡命一搏动手大龙，随后双方开团，尽管日女率先阵亡，但吸血鬼TP落地却被鳄鱼带走。霞秒表起身后一个倒钩收割战场，随后梦魇在中路遭到奎因反杀，鳄鱼也被盲僧追击等到奎因赶来拿下人头。</p>
+<div class="img_wrapper"><img src="http://n.sinaimg.cn/games/crawl/58/w550h308/20191229/2d01-imkzenp5566449.jpg" alt=""><span class="img_descr"></span></div>
+<p style="padding-top: 20px;">　　两分钟后，双方中路爆发团战，RNG摧古拉朽打出了一波一换五的高潮，一波拿下了比赛。</p>
+<p>　　<strong>第三局</strong></p>
+<p>　　<strong>EDG：上单铁男，打野盲僧，中单辛德拉，下路ADC卢锡安和辅助日女</strong></p>
+<p>　　<strong>RNG：上单剑魔，打野酒桶，中单佐伊，下路ADC佐伊和辅助慎</strong></p>
+<div class="img_wrapper"><img src="http://n.sinaimg.cn/games/crawl/788/w550h238/20191229/b45b-imkzenp5566477.jpg" alt=""><span class="img_descr"></span></div>
+<p style="padding-top: 20px;">　　开局后，盲僧来到红色方野区动手蓝BUFF，酒桶发现后决意拼惩但没能拼过，好在RNG其余几人绕后包抄将盲僧带走，日女也被赛娜带队击杀。这波过后，盲僧来到上路却被剑魔绕后击杀，在盲僧复活后，铁男动手剑魔，盲僧赶到却被剑魔闪现躲过，佐伊赶到收下盲僧人头。</p>
+<div class="img_wrapper"><img src="http://n.sinaimg.cn/games/crawl/5/w550h255/20191229/b8a5-imkzenp5566521.jpg" alt=""><span class="img_descr"></span></div>
+<p style="padding-top: 20px;">　　9分钟，上路展开了一波混战，佐伊先杀辛德拉后收铁男拿下双杀，但剑魔却被盲僧找到机会带走。13分钟，卢锡安在下路单杀赛娜，酒桶赶到将残血卢锡安的人头收入囊中。16分钟，辛德拉被RNG锁定，一直持续被给到压力，佐伊找到机会睡到辛德拉，酒桶一个E闪将辛德拉和日女带走，随后佐伊跟上输出将盲僧和卢锡安击杀。这波过后，EDG中路一塔和上路二塔告破。</p>
+<div class="img_wrapper"><img src="http://n.sinaimg.cn/games/crawl/58/w550h308/20191229/7e65-imkzenp5566547.jpg" alt=""><span class="img_descr"></span></div>
+<p style="padding-top: 20px;">　　21分钟，铁男在上路重拳出击，带着盲僧和卢锡安将剑魔和慎带走。23分钟，双方中路开团，尽管RNG佐伊第一时间被秒，但酒桶一个E闪两人，剑魔在正面战场左砍右劈，在随后的拉扯中，辛德拉被剑魔带走，铁男以一敌三陷入僵局，只能无奈倒地。这波过后，EDG惨遭五人团灭。</p>
+<div class="img_wrapper"><img src="http://n.sinaimg.cn/games/crawl/745/w550h195/20191229/02bb-imkzenp5566573.jpg" alt=""><span class="img_descr"></span></div>
+<p style="padding-top: 20px;">　　26分钟，RNG集结大龙被EDG干扰，RNG展开追击，在剑魔和赛娜佐伊的追击下EDG上野辅阵亡。随后RNG拿下大龙。29分钟，带着大龙BUFF的RNG逼进蓝色方高地，盲僧找到机会一个摸眼踢将赛娜踢回己方高地，EDG跟上输出将其带走。30分钟，远古龙团RNG三C无人可挡，将EDG打成五人团灭，随后一波拿下了比赛。</p>
+<p>　　<strong>第四局</strong></p>
+<p>　　<strong>EDG：上单船长，打野皇子，中单丽桑卓，下路ADC卡莎和辅助泰坦</strong></p>
+<p>　　<strong>RNG：上单卢锡安，打野盲僧，中单妖姬，下路ADC女枪和辅助日女</strong></p>
+<div class="img_wrapper">
+<div class="img_wrapper"><img src="http://n.sinaimg.cn/games/crawl/776/w550h226/20191229/ed90-imkzenp5566602.jpg" alt=""><span class="img_descr"></span></div>
+</div>
+<p style="padding-top: 20px;">　　2分钟末，丽桑卓想要在河道做眼却被盲僧逮到，RNG中野交闪追击，尽管皇子前来掩护，但盲僧还是顺利拿下人头。随后盲僧来到上路，配合卢锡安冲塔将船长击杀。8分钟，妖姬携手日女包围上路，直接越塔将船长秒掉，随后盲僧拿下峡谷先锋。10分钟，双方在河道开团，RNG动手丽桑卓却被皇子盖大，卡莎赶到拿下双杀。</p>
+<div class="img_wrapper"><img src="http://n.sinaimg.cn/games/crawl/773/w550h223/20191229/01e2-imkzenp5566631.jpg" alt=""><span class="img_descr"></span></div>
+<p style="padding-top: 20px;">　　12分钟，盲僧来中配合妖姬击杀丽桑卓。16分钟，RNG召唤峡谷先锋破掉红色方中路一塔，随后皇子被妖姬开到，日女跟上一指配合队友将其击杀，丽桑卓也没能撤走被RNG收掉。21分钟，双方在红色方上半野区遭遇，日女先手一指开团，打了EDG一个措手不及，一波EDG的四人团灭后，RNG拿下大龙。26分钟，RNG以己方中路两座防御塔换掉了EDG上路高地。</p>
+<div class="img_wrapper"><img src="http://n.sinaimg.cn/games/crawl/771/w550h221/20191229/d12e-imkzenp5566655.jpg" alt=""><span class="img_descr"></span></div>
+<p style="padding-top: 20px;">　　27分钟，泰坦先手开团，卢锡安第一时间遭到集火只能匆匆逃窜。装备成型的卡莎带队将RNG中下三人击杀，随后选择拿下大龙。RNG赶来留人，将EDG上野送回了泉水。32分钟，Hope的卡莎在高地下遭到妖姬先手，随后RNG一拥而上将卡莎击杀，顺势破掉中路防御塔和水晶。36分钟，RNG佯装大龙，随后EDG赶来，妖姬直接上前秒掉卡莎，随后EDG在团战中无法再与RNG抗衡，吞下一波团灭后只能看着RNG破掉己方基地。</p>
+<div class="img_wrapper"><img src="http://n.sinaimg.cn/games/crawl/58/w550h308/20191229/0620-imkzenp5566693.jpg" alt=""><span class="img_descr"></span></div>
+<div class="img_wrapper"><img src="http://n.sinaimg.cn/games/crawl/56/w550h306/20191229/5f72-imkzenp5566721.jpg" alt=""><span class="img_descr"></span></div>
+<p style="padding-top: 20px;">　　最终，RNG以3-1战胜EDG，拿下了比赛的胜利，夺得了德玛西亚杯的冠军！</p>
+
+    </div>
+   
+
+    <!--commends-->
+  <!-- 按钮：用于打开评论框 -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="float: right;">
+    评论
+  </button>
+   
+  <!-- 评论框 -->
+<div class="container">
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content" style="margin-top: 180px;">
+   
+        <!-- 评论框头部 -->
+        <div class="modal-header">
+          <img src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg"   style="width:60px; height:60;">
+         
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+   
+        <!-- 评论框主体 -->
+        <div class="modal-body">
+          <textarea class="form-control" rows="5" id="comment" placeholder="请输入评论"></textarea>
+        </div>
+   
+        <!-- 评论框底部 -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">提交</button>
+        </div>
+   
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+
+</div>
+<!--news-->
+<div class="divbox2" id="hot">
+  <div class="innerFrame"   >
+        <div class="textList" style="margin-left: 20px; padding-left: 20px;">
+            <ul >
+                <li class="listTitle" style="padding-top: 10px;">
+                <h1 style="font-size: 25px;">
+               热门资讯
+                </h1></li>
+                    <ul style="padding-right:20px; padding-top: 20px; ">
+                        <li class="font1" ><i class="te" >1</i><a href="https://dazhe.blizzard.cn/" >2020暴雪打折季12月20日盛大开启</a></li>
+                        <li class="font1" style="margin-top: 10px;"><i class="te" >2</i><a href="https://ow.blizzard.cn/article/news/1520">守望先锋主播跨年欢乐车队12月31日20点准时发车</a></li>
+                        <li class="font1" style="margin-top: 10px;"><i class="te" >3</i><a href="https://hs.blizzard.cn/article/20/17107">1月1日暴雪游戏全民实力赛与你相约萤火虫</a></li>
+                         <li class="font1" style="margin-top: 10px;"><i class="te" >4</i><a href="http://dj.sina.com.cn/article/ihnzhfz9893860.shtml">千呼万唤始出来？LPL春季赛完整赛程公布！</a></li>
+                        <li class="font1" style="margin-top: 10px;"><i class="te" >5</i><a href="http://dj.sina.com.cn/article/ihnzahk1515285.shtml">AWSL！虎牙直播冬季超级联赛正式启动</a></li>
+                         <li class="font1" style="margin-top: 10px;"><i class="te" >6</i><a href="http://dj.sina.com.cn/article/ihnzhfz9850459.shtml">聚焦多元创作生态《我的世界》与Namelesstag</a></li>
+                        <li class="font1" style="margin-top: 10px;"><i class="te" >7</i><a href="http://dj.sina.com.cn/article/ihnzhfz9839949.shtml">采访Fnatic一号位23savage：想拿三次TI超越OG</a></li>
+
+                       
+                    </ul>
+                        <li style="margin-top: 10px;"><a href="">点击此处查看更多</a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+</div>
+</body>
+</html>

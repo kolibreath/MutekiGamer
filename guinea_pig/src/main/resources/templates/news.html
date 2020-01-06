@@ -1,28 +1,30 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <!-- <meta http-equiv="Content-Type" content="text/html" /> -->
-    <meta name="keyword" content="HTML, CSS, image, navigation"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>MutekiGamer - News</title>
-    <base th:href="@{}">
-    <link rel="stylesheet" type="text/css" href="css/index.css"/>
-    <link rel="stylesheet" type="text/css" href="css/my.css"/>
-    .body
+    <meta name="keyword" content="HTML, CSS, image, navigation" />
+    <title>VULCAN! - HomePage</title>
+    <base th:href="@{/}">
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/news.css" />
+    <link rel="stylesheet" type="text/css" href="css/HomePage.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js">  </script>
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
+    <script type="text/javascript" th:src="@{/js/template-web.js}"></script>
+    <script type="text/javascript" th:src="@{/js/Homepage.js}"></script>
 </head>
 <body>
+<!-- Navigation Bar-->
 <div class="barContainer">
     <div class="nav-content">
         <div class="nav-title">
                 <span>
-                    <img src="https://static.dingtalk.com/media/lALPDgQ9rZl6KXPNAljNB0Q_1860_600.png?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222028145409841%22%7D&bizType=im&open_id=267508618" alt="MutekiGamer logo">
+                    <img src="https://static.dingtalk.com/media/lALPDgQ9rZl6KXPNAljNB0Q_1860_600.png?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222028145409841%22%7D&bizType=im&open_id=267508618"
+                         alt="MutekiGamer logo">
                 </span>
         </div>
         <div class="nav-text">
@@ -38,7 +40,7 @@
     </div>
 </div>
 <div class="main-body" style="margin-top: 0px; padding-top: 0px;">
-    <div style="padding-left: 10%;opacity: 0.8;" >
+    <div style="padding-left: 10%;opacity: 0.8;">
         <div id="demo" class="carousel slide" data-ride="carousel" style="width: 90%;height: 90%;">
             <!-- 指示符 --><!-- <无序列表> -->
             <ul class="carousel-indicators">
@@ -73,67 +75,82 @@
     </div>
 
     <div class="main-content">
-        <div class="contextFrame" style="padding-left:0px">
+        <div class="contextFrame" style="padding-left: 0px;">
                 <span>
-                    <img src="https://blznav.akamaized.net/img/games/logo-ow-4be5755bc0a4cbaf.png" style="width: 80px;height: 80px;margin-left: 50px;">
+                    <img src="https://blznav.akamaized.net/img/games/logo-ow-4be5755bc0a4cbaf.png"
+                         style="width: 80px;height: 80px;margin-left: 50px;">
                 </span>
             <span>
-                    <img src="https://blznav.akamaized.net/img/games/logo-wow-3dd2cfe06df74407.png" style="width: 80px;height: 80px;margin-left: 40px;">
+                    <img src="https://blznav.akamaized.net/img/games/logo-wow-3dd2cfe06df74407.png"
+                         style="width: 80px;height: 80px;margin-left: 40px;">
                 </span>
             <span>
-                    <img src="https://blznav.akamaized.net/img/games/logo-hs-93512467e87f82c6.png" style="width: 80px;height: 80px;margin-left: 40px;">
+                    <img src="https://blznav.akamaized.net/img/games/logo-hs-93512467e87f82c6.png"
+                         style="width: 80px;height: 80px;margin-left: 40px;">
                 </span>
             <span>
-                    <img src="https://blznav.akamaized.net/img/games/logo-heroes-78cae505b7a524fb.png" style="width: 80px;height: 80px;margin-left: 40px;">
+                    <img src="https://blznav.akamaized.net/img/games/logo-heroes-78cae505b7a524fb.png"
+                         style="width: 80px;height: 80px;margin-left: 40px;">
                 </span>
             <span>
-                    <img src="https://static.dingtalk.com/media/lALPDgQ9raEYzETNBNjNBNg_1240_1240.png_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222029392066835%22%7D&bizType=im&open_id=267544667" style="width: 80px;height: 80px;margin-left: 100px;">
+                    <img src="https://static.dingtalk.com/media/lALPDgQ9raEYzETNBNjNBNg_1240_1240.png_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222029392066835%22%7D&bizType=im&open_id=267544667"
+                         style="width: 80px;height: 80px;margin-left: 100px;">
                 </span>
             <span>
-                    <img src="https://static.dingtalk.com/media/lADPDgQ9raEaSzjNAgDNAgA_512_512.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222036017419199%22%7D&bizType=im&open_id=267544667" style="width: 80px;height: 80px;margin-left: 60px;">
+                    <img src="https://static.dingtalk.com/media/lADPDgQ9raEaSzjNAgDNAgA_512_512.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222036017419199%22%7D&bizType=im&open_id=267544667"
+                         style="width: 80px;height: 80px;margin-left: 60px;">
                 </span>
             <span>
-                    <img src="https://static.dingtalk.com/media/lADPDgQ9raEaS67NAmLNAmI_610_610.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222036017431238%22%7D&bizType=im&open_id=267544667" style="width: 80px;height: 80px;margin-left: 60px;">
+                    <img src="https://static.dingtalk.com/media/lADPDgQ9raEaS67NAmLNAmI_610_610.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222036017431238%22%7D&bizType=im&open_id=267544667"
+                         style="width: 80px;height: 80px;margin-left: 60px;">
                 </span>
             <button>
                 <a href="#">
-                    <button class="login-button" style="float:right; margin-top: 40px; width: 80px;height: 35px;opacity: 0.8; outline: none;">
+                    <button class="login-button"
+                            style="float:right; margin-top: 40px; width: 80px;height: 35px;opacity: 0.8; outline: none;">
                         <img src="img/change.png" style="height: 15px;width: 15px;opacity: 0.5">
-                        换一换</button>
+                        换一换
+                    </button>
                 </a>
             </button>
         </div>
         <div class="attention">
-            <div class="attentionFrame" style="padding-left:0px; padding-top: 10px">
+            <div class="attentionFrame" style="padding-left: 0px; padding-top: 10px">
                 <button>
                     <a href="https://ow.blizzard.cn/home">
-                        <button class="attention-button" style="margin-left:45px;  " >
-                            关注Ta</button>
+                        <button class="attention-button" style="margin-left:45px;  ">
+                            关注Ta
+                        </button>
                     </a>
                     <a href="https://www.wowchina.com/zh-cn/">
                         <button class="attention-button" style="margin-left:40px; ">
-                            关注Ta</button>
+                            关注Ta
+                        </button>
                     </a>
                     <a href="https://hs.blizzard.cn/landing">
                         <button class="attention-button" style="margin-left:40px; ">
-                            关注Ta</button>
+                            关注Ta
+                        </button>
                     </a>
                     <a href="https://heroes.blizzard.cn/landing">
                         <button class="attention-button" style="margin-left:40px; ">
-                            关注Ta</button>
+                            关注Ta
+                        </button>
                     </a>
                     <a href="">
                         <button class="attention-button" style="margin-left:100px; ">
-                            关注Ta</button>
+                            关注Ta
+                        </button>
                     </a>
                     <a>
                         <button class="attention-button" style="margin-left:60px; ">
-                            关注Ta</button>
+                            关注Ta
+                        </button>
                     </a>
                     <a>
                         <button class="attention-button" style="margin-left:60px; ">
-                            关注Ta</button>
-                    </a>
+                            关注Ta
+                        </button>
                     </a>
                 </button>
             </div>
@@ -141,12 +158,16 @@
         <div class="contextFrame">
             <div class="innerFrame" style="margin-left: 35px; padding-top: 10px">
                 <div class="textList" style="margin-left: 20px; padding-left: 20px;">
-                    <ul >
+                    <ul>
                         <li class="listTitle"><h1>热门话题</h1></li>
                         <ol>
-                            <li><a href="https://dazhe.blizzard.cn/" >2020暴雪打折季12月20日盛大开启&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>539786<img src="img/fire.png" style="float: right; height: 25px;width: 25px"></li>
-                            <li><a href="https://ow.blizzard.cn/article/news/1520">守望先锋主播跨年欢乐车队12月31日20点准时发车&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>418450<img src="img/new.png" style="float: right; height: 30px;width: 30px"></li>
-                            <li><a href="https://hs.blizzard.cn/article/20/17107">1月1日暴雪游戏全民实力赛与你相约萤火虫&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>236203<img src="img/happy.png" style="float: right; height: 25px;width: 25px"></li>
+                            <li>
+                                <a href="https://dazhe.blizzard.cn/">2020暴雪打折季12月20日盛大开启&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>539786<img
+                                    src="img/fire.png" style="float: right; height: 25px;width: 25px"></li>
+                            <li><a href="https://ow.blizzard.cn/article/news/1520">守望先锋主播跨年欢乐车队12月31日20点准时发车&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>418450<img
+                                    src="img/new.png" style="float: right; height: 30px;width: 30px"></li>
+                            <li><a href="https://hs.blizzard.cn/article/20/17107">1月1日暴雪游戏全民实力赛与你相约萤火虫&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>236203<img
+                                    src="img/happy.png" style="float: right; height: 25px;width: 25px"></li>
                         </ol>
                         <li><a href="">点击此处查看更多</a></li>
                     </ul>
@@ -159,6 +180,7 @@
         <div class="division"></div>
     </div>
 </div>
+
 <footer>
     <div class="container">
         <div class="row">
@@ -201,5 +223,29 @@
     </div>
 </footer>
 
+<script type="text/javascript">
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+
+</script>
 </body>
 </html>
