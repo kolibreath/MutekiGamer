@@ -6,10 +6,10 @@ function news(gameId,call) {
                 url:"/battle/news" +gameId,
                 type:"GET",
                 success:function(result){
-                    allData.banner = result;
+                    allData.post = result;
                 },
                 error:function (result) {
-                    allData.banner = result;
+                    allData.post = result;
                 },
                 complete:function (result) {
                 }
