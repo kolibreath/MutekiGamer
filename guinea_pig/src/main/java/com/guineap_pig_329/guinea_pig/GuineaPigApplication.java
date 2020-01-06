@@ -9,6 +9,7 @@ public class GuineaPigApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(GuineaPigApplication.class, args);
+//        Util.CEN = Util.getCenInstance();
     }
 
 

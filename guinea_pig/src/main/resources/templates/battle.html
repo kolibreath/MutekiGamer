@@ -20,6 +20,7 @@
     <script type="text/javascript" th:src="@{/js/template-web.js}"></script>
     <script type="text/javascript" th:src="@{/js/Homepage.js}"></script>
     <script type="text/javascript" th:src="@{/js/Battle.js}"></script>
+    <script type="text/javascript" th:src="@{/js/Team.js}"></script>
 
 </head>
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
@@ -44,7 +45,6 @@
     </div>
 </div>
 
-<<<<<<< HEAD
 <div class="gamechose" style="position: sticky;margin-bottom: 80px;top: 0;">
     <div class="card" style="background: rgba(244,244,244,0.8);height: 80%;">
         <div class="card-body">
@@ -199,11 +199,7 @@
                 </div>
                 <!-- 战队 -->
                 <div id="menu2" class="container tab-pane fade">
-                    <!--战队头像-->
-                    <div id="teampicture"></div>
-                    <!--战队名称-->
-                    <div id="teamname"></div>
-
+                    <div id="team"></div>
                     <!--<dl>-->
                     <!--<dd class="clublist">-->
                     <!--<a href="">-->
@@ -327,7 +323,12 @@
 <script id="infos" type="text/html">
    <ul>
        {{each data}}
-       <li>{{$index+i}}:{{$value.content}}</li>
+       <li>
+           <!--发帖人信息-->
+           <div>{{$value.userName}}</div>
+           <div><img src="{{$value.userAvatar}}"style="width: 50px;height: 50px"></div>
+           <div>{{$index+i}}:{{$value.content}}</div>
+       </li>
        {{/each}}
    </ul>
 </script>
@@ -341,7 +342,14 @@
 </script>
 <!--处理相应游戏的战队信息-->
 <script id="teams" type="text/html">
-
+<ul>
+    {{each data}}
+    <li>
+        <div>{{$value.teamName}}</div>
+        <div><img src="{{$value.avatar}}" style="width: 50px;height: 50px"></div>
+    </li>
+    {{/each}}
+</ul>
 </script>
 <!--处理相应游戏的赛事信息-->
 <script id="battles" type="text/html">
@@ -370,6 +378,7 @@
             // 获取点击的游戏Id
             let val = $(this).attr("id");
             console.log(val);
+
             //游戏的资讯
             news(val,function (result) {
                 infos=result.post;
@@ -383,7 +392,12 @@
                 document.getElementById('community').innerHTML = html;
             })
             //游戏的战队
+            getTeamInfo(val,function (result) {
+                teams=result.result;
+                var html = template('teams', teams);
+                document.getElementById('team').innerHTML = html;
 
+            })
             //游戏的赛事
 
         })
