@@ -186,7 +186,7 @@
 </script>
 
 <!--content1-->
-<script id="all" type="text/html">
+<script id="all1" type="text/html">
     <ul>
         {{each data}}
         <li>{{$index+1}}:{{$value.content1}}</li>
@@ -197,7 +197,7 @@
 <script>
     homepage(function(result){
         //result后面的东西表示需要渲染的对象名
-        var html = template('all', result.post);
+        var html = template('all1', result.post);
         console.log(html);
         //不同地方渲染的ID名不同，需要修改
         document.getElementById('content1').innerHTML = html;
@@ -206,7 +206,7 @@
 
 
 <!--content2-->
-<script id="all" type="text/html">
+<script id="all2" type="text/html">
     <ul>
         {{each data}}
         <li>{{$index+1}}:{{$value.content2}}</li>
@@ -217,7 +217,7 @@
 <script>
     homepage(function(result){
         //result后面的东西表示需要渲染的对象名
-        var html = template('all', result.game);
+        var html = template('all2', result.game);
         console.log(html);
         //不同地方渲染的ID名不同，需要修改
         document.getElementById('content2').innerHTML = html;
