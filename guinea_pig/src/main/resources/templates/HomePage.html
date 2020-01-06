@@ -15,6 +15,8 @@
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" th:src="@{/js/template-web.js}"></script>
     <script type="text/javascript" th:src="@{/js/Homepage.js}"></script>
+    <script type="text/javascript" th:src="@{/js/Time.js}"></script>
+
 </head>
 
 <body>
@@ -121,10 +123,10 @@
                             <div class="listTitle">
                                 <!-- 新闻资讯 -->
                                 <h1>News</h1>
-                                <!--需要渲染的地方-->
-                                <div id="content">
-
-                                </div>
+                                <!--发帖人信息-->
+                                
+                                <!--帖子内容-->
+                                <div id="content"></div>
                             </div>
                     </div>
                 </div>
@@ -170,7 +172,12 @@
 <script id="all" type="text/html">
     <ul>
         {{each data}}
-        <li>{{$index+1}}:{{$value.content}}</li>
+        <li>
+            <!--帖子头部-->
+            <div>{{$value.title}}</div>
+            <!--帖子内容-->
+            <div>{{$index+1}}:{{$value.content}}</div>
+        </li>
         {{/each}}
     </ul>
 </script>
@@ -178,51 +185,57 @@
 <script>
     homepage(function(result){
         //result后面的东西表示需要渲染的对象名
-        var html = template('all', result.post);
+        var p=result.post;
+
+        var data={
+            post:p,
+            time:
+        }
+        var html = template('all', p);
         console.log(html);
-        //不同地方渲染的ID名不同，需要修改
         document.getElementById('content').innerHTML = html;
+
     });
 </script>
 
 <!--content1-->
-<script id="all" type="text/html">
-    <ul>
-        {{each data}}
-        <li>{{$index+1}}:{{$value.content1}}</li>
-        {{/each}}
-    </ul>
-</script>
+<!--<script id="all" type="text/html">-->
+    <!--<ul>-->
+        <!--{{each data}}-->
+        <!--<li>{{$index+1}}:{{$value.content1}}</li>-->
+        <!--{{/each}}-->
+    <!--</ul>-->
+<!--</script>-->
 
-<script>
-    homepage(function(result){
-        //result后面的东西表示需要渲染的对象名
-        var html = template('all', result.post);
-        console.log(html);
-        //不同地方渲染的ID名不同，需要修改
-        document.getElementById('content1').innerHTML = html;
-    });
-</script>
+<!--<script>-->
+    <!--homepage(function(result){-->
+        <!--//result后面的东西表示需要渲染的对象名-->
+        <!--var html = template('all', result.post);-->
+        <!--console.log(html);-->
+        <!--//不同地方渲染的ID名不同，需要修改-->
+        <!--document.getElementById('content1').innerHTML = html;-->
+    <!--});-->
+<!--</script>-->
 
 
-<!--content2-->
-<script id="all" type="text/html">
-    <ul>
-        {{each data}}
-        <li>{{$index+1}}:{{$value.content2}}</li>
-        {{/each}}
-    </ul>
-</script>
+<!--&lt;!&ndash;content2&ndash;&gt;-->
+<!--<script id="all" type="text/html">-->
+    <!--<ul>-->
+        <!--{{each data}}-->
+        <!--<li>{{$index+1}}:{{$value.content2}}</li>-->
+        <!--{{/each}}-->
+    <!--</ul>-->
+<!--</script>-->
 
-<script>
-    homepage(function(result){
-        //result后面的东西表示需要渲染的对象名
-        var html = template('all', result.game);
-        console.log(html);
-        //不同地方渲染的ID名不同，需要修改
-        document.getElementById('content2').innerHTML = html;
-    });
-</script>
+<!--<script>-->
+    <!--homepage(function(result){-->
+        <!--//result后面的东西表示需要渲染的对象名-->
+        <!--var html = template('all', result.game);-->
+        <!--console.log(html);-->
+        <!--//不同地方渲染的ID名不同，需要修改-->
+        <!--document.getElementById('content2').innerHTML = html;-->
+    <!--});-->
+<!--</script>-->
 
 <footer>
     <div class="container">
