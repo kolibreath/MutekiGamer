@@ -1,11 +1,14 @@
 package com.guineap_pig_329.guinea_pig.dao.wrapper;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class PostWrapper {
     private int postId;
     private int userId;
     private int gameId;
     private int tag;
-    private long time;
+    private String time;
     private String content;
     private String title;
     //发帖人的用户信息
@@ -29,11 +32,11 @@ public class PostWrapper {
         this.userId = userId;
     }
 
-    public long getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(long time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
@@ -90,10 +93,16 @@ public class PostWrapper {
         this.userId = userId;
         this.gameId = gameId;
         this.tag = tag;
-        this.time = time;
+        this.time = long2Date(time);
         this.content = content;
         this.title = title;
         this.userName = userName;
         this.userAvatar = userAvatar;
+    }
+
+    private String long2Date(long time){
+        Date date = new Date(time);
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        return format.format(date);
     }
 }
