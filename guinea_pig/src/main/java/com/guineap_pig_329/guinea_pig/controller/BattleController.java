@@ -27,6 +27,8 @@ public class BattleController {
     private OfficialRepo officialRepo;
     @Autowired
     private ContestRepo contestRepo;
+    @Autowired
+    private TeamRepo teamRepo;
 
 
     /**
@@ -61,5 +63,10 @@ public class BattleController {
         return ResultBean.success(contests);
     }
 
+
+    @RequestMapping("/team/{gameId}")
+    public ResultBean getTeamInfo(@PathVariable("gameId") int gameId){
+        return  ResultBean.success(teamRepo.findByGameId(gameId));
+    }
 
 }

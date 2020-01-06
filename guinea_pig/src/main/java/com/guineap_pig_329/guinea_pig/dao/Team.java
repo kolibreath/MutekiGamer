@@ -1,7 +1,5 @@
 package com.guineap_pig_329.guinea_pig.dao;
 
-import org.springframework.stereotype.Controller;
-
 import javax.persistence.*;
 
 /*
@@ -13,21 +11,29 @@ public class Team {
     @Id
     @GeneratedValue
     private int teamId;
-
     @Column
     private int gameId;
-
     @Column
     private String teamName;
-
     @Column
     private String officialWeb;
+    @Column
+    private String avatar;
 
 
-    public Team(int gameId, String teamName, String officialWeb) {
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public Team(int gameId, String teamName, String officialWeb, String avatar) {
         this.gameId = gameId;
         this.teamName = teamName;
         this.officialWeb = officialWeb;
+        this.avatar = avatar;
     }
 
     public String getOfficialWeb() {

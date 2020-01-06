@@ -1,4 +1,4 @@
-package com.guineap_pig_329.guinea_pig.dao;
+package com.guineap_pig_329.guinea_pig.dao.wrapper;
 
 public class Cen {
     private String url;
