@@ -1,4 +1,4 @@
-package com.guineap_pig_329.guinea_pig.controller;
+package com.guineap_pig_329.guinea_pig.error;
 
 //import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.slf4j.Logger;
