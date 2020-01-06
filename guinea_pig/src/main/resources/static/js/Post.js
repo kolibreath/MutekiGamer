@@ -57,3 +57,27 @@ function newResponse(responseContent,postId,call){
     $.when(createNewPost).done(()=>call(resultCode))
 
 }
+
+//删除帖子 postId 需要是一个int
+function deletePost(postId,call){
+    let resultCode ;
+    let post = {
+        postId:postId
+    };
+
+    let createNewPost = $.ajax(({
+        type:"POST",
+        url:"/post/new_response",
+        contentType:"application/json",
+        data:JSON.stringify(post),
+        success:function (result) {
+            resultCode = result;
+        },
+        error:function () {
+            //todo 错误处理
+        }
+    }));
+
+    $.when(createNewPost).done(()=>call(resultCode))
+
+}
