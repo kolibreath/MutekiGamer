@@ -3,6 +3,7 @@ package com.guineap_pig_329.guinea_pig.image;
 import com.aliyun.oss.OSSClient;
 import com.aliyun.oss.model.OSSObjectSummary;
 import com.aliyun.oss.model.ObjectListing;
+import com.guineap_pig_329.guinea_pig.Util;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -13,10 +14,12 @@ import java.io.IOException;
 @Component
 public class OSSUtil {
 
-    private static String endpoint = "oss-cn-hangzhou.aliyuncs.com";
-    private static String accessKeyId = "LTAI4FvSuXnyoFnrXnY16aGx";
-    private static String accessKeySecret = "Sb2TxAdGWuX6sX5x63nrjhdxPV1PeB";
-    private static String bucketName = "picturesbed";
+
+
+    private static String endpoint ;
+    private static String accessKeyId ;
+    private static String accessKeySecret;
+    private static String bucketName ;
 
     public static String getEndpoint() {
         return endpoint;
@@ -62,8 +65,11 @@ public class OSSUtil {
 
     //获取OSSClient实例
     private static OSSClient getOSSClient(){
-        OSSClient ossClient = new OSSClient(getEndpoint(), getAccessKeyId(), getAccessKeySecret());
-        return ossClient;
+        endpoint = Util.CEN.getEndpoint();
+        accessKeyId = Util.CEN.getAccessKeyId();
+        accessKeySecret = Util.CEN.getAccessKeySecret();
+        bucketName = Util.CEN.getBucketName();
+        return new OSSClient(getEndpoint(), getAccessKeyId(), getAccessKeySecret());
     }
 
     //文件流上传
