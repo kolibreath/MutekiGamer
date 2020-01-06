@@ -44,7 +44,7 @@ public class BattleController {
     }
 
 //
-    @GetMapping("/game/")
+    @GetMapping("/game")
     public ResultBean search(@RequestParam String search){
         List<Game> list = gameRepo.findByGameNameContaining(search);
         ResultBean resultBean = new ResultBean();

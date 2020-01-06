@@ -79,8 +79,10 @@
                 <div class="da-error-pin"></div>
                 <div class="da-error-code">
                     <p class="tip">OOPS!</p>
-                    <p class="tip2">SOMETHING WENT WRONG</p>
-                    <p class="tip3">You don't have permission to access the URL on this server.</p>
+                    <p class="tip2" th:text="${cause}"></p>
+                    <p class="tip3" th:text="${message}"></p>
+                    <a th:if="${exception.class.name == 'com.guineap_pig_329.guinea_pig.error.SessionOFDException'}"
+                    href="Login"></a>
                 </div>
                 <h1 class="da-error-heading">Sorry, 请稍后再试 !!!</h1>
             </div>

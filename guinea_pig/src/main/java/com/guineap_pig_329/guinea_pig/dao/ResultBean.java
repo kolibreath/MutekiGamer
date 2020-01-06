@@ -1,7 +1,5 @@
 package com.guineap_pig_329.guinea_pig.dao;
 
-import java.util.Collection;
-
 public class ResultBean<T> {
 
     private T data;
@@ -10,7 +8,9 @@ public class ResultBean<T> {
 
     public static int success_code = 200;
     public static int internal_error = 500;
-    public static int resources_not_found = 400;
+    public static int resources_not_found = 404;
+    public static int bad_request = 400;
+    public static int SESSION_OUT_OF_DATE  = 401;
 
     public ResultBean(){
 
@@ -53,8 +53,16 @@ public class ResultBean<T> {
     }
 
     public static <V> ResultBean success(V data){
+        return getResultBean(data, success_code);
+    }
+
+    public static <V> ResultBean successWithCode(V data,int code){
+        return getResultBean(data, code);
+    }
+
+    private static <V> ResultBean getResultBean(V data, int code) {
         ResultBean bean = new ResultBean();
-        bean.setCode(success_code);
+        bean.setCode(code);
         bean.setMessage("success");
         bean.setData(data);
         return bean;
