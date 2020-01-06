@@ -55,6 +55,7 @@ public class Util {
     }
 
     /**
+     *
      * warning method
      * @param className
      * @param string 输出的内容
@@ -71,6 +72,8 @@ public class Util {
         getInstance(className).error(string);
     }
 
-//    private static
+//    private static Cen initCen(){
+//
+//    }
 
 }
