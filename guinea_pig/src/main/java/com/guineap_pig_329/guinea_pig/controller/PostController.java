@@ -34,7 +34,8 @@ public class PostController {
     public ResultBean getPosts(HttpSession session){
         UserSession user  = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
         int userId  = user.getId();
-        List<Post> posts = postRepo.findAllByUserId(userId);
+        List<Post> posts = postRepo.findAllByUserId(userId).size() > 10 ? postRepo.findAllByUserId(userId).subList(0,10):
+                postRepo.findAllByUserId(userId);
         return ResultBean.success(sortPost(posts));
     }
 
@@ -126,6 +127,7 @@ public class PostController {
 
 
     //重新排序帖子的方法
+    //todo 根据用户的喜好进行推荐
     private List<Post> sortPost(List<Post> posts){
         Collections.sort(posts, Comparator.comparingInt(this::weight));
         return posts;
