@@ -12,10 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("homepage")
 public class HomepageController {
-
-
-
-
     //社区跳转
     @RequestMapping("/community")
     public String community(){
