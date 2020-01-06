@@ -2,6 +2,7 @@ package com.guineap_pig_329.guinea_pig.controller;
 
 
 import com.guineap_pig_329.guinea_pig.Constants;
+import com.guineap_pig_329.guinea_pig.Util;
 import com.guineap_pig_329.guinea_pig.dao.*;
 import com.guineap_pig_329.guinea_pig.dao.wrapper.PostWrapper;
 import com.guineap_pig_329.guinea_pig.repo.PostRepo;
@@ -37,7 +38,7 @@ public class PostController {
         int userId = user.getId();
         List<Post> posts = postRepo.findAllByUserId(userId);
         posts = sortPost(posts);
-        return ResultBean.success(transform(posts));
+        return ResultBean.success(Util.transform(posts,userRepo,userInfoRepo));
     }
 
     /**
@@ -49,7 +50,7 @@ public class PostController {
     @RequestMapping("/user/{id}")
     public ResultBean getPostByGameId(@PathVariable("id") Integer gameId) {
         List<Post> posts = postRepo.findAllByGameId(gameId);
-        return ResultBean.success(transform(posts));
+        return ResultBean.success(Util.transform(posts,userRepo,userInfoRepo));
     }
 
     @PostMapping(value = "/new_post")
@@ -118,7 +119,7 @@ public class PostController {
     public ResultBean filterByTag(@PathVariable("tag") int tag) {
         List<PostWrapper> filteredPost;
         try {
-            filteredPost = transform(postRepo.findByTag(tag));
+            filteredPost = Util.transform(postRepo.findByTag(tag),userRepo,userInfoRepo);
         } catch (Exception e) {
             return ResultBean.error(ResultBean.internal_error, "没有帖子内容");
         }
@@ -143,26 +144,4 @@ public class PostController {
         return weight;
     }
 
-
-    public List<PostWrapper> transform(List<Post> posts) {
-        List<PostWrapper> postWrappers = new ArrayList<>();
-        for (Post post : posts) {
-            User user = userRepo.findUserByUserId(post.getUserId());
-            UserInfo userinfo = userInfoRepo.findUserInfoByUserId(post.getUserId());
-            PostWrapper postWrapper = new PostWrapper(
-                    post.getPostId(),
-                    post.getUserId(),
-                    post.getGameId(),
-                    post.getTag(),
-                    post.getTime(),
-                    post.getContent(),
-                    post.getTitle(),
-                    user.getUserName(),
-                    userinfo.getUserAvatar()
-
-            );
-            postWrappers.add(postWrapper);
-        }
-        return postWrappers;
-    }
 }
