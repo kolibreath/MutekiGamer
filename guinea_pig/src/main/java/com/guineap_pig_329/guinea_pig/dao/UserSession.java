@@ -10,7 +10,7 @@ public class UserSession {
     private int id;
     private String name;
     private String password;
-
+    private int gameId;//关注的第一个游戏的Id
     /**
      * @param session
      * @return 带userId 返回值的
@@ -38,7 +38,14 @@ public class UserSession {
         }
     }
 
-    public UserSession(int id,String name,String pass)
+    public UserSession(int id, String name, String password, int gameId) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+        this.gameId = gameId;
+    }
+
+    public UserSession(int id, String name, String pass)
     {
         this.id=id;
         this.name=name;
@@ -66,5 +73,13 @@ public class UserSession {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getGameId() {
+        return gameId;
+    }
+
+    public void setGameId(int gameId) {
+        this.gameId = gameId;
     }
 }
