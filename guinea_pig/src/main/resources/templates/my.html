@@ -519,9 +519,18 @@
 </script>
 
 <script id="follower_num1" type="text/html">
-    <button id="follower_click">粉丝：{{followerNum}}</button>
+    <a class="btn  btn-link btn-lg " data-toggle="modal" data-target="#myModal2">
+        <button id="follower_click">粉丝：{{followerNum}}</button>
+    </a>
 </script>
 
+<script id="follow_info1" type="text/html">
+
+</script>
+
+<script id="follower_info1" type="text/html">
+
+</script>
 <script>
     var myinfo = {};
     getUserInfo(function (result) {
@@ -547,12 +556,15 @@
     })
 
 </script>
+<!--处理显示我关注的人的列表信息-->
 <script>
     $(function () {
         document.getElementById("follow_click").onclick()=function () {
-
         }
     })
+</script>
+<!--处理显示我的粉丝列表信息-->
+<script>
 
 </script>
 </body>
