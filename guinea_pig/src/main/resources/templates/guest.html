@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="keyword" content="HTML, CSS, image, navigation" />
-    <title>MY</title>
+    <title>Guest</title>
     <base th:href="@{/}">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
@@ -14,24 +14,39 @@
   <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
   <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
   
+  <script type="text/javascript">
+function change()
+{
+  var btn = document.getElementById("btn");
+  if(btn.value="关注")
+  {
+//var btn = document.getElementById("btn");
+btn.value="已关注";
+btn.disabled=true;
+ }
+ 
+}
+</script>
 
 </head>
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="300">
 <!-- Navigation Bar -->
-<div class="barContainer" style="z-index: 999;">
-      <div class="nav-content" style="background-color:rgba(220,220,220,0.8) ">
+<div class="barContainer">
+      <div class="nav-content">
          <div class="nav-title">
                 <span>
                     <img src="https://static.dingtalk.com/media/lALPDgQ9rZl6KXPNAljNB0Q_1860_600.png?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222028145409841%22%7D&bizType=im&open_id=267508618" alt="MutekiGamer logo">
                 </span>
          </div>
-         <div class="nav-text container-fluid">
+         <div class="nav-text">
             <span style="float: left"><a href="HomePage.html">主页</a></span>
             <span style="float: left"><a href="/homepage/community">社区</a></span>
             <span style="float: left"><a href="/homepage/news">头条</a></span>
             <span style="float: left"><a href="/homepage/battle">战场</a></span>
-           <span style="float: right"><a href="/homepage/my">我</a></span> 
-
+            <span style="float: right"><a href="/homepage/my">我</a>
+             
+         
+            </span>
             <span class="user">
                     <a href="login">Login</a>
             </span>
@@ -41,9 +56,10 @@
 
 <!--photo--> 
  <div class="divbox1">
-     <div class="left1" style="font-size: 13px;">
+     <div class="left1" text-align:center;>
       <img style="margin-bottom: 5px;" src="img/photo.png">
-      <a href="#"><img style="height: 13px;width: 13px;" src="img\glyphicons_free\glyphicons\png\glyphicons-31-pencil.png">编辑个人信息</a>
+      <br>
+      <input type="button" id="btn" onclick="change()" value="关注" class="btn btn-outline-light text-dark btn-warning" style="margin-left: 8px;padding-left: 25px;padding-right: 25px;height: 35px; font-weight: 700;border-radius:20px;display:block;margin:0 auto;" ></input>
       </div>
        <div  class=right1>用户名<br><br>
        <ul class="ui" >
@@ -83,27 +99,27 @@
        <tr>
         <td><img src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg" style="height: 40px;width:40px;"></td>
         <td>name1</td>
-        <td> <button type="button" class="btn btn-outline-light text-dark" style="margin-left: 180px; font-weight: 700;border-radius:20px;" >取消关注</button></td>
+        <td> <button type="button" class="btn btn-outline-light text-dark btn-warning" style="margin-left: 180px;padding-left: 25px;padding-right: 25px; font-weight: 700;border-radius:20px;">关注</button></td>
         </tr>
        <tr>
         <td><img src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg" style="height: 40px;width:40px;"></td>
         <td>name2</td>
-        <td> <button type="button" class="btn btn-outline-light text-dark" style="margin-left: 180px; font-weight: 700;border-radius:20px;">取消关注</button></td>
+        <td><button type="button" class="btn btn-outline-light text-dark btn-warning" style="margin-left: 180px;padding-left: 25px;padding-right: 25px; font-weight: 700;border-radius:20px;">关注</button></td>
       </tr>
       <tr>
         <td><img src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg" style="height: 40px;width:40px;"></td>
         <td>name3</td>
-        <td> <button type="button" class="btn btn-outline-light text-dark" style="margin-left: 180px; font-weight: 700;border-radius:20px;">取消关注</button></td>
+        <td> <button type="button" class="btn btn-outline-light text-dark" style="margin-left: 180px; font-weight: 700;border-radius:20px;">已关注</button></td>
       </tr>
       <tr>
         <td><img src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg" style="height: 40px;width:40px;"></td>
         <td>name4</td>
-        <td> <button type="button" class="btn btn-outline-light text-dark" style="margin-left: 180px; font-weight: 700;border-radius:20px;">取消关注</button></td>
+        <td> <button type="button" class="btn btn-outline-light text-dark btn-warning" style="margin-left: 180px;padding-left: 25px;padding-right: 25px; font-weight: 700;border-radius:20px;">关注</button></td>
       </tr>
       <tr>
         <td><img src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg" style="height: 40px;width:40px;"></td>
         <td>name5</td>
-        <td> <button type="button" class="btn btn-outline-light text-dark" style="margin-left: 180px; font-weight: 700;border-radius:20px;">取消关注</button></td>
+        <td> <button type="button" class="btn btn-outline-light text-dark btn-warning" style="margin-left: 180px;padding-left: 25px;padding-right: 25px; font-weight: 700;border-radius:20px;">关注</button></td>
       </tr>
     </tbody>
   </table>
@@ -151,7 +167,7 @@
        <tr>
         <td><img src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg" style="height: 40px;width:40px;"></td>
         <td>name1</td>
-        <td> <button type="button" class="btn btn-outline-light text-dark" style="margin-left: 180px; font-weight: 700;border-radius:20px;" >互相关注</button></td>
+        <td> <button type="button" class="btn btn-outline-light text-dark btn-warning" style="margin-left: 180px;padding-left: 25px;padding-right: 25px; font-weight: 700;border-radius:20px;">关注</button></td>
         </tr>
        <tr>
         <td><img src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg" style="height: 40px;width:40px;"></td>
@@ -161,7 +177,7 @@
       <tr>
         <td><img src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg" style="height: 40px;width:40px;"></td>
         <td>name3</td>
-        <td> <button type="button" class="btn btn-outline-light text-dark" style="margin-left: 180px; font-weight: 700;border-radius:20px;">互相关注</button></td>
+        <td> <button type="button" class="btn btn-outline-light text-dark btn-warning" style="margin-left: 180px;padding-left: 25px;padding-right: 25px; font-weight: 700;border-radius:20px;">关注</button></td>
       </tr>
       <tr>
         <td><img src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg" style="height: 40px;width:40px;"></td>
@@ -171,7 +187,7 @@
       <tr>
         <td><img src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg" style="height: 40px;width:40px;"></td>
         <td>name5</td>
-        <td> <button type="button" class="btn btn-outline-light text-dark" style="margin-left: 180px; font-weight: 700;border-radius:20px;">互相关注</button></td>
+        <td> <button type="button" class="btn btn-outline-light text-dark" style="margin-left: 180px; font-weight: 700;border-radius:20px;">已关注</button></td>
       </tr>
     </tbody>
   </table>
