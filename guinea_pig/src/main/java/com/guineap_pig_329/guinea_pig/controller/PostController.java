@@ -52,6 +52,14 @@ public class PostController {
         List<Post> posts = postRepo.findAllByGameId(gameId);
         return ResultBean.success(Util.transform(posts,userRepo,userInfoRepo));
     }
+    //通过游戏Id 用户id得到帖子
+    @RequestMapping("/usergame/{gameid}")
+    public ResultBean getPostByUserIdGameId(@PathVariable("gameid") Integer gameId,HttpSession session) {
+        UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
+        int userId = user.getId();
+        List<Post> posts = postRepo.findAllByGameIdAndUserId(userId,gameId);
+        return ResultBean.success(Util.transform(posts,userRepo,userInfoRepo));
+    }
 
     @PostMapping(value = "/new_post")
     //成功 200 错误 返回 500

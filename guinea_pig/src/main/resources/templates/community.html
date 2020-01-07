@@ -172,9 +172,6 @@
         {{/each}}
     </ul>
 </script>
-<script id="defults" type="text/html">
-
-</script>
 <script>
     var games = {};
     homepage(function (result) {
@@ -183,12 +180,6 @@
         console.log(html);
         document.getElementById('games').innerHTML = html;
     })
-</script>
-<script>
-    var game=defultDisplay();
-    var html = template('defults', game);
-    console.log(html);
-    document.getElementById('defult').innerHTML = html;
 </script>
 <script>
     $(function () {
