@@ -27,7 +27,7 @@ public class Contest {
     private int teamScore2;
 
     @Column
-    private String recordReviewLinked;
+    private String recordReviewLink;
 
     @Column
     private int status;
@@ -89,12 +89,12 @@ public class Contest {
         this.teamScore2 = teamScore2;
     }
 
-    public String getRecordReviewLinked() {
-        return recordReviewLinked;
+    public String getRecordReviewLink() {
+        return recordReviewLink;
     }
 
-    public void setRecordReviewLinked(String recordReviewLinked) {
-        this.recordReviewLinked = recordReviewLinked;
+    public void setRecordReviewLink(String recordReviewLink) {
+        this.recordReviewLink = recordReviewLink;
     }
 
     public int getStatus() {
@@ -124,12 +124,12 @@ public class Contest {
 
     public Contest(){}
 
-    public Contest(String teamName1, String teamName2, int teamScore1, int teamScore2, String recordReviewLinked, int status, String time, int gameId, int winnerId) {
+    public Contest(String teamName1, String teamName2, int teamScore1, int teamScore2, String recordReviewLink, int status, String time, int gameId, int winnerId) {
         this.teamName1 = teamName1;
         this.teamName2 = teamName2;
         this.teamScore1 = teamScore1;
         this.teamScore2 = teamScore2;
-        this.recordReviewLinked = recordReviewLinked;
+        this.recordReviewLink = recordReviewLink;
         this.status = status;
         this.time = time;
         this.gameId = gameId;

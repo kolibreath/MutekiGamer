@@ -50,4 +50,9 @@ public class Constants {
     public static int PREVIEWS= 4;
     public static int OFFICIAL_NEWS_PRESS = 5;
 
+    //队员位置
+    public static int TANK = 1;
+    public static int DAMAGE = 2;
+    public static int SUPPORT = 3;
+
 }

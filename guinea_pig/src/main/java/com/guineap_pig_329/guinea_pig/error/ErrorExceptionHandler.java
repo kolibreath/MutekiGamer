@@ -1,6 +1,4 @@
 package com.guineap_pig_329.guinea_pig.error;
-
-//import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

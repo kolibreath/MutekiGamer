@@ -201,6 +201,10 @@ public class TestController {
         userRepo.save(ht_official);
         userRepo.save(wow_official);
 
+        UserInfo ow_o_info = new UserInfo(ow_official.getUserId(),"https://upload-images.jianshu.io/upload_images/4714178-80023db1c2c2ba2a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240",
+                "守望先锋官方账号",Constants.MALE,"美国旧金山",10);
+        userInfoRepo.save(ow_o_info);
+
         Official ow_op = new Official(overwatch.getGameId(),ow_official.getUserId());
         Official sc_op = new Official(starcraft.getGameId(),sc_official.getUserId());
         Official ht_op = new Official(hearthStone.getGameId(),ht_official.getUserId());

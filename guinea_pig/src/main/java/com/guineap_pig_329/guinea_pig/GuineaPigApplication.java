@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @SpringBootApplication
+
 public class GuineaPigApplication {
 
     public static void main(String[] args) {

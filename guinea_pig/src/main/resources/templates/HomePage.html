@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <!-- <meta http-equiv="Content-Type" content="text/html" /> -->
     <meta name="keyword" content="HTML, CSS, image, navigation" />
+    <meta name="referrer" content="no-referrer"/>
     <title>MutekiGamer - HomePage</title>
     <base th:href="@{/}">
     <link rel="stylesheet" type="text/css" href="css/index.css" />
@@ -15,6 +16,8 @@
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" th:src="@{/js/template-web.js}"></script>
     <script type="text/javascript" th:src="@{/js/Homepage.js}"></script>
+    <script type="text/javascript" th:src="@{/js/Time.js}"></script>
+
 </head>
 
 <body>
@@ -87,27 +90,26 @@
     </div>
 
     <div class="main-content">
-        <div class="contextFrame" style="padding-left: 50px;">
-                <span>
-                    <img src="https://blznav.akamaized.net/img/games/logo-ow-4be5755bc0a4cbaf.png" style="width: 80px;height: 80px;margin-left: 10%;">
-                </span>
-            <span>
-                    <img src="https://blznav.akamaized.net/img/games/logo-wow-3dd2cfe06df74407.png" style="width: 80px;height: 80px;margin-left: 10%;">
-                </span>
-            <span>
-                    <img src="https://blznav.akamaized.net/img/games/logo-hs-93512467e87f82c6.png" style="width: 80px;height: 80px;margin-left:  10%;">
-                </span>
-            <span>
-                    <img src="https://blznav.akamaized.net/img/games/logo-heroes-78cae505b7a524fb.png" style="width: 80px;height: 80px;margin-left:  10%;">
-                </span>
-            <button>
-                <a href="">
-                    <button class="login-button" style="float:right; margin-top:2%;
+        <div class="contextFrame" style="padding-left: 50px;height: 80px;">
+            <!--用户关注的游戏-->
+             <div id="game" style="width: 70%;height: 80px; float: left;"></div>
+                <!--<span>-->
+                    <!--<img src="https://blznav.akamaized.net/img/games/logo-ow-4be5755bc0a4cbaf.png" style="width: 80px;height: 80px;margin-left: 10%;">-->
+                <!--</span>-->
+            <!--<span>-->
+                    <!--<img src="https://blznav.akamaized.net/img/games/logo-wow-3dd2cfe06df74407.png" style="width: 80px;height: 80px;margin-left: 10%;">-->
+                <!--</span>-->
+            <!--<span>-->
+                    <!--<img src="https://blznav.akamaized.net/img/games/logo-hs-93512467e87f82c6.png" style="width: 80px;height: 80px;margin-left:  10%;">-->
+                <!--</span>-->
+            <!--<span>-->
+                    <!--<img src="https://blznav.akamaized.net/img/games/logo-heroes-78cae505b7a524fb.png" style="width: 80px;height: 80px;margin-left:  10%;">-->
+                <!--</span>-->
+                <button class="login-button" style=" float:right; margin-top:2%;
                          width: 80px;height: 35px;opacity: 0.8">
-                        <img src="img/change.png" style="height: 15px;width: 15px;opacity: 0.5">
-                        换一批</button>
-                </a>
-            </button>
+                <img src="img/change.png" style="height: 15px;width: 15px;opacity: 0.5">
+                    换一批
+                </button>
         </div>
         <div class="contextFrame">
             <div class="innerFrame">
@@ -120,45 +122,43 @@
                     <div class="textList">
                             <div class="listTitle">
                                 <!-- 新闻资讯 -->
-                                <h1>News</h1>
-                                <!--需要渲染的地方-->
-                                <div id="content">
-
-                                </div>
+                                <h1>posts</h1>
+                                <!--帖子内容-->
+                                <div id="content"></div>
                             </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="contextFrame">
-            <div class="innerFrame">
-                <div class="left">
-                    <div class="textList">
-                        <ul>
-                            <li class="listTitle"><h1>Post</h1></li>
-                                <!-- 帖子 -->
-                                <div id="content1">
+<!--        <div class="contextFrame">-->
+<!--            <div class="innerFrame">-->
+<!--                <div class="left">-->
+<!--                    <div class="textList">-->
+<!--                        <ul>-->
+<!--                            <li class="listTitle"><h1>Post</h1></li>-->
+<!--                                &lt;!&ndash; 帖子 &ndash;&gt;-->
+<!--                                <div id="content1">-->
 
-                                </div>
-                            <li><a href="">Soccer Match between THU and BNU</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="right">
-                    <div class="textList">
-                        <ul>
-                            <li class="listTitle"><h1>Games</h1></li>
-                            <!-- 游戏 -->
-                            <div id="content2">
+<!--                                </div>-->
+<!--                            <li><a href="">Soccer Match between THU and BNU</a></li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="right">-->
+<!--                    <div class="textList">-->
+<!--                        <ul>-->
+<!--                            <li class="listTitle"><h1>Games</h1></li>-->
+<!--                            &lt;!&ndash; 游戏 &ndash;&gt;-->
+<!--                            <div id="content2">-->
 
-                            </div>
-                            <li><a href="">THU Soccer Club</a></li>
+<!--                            </div>-->
+<!--                            <li><a href="">THU Soccer Club</a></li>-->
 
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
 
         <div class="division"></div>
         <div class="division"></div>
@@ -166,26 +166,53 @@
     </div>
 </div>
 
+<!--games-->
+<script id="games" type="text/html">
+<ul style="height: 80px;">
+    {{each data}}
+    <li style="width: 80px; height: 80px; float: left; margin-left: 5%;">
+        <img src="{{$value.picture}}" style="width: 80px; height: 80px; margin-left: 10%;" >
+    </li>
+    {{/each}}
+</ul>
+</script>
+
 <!--content-->
 <script id="all" type="text/html">
     <ul>
         {{each data}}
-        <li>{{$index+1}}:{{$value.content}}</li>
+        <li style="height: 110px;">
+            <!--发帖人信息:用户名和头像-->
+            <div style=" width: 50px; float: left;">
+                <img src="{{$value.userAvatar}}"style="width: 50px;height: 50px">
+            </div>
+            <div>{{$value.userName}}</div>
+            <!--帖子时间-->
+            <div>{{$value.time}}</div>
+            <!--帖子头部-->
+            <div style="float: left; width: 100%; margin-left: 3%;">{{$value.title}}</div>
+            <!--帖子内容-->
+            <div style="float: left; width:100%; height: 24px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                {{$value.content}}
+            </div>
+        </li>
         {{/each}}
     </ul>
 </script>
 
 <script>
     homepage(function(result){
-        //result后面的东西表示需要渲染的对象名
+        console.log(result);
         var html = template('all', result.post);
-        console.log(html);
-        //不同地方渲染的ID名不同，需要修改
         document.getElementById('content').innerHTML = html;
     });
 </script>
-
-<!--content1-->
+<script>
+    homepage(function (result) {
+        var html=template('games',result.game);
+        document.getElementById('game').innerHTML = html;
+    })
+</script>
 <script id="all1" type="text/html">
     <ul>
         {{each data}}

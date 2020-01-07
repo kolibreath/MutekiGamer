@@ -3,8 +3,10 @@ package com.guineap_pig_329.guinea_pig.controller;
 import com.guineap_pig_329.guinea_pig.Constants;
 import com.guineap_pig_329.guinea_pig.dao.ResultBean;
 import com.guineap_pig_329.guinea_pig.dao.User;
+import com.guineap_pig_329.guinea_pig.dao.UserGame;
 import com.guineap_pig_329.guinea_pig.dao.UserSession;
 import com.guineap_pig_329.guinea_pig.repo.BannerRepo;
+import com.guineap_pig_329.guinea_pig.repo.UserGameRepo;
 import com.guineap_pig_329.guinea_pig.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -40,6 +43,9 @@ public class AuthController {
     private String from;
 
     @Autowired
+    public UserGameRepo userGameRepo;
+
+    @Autowired
     public void setUserRepo(UserRepo userRepo) {
         this.userRepo = userRepo;
     }
@@ -55,9 +61,18 @@ public class AuthController {
         String password = httpServletRequest.getParameter("password");
 
         User user = userRepo.findByUserEmail(name);
+        //获取用户关注的第一个游戏
+        int firstGameId=0;
+        List<UserGame> userGame=userGameRepo.findAllByUserId(user.getUserId());
+        if(userGame.isEmpty())
+            firstGameId=1;
+        else
+            firstGameId=userGame.get(0).getGameId();
+
         if (password.equals(user.getUserPassword())) {
-            UserSession usrSession = new UserSession(user.getUserId(), user.getUserName(), user.getUserPassword());
-            httpSession.setAttribute(Constants.USE_SESSION_KEY, usrSession);
+           // UserSession usrSession = new UserSession(user.getUserId(), user.getUserName(), user.getUserPassword());
+            UserSession userSession=new UserSession(user.getUserId(),user.getUserName(),user.getUserPassword(),firstGameId);
+            httpSession.setAttribute(Constants.USE_SESSION_KEY, userSession);
             return "HomePage";
         } else
             return "login";
