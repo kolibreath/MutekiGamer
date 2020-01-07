@@ -16,7 +16,7 @@
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" th:src="@{/js/template-web.js}"></script>
     <script type="text/javascript" th:src="@{/js/Homepage.js}"></script>
-    <script type="text/javascript" th:src="@{/js/Defult.js}"></script>
+    <script type="text/javascript" th:src="@{/js/User.js}"></script>
 
 
 </head>
@@ -50,7 +50,7 @@
         <div id="myinfo1"></div>
         <!--<img style="margin-bottom: 5px;" src="img/photo.png">-->
         <!--<a href="#"><img style="height: 13px;width: 13px;"-->
-                         <!--src="img\glyphicons_free\glyphicons\png\glyphicons-31-pencil.png">编辑个人信息</a>-->
+        <!--src="img\glyphicons_free\glyphicons\png\glyphicons-31-pencil.png">编辑个人信息</a>-->
     </div>
     <div class=right1>
         <div id="myname"></div>
@@ -59,14 +59,10 @@
             <li>
                 <a type="button" class="btn  btn-link btn-lg ">
                     <!--发帖数-->
-                    <div id="postNum"></div>
+                    <div id="post_num"></div>
                 </a>
             </li>
             <li>
-                <!-- 按钮：用于打开关注人数框 -->
-                <!--<a type="button" class="btn  btn-link btn-lg " data-toggle="modal" data-target="#myModal1">-->
-                    <!--关注人数-->
-                <!--</a>-->
                 <div id="follow_num"></div>
                 <!-- 关注人数框 -->
                 <div class="container">
@@ -75,7 +71,7 @@
                             <div class="modal-content" style="margin-top: 180px;">
                                 <!-- 关注人数框头部 -->
                                 <div class="modal-header">
-                                    <!--关注人数：5-->
+                                    <!--关注人数：5-->关注：
 
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 </div>
@@ -84,66 +80,66 @@
                                     <table class="table">
 
                                         <tbody style="max-height: 220px;overflow-y: scroll;-webkit-overflow-scrolling:touch;display: block;">
-                                           <div id="follow_info"></div>
+                                        <div id="follow_info"></div>
                                         <!--<tr>-->
-                                            <!--<td><img-->
-                                                    <!--src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg"-->
-                                                    <!--style="height: 40px;width:40px;"></td>-->
-                                            <!--<td>name1</td>-->
-                                            <!--<td>-->
-                                                <!--<button type="button" class="btn btn-outline-light text-dark"-->
-                                                        <!--style="margin-left: 180px; font-weight: 700;border-radius:20px;">-->
-                                                    <!--取消关注-->
-                                                <!--</button>-->
-                                            <!--</td>-->
+                                        <!--<td><img-->
+                                        <!--src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg"-->
+                                        <!--style="height: 40px;width:40px;"></td>-->
+                                        <!--<td>name1</td>-->
+                                        <!--<td>-->
+                                        <!--<button type="button" class="btn btn-outline-light text-dark"-->
+                                        <!--style="margin-left: 180px; font-weight: 700;border-radius:20px;">-->
+                                        <!--取消关注-->
+                                        <!--</button>-->
+                                        <!--</td>-->
                                         <!--</tr>-->
                                         <!--<tr>-->
-                                            <!--<td><img-->
-                                                    <!--src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg"-->
-                                                    <!--style="height: 40px;width:40px;"></td>-->
-                                            <!--<td>name2</td>-->
-                                            <!--<td>-->
-                                                <!--<button type="button" class="btn btn-outline-light text-dark"-->
-                                                        <!--style="margin-left: 180px; font-weight: 700;border-radius:20px;">-->
-                                                    <!--取消关注-->
-                                                <!--</button>-->
-                                            <!--</td>-->
+                                        <!--<td><img-->
+                                        <!--src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg"-->
+                                        <!--style="height: 40px;width:40px;"></td>-->
+                                        <!--<td>name2</td>-->
+                                        <!--<td>-->
+                                        <!--<button type="button" class="btn btn-outline-light text-dark"-->
+                                        <!--style="margin-left: 180px; font-weight: 700;border-radius:20px;">-->
+                                        <!--取消关注-->
+                                        <!--</button>-->
+                                        <!--</td>-->
                                         <!--</tr>-->
                                         <!--<tr>-->
-                                            <!--<td><img-->
-                                                    <!--src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg"-->
-                                                    <!--style="height: 40px;width:40px;"></td>-->
-                                            <!--<td>name3</td>-->
-                                            <!--<td>-->
-                                                <!--<button type="button" class="btn btn-outline-light text-dark"-->
-                                                        <!--style="margin-left: 180px; font-weight: 700;border-radius:20px;">-->
-                                                    <!--取消关注-->
-                                                <!--</button>-->
-                                            <!--</td>-->
+                                        <!--<td><img-->
+                                        <!--src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg"-->
+                                        <!--style="height: 40px;width:40px;"></td>-->
+                                        <!--<td>name3</td>-->
+                                        <!--<td>-->
+                                        <!--<button type="button" class="btn btn-outline-light text-dark"-->
+                                        <!--style="margin-left: 180px; font-weight: 700;border-radius:20px;">-->
+                                        <!--取消关注-->
+                                        <!--</button>-->
+                                        <!--</td>-->
                                         <!--</tr>-->
                                         <!--<tr>-->
-                                            <!--<td><img-->
-                                                    <!--src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg"-->
-                                                    <!--style="height: 40px;width:40px;"></td>-->
-                                            <!--<td>name4</td>-->
-                                            <!--<td>-->
-                                                <!--<button type="button" class="btn btn-outline-light text-dark"-->
-                                                        <!--style="margin-left: 180px; font-weight: 700;border-radius:20px;">-->
-                                                    <!--取消关注-->
-                                                <!--</button>-->
-                                            <!--</td>-->
+                                        <!--<td><img-->
+                                        <!--src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg"-->
+                                        <!--style="height: 40px;width:40px;"></td>-->
+                                        <!--<td>name4</td>-->
+                                        <!--<td>-->
+                                        <!--<button type="button" class="btn btn-outline-light text-dark"-->
+                                        <!--style="margin-left: 180px; font-weight: 700;border-radius:20px;">-->
+                                        <!--取消关注-->
+                                        <!--</button>-->
+                                        <!--</td>-->
                                         <!--</tr>-->
                                         <!--<tr>-->
-                                            <!--<td><img-->
-                                                    <!--src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg"-->
-                                                    <!--style="height: 40px;width:40px;"></td>-->
-                                            <!--<td>name5</td>-->
-                                            <!--<td>-->
-                                                <!--<button type="button" class="btn btn-outline-light text-dark"-->
-                                                        <!--style="margin-left: 180px; font-weight: 700;border-radius:20px;">-->
-                                                    <!--取消关注-->
-                                                <!--</button>-->
-                                            <!--</td>-->
+                                        <!--<td><img-->
+                                        <!--src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg"-->
+                                        <!--style="height: 40px;width:40px;"></td>-->
+                                        <!--<td>name5</td>-->
+                                        <!--<td>-->
+                                        <!--<button type="button" class="btn btn-outline-light text-dark"-->
+                                        <!--style="margin-left: 180px; font-weight: 700;border-radius:20px;">-->
+                                        <!--取消关注-->
+                                        <!--</button>-->
+                                        <!--</td>-->
                                         <!--</tr>-->
                                         </tbody>
                                     </table>
@@ -160,11 +156,12 @@
                 </div>
             </li>
             <li>
+                <div id="follower_num"></div>
                 <!--   <a href="#">粉丝数</a>-->
                 <!-- 按钮：用于打开粉丝数框 -->
-                <a type="button" class="btn  btn-link btn-lg " data-toggle="modal" data-target="#myModal2">
-                    粉丝数
-                </a>
+                <!--<a type="button" class="btn  btn-link btn-lg " data-toggle="modal" data-target="#myModal2">-->
+                <!--粉丝数-->
+                <!--</a>-->
                 <!-- 粉丝数框 -->
                 <div class="container">
                     <div class="modal fade" id="myModal2">
@@ -173,76 +170,75 @@
 
                                 <!-- 粉丝数框头部 -->
                                 <div class="modal-header">
-                                    粉丝数：5
+
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 </div>
                                 <!-- 粉丝数框主体 -->
                                 <div class="modal-body">
                                     <table class="table">
                                         <tbody style="max-height: 220px;overflow-y: scroll;-webkit-overflow-scrolling:touch;display: block;">
-                                        <div id="follower_img"></div>
-                                        <div id="follower_name"></div>
+                                        <div id="follower_info"></div>
                                         <!--<tr>-->
-                                            <!--<td><img-->
-                                                    <!--src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg"-->
-                                                    <!--style="height: 40px;width:40px;"></td>-->
-                                            <!--<td>name1</td>-->
-                                            <!--<td>-->
-                                                <!--<button type="button" class="btn btn-outline-light text-dark"-->
-                                                        <!--style="margin-left: 180px; font-weight: 700;border-radius:20px;">-->
-                                                    <!--互相关注-->
-                                                <!--</button>-->
-                                            <!--</td>-->
+                                        <!--<td><img-->
+                                        <!--src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg"-->
+                                        <!--style="height: 40px;width:40px;"></td>-->
+                                        <!--<td>name1</td>-->
+                                        <!--<td>-->
+                                        <!--<button type="button" class="btn btn-outline-light text-dark"-->
+                                        <!--style="margin-left: 180px; font-weight: 700;border-radius:20px;">-->
+                                        <!--互相关注-->
+                                        <!--</button>-->
+                                        <!--</td>-->
                                         <!--</tr>-->
                                         <!--<tr>-->
-                                            <!--<td><img-->
-                                                    <!--src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg"-->
-                                                    <!--style="height: 40px;width:40px;"></td>-->
-                                            <!--<td>name2</td>-->
-                                            <!--<td>-->
-                                                <!--<button type="button"-->
-                                                        <!--class="btn btn-outline-light text-dark btn-warning"-->
-                                                        <!--style="margin-left: 180px;padding-left: 25px;padding-right: 25px; font-weight: 700;border-radius:20px;">-->
-                                                    <!--关注-->
-                                                <!--</button>-->
-                                            <!--</td>-->
+                                        <!--<td><img-->
+                                        <!--src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg"-->
+                                        <!--style="height: 40px;width:40px;"></td>-->
+                                        <!--<td>name2</td>-->
+                                        <!--<td>-->
+                                        <!--<button type="button"-->
+                                        <!--class="btn btn-outline-light text-dark btn-warning"-->
+                                        <!--style="margin-left: 180px;padding-left: 25px;padding-right: 25px; font-weight: 700;border-radius:20px;">-->
+                                        <!--关注-->
+                                        <!--</button>-->
+                                        <!--</td>-->
                                         <!--</tr>-->
                                         <!--<tr>-->
-                                            <!--<td><img-->
-                                                    <!--src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg"-->
-                                                    <!--style="height: 40px;width:40px;"></td>-->
-                                            <!--<td>name3</td>-->
-                                            <!--<td>-->
-                                                <!--<button type="button" class="btn btn-outline-light text-dark"-->
-                                                        <!--style="margin-left: 180px; font-weight: 700;border-radius:20px;">-->
-                                                    <!--互相关注-->
-                                                <!--</button>-->
-                                            <!--</td>-->
+                                        <!--<td><img-->
+                                        <!--src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg"-->
+                                        <!--style="height: 40px;width:40px;"></td>-->
+                                        <!--<td>name3</td>-->
+                                        <!--<td>-->
+                                        <!--<button type="button" class="btn btn-outline-light text-dark"-->
+                                        <!--style="margin-left: 180px; font-weight: 700;border-radius:20px;">-->
+                                        <!--互相关注-->
+                                        <!--</button>-->
+                                        <!--</td>-->
                                         <!--</tr>-->
                                         <!--<tr>-->
-                                            <!--<td><img-->
-                                                    <!--src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg"-->
-                                                    <!--style="height: 40px;width:40px;"></td>-->
-                                            <!--<td>name4</td>-->
-                                            <!--<td>-->
-                                                <!--<button type="button"-->
-                                                        <!--class="btn btn-outline-light text-dark btn-warning"-->
-                                                        <!--style="margin-left: 180px;padding-left: 25px;padding-right: 25px; font-weight: 700;border-radius:20px;">-->
-                                                    <!--关注-->
-                                                <!--</button>-->
-                                            <!--</td>-->
+                                        <!--<td><img-->
+                                        <!--src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg"-->
+                                        <!--style="height: 40px;width:40px;"></td>-->
+                                        <!--<td>name4</td>-->
+                                        <!--<td>-->
+                                        <!--<button type="button"-->
+                                        <!--class="btn btn-outline-light text-dark btn-warning"-->
+                                        <!--style="margin-left: 180px;padding-left: 25px;padding-right: 25px; font-weight: 700;border-radius:20px;">-->
+                                        <!--关注-->
+                                        <!--</button>-->
+                                        <!--</td>-->
                                         <!--</tr>-->
                                         <!--<tr>-->
-                                            <!--<td><img-->
-                                                    <!--src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg"-->
-                                                    <!--style="height: 40px;width:40px;"></td>-->
-                                            <!--<td>name5</td>-->
-                                            <!--<td>-->
-                                                <!--<button type="button" class="btn btn-outline-light text-dark"-->
-                                                        <!--style="margin-left: 180px; font-weight: 700;border-radius:20px;">-->
-                                                    <!--互相关注-->
-                                                <!--</button>-->
-                                            <!--</td>-->
+                                        <!--<td><img-->
+                                        <!--src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg"-->
+                                        <!--style="height: 40px;width:40px;"></td>-->
+                                        <!--<td>name5</td>-->
+                                        <!--<td>-->
+                                        <!--<button type="button" class="btn btn-outline-light text-dark"-->
+                                        <!--style="margin-left: 180px; font-weight: 700;border-radius:20px;">-->
+                                        <!--互相关注-->
+                                        <!--</button>-->
+                                        <!--</td>-->
                                         <!--</tr>-->
                                         </tbody>
                                     </table>
@@ -270,18 +266,18 @@
                 <!--导航-->
                 <div id="navigation"></div>
                 <!--<ul class="nav nav-pills flex-column" style="text-align: center">-->
-                    <!--<li class="nav-item">-->
-                        <!--<a class="nav-link active" href="#section1"><img src="img/lushi.png" style="width:60px; height:60px;"></a>-->
-                    <!--</li>-->
-                    <!--<li class="nav-item">-->
-                        <!--<a class="nav-link" href="#section2"><img src="img/anhei.png"style="width:60px; height:60px;"></a>-->
-                    <!--</li>-->
-                    <!--<li class="nav-item">-->
-                        <!--<a class="nav-link" href="#section3"><img src="img/moshou.png" style="width:60px; height:60px;"></a>-->
-                    <!--</li>-->
-                    <!--<li class="nav-item">-->
-                        <!--<a class="nav-link" href="#section4"><img src="img/fengbao.png" style="width:60px; height:60px;"></a>-->
-                    <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link active" href="#section1"><img src="img/lushi.png" style="width:60px; height:60px;"></a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link" href="#section2"><img src="img/anhei.png"style="width:60px; height:60px;"></a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link" href="#section3"><img src="img/moshou.png" style="width:60px; height:60px;"></a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link" href="#section4"><img src="img/fengbao.png" style="width:60px; height:60px;"></a>-->
+                <!--</li>-->
                 <!--</ul>-->
             </nav>
 
@@ -289,214 +285,214 @@
                 <!--帖子-->
                 <div id="post"></div>
                 <!--<div id="section1">-->
-                    <!--<ul>-->
-                        <!--<li>-->
-                            <!--<div style="font-size: 20px; padding-top:20px">24分钟前-->
-                            <!--</div>-->
-                            <!--<div style="font-size: 18px;margin-top: 20px;margin-bottom: 20px;">虽败犹荣,9倍的快乐你想象不到（狗头）<br>为早上的莽撞自罚一杯！-->
+                <!--<ul>-->
+                <!--<li>-->
+                <!--<div style="font-size: 20px; padding-top:20px">24分钟前-->
+                <!--</div>-->
+                <!--<div style="font-size: 18px;margin-top: 20px;margin-bottom: 20px;">虽败犹荣,9倍的快乐你想象不到（狗头）<br>为早上的莽撞自罚一杯！-->
 
-                            <!--</div>-->
-                            <!--<div style="border: 0.5px solid gray;width:680px;height:1px"></div>-->
-                            <!--<div>-->
-                                <!--<ul class="ul">-->
-                                    <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128"-->
-                                             <!--style="width: 25px;height: 17px">&nbsp浏览数-->
-                                    <!--</li>-->
-                                    <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128"-->
-                                             <!--style="width: 18px;height: 18px">&nbsp评论数-->
-                                    <!--</li>-->
-                                    <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128"-->
-                                             <!--style="width: 20px;height: 20px">&nbsp点赞数-->
-                                    <!--</li>-->
-                                    <!--<button type="button" class="btn btn-outline-light text-dark"-->
-                                            <!--style="margin-left:55px; margin-bottom:20px;font-weight: 700;">删除-->
-                                    <!--</button>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</li>-->
-                        <!--<li style="border: 0.5px solid gray;width:780px;height:2px"></li>-->
-                        <!--<li>-->
-                            <!--<div style="font-size: 20px; padding-top: 20px">一天前</div>-->
-                            <!--<div style="font-size: 18px; margin-top: 20px;margin-bottom: 20px;">#炉石传说#圣光指引我！<br>-->
-                                <!--我觉得鲍勃在骗我，只有小粉，我的恶魔呢？-->
-                            <!--</div>-->
-                            <!--<div style="border: 0.5px solid gray;width:680px;height:1px"></div>-->
-                            <!--<div>-->
-                                <!--<ul class="ul">-->
-                                    <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128"-->
-                                             <!--style="width: 25px;height: 17px">&nbsp浏览数-->
-                                    <!--</li>-->
-                                    <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128"-->
-                                             <!--style="width: 18px;height: 18px">&nbsp评论数-->
-                                    <!--</li>-->
-                                    <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128"-->
-                                             <!--style="width: 20px;height: 20px">&nbsp点赞数-->
-                                    <!--</li>-->
-                                    <!--<button type="button" class="btn btn-outline-light text-dark"-->
-                                            <!--style="margin-left:55px; margin-bottom:20px;font-weight: 700;">删除-->
-                                    <!--</button>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</li>-->
-                    <!--</ul>-->
+                <!--</div>-->
+                <!--<div style="border: 0.5px solid gray;width:680px;height:1px"></div>-->
+                <!--<div>-->
+                <!--<ul class="ul">-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128"-->
+                <!--style="width: 25px;height: 17px">&nbsp浏览数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128"-->
+                <!--style="width: 18px;height: 18px">&nbsp评论数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128"-->
+                <!--style="width: 20px;height: 20px">&nbsp点赞数-->
+                <!--</li>-->
+                <!--<button type="button" class="btn btn-outline-light text-dark"-->
+                <!--style="margin-left:55px; margin-bottom:20px;font-weight: 700;">删除-->
+                <!--</button>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--</li>-->
+                <!--<li style="border: 0.5px solid gray;width:780px;height:2px"></li>-->
+                <!--<li>-->
+                <!--<div style="font-size: 20px; padding-top: 20px">一天前</div>-->
+                <!--<div style="font-size: 18px; margin-top: 20px;margin-bottom: 20px;">#炉石传说#圣光指引我！<br>-->
+                <!--我觉得鲍勃在骗我，只有小粉，我的恶魔呢？-->
+                <!--</div>-->
+                <!--<div style="border: 0.5px solid gray;width:680px;height:1px"></div>-->
+                <!--<div>-->
+                <!--<ul class="ul">-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128"-->
+                <!--style="width: 25px;height: 17px">&nbsp浏览数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128"-->
+                <!--style="width: 18px;height: 18px">&nbsp评论数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128"-->
+                <!--style="width: 20px;height: 20px">&nbsp点赞数-->
+                <!--</li>-->
+                <!--<button type="button" class="btn btn-outline-light text-dark"-->
+                <!--style="margin-left:55px; margin-bottom:20px;font-weight: 700;">删除-->
+                <!--</button>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--</li>-->
+                <!--</ul>-->
                 <!--</div>-->
                 <!--<div id="section2">-->
-                    <!--<ul>-->
-                        <!--<li>-->
-                            <!--<div style="font-size: 20px; padding-top:20px">24分钟前-->
-                            <!--</div>-->
-                            <!--<div style="font-size: 18px;margin-top: 20px;margin-bottom: 20px;">-->
-                                <!--#暗黑破坏神#虽败犹荣,9倍的快乐你想象不到（狗头）<br>为早上的莽撞自罚一杯！-->
-                            <!--</div>-->
-                            <!--<div style="border: 0.5px solid gray;width:680px;height:1px"></div>-->
-                            <!--<div>-->
-                                <!--<ul class="ul">-->
-                                    <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128"-->
-                                             <!--style="width: 25px;height: 17px">&nbsp浏览数-->
-                                    <!--</li>-->
-                                    <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128"-->
-                                             <!--style="width: 18px;height: 18px">&nbsp评论数-->
-                                    <!--</li>-->
-                                    <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128"-->
-                                             <!--style="width: 20px;height: 20px">&nbsp点赞数-->
-                                    <!--</li>-->
-                                    <!--<button type="button" class="btn btn-outline-light text-dark"-->
-                                            <!--style="margin-left:55px; margin-bottom:20px;font-weight: 700;">删除-->
-                                    <!--</button>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</li>-->
-                        <!--<li style="border: 0.5px solid gray;width:780px;height:2px"></li>-->
-                        <!--<li>-->
-                            <!--<div style="font-size: 20px; padding-top: 20px">一天前-->
-                            <!--</div>-->
-                            <!--<div style="font-size: 18px; margin-top: 20px;margin-bottom: 20px;">圣光指引我！<br>-->
-                                <!--我觉得鲍勃在骗我，只有小粉，我的恶魔呢？-->
-                            <!--</div>-->
-                            <!--<div style="border: 0.5px solid gray;width:680px;height:1px"></div>-->
-                            <!--<div>-->
-                                <!--<ul class="ul">-->
-                                    <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128"-->
-                                             <!--style="width: 25px;height: 17px">&nbsp浏览数-->
-                                    <!--</li>-->
-                                    <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128"-->
-                                             <!--style="width: 18px;height: 18px">&nbsp评论数-->
-                                    <!--</li>-->
-                                    <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128"-->
-                                             <!--style="width: 20px;height: 20px">&nbsp点赞数-->
-                                    <!--</li>-->
-                                    <!--<button type="button" class="btn btn-outline-light text-dark"-->
-                                            <!--style="margin-left:55px; margin-bottom:20px;font-weight: 700;">删除-->
-                                    <!--</button>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</li>-->
-                    <!--</ul>-->
+                <!--<ul>-->
+                <!--<li>-->
+                <!--<div style="font-size: 20px; padding-top:20px">24分钟前-->
+                <!--</div>-->
+                <!--<div style="font-size: 18px;margin-top: 20px;margin-bottom: 20px;">-->
+                <!--#暗黑破坏神#虽败犹荣,9倍的快乐你想象不到（狗头）<br>为早上的莽撞自罚一杯！-->
+                <!--</div>-->
+                <!--<div style="border: 0.5px solid gray;width:680px;height:1px"></div>-->
+                <!--<div>-->
+                <!--<ul class="ul">-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128"-->
+                <!--style="width: 25px;height: 17px">&nbsp浏览数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128"-->
+                <!--style="width: 18px;height: 18px">&nbsp评论数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128"-->
+                <!--style="width: 20px;height: 20px">&nbsp点赞数-->
+                <!--</li>-->
+                <!--<button type="button" class="btn btn-outline-light text-dark"-->
+                <!--style="margin-left:55px; margin-bottom:20px;font-weight: 700;">删除-->
+                <!--</button>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--</li>-->
+                <!--<li style="border: 0.5px solid gray;width:780px;height:2px"></li>-->
+                <!--<li>-->
+                <!--<div style="font-size: 20px; padding-top: 20px">一天前-->
+                <!--</div>-->
+                <!--<div style="font-size: 18px; margin-top: 20px;margin-bottom: 20px;">圣光指引我！<br>-->
+                <!--我觉得鲍勃在骗我，只有小粉，我的恶魔呢？-->
+                <!--</div>-->
+                <!--<div style="border: 0.5px solid gray;width:680px;height:1px"></div>-->
+                <!--<div>-->
+                <!--<ul class="ul">-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128"-->
+                <!--style="width: 25px;height: 17px">&nbsp浏览数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128"-->
+                <!--style="width: 18px;height: 18px">&nbsp评论数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128"-->
+                <!--style="width: 20px;height: 20px">&nbsp点赞数-->
+                <!--</li>-->
+                <!--<button type="button" class="btn btn-outline-light text-dark"-->
+                <!--style="margin-left:55px; margin-bottom:20px;font-weight: 700;">删除-->
+                <!--</button>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--</li>-->
+                <!--</ul>-->
                 <!--</div>-->
                 <!--<div id="section3">-->
-                    <!--<ul>-->
-                        <!--<li>-->
-                            <!--<div style="font-size: 20px; padding-top:20px">24分钟前-->
-                            <!--</div>-->
-                            <!--<div style="font-size: 18px;margin-top: 20px;margin-bottom: 20px;">#魔兽世界#虽败犹荣,9倍的快乐你想象不到（狗头）<br>为早上的莽撞自罚一杯！-->
-                            <!--</div>-->
-                            <!--<div style="border: 0.5px solid gray;width:680px;height:1px"></div>-->
-                            <!--<div>-->
-                                <!--<ul class="ul">-->
-                                    <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128"-->
-                                             <!--style="width: 25px;height: 17px">&nbsp浏览数-->
-                                    <!--</li>-->
-                                    <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128"-->
-                                             <!--style="width: 18px;height: 18px">&nbsp评论数-->
-                                    <!--</li>-->
-                                    <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128"-->
-                                             <!--style="width: 20px;height: 20px">&nbsp点赞数-->
-                                    <!--</li>-->
-                                    <!--<button type="button" class="btn btn-outline-light text-dark"-->
-                                            <!--style="margin-left:55px; margin-bottom:20px;font-weight: 700;">删除-->
-                                    <!--</button>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</li>-->
-                        <!--<li style="border: 0.5px solid gray;width:780px;height:2px"></li>-->
-                        <!--<li>-->
-                            <!--<div style="font-size: 20px; padding-top: 20px">一天前-->
-                            <!--</div>-->
-                            <!--<div style="font-size: 18px; margin-top: 20px;margin-bottom: 20px;">圣光指引我！<br>-->
-                                <!--我觉得鲍勃在骗我，只有小粉，我的恶魔呢？-->
-                            <!--</div>-->
-                            <!--<div style="border: 0.5px solid gray;width:680px;height:1px"></div>-->
-                            <!--<div>-->
-                                <!--<ul class="ul">-->
-                                    <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128"-->
-                                             <!--style="width: 25px;height: 17px">&nbsp浏览数-->
-                                    <!--</li>-->
-                                    <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128"-->
-                                             <!--style="width: 18px;height: 18px">&nbsp评论数-->
-                                    <!--</li>-->
-                                    <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128"-->
-                                             <!--style="width: 20px;height: 20px">&nbsp点赞数-->
-                                    <!--</li>-->
-                                    <!--<button type="button" class="btn btn-outline-light text-dark"-->
-                                            <!--style="margin-left:55px; margin-bottom:20px;font-weight: 700;">删除-->
-                                    <!--</button>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</li>-->
-                    <!--</ul>-->
+                <!--<ul>-->
+                <!--<li>-->
+                <!--<div style="font-size: 20px; padding-top:20px">24分钟前-->
+                <!--</div>-->
+                <!--<div style="font-size: 18px;margin-top: 20px;margin-bottom: 20px;">#魔兽世界#虽败犹荣,9倍的快乐你想象不到（狗头）<br>为早上的莽撞自罚一杯！-->
+                <!--</div>-->
+                <!--<div style="border: 0.5px solid gray;width:680px;height:1px"></div>-->
+                <!--<div>-->
+                <!--<ul class="ul">-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128"-->
+                <!--style="width: 25px;height: 17px">&nbsp浏览数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128"-->
+                <!--style="width: 18px;height: 18px">&nbsp评论数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128"-->
+                <!--style="width: 20px;height: 20px">&nbsp点赞数-->
+                <!--</li>-->
+                <!--<button type="button" class="btn btn-outline-light text-dark"-->
+                <!--style="margin-left:55px; margin-bottom:20px;font-weight: 700;">删除-->
+                <!--</button>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--</li>-->
+                <!--<li style="border: 0.5px solid gray;width:780px;height:2px"></li>-->
+                <!--<li>-->
+                <!--<div style="font-size: 20px; padding-top: 20px">一天前-->
+                <!--</div>-->
+                <!--<div style="font-size: 18px; margin-top: 20px;margin-bottom: 20px;">圣光指引我！<br>-->
+                <!--我觉得鲍勃在骗我，只有小粉，我的恶魔呢？-->
+                <!--</div>-->
+                <!--<div style="border: 0.5px solid gray;width:680px;height:1px"></div>-->
+                <!--<div>-->
+                <!--<ul class="ul">-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128"-->
+                <!--style="width: 25px;height: 17px">&nbsp浏览数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128"-->
+                <!--style="width: 18px;height: 18px">&nbsp评论数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128"-->
+                <!--style="width: 20px;height: 20px">&nbsp点赞数-->
+                <!--</li>-->
+                <!--<button type="button" class="btn btn-outline-light text-dark"-->
+                <!--style="margin-left:55px; margin-bottom:20px;font-weight: 700;">删除-->
+                <!--</button>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--</li>-->
+                <!--</ul>-->
                 <!--</div>-->
                 <!--<div id="section4">-->
-                    <!--<ul>-->
-                        <!--<li>-->
-                            <!--<div style="font-size: 20px; padding-top:20px">24分钟前-->
-                            <!--</div>-->
-                            <!--<div style="font-size: 18px;margin-top: 20px;margin-bottom: 20px;">-->
-                                <!--#风暴英雄1#虽败犹荣,9倍的快乐你想象不到（狗头）<br>为早上的莽撞自罚一杯！-->
-                            <!--</div>-->
-                            <!--<div style="border: 0.5px solid gray;width:680px;height:1px"></div>-->
-                            <!--<div>-->
-                                <!--<ul class="ul">-->
-                                    <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128"-->
-                                             <!--style="width: 25px;height: 17px">&nbsp浏览数-->
-                                    <!--</li>-->
-                                    <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128"-->
-                                             <!--style="width: 18px;height: 18px">&nbsp评论数-->
-                                    <!--</li>-->
-                                    <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128"-->
-                                             <!--style="width: 20px;height: 20px">&nbsp点赞数-->
-                                    <!--</li>-->
-                                    <!--<button type="button" class="btn btn-outline-light text-dark"-->
-                                            <!--style="margin-left:55px; margin-bottom:20px;font-weight: 700;">删除-->
-                                    <!--</button>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</li>-->
-                        <!--<li style="border: 0.5px solid gray;width:780px;height:2px"></li>-->
-                        <!--<li>-->
-                            <!--<div style="font-size: 20px; padding-top: 20px">一天前-->
-                            <!--</div>-->
-                            <!--<div style="font-size: 18px; margin-top: 20px;margin-bottom: 20px;">圣光指引我！<br>-->
-                                <!--我觉得鲍勃在骗我，只有小粉，我的恶魔呢？-->
-                            <!--</div>-->
-                            <!--<div style="border: 0.5px solid gray;width:680px;height:1px"></div>-->
-                            <!--<div>-->
-                                <!--<ul class="ul">-->
-                                    <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128"-->
-                                             <!--style="width: 25px;height: 17px">&nbsp浏览数-->
-                                    <!--</li>-->
-                                    <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128"-->
-                                             <!--style="width: 18px;height: 18px">&nbsp评论数-->
-                                    <!--</li>-->
-                                    <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128"-->
-                                             <!--style="width: 20px;height: 20px">&nbsp点赞数-->
-                                    <!--</li>-->
-                                    <!--<button type="button" class="btn btn-outline-light text-dark"-->
-                                            <!--style="margin-left:55px; margin-bottom:20px;font-weight: 700;">删除-->
-                                    <!--</button>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</li>-->
-                    <!--</ul>-->
+                <!--<ul>-->
+                <!--<li>-->
+                <!--<div style="font-size: 20px; padding-top:20px">24分钟前-->
+                <!--</div>-->
+                <!--<div style="font-size: 18px;margin-top: 20px;margin-bottom: 20px;">-->
+                <!--#风暴英雄1#虽败犹荣,9倍的快乐你想象不到（狗头）<br>为早上的莽撞自罚一杯！-->
+                <!--</div>-->
+                <!--<div style="border: 0.5px solid gray;width:680px;height:1px"></div>-->
+                <!--<div>-->
+                <!--<ul class="ul">-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128"-->
+                <!--style="width: 25px;height: 17px">&nbsp浏览数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128"-->
+                <!--style="width: 18px;height: 18px">&nbsp评论数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128"-->
+                <!--style="width: 20px;height: 20px">&nbsp点赞数-->
+                <!--</li>-->
+                <!--<button type="button" class="btn btn-outline-light text-dark"-->
+                <!--style="margin-left:55px; margin-bottom:20px;font-weight: 700;">删除-->
+                <!--</button>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--</li>-->
+                <!--<li style="border: 0.5px solid gray;width:780px;height:2px"></li>-->
+                <!--<li>-->
+                <!--<div style="font-size: 20px; padding-top: 20px">一天前-->
+                <!--</div>-->
+                <!--<div style="font-size: 18px; margin-top: 20px;margin-bottom: 20px;">圣光指引我！<br>-->
+                <!--我觉得鲍勃在骗我，只有小粉，我的恶魔呢？-->
+                <!--</div>-->
+                <!--<div style="border: 0.5px solid gray;width:680px;height:1px"></div>-->
+                <!--<div>-->
+                <!--<ul class="ul">-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128"-->
+                <!--style="width: 25px;height: 17px">&nbsp浏览数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128"-->
+                <!--style="width: 18px;height: 18px">&nbsp评论数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128"-->
+                <!--style="width: 20px;height: 20px">&nbsp点赞数-->
+                <!--</li>-->
+                <!--<button type="button" class="btn btn-outline-light text-dark"-->
+                <!--style="margin-left:55px; margin-bottom:20px;font-weight: 700;">删除-->
+                <!--</button>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--</li>-->
+                <!--</ul>-->
                 <!--</div>-->
 
             </div>
@@ -505,38 +501,58 @@
 </div>
 <!--渲染我的基本信息-->
 <script id="myinfo11" type="text/html">
-
+    <img src="{{userAvatar}}" style="width: 60px;height: 60px">
 </script>
+
 <script id="myname1" type="text/html">
-{{data.userName}}
+    {{userName}}
 </script>
 
 <script id="post_num1" type="text/html">
-<button id="post_click">帖子：{{}}</button>
+    <button id="post_click">帖子：{{postLength}}</button>
 </script>
 
 <script id="follow_num1" type="text/html">
-<button id="follow_click">关注：{{data.followingNum}}</button>
+    <a class="btn  btn-link btn-lg " data-toggle="modal" data-target="#myModal1">
+        <button id="follow_click">关注：{{followingNum}}</button>
+    </a>
 </script>
 
-<script id="follow_info1" type="text/html">
-<button id="follower_click">粉丝：{{data.followerNum}}</button>
+<script id="follower_num1" type="text/html">
+    <button id="follower_click">粉丝：{{followerNum}}</button>
 </script>
 
 <script>
-    var myinfo={};
+    var myinfo = {};
     getUserInfo(function (result) {
-        myinfo=result.info;
+        console.log(result);
+        myinfo = result.data;
+
+        console.log(myinfo);
+        var h1 = template('myinfo11', myinfo);
+        document.getElementById('myinfo1').innerHTML = h1;
+
+        var h2 = template('myname1', myinfo);
+        document.getElementById('myname').innerHTML = h2;
+
+        var h4 = template('post_num1', myinfo);
+        document.getElementById('post_num').innerHTML = h4;
+
+        var h3 = template('follow_num1', myinfo);
+        document.getElementById('follow_num').innerHTML = h3;
+
+        var h5 = template('follower_num1', myinfo);
+        document.getElementById('follower_num').innerHTML = h5;
+
     })
 
-    var h1 = template('myinfo11', myinfo);
-    document.getElementById('myinfo1').innerHTML = h1;
+</script>
+<script>
+    $(function () {
+        document.getElementById("follow_click").onclick()=function () {
 
-    var h2 = template('myname1', myinfo);
-    document.getElementById('myname').innerHTML = h2;
-
-    var h3 = template('follow_num1', myinfo);
-    document.getElementById('follow_num').innerHTML = h1;
+        }
+    })
 
 </script>
 </body>

@@ -1,26 +1,49 @@
-package com.guineap_pig_329.guinea_pig.dao;
+package com.guineap_pig_329.guinea_pig.dao.wrapper;
+
+import com.guineap_pig_329.guinea_pig.dao.Game;
+import com.guineap_pig_329.guinea_pig.dao.Post;
+import com.guineap_pig_329.guinea_pig.dao.User;
 
 import java.util.List;
 
 /**
  * 用户关注的主页的信息
  */
-public class UserHomePage {
+public class UserHomePageWrapper {
     private String userName;
     private int followerNum;
+    private int postLength;
     private int followingNum;
-    public UserHomePage(){}
+    private String userAvatar;
+    public UserHomePageWrapper(){}
     private List<Game> games;
-    private List<Post> posts;
-    private List<User> followers;
-    private List<User> following;
 
     public String getUserName() {
         return userName;
     }
+    private List<Post> posts;
+    private List<User> followers;
+    private List<User> following;
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+
+    public int getPostLength() {
+        return postLength;
+    }
+
+    public void setPostLength(int postLength) {
+        this.postLength = postLength;
+    }
+
+    public String getUserAvatar() {
+        return userAvatar;
+    }
+
+    public void setUserAvatar(String userAvatar) {
+        this.userAvatar = userAvatar;
     }
 
     public List<Game> getGames() {
