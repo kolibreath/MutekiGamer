@@ -44,7 +44,6 @@ public class UserSession {
         this.password = password;
         this.gameId = gameId;
     }
-
     public UserSession(int id, String name, String pass)
     {
         this.id=id;
