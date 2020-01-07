@@ -521,12 +521,39 @@
 </script>
 
 <script id="follow_info1" type="text/html">
-
+<ul>
+    {{each following}}
+    <li>
+        <!--<div><img src="{{$value.picture}}"></div>-->
+        <div>{{$value.userName}}</div>
+        <button class="unfollow" id="{{$value.userId}}}">取关</button>
+    </li>
+    {{/each}}
+</ul>
 </script>
 
 <script id="follower_info1" type="text/html">
-
+    <ul>
+        {{each following}}
+        <li>
+            <!--<div><img src="{{$value.picture}}"></div>-->
+            <div>{{$value.userName}}</div>
+        </li>
+        {{/each}}
+    </ul>
 </script>
+<!--处理显示左侧游戏-->
+<script id="navigation1" type="text/html">
+    <ul style="height: 80px;">
+        {{each data}}
+        <li style="width: 80px; height: 80px; float: left; margin-left: 5%;">
+            <img src="{{$value.picture}}" style="width: 80px; height: 80px; margin-left: 10%;" >
+        </li>
+        {{/each}}
+    </ul>
+</script>
+
+<!--处理个人信息请求-->
 <script>
     var myinfo = {};
     getUserInfo(function (result) {
@@ -549,19 +576,32 @@
         var h5 = template('follower_num1', myinfo);
         document.getElementById('follower_num').innerHTML = h5;
 
+        var follow_info = template('follow_info1', myinfo);
+        document.getElementById('follow_info').innerHTML = follow_info;
+
+        var follower_info = template('follower_info1', myinfo);
+        document.getElementById('follower_info').innerHTML = follower_info;
+
     })
 
 </script>
-<!--处理显示我关注的人的列表信息-->
+
+<!--处理游戏请求-->
+<script>
+    homepage(function (result) {
+        var html=template('games',result.game);
+        document.getElementById('game').innerHTML = html;
+    })
+</script>
 <script>
     $(function () {
-        document.getElementById("follow_click").onclick()=function () {
-        }
+        $(".unfollow").click(function () {
+            let val = $(this).attr("id");
+           unfollow(val,function (result) {
+              alert("success");
+           })
+        })
     })
-</script>
-<!--处理显示我的粉丝列表信息-->
-<script>
-
 </script>
 </body>
 </html>

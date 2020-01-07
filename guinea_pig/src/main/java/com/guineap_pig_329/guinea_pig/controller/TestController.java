@@ -40,7 +40,7 @@ public class TestController {
         //todo 修改游戏介绍的图片
 
         //游戏内容介绍
-        Game overwatch  = new Game("overwatch","《守望先锋》是暴雪出品的首款团队射击游戏，" +
+        Game overwatch  = new Game("守望先锋","《守望先锋》是暴雪出品的首款团队射击游戏，" +
                 "现已正式来到中国。游戏以近未来地球为背景，来自全球的超级英雄们将使用自己独特的能力在战场上厮杀，带给玩家顶尖的射击体验。"
         , Constants.OVERWATCH_THUMBNAIL);
         Game diablo = new Game("暗黑破坏神","《暗黑破坏神》是1996年暴雪娱乐公司推出的一款动作RPG经典游戏系列" +
@@ -97,28 +97,28 @@ public class TestController {
         Banner LOL = new Banner(
                 "https://upload-images.jianshu.io/upload_images/4714178-222cf9be94eb28f8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
         ,"https://www.bilibili.com/video/av79860792"
-                ,System.currentTimeMillis(),
+                ,"1",
                 "守望先锋无敌！",overwatch.getGameId());
 
         Banner anime = new Banner("https://upload-images.jianshu.io/upload_images/4714178-260647096c1ca369.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240",
         "https://www.bilibili.com/blackboard/topic/activity-2020bangumiQ1_web.html?spm_id_from=333.851.b_7265706f7274466972737431.1",
-                System.currentTimeMillis(),"暗黑破坏神万岁",diablo.getGameId());
+                "2","暗黑破坏神万岁",diablo.getGameId());
 
         bannerRepo.save(LOL);
         bannerRepo.save(anime);
 //贴子
-        Post post1 = new Post(rick.getUserId(),System.currentTimeMillis(),"this is a test",Constants.PREVIEWS,"守望先锋模式修改",overwatch.getGameId());
-        Post post2 = new Post(rick.getUserId(),System.currentTimeMillis(),"this is a test",Constants.PREVIEWS,"炉石传说模式修改",hearthStone.getGameId());
-        Post post3 = new Post(rick.getUserId(),System.currentTimeMillis(),"this is a test",Constants.PREVIEWS,"星际争霸模式修改",starcraft.getGameId());
-        Post post4 = new Post(rick.getUserId(),System.currentTimeMillis(),"this is a test",Constants.PREVIEWS,"魔兽世界模式修改",wow.getGameId());
+        Post post1 = new Post(rick.getUserId(),"222","this is a test",Constants.PREVIEWS,"守望先锋模式修改",overwatch.getGameId());
+        Post post2 = new Post(rick.getUserId(),"222","this is a test",Constants.PREVIEWS,"炉石传说模式修改",hearthStone.getGameId());
+        Post post3 = new Post(rick.getUserId(),"222","this is a test",Constants.PREVIEWS,"星际争霸模式修改",starcraft.getGameId());
+        Post post4 = new Post(rick.getUserId(),"222","this is a test",Constants.PREVIEWS,"魔兽世界模式修改",wow.getGameId());
 
         postRepo.save(post1);
         postRepo.save(post2);
         postRepo.save(post3);
         postRepo.save(post4);
 
-        Post p1=new Post(2,System.currentTimeMillis(),"i love szy1",Constants.PREVIEWS,"title1!",2);
-        Post p2=new Post(3,System.currentTimeMillis(),"i love szy2",Constants.PREVIEWS,"title2!",3);
+        Post p1=new Post(2,"33434","i love szy1",Constants.PREVIEWS,"title1!",2);
+        Post p2=new Post(3,"33434","i love szy2",Constants.PREVIEWS,"title2!",3);
         postRepo.save(p1);
         postRepo.save(p2);
 
@@ -216,22 +216,22 @@ public class TestController {
         officialRepo.save(wow_op);
 
         Post owo_post = new Post(ow_official.getUserId(),
-                System.currentTimeMillis(),
+                "1",
                 "守望先锋最好玩!",Constants.OFFICIAL_NEWS_PRESS,"守望先锋新英雄ash 真的好玩夜夜夜夜！",
         overwatch.getGameId(),null);
 
         Post sco_post = new Post(sc_official.getUserId(),
-                System.currentTimeMillis(),
+                "1",
                 "星际争霸最好玩!",Constants.OFFICIAL_NEWS_PRESS,"我亲爱的指挥官，你又回来了！！",
                 starcraft.getGameId(),null);
 
         Post hto_post = new Post(ht_official.getUserId(),
-                System.currentTimeMillis(),
+                "2",
                 "炉石传说真你妈好玩！!",Constants.OFFICIAL_NEWS_PRESS,"炉石传说新酒馆战棋模式！！",
                 hearthStone.getGameId(),null);
 
         Post wowo_post = new Post(wow_official.getUserId(),
-                System.currentTimeMillis(),
+                "1",
                 "魔兽世界额最好玩!",Constants.OFFICIAL_NEWS_PRESS,"希尔瓦娜斯真饿好看！！",
                 wow.getGameId(),null);
 
@@ -252,6 +252,12 @@ public class TestController {
     @RequestMapping("/2")
     public String turn2TestRequest(){
         return "test_request";
+    }
+
+    @RequestMapping("/3")
+    public String turn2RickLoveU(){
+//        ImageUploader.upload();
+        return "test_upload";
     }
 
 

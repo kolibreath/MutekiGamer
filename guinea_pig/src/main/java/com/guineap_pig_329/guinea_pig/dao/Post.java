@@ -19,9 +19,10 @@ public class    Post {
     private int userId;
 
     @Column
-    private long time;
+    private String time;
 
     @Column
+    @Nullable
     private String content;
 
     @Column
@@ -61,12 +62,22 @@ public class    Post {
         this.userId = userId;
     }
 
-    public long getTime() {
+
+    public String getTime() {
         return time;
     }
 
-    public void setTime(long time) {
+    public void setTime(String time) {
         this.time = time;
+    }
+
+    @Nullable
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(@Nullable String link) {
+        this.link = link;
     }
 
     public String getContent() {
@@ -97,7 +108,7 @@ public class    Post {
 
     }
 
-    public Post(int userId, long time, String content, int tag, String title, int gameId) {
+    public Post(int userId, String time, String content, int tag, String title, int gameId) {
         this.userId = userId;
         this.time = time;
         this.content = content;
@@ -106,7 +117,7 @@ public class    Post {
         this.gameId = gameId;
     }
 
-    public Post(int userId, long time, String content, int tag, String title, int gameId, @Nullable String link) {
+    public Post(int userId, String time, String content, int tag, String title, int gameId, @Nullable String link) {
         this.userId = userId;
         this.time = time;
         this.content = content;

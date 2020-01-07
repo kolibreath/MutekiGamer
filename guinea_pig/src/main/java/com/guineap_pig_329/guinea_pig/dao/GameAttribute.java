@@ -33,7 +33,7 @@ public class GameAttribute {
     private String platform;
 
     @Column
-    private long time;//游戏发行时间
+    private String time;//游戏发行时间
 
     public int getGameAttributeId() {
         return gameAttributeId;
@@ -99,11 +99,12 @@ public class GameAttribute {
         this.platform = platform;
     }
 
-    public long getTime() {
+
+    public String getTime() {
         return time;
     }
 
-    public void setTime(long time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
