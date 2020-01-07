@@ -3,8 +3,10 @@ package com.guineap_pig_329.guinea_pig.controller;
 
 import com.guineap_pig_329.guinea_pig.Constants;
 import com.guineap_pig_329.guinea_pig.dao.*;
+import com.guineap_pig_329.guinea_pig.dao.wrapper.UserHomePageWrapper;
 import com.guineap_pig_329.guinea_pig.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,13 +37,9 @@ public class UserController {
     @Autowired
     private UserRepo userRepo;
 
-    /**
-     * @param session
-     * @param map
-     * @return 关注成功 返回 200 关注失败返回 400 发生异常返回 500
-     */
+
     @RequestMapping("/follow")
-    public ResultBean  follow(HttpSession session, Map<String,Object> map){
+    public ResultBean  follow(HttpSession session, @RequestBody Map<String,Object> map){
         UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
         int userId = user.getId();
         int otherUserId;
@@ -51,6 +49,8 @@ public class UserController {
             return ResultBean.error(ResultBean.internal_error,"服务器错误");
         }
         //todo code check
+        if(friendsRepo.findByUserId1AndUserId2(userId,otherUserId)!= null)
+            return ResultBean.error(ResultBean.internal_error,"重复创建好友关系");
         Friends friends = new Friends(userId, otherUserId);
         friendsRepo.save(friends);
         return ResultBean.success(null);
@@ -58,7 +58,7 @@ public class UserController {
 
 
     @RequestMapping("/unfollow")
-    public ResultBean  unfollow(HttpSession session, Map<String,Object> map){
+    public ResultBean  unfollow(HttpSession session, @RequestBody Map<String,Object> map){
         UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
         int otherUserId;
         try {
@@ -82,11 +82,17 @@ public class UserController {
         UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
         int userId = user.getId();
 
-        UserHomePage userHomePage = new UserHomePage();
-        userHomePage.setUserName(user.getName());
+        UserHomePageWrapper userHomePageWrapper = new UserHomePageWrapper();
+        userHomePageWrapper.setUserName(user.getName());
+
+        UserInfo userInfo = userInfoRepo.findUserInfoByUserId(userId);
+        String userAvatar = userInfo.getUserAvatar();
+
+        userHomePageWrapper.setUserAvatar(userAvatar);
 
         List<Game> games = new LinkedList<>();
         List<UserGame> user2Game =  userGameRepo.findAllByUserId(userId);
+
         for(UserGame userGame : user2Game){
             int gameId = userGame.getGameId();
             //如果存在
@@ -96,15 +102,17 @@ public class UserController {
 
         //todo 返回内容确定 缩减
         List<Post> posts = postRepo.findAllByUserId(userId);
-        userHomePage.setPosts(posts);
+        userHomePageWrapper.setPosts(posts);
+        userHomePageWrapper.setPostLength(posts.size());
+
 
         //找到所有的粉丝
         List<Friends> followed = friendsRepo.findFollowed(userId);
         //找到所有的关注者
         List<Friends> following = friendsRepo.findFollowing(userId);
 
-        userHomePage.setFollowingNum(following.size());
-        userHomePage.setFollowerNum(following.size());
+        userHomePageWrapper.setFollowingNum(following.size());
+        userHomePageWrapper.setFollowerNum(following.size());
 
         //所有的粉丝列表
         List<User> followers = new LinkedList<>();
@@ -123,12 +131,12 @@ public class UserController {
             followings.add(fgUser);
         }
 
-        userHomePage.setFollowers(followers);
-        userHomePage.setFollowing(followings);
+        userHomePageWrapper.setFollowers(followers);
+        userHomePageWrapper.setFollowing(followings);
 
         ResultBean bean = new ResultBean();
         bean.setCode(200);
-        bean.setData(userHomePage);
+        bean.setData(userHomePageWrapper);
         bean.setMessage("成功请求");
 
         return bean;

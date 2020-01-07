@@ -1,7 +1,5 @@
 package com.guineap_pig_329.guinea_pig.dao;
 
-import org.omg.CORBA.PRIVATE_MEMBER;
-
 import javax.persistence.*;
 
 /*
@@ -14,15 +12,17 @@ public class Response {
     @Id
     @GeneratedValue
     private int responseId;
-
     @Column
     private int userId;
-
     @Column
     private int postId;
-
     @Column
     private  String content;
+    @Column
+    private String userName;
+    @Column
+    private String userAvatar;
+    
 
     public int getResponseId() {
         return responseId;

@@ -2,6 +2,8 @@ body{
 	/*background-image: url("http://overwatch.nos.netease.com/1/images/bbs/bg-community-bg.jpeg");
     background-repeat:repeat;*/
 	background-size: cover;
+	z-index: -1;
+	background-attachment: fixed;
 }
 .main-content{
 	max-width: 1440px;
