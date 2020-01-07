@@ -10,27 +10,34 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-@Controller("upload/")
+
+@Controller
 public class FileUploadController {
 
-    @PostMapping("img")
+    @PostMapping("upload/")
     //和表单中的key 对应
     //上传完成之后会重定向
-    public String uploadPic(@RequestParam("avatar")MultipartFile avatar, RedirectAttributes redirectAttributes){
+    public String uploadPic(@RequestParam("avatar")MultipartFile avatar, RedirectAttributes redirectAttributes) {
 
-        if(avatar.isEmpty()){
-            redirectAttributes.addFlashAttribute("message","Please select file to upload");
+        if (avatar.isEmpty()) {
+            redirectAttributes.addFlashAttribute("message", "Please select file to upload");
             //todo  上传图片的部分
-            return"redirect:/";
+            return "redirect:uploadStatus";
         }
 
         try {
             byte[] bytes = avatar.getBytes();
+            Path path = Paths.get("/Users/kolibreath/" + avatar.getOriginalFilename()+"");
+            Files.write(path,bytes);
+            redirectAttributes.addFlashAttribute("message", "成功！" + avatar.getOriginalFilename() +"");
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        Path path = Paths.get("muteki_gamer/"+f)
-        return null;
+        return "redirect:/uploadStatus";
     }
 }

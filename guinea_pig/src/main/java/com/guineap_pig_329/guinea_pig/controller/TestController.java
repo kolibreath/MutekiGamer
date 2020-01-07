@@ -253,7 +253,7 @@ public class TestController {
     @RequestMapping("/3")
     public String turn2RickLoveU(){
 //        ImageUploader.upload();
-        return "fuck";
+        return "test_upload";
     }
 
 
