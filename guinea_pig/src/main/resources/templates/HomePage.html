@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en"xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:https="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
     <!-- <meta http-equiv="Content-Type" content="text/html" /> -->
     <meta name="keyword" content="HTML, CSS, image, navigation" />
-    <title>VULCAN! - HomePage</title>
+    <meta name="referrer" content="no-referrer"/>
+    <title>MutekiGamer - HomePage</title>
     <base th:href="@{/}">
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" type="text/css" href="css/HomePage.css" />
@@ -15,6 +16,7 @@
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" th:src="@{/js/template-web.js}"></script>
     <script type="text/javascript" th:src="@{/js/Homepage.js}"></script>
+    <script type="text/javascript" th:src="@{/js/Time.js}"></script>
 
 </head>
 
@@ -41,13 +43,13 @@
 </div>
 <!--video-->
 <div>
-    <video autoplay loop muted style="width: 100%;height: auto;position: absolute;">
+    <video autoplay loop muted style="width: 100%;height: auto;position: fixed;">
         <source src="https://blz.nosdn.127.net/1/tm/hearthstone/gameguide/descent-of-dragons/video/header_announcement.webm" type="video/mp4">
     </video>
 </div>
 <!-- body -->
 <div class="main-body" style="margin-top: 0px;padding-top: 0px;">
-    <div style="padding-left: 10%;opacity: 0.8;" >
+    <div style="padding-left: 10%;opacity: 1;" >
         <div id="demo" class="carousel slide" data-ride="carousel" style="width: 90%;height: 90%;">
             <!-- 指示符 -->
             <ul class="carousel-indicators">
@@ -61,19 +63,19 @@
             <!-- 轮播图片 -->
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="https://overwatch.nosdn.127.net/2/media/Wallpapers/Genji_wallpaper/2560x1440.jpg">
+                    <img src="https://static.dingtalk.com/media/lADPDgQ9rbnHwbbNAv7NCWA_2400_766.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222057680759502%22%7D&bizType=im&open_id=267544667">
                 </div>
                 <div class="carousel-item">
-                    <img src="https://overwatch.nosdn.127.net/2/media/screenshots/Genji03.jpg">
+                    <img src="https://static.dingtalk.com/media/lADPDgQ9rbnHwn_NAv7NCWA_2400_766.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222057680767172%22%7D&bizType=im&open_id=267544667">
                 </div>
                 <div class="carousel-item">
-                    <img src="https://overwatch.nosdn.127.net/2/media/screenshots/Genji02.jpg">
+                    <img src="https://static.dingtalk.com/media/lADPDgQ9rbnHwyrNAvzNCWA_2400_764.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222057680773787%22%7D&bizType=im&open_id=267544667">
                 </div>
                 <div class="carousel-item">
-                    <img src="https://overwatch.nosdn.127.net/1/assets/img/pages/community/heroes-among-us/header-tablet.jpg">
+                    <img src="https://static.dingtalk.com/media/lADPDgQ9rbnHw5nNAv3NCV8_2399_765.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222057680778385%22%7D&bizType=im&open_id=267544667">
                 </div>
                 <div class="carousel-item">
-                    <img src="https://overwatch.nosdn.127.net/2/media/screenshots/hanamura-screenshot-004.0DZyD.jpg">
+                    <img src="https://static.dingtalk.com/media/lADPDgQ9rbnI9JbNAv3NCWA_2400_765.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222057680781744%22%7D&bizType=im&open_id=267544667">
                 </div>
             </div>
 
@@ -89,22 +91,24 @@
 
     <div class="main-content">
         <div class="contextFrame" style="padding-left: 50px;">
-                <span>
-                    <img src="https://blznav.akamaized.net/img/games/logo-ow-4be5755bc0a4cbaf.png" style="width: 80px;height: 80px;margin-left: 50px;">
-                </span>
-            <span>
-                    <img src="https://blznav.akamaized.net/img/games/logo-wow-3dd2cfe06df74407.png" style="width: 80px;height: 80px;margin-left: 50px;">
-                </span>
-            <span>
-                    <img src="https://blznav.akamaized.net/img/games/logo-hs-93512467e87f82c6.png" style="width: 80px;height: 80px;margin-left: 50px;">
-                </span>
-            <span>
-                    <img src="https://blznav.akamaized.net/img/games/logo-heroes-78cae505b7a524fb.png" style="width: 80px;height: 80px;margin-left: 50px;">
-                </span>
-            ......
+            <!--用户关注的游戏-->
+             <div id="game"></div>
+                <!--<span>-->
+                    <!--<img src="https://blznav.akamaized.net/img/games/logo-ow-4be5755bc0a4cbaf.png" style="width: 80px;height: 80px;margin-left: 10%;">-->
+                <!--</span>-->
+            <!--<span>-->
+                    <!--<img src="https://blznav.akamaized.net/img/games/logo-wow-3dd2cfe06df74407.png" style="width: 80px;height: 80px;margin-left: 10%;">-->
+                <!--</span>-->
+            <!--<span>-->
+                    <!--<img src="https://blznav.akamaized.net/img/games/logo-hs-93512467e87f82c6.png" style="width: 80px;height: 80px;margin-left:  10%;">-->
+                <!--</span>-->
+            <!--<span>-->
+                    <!--<img src="https://blznav.akamaized.net/img/games/logo-heroes-78cae505b7a524fb.png" style="width: 80px;height: 80px;margin-left:  10%;">-->
+                <!--</span>-->
             <button>
-                <a href="#">
-                    <button class="login-button" style="float: right;width: 80px;height: 35px;opacity: 0.8">
+                <a href="">
+                    <button class="login-button" style="float:right; margin-top:2%;
+                         width: 80px;height: 35px;opacity: 0.8">
                         <img src="img/change.png" style="height: 15px;width: 15px;opacity: 0.5">
                         换一批</button>
                 </a>
@@ -120,10 +124,10 @@
                 <div class="right">
                     <div class="textList">
                             <div class="listTitle">
-                                <h1>test</h1>
-                                <div id="content">
-
-                                </div>
+                                <!-- 新闻资讯 -->
+                                <h1>posts</h1>
+                                <!--帖子内容-->
+                                <div id="content"></div>
                             </div>
                     </div>
                 </div>
@@ -135,8 +139,11 @@
                     <div class="textList">
                         <ul>
                             <li class="listTitle"><h1>Post</h1></li>
-                            <li><a href="">Soccer Match between THU and BNU</a></li>
+                                <!-- 帖子 -->
+                                <div id="content1">
 
+                                </div>
+                            <li><a href="">Soccer Match between THU and BNU</a></li>
                         </ul>
                     </div>
                 </div>
@@ -144,6 +151,10 @@
                     <div class="textList">
                         <ul>
                             <li class="listTitle"><h1>Games</h1></li>
+                            <!-- 游戏 -->
+                            <div id="content2">
+
+                            </div>
                             <li><a href="">THU Soccer Club</a></li>
 
                         </ul>
@@ -158,22 +169,88 @@
     </div>
 </div>
 
+<!--games-->
+<script id="games" type="text/html">
+<ul>
+    {{each data}}
+    <li >
+        <img src="{{$value.picture}}" style="width: 80px;height: 80px;margin-left: 10%;" >
+    </li>
+    {{/each}}
+</ul>
+</script>
 
+<!--content-->
 <script id="all" type="text/html">
     <ul>
         {{each data}}
-        <li>{{$index+1}}:{{$value.content}}</li>
+        <li>
+            <!--发帖人信息-->
+            <div>{{$value.userName}}</div>
+            <div><img src="{{$value.userAvatar}}"style="width: 50px;height: 50px"></div>
+            <!--帖子头部-->
+            <div>{{$value.title}}</div>
+            <!--帖子内容-->
+            <div>{{$value.content}}</div>
+            <!--帖子时间-->
+            <div>{{$value.time}}</div>
+        </li>
         {{/each}}
     </ul>
 </script>
 
 <script>
     homepage(function(result){
+        console.log(result);
         var html = template('all', result.post);
-        console.log(html);
         document.getElementById('content').innerHTML = html;
     });
 </script>
+<script>
+    homepage(function (result) {
+        var html=template('games',result.game);
+        document.getElementById('game').innerHTML = html;
+    })
+</script>
+<script id="all1" type="text/html">
+    <ul>
+        {{each data}}
+        <li>{{$index+1}}:{{$value.content1}}</li>
+        {{/each}}
+    </ul>
+</script>
+
+<script>
+    homepage(function(result){
+        //result后面的东西表示需要渲染的对象名
+        var html = template('all1', result.post);
+        console.log(html);
+        //不同地方渲染的ID名不同，需要修改
+        document.getElementById('content1').innerHTML = html;
+    });
+</script>
+
+
+<!--content2-->
+id="all"的名字也要记得修改，和上方content的ID互相一一对应
+<script id="all2" type="text/html">
+    <ul>
+        {{each data}}
+        <li>{{$index+1}}:{{$value.content2}}</li>
+        {{/each}}
+    </ul>
+</script>
+
+<script>
+    homepage(function(result){
+        //result后面的东西表示需要渲染的对象名
+        var html = template('all2', result.game);
+        console.log(html);
+        //不同地方渲染的ID名不同，需要修改
+        document.getElementById('content2').innerHTML = html;
+    });
+</script>
+
 <footer>
     <div class="container">
         <div class="row">

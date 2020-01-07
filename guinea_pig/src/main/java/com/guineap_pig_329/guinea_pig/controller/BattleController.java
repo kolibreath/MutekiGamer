@@ -1,12 +1,14 @@
 package com.guineap_pig_329.guinea_pig.controller;
 
-import com.guineap_pig_329.guinea_pig.Constants;
-import com.guineap_pig_329.guinea_pig.dao.*;
+import com.guineap_pig_329.guinea_pig.Util;
+import com.guineap_pig_329.guinea_pig.dao.Contest;
+import com.guineap_pig_329.guinea_pig.dao.Game;
+import com.guineap_pig_329.guinea_pig.dao.Official;
+import com.guineap_pig_329.guinea_pig.dao.ResultBean;
 import com.guineap_pig_329.guinea_pig.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RestController
@@ -15,8 +17,6 @@ public class BattleController {
 
     @Autowired
     private GameRepo gameRepo;
-    @Autowired
-    private UserRepo userRepo;
 
     @Autowired
     PostRepo postRepo;
@@ -27,24 +27,30 @@ public class BattleController {
     private OfficialRepo officialRepo;
     @Autowired
     private ContestRepo contestRepo;
+    @Autowired
+    private TeamRepo teamRepo;
+    @Autowired
+    private UserRepo userRepo;
+    @Autowired
+    private UserInfoRepo userInfoRepo;
 
 
     /**
      * 找到关于一个游戏的官方号发的所有的帖子
-     * @param session
      * @param gameId 查看具体的游戏Id 对应的帖子
      * @return
      */
     @RequestMapping("/news/{gameId}")
     //todo gameId
-    public ResultBean news(HttpSession session, @PathVariable("gameId") int gameId){
-        UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
+    // todo 改wrapper
+    public ResultBean news(@PathVariable("gameId") int gameId){
         Official official = officialRepo.findByGameId(gameId);
-        return ResultBean.success(postRepo.findAllByUserId(official.getUserId()));
+        return ResultBean.success(
+                Util.transform(postRepo.findAllByUserId(official.getUserId()),userRepo,userInfoRepo));
     }
 
 //
-    @GetMapping("/game/")
+    @GetMapping("/game")
     public ResultBean search(@RequestParam String search){
         List<Game> list = gameRepo.findByGameNameContaining(search);
         ResultBean resultBean = new ResultBean();
@@ -59,6 +65,12 @@ public class BattleController {
     public ResultBean getMatchRecord(@PathVariable("gameId") int gameId){
         List<Contest> contests = contestRepo.findByGameId(gameId);
         return ResultBean.success(contests);
+    }
+
+
+    @RequestMapping("/team/{gameId}")
+    public ResultBean getTeamInfo(@PathVariable("gameId") int gameId){
+        return  ResultBean.success(teamRepo.findByGameId(gameId));
     }
 
 

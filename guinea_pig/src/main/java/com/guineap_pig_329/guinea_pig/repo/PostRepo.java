@@ -1,7 +1,11 @@
 package com.guineap_pig_329.guinea_pig.repo;
 
 import com.guineap_pig_329.guinea_pig.dao.Post;
+<<<<<<< HEAD
 /*import javafx.geometry.Pos;*/
+=======
+//import javafx.geometry.Pos;
+>>>>>>> 8c373c977584e06bac3c4515f15987f2470ffda3
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

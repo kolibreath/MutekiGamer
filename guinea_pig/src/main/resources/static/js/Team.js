@@ -1,15 +1,12 @@
-function search(content, call){
-    alert("fuck tunshu ");
+function getTeamInfo(gameId, call){
     let allData = {};
     let request = $.ajax(({
-        url:"/battle/search/"+content,
+        url:"/battle/team/"+gameId,
         method:"GET",
         success:function (result) {
-            console.log(result);
             allData.result = result;
         },
         error:function (result) {
-            console.log(result);
             allData.result = result;
         },complete:function (result) {
             alert("result");
