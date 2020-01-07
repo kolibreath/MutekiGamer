@@ -13,4 +13,5 @@ import java.util.List;
 @Repository
 public interface UserGameRepo extends JpaRepository<UserGame,Integer> {
     List<UserGame> findAllByUserId(int userId);
+    UserGame findByGameId(int gameId);
 }

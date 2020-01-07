@@ -8,5 +8,7 @@ import java.util.List;
 
 @Repository
 public interface GameRepo  extends JpaRepository<Game,Integer> {
-    List<Game>  findAllByGameName(String gameName);
+
+    List<Game>  findByGameNameContaining(String gamename);
+
 }

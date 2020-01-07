@@ -1,0 +1,155 @@
+body
+{
+	background-image: url('https://static.dingtalk.com/media/lALPDgQ9raph0TDNBDjNB4A_1920_1080.png?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222034993646909%22%7D&bizType=im&open_id=267544667');
+	background-size: cover;
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+}
+
+.main-content{
+	max-width: 1440px;
+	height: auto;
+	margin: 0 auto;
+}
+
+.attention{
+	max-width: 1440px;
+	height: auto;
+	margin: 0 auto;
+}
+
+.division{
+	height: 40px;
+	width: 100%;
+}
+
+
+/*.main-content*/ .picFrame{
+	/*max-width: 1440px;*/
+	margin-top: 50px;
+	margin: 10px auto;
+	height: auto;
+	min-width: 600px;
+	background-color: lightgray;
+	border-radius: 10px;
+	padding: 50px;
+
+}
+
+/*.main-content .picFrame .picContent{
+	max-width: 1080px;
+	margin: 0px auto !important;
+	height: auto;
+}
+
+.main-content .picFrame .picContent img{
+	width: 100%;
+	height: auto;
+	margin: 0px auto;
+}*/
+
+/*mainContext*/
+
+  .carousel-inner img {
+      width: 100%;
+      height: 100%;
+  }
+
+.main-content .contextFrame{
+	margin-top: 40px;
+	width: 80%;
+	margin-left: 10%;
+	border-radius: 10px;
+	height: auto;
+	outline-style: none;
+	background: rgba(244,244,244,0.3);
+	outline-width: 1px;
+}
+
+.attention .attentionFrame{
+	/* margin-top: 40px; */
+	width: 80%;
+	margin-left: 10%;
+	border-radius: 10px;
+	height: auto;
+	outline-style: none;
+	background: rgba(244,244,244,0.3);
+	outline-width: 1px;
+}
+
+.attention .attentionFrame .attention-button{
+	width: 80px;
+	height: 25px;
+	opacity: 0.8; 
+	border-radius: 15px; 
+	background: #FF4500; 
+	border: none; 
+	outline: none;
+}
+.attention .attentionFrame .attention-button:hover{
+
+	opacity:0.8;
+}
+
+.main-content .contextFrame .innerFrame{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin: 0px auto;
+	max-width: 1080px;
+	height: 100%;
+	overflow: hidden;
+}
+
+.contextFrame .innerFrame .left{
+	float: left;
+	width: 48%;
+	margin: 10px auto;
+	height: auto;
+}
+
+.contextFrame .innerFrame .right{
+	float: right;
+	width: 48%;
+	margin: 10px auto;
+	height: auto;
+}
+
+.contextFrame .innerFrame .textList{
+	width: 100%;
+	height: auto;
+	display: inline-block;
+	border-width: 1px;
+	border-style: solid;
+	border-color: lightgray;
+	border-radius: 10px;
+}
+
+.contextFrame .innerFrame .textList ul{
+	padding: 20px 10px;
+}
+
+.contextFrame .innerFrame .textList .listTitle{
+	padding-left: 0px !important;
+	border-bottom-style: solid;
+	border-bottom-color: lightgray;
+	border-bottom-width: 1px;
+}
+
+.contextFrame .innerFrame .textList li{
+	padding: 10px 10px;
+	border-bottom-style: solid;
+	border-bottom-color: lightgray;
+	border-bottom-width: 1px;
+}
+
+.contextFrame .innerFrame img{
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+.contextFrame .innerFrame a{text-decoration: none;}
+.contextFrame .innerFrame a:link {color:#141414;}    
+.contextFrame .innerFrame a:visited {color:	#FFFFF0;}  
+.contextFrame .innerFrame a:hover {color:#141414;}    
+.contextFrame .innerFrame a:active {color:#696969;}

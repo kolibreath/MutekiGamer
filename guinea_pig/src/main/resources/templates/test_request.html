@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <script type="text/javascript"
         src="webjars/jquery/2.2.4/jquery.min.js"></script>
 <!--引入相关的js-->
 <script type="text/javascript" src="./static/js/Homepage.js"></script>
 <script type="text/javascript" src="./static/js/Post.js"></script>
 <script type="text/javascript" src="./static/js/Auth.js"></script>
+<script type="text/javascript" src="./static/js/User.js"></script>
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -35,6 +37,17 @@
 
     <input id="new_password" value="新密码">
     <button  id="change_password">修改密码</button>
+
+    <br>
+    <input id="other_user_id" value="其他的用户的Id">
+    <button  id="follow">关注用户</button>
+    <button  id="unfollow">取消关注用户</button>
+
+    <br>
+    <button id="test_get_username">测试获取用户主页信息</button>
+
+    <br>
+    <button id="test_send_email">测试邮箱</button>
 
 
 </body>
@@ -89,6 +102,35 @@
             let newPassword = document.getElementById("new_password").value;
             changePasword(newPassword,function(result){
                 alert(result);
+            });
+        };
+
+        document.getElementById("follow").onclick = function () {
+            let otherUserId = document.getElementById("other_user_id").value;
+            follow(otherUserId,function (result ) {
+                alert("用户id"+otherUserId);
+                alert("关注"+result);
+            })
+        };
+
+        document.getElementById("unfollow").onclick = function () {
+            let otherUserId = document.getElementById("other_user_id").value;
+            unfollow(otherUserId,function (result ) {
+                alert("用户id"+otherUserId);
+                alert("取消关注关注"+result);
+            })
+        };
+
+        document.getElementById("test_get_username").onclick = function () {
+            getUserInfo(function(result){
+                console.log(result);
+            })
+        };
+
+        document.getElementById("test_send_email").onclick = function () {
+            alert("fuck 豚鼠");
+            sendEmail(function (result) {
+               console.log(result);
             });
         }
 
