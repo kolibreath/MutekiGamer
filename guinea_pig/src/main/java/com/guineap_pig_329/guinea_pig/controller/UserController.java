@@ -4,6 +4,7 @@ package com.guineap_pig_329.guinea_pig.controller;
 import com.guineap_pig_329.guinea_pig.Constants;
 import com.guineap_pig_329.guinea_pig.dao.*;
 import com.guineap_pig_329.guinea_pig.dao.wrapper.UserHomePageWrapper;
+import com.guineap_pig_329.guinea_pig.dao.wrapper.UserWrapper;
 import com.guineap_pig_329.guinea_pig.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -114,20 +115,32 @@ public class UserController {
 
 
         //所有的粉丝列表
-        List<User> followers = new LinkedList<>();
+        List<UserWrapper> followers = new LinkedList<>();
         //所有的关注者列表
-        List<User> followings = new LinkedList<>();
+        List<UserWrapper> followings = new LinkedList<>();
 
         for(Friends fd:followed){
             int fdId = fd.getUserId1();
             User fdUser = userRepo.findUserByUserId(fdId);
-            followers.add(fdUser);
+            UserInfo info  = userInfoRepo.findUserInfoByUserId(userId);
+            UserWrapper userWrapper = new UserWrapper(user.getName(),
+                    info.getUserAvatar(),
+                    userId,
+                    fdUser.getUserEmail(),
+                    fdUser.getUserType());
+            followers.add(userWrapper);
         }
 
         for(Friends fg:following){
             int fgId = fg.getUserId2();
             User fgUser = userRepo.findUserByUserId(fgId);
-            followings.add(fgUser);
+            UserInfo info  = userInfoRepo.findUserInfoByUserId(userId);
+            UserWrapper userWrapper = new UserWrapper(user.getName(),
+                    info.getUserAvatar(),
+                    userId,
+                    fgUser.getUserEmail(),
+                    fgUser.getUserType());
+            followings.add(userWrapper);
         }
 
         userHomePageWrapper.setFollowers(followers);

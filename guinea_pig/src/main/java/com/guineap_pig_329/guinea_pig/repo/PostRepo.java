@@ -9,4 +9,6 @@ public interface PostRepo extends JpaRepository<Post,Integer> {
     List<Post> findAllByGameId(int gameId);
     List<Post> findAllByPostId(int postId);
     List<Post> findByTag(int tag);
+
+    List<Post> findByGameIdAndUserId(int gameId, int userId);
 }

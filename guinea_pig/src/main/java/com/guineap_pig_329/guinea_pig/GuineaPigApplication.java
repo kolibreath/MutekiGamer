@@ -1,5 +1,6 @@
 package com.guineap_pig_329.guinea_pig;
 
+import com.guineap_pig_329.guinea_pig.dao.wrapper.Cen;
 import org.apache.coyote.http11.AbstractHttp11Protocol;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,7 +15,11 @@ public class GuineaPigApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(GuineaPigApplication.class, args);
-//        Util.CEN = Util.getCenInstance();
+//       Util.CEN = Util.getInstance();
+//        com/guineap_pig_329/guinea_pig/data_src/fuck
+//      lol
+//        Util.genData("/guinea_pig/src/main/java/com/guineap_pig_329/guinea_pig/data_src/");
+
     }
 
 
