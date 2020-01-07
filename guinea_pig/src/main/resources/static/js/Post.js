@@ -58,6 +58,25 @@ function newResponse(responseContent,postId,call){
 
 }
 
+// function getPostByUserIdGameId(gameId,call) {
+//     let allData={};
+//     let post = $.ajax(({
+//         url:"post/usergame/"+gameId,
+//         type:"GET",
+//         success:function (result) {
+//             allData.post = result;
+//         },
+//         error:function (result) {
+//             allData.post = result;
+//         },
+//         complete:function (result) {
+//             // completeFunction(result);
+//         }
+//     }));
+//
+//     $.when(post).done(() =>{call(allData)});
+//
+// }
 //删除帖子 postId 需要是一个int
 function deletePost(postId,call){
     let resultCode ;

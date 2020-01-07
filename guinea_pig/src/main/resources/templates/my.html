@@ -17,6 +17,7 @@
     <script type="text/javascript" th:src="@{/js/template-web.js}"></script>
     <script type="text/javascript" th:src="@{/js/Homepage.js}"></script>
     <script type="text/javascript" th:src="@{/js/User.js}"></script>
+    <script type="text/javascript" th:src="@{/js/Post.js}"></script>
 
 
 </head>
@@ -261,7 +262,6 @@
             <nav class="col-sm-3 col-4" id="myScrollspy">
                 <!--导航-->
                 <div id="navigation"></div>
-                <!--<ul class="nav nav-pills flex-column" style="text-align: center">-->
                 <!--<li class="nav-item">-->
                 <!--<a class="nav-link active" href="#section1"><img src="img/lushi.png" style="width:60px; height:60px;"></a>-->
                 <!--</li>-->
@@ -521,38 +521,52 @@
 </script>
 
 <script id="follow_info1" type="text/html">
-<ul>
-    {{each following}}
-    <li>
-        <!--<div><img src="{{$value.picture}}"></div>-->
-        <div>{{$value.userName}}</div>
-        <button class="unfollow" id="{{$value.userId}}}">取关</button>
-    </li>
-    {{/each}}
-</ul>
+    <ul>
+        {{each following}}
+        <li>
+            <div><img src="{{$value.picture}}"></div>
+            <div>{{$value.userName}}</div>
+            <button class="unfollow" id="{{$value.userId}}}">取关</button>
+        </li>
+        {{/each}}
+    </ul>
 </script>
 
 <script id="follower_info1" type="text/html">
     <ul>
+        {{if following}}
         {{each following}}
         <li>
-            <!--<div><img src="{{$value.picture}}"></div>-->
+            <div><img src="{{$value.picture}}"></div>
             <div>{{$value.userName}}</div>
         </li>
         {{/each}}
+        {{{/if}}
     </ul>
 </script>
 <!--处理显示左侧游戏-->
 <script id="navigation1" type="text/html">
-    <ul style="height: 80px;">
+    <ul >
         {{each data}}
-        <li style="width: 80px; height: 80px; float: left; margin-left: 5%;">
-            <img src="{{$value.picture}}" style="width: 80px; height: 80px; margin-left: 10%;" >
+        <li class="nav-item">
+            <a class="nav-link" href="#{{$value.gameId}}">
+                <img src="{{$value.picture}}" style="width: 80px; height: 80px; margin-left: 10%;">
+            </a>
         </li>
         {{/each}}
     </ul>
 </script>
+<script id="test" type="text/html">
+    <ul>
+        {{each data}}
+        <li>
+            <div id="{{$value.gameId}}">
 
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+</script>
 <!--处理个人信息请求-->
 <script>
     var myinfo = {};
@@ -589,17 +603,24 @@
 <!--处理游戏请求-->
 <script>
     homepage(function (result) {
-        var html=template('games',result.game);
-        document.getElementById('game').innerHTML = html;
+        var g = result.game.data;
+        var html = template('navigation1', result.game);
+        console.log(html);
+        document.getElementById('navigation').innerHTML = html;
+
+
+        var h = template('test', result.game);
+        console.log(h);
+        document.getElementById('post').innerHTML = h;
     })
 </script>
 <script>
     $(function () {
         $(".unfollow").click(function () {
             let val = $(this).attr("id");
-           unfollow(val,function (result) {
-              alert("success");
-           })
+            unfollow(val, function (result) {
+                alert("success");
+            })
         })
     })
 </script>
