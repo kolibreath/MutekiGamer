@@ -1,9 +1,11 @@
 package com.guineap_pig_329.guinea_pig.controller;
 
 import com.guineap_pig_329.guinea_pig.Constants;
-import com.guineap_pig_329.guinea_pig.dao.*;
+import com.guineap_pig_329.guinea_pig.dao.ResultBean;
+import com.guineap_pig_329.guinea_pig.dao.User;
+import com.guineap_pig_329.guinea_pig.dao.UserGame;
+import com.guineap_pig_329.guinea_pig.dao.UserSession;
 import com.guineap_pig_329.guinea_pig.repo.BannerRepo;
-import com.guineap_pig_329.guinea_pig.repo.GameRepo;
 import com.guineap_pig_329.guinea_pig.repo.UserGameRepo;
 import com.guineap_pig_329.guinea_pig.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
