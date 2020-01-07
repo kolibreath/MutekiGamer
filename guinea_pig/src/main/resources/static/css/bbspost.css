@@ -1,0 +1,163 @@
+body{
+	background-image: url("http://www.waibao123.com/Uploads/photo/2014-07-04/0e97fb95bebea744edc4bc45e189be1b_big.jpg");
+	z-index: -99;
+}
+
+.breadnav{
+	background-color: white;
+	color: #5C5C5C;
+}
+
+.breadnav a:link{
+	color: #5C5C5C;
+	text-decoration: none;
+}
+.breadnav a:hover{
+	color: #A0522D;
+}
+.postbg{
+	padding: 20px;
+	background-color: white;
+	opacity: 0.9;
+	border-radius: 4px;
+}
+.posttitle h1{
+	font-size: 22px;
+	font-weight: 550;
+}
+.postdetail{
+	color: #555;
+	font-weight: 500;
+	padding: 20px 30px;
+	line-height: 2;
+}
+.author{
+	height: 300px;
+	margin-left:30px; 
+	padding-top: 20px;
+	text-align: center;
+	background-color: white;
+	opacity: 0.9;
+	border-radius: 4px;
+	color: #555
+}
+.author a:link{
+	color: #5C5C5C;
+	text-decoration: none;
+}
+.author a:hover{
+	color: #A0522D;
+}
+.author a img{
+	border-radius: 50%;
+	height: 120px;
+	width: 120px;
+}
+.author ul{
+	text-align: center;
+	padding: 10px 20px;
+	width: 100%;
+
+}
+.author li{
+	float: left;
+	width: 33.3%;
+}
+
+.responselist{
+	padding: 15px 30px;
+
+}
+.responselist img{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	margin:0px 10px;
+}
+.responselist a:hover{
+	color: #555;
+}
+.responselist em{
+	font-style: normal;
+	color: #555;
+	margin-left: 15px;
+}
+.responsedetail{
+	margin: 30px auto;
+	padding-top: 10px;
+	padding-left: 85px;
+	color: #555;
+}
+
+.response{
+	border:1px solid;
+	border-color: #EEEED1;
+	height: 200px;
+	margin: 20px;
+}
+.responsehead{
+	padding-left: 10px;
+	height: 35px;
+	background-color: #EEEED1;
+}
+.responsehead img{
+	float: left;
+	width: 18px;
+}
+
+.topbtn a{
+    position: fixed;
+	bottom: 15%;
+	right: 10%;
+	background:rgba(244,244,244,0.8);
+}
+
+.postbtn{
+	margin-left:30px; 
+	padding: 20px 30px;
+	text-align: center;
+	background-color: white;
+	opacity: 0.9;
+	border-radius: 4px;
+}
+
+.postbig{
+	border-radius: 4px;
+	width:290px;
+	display:block;
+	position:fixed;
+	background:#fff; 
+	top:0px; 
+	z-index:300;
+	padding:20px;
+	box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
+}
+.postbig a.fatie{
+    float: left;
+    width: 120px;
+    height: 40px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 4px;
+    display: inline-block;
+    background-color: #df001f;
+    outline: none;
+    text-decoration: none;
+}
+.postbig a.huifu{
+    margin-left: 10px;
+    background-color: #5FB336;
+    float: left;
+    width: 120px;
+    height: 40px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 3px;
+    display: inline-block;
+    outline: none;
+    text-decoration: none;
+}
