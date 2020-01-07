@@ -56,6 +56,7 @@ function getUserInfo(call) {
         url:"/user/info",
         success:function (result) {
             allData = result;
+            console.log(result);
         },
         error:function () {
             //todo 错误处理
