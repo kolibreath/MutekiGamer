@@ -23,7 +23,7 @@ public class Util {
 
 
     public static Cen CEN ;
-    private static String PATH = "/Users/kolibreath/Desktop/cen.txt";
+    public static String PATH = "/Users/kolibreath/Desktop/cen.txt";
 
     private static Logger getInstance(Class className){
         return LoggerFactory.getLogger(className);
