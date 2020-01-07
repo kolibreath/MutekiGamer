@@ -111,8 +111,7 @@ public class UserController {
         //找到所有的关注者
         List<Friends> following = friendsRepo.findFollowing(userId);
 
-        userHomePageWrapper.setFollowingNum(following.size());
-        userHomePageWrapper.setFollowerNum(following.size());
+
 
         //所有的粉丝列表
         List<User> followers = new LinkedList<>();
@@ -133,6 +132,9 @@ public class UserController {
 
         userHomePageWrapper.setFollowers(followers);
         userHomePageWrapper.setFollowing(followings);
+
+        userHomePageWrapper.setFollowingNum(following.size());
+        userHomePageWrapper.setFollowerNum(followers.size());
 
         ResultBean bean = new ResultBean();
         bean.setCode(200);
