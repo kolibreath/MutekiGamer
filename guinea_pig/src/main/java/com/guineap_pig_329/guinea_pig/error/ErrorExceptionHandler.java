@@ -1,10 +1,4 @@
 package com.guineap_pig_329.guinea_pig.error;
-
-<<<<<<< HEAD:guinea_pig/src/main/java/com/guineap_pig_329/guinea_pig/controller/ErrorExceptionHandler.java
-/*import com.sun.org.apache.xpath.internal.operations.Mod;*/
-=======
-//import com.sun.org.apache.xpath.internal.operations.Mod;
->>>>>>> 8c373c977584e06bac3c4515f15987f2470ffda3:guinea_pig/src/main/java/com/guineap_pig_329/guinea_pig/error/ErrorExceptionHandler.java
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
