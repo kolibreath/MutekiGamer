@@ -3,7 +3,7 @@ function news(gameId,call) {
     let newsRequest=$.ajax(
         (
             {
-                url:"/battle/news/" +gameId,
+                url:"/battle/news/"+gameId,
                 method:"GET",
                 success:function(result){
                     allData.post = result;
@@ -19,24 +19,26 @@ function news(gameId,call) {
 
     $.when(newsRequest).done(() =>{call(allData)});
 }
-function search(content, call){
-    let allData = {};
-    let request = $.ajax(({
-        url:"/battle/search/"+content,
-        method:"GET",
-        success:function (result) {
-            console.log(result);
-            allData.result = result;
-        },
-        error:function (result) {
-            console.log(result);
-            allData.result = result;
-        },complete:function (result) {
-            alert("result");
-        }
-    }));
 
-    $.when(request).done(() => {call(allData)});
-}
+// function search(content, call){
+//     let allData = {};
+//     let request = $.ajax(({
+//         url:"/battle/search/"+content,
+//         method:"GET",
+//         success:function (result) {
+//             console.log(result);
+//             allData.result = result;
+//         },
+//         error:function (result) {
+//             console.log(result);
+//             allData.result = result;
+//         },complete:function (result) {
+//             alert("result");
+//         }
+//     }));
+//
+//     $.when(request).done(() => {call(allData)});
+// }
+
 
 

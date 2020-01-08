@@ -41,7 +41,7 @@ public class PostController {
         return ResultBean.success(Util.transform(posts,userRepo,userInfoRepo));
     }
 
-    @RequestMapping("postDetail")
+    @RequestMapping("/postDetail")
     public ResultBean getpostDetail(HttpSession session){
         UserSession userSession=(UserSession)session.getAttribute(Constants.USE_SESSION_KEY);
         int postId=userSession.getPostId();
