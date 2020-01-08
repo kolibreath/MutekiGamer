@@ -1,6 +1,7 @@
 package com.guineap_pig_329.guinea_pig.controller;
 
 import com.guineap_pig_329.guinea_pig.Constants;
+import com.guineap_pig_329.guinea_pig.Util;
 import com.guineap_pig_329.guinea_pig.dao.ResultBean;
 import com.guineap_pig_329.guinea_pig.dao.User;
 import com.guineap_pig_329.guinea_pig.dao.UserGame;
@@ -64,17 +65,17 @@ public class AuthController {
 
     @RequestMapping("/login")
     public String login() {
-//        Util.setUserInfoRepo(userInfoRepo);
-//        Util.setUserRepo(userRepo);
-//        Util.setPostRepo(postRepo);
-//        Util.setContestRepo(contestRepo);
-//        Util.setTeamRepo(teamRepo);
-//        Util.setPlayerRepo(playerRepo);
-//        Util.setGameRepo(gameRepo);
-//        Util.setGameAttributeRepo(gameAttributeRepo);
-//        Util.setBannerRepo(bannerRepo);
-//
-//        Util.genData("/guinea_pig/src/main/java/com/guineap_pig_329/guinea_pig/data_src/");
+        Util.setUserInfoRepo(userInfoRepo);
+        Util.setUserRepo(userRepo);
+        Util.setPostRepo(postRepo);
+        Util.setContestRepo(contestRepo);
+        Util.setTeamRepo(teamRepo);
+        Util.setPlayerRepo(playerRepo);
+        Util.setGameRepo(gameRepo);
+        Util.setGameAttributeRepo(gameAttributeRepo);
+        Util.setBannerRepo(bannerRepo);
+
+        Util.genData("/guinea_pig/src/main/java/com/guineap_pig_329/guinea_pig/data_src/");
 
         return "login";
     }
