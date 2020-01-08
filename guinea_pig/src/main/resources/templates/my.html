@@ -557,12 +557,17 @@
     </ul>
 </script>
 <script id="test" type="text/html">
-    <ul>
         {{each data}}
-        <li>
-            <div id="{{$value.gameId}}">
-
+            <div id="{{$value.gameId}}" style="background-color: #4CAF50">
+                {{include 'test2' $value}}
             </div>
+        {{/each}}
+</script>
+<script id="test2" type="text/html">
+    <ul>
+        {{each myPost}}
+        <li>
+            {{$value.content}}
         </li>
         {{/each}}
     </ul>

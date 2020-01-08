@@ -275,8 +275,7 @@
         {{each data}}
         <li style="margin: 20px; height: 80px;">
             <img src="{{$value.picture}}" class="imgsize">
-<!--            <a class="dropdown-item" href="#">星际争霸2</a>-->
-            <a class="game nav-link gamelink" id="{{$value.gameId}}" >{{$value.gameName}}</a>
+            <button class="game" id="{{$value.gameId}}" >{{$value.gameName}}</button>
         </li>
         {{/each}}
     </ul>
@@ -358,30 +357,28 @@
             let val = $(this).attr("id");
             alert(val);
             console.log(val);
-
-
-            //游戏的资讯
-            news(val, function (result) {
-                infos = result.post;
-                var html = template('infos', infos);
-                console.log(html);
-                document.getElementById('info').innerHTML = html;
-            })
-            //游戏的社区
-            getPostByGameId(val, function (result) {
-                comm = result.post;
-                var html = template('communities', comm);
-                console.log(html);
-                document.getElementById('community').innerHTML = html;
-            })
-            //游戏的战队
-            getTeamInfo(val, function (result) {
-                teams = result.result;
-                var html = template('teams', teams);
-                console.log(html);
-                document.getElementById('team').innerHTML = html;
-
-            })
+            // //游戏的资讯
+            // news(val, function (result) {
+            //     infos = result.post;
+            //     var html = template('infos', infos);
+            //     console.log(html);
+            //     document.getElementById('info').innerHTML = html;
+            // })
+            // //游戏的社区
+            // getPostByGameId(val, function (result) {
+            //     comm = result.post;
+            //     var html = template('communities', comm);
+            //     console.log(html);
+            //     document.getElementById('community').innerHTML = html;
+            // })
+            // //游戏的战队
+            // getTeamInfo(val, function (result) {
+            //     teams = result.result;
+            //     var html = template('teams', teams);
+            //     console.log(html);
+            //     document.getElementById('team').innerHTML = html;
+            //
+            // })
             //游戏的赛事
 
         })
