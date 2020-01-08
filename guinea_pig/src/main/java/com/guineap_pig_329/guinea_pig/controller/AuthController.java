@@ -75,7 +75,7 @@ public class AuthController {
         Util.setGameAttributeRepo(gameAttributeRepo);
         Util.setBannerRepo(bannerRepo);
 
-        Util.genData("/guinea_pig/src/main/java/com/guineap_pig_329/guinea_pig/data_src/");
+//        Util.genData("/guinea_pig/src/main/java/com/guineap_pig_329/guinea_pig/data_src/");
 
         return "login";
     }

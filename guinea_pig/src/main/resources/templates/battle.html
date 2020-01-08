@@ -281,24 +281,6 @@
     </ul>
 </script>
 
-<!--处理相应游戏的资讯-->
-<script id="infos" type="text/html">
-    <ul>
-        {{each data}}
-        <li>
-            <!--发帖人信息-->
-            <div>{{$value.userName}}</div>
-            <div><img src="{{$value.userAvatar}}" style="width: 50px;height: 50px"></div>
-            <!--帖子标题-->
-            <div>{{$value.title}</div>
-            <!--帖子内容-->
-            <div>{{$value.content}}</div>
-            <!--帖子的时间-->
-            <div>{{$value.time}}}</div>
-        </li>
-        {{/each}}
-    </ul>
-</script>
 
 <!--处理相应游戏的社区信息-->
 <script id="communities" type="text/html">
@@ -307,7 +289,7 @@
         <li>
             <!--发帖人信息-->
             <div>{{$value.userName}}</div>
-            <div><img src="{{$value.userAvatar}}"style="width: 50px;height: 50px"></div>
+            <div><img src="{{$value.userAvatar}}" style="width: 50px;height: 50px"></div>
             <!--帖子标题-->
             <div>{{$value.title}}</div>
             <!--帖子内容-->
@@ -318,6 +300,28 @@
         {{/each}}
     </ul>
 </script>
+
+<!--处理相应游戏的资讯-->
+<script id="infos" type="text/html">
+    <ul>
+        {{each data}}
+        <li>
+            <!--发帖人信息-->
+            <div>{{$value.userName}}</div>
+            <div><img src="{{$value.userAvatar}}" style="width: 50px;height: 50px"></div>
+            <!--帖子标题-->
+            <div>{{$value.title}}</div>
+            <!--帖子内容-->
+            <div>{{$value.content}}</div>
+            <!--帖子的时间-->
+            <div>{{$value.time}}</div>
+        </li>
+        {{/each}}
+    </ul>
+</script>
+
+
+
 <!--处理相应游戏的战队信息-->
 <script id="teams" type="text/html">
     <ul>
@@ -354,30 +358,27 @@
             let val = $(this).attr("id");
 
             //游戏的资讯
-            news(val, function (result) {
+            let newsRequest = news(val, function (result) {
                 infos = result.post;
-                var html = template('infos', infos);
-                console.log(html);
+                console.log(infos);
+                let  html = template('infos', infos);
                 document.getElementById('info').innerHTML = html;
             });
 
             //游戏的社区
-            getPostByGameId(val, function (result) {
+            let postRequest = getPostByGameId(val, function (result) {
                 comm = result.post;
                 var html = template('communities', comm);
-                console.log(html);
                 document.getElementById('community').innerHTML = html;
             });
 
             //游戏的战队
-            getTeamInfo(val, function (result) {
+            let teamRequest = getTeamInfo(val, function (result) {
                 teams = result.result;
                 var html = template('teams', teams);
-                console.log(html);
                 document.getElementById('team').innerHTML = html;
 
             });
-            // 游戏的赛事
 
         })
     })
