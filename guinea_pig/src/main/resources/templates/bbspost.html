@@ -4,6 +4,7 @@
     <meta charset="utf-8"/>
     <!-- <meta http-equiv="Content-Type" content="text/html" /> -->
     <meta name="keyword" content="HTML, CSS, image, navigation"/>
+    <meta name="referrer" content="no-referrer"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>MutekiGamer - Post</title>
     <base th:href="@{/}">
@@ -68,8 +69,9 @@
                 <!--<div style="font-weight: 500;">2020/1/6 11:11</div>-->
             </div>
             <hr>
-            <div class="postdetail">电刑打野盲僧盲僧在9.18版本中终于得到了一次加强，首先加强了盲僧的基础属性，包括攻击力和生命值，其次加强了盲僧大招的伤害，这两个改动得以让盲僧重回主流打野行列。
+            <div class="postdetail">
             </div>
+
         </div>
         <div class="col-md-4" style="padding: 0;">
             <div class="author">
@@ -231,14 +233,38 @@
 </div>
 
 <script id="title" type="text/html">
-
+<ul>
+    {{each data}}
+    <li>
+        {{$value.title}}
+    </li>
+    {{/each}}
+</ul>
 </script>
 <script id="content" type="text/html">
-
+<ul>
+    {{each data}}
+    <li>
+        {{$value.content}}
+    </li>
+    {{/each}}
+</ul>
 </script>
 <!--获取帖子信息-->
 <script>
+    PostDetail(function (result) {
+        var html = template('title', result.post);
+        console.log(html);
+        document.getElementById('posttitle').innerHTML = html;
+    })
+</script>
 
+<script>
+    PostDetail(function (result) {
+        var html = template('content', result.post);
+        console.log(html);
+        document.getElementById('postdetail').innerHTML = html;
+    })
 </script>
 <!--获取发帖人用户信息-->
 <script>

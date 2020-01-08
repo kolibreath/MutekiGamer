@@ -46,13 +46,13 @@ public class PostController {
         UserSession userSession=(UserSession)session.getAttribute(Constants.USE_SESSION_KEY);
         int postId=userSession.getPostId();
         List<Post> posts=postRepo.findAllByPostId(postId);
-        UserInfo userInfo=new UserInfo();
-        List<Response>responses;
-        if(!posts.isEmpty())
-        {
-            int userId=posts.get(0).getUserId();
-            userInfo=userInfoRepo.findUserInfoByUserId(userId);
-        }
+//        UserInfo userInfo=new UserInfo();
+//        if(!posts.isEmpty())
+//        {
+//            int userId=posts.get(0).getUserId();
+//            userInfo=userInfoRepo.findUserInfoByUserId(userId);
+//        }
+        return ResultBean.success(Util.transform(posts,userRepo,userInfoRepo));
     }
     /**
      * 获取用户的关注的某个游戏的游戏帖子列表

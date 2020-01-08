@@ -1,7 +1,7 @@
 function PostDetail(call) {
     let allData = {};
     let post =$.ajax(({
-        url:""
+        url:"post/postDetail",
         type:"GET",
         success:function(result){
             allData.post = result;
