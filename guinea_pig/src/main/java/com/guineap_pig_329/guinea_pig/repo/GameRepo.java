@@ -10,4 +10,5 @@ import java.util.List;
 public interface GameRepo  extends JpaRepository<Game,Integer> {
 
     List<Game>  findByGameNameContaining(String gamename);
+    Game findByGameName(String gameName);
 }

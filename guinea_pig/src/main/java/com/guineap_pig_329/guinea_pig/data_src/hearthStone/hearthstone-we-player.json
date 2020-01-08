@@ -1,0 +1,34 @@
+[
+  {
+    "number":0,
+    "codeName":"WE.YouLove",
+    "realName":"YouLove",
+    "position":1,
+    "teamId":1,
+    "avatar":"https://blz.nosdn.127.net/2/Esports/2019GTC/players/WE.YouLove.png"
+  },
+  {
+    "number":1,
+    "codeName":"WE.Yuyi",
+    "realName":"Yuyi",
+    "position":2,
+    "teamId":1,
+    "avatar":"https://blz.nosdn.127.net/2/Esports/2019GTC/players/WE.YuYi.png"
+  },
+  {
+    "number":2,
+    "codeName":"WE.Sparkling",
+    "realName":"Sparkling",
+    "position":3,
+    "teamId":1,
+    "avatar":"https://blz.nosdn.127.net/2/Esports/2019GTC/players/WE.Sparkling.png"
+  },
+  {
+    "number":3,
+    "codeName":"WE.Yuansu",
+    "realName":"Yuansu",
+    "position":2,
+    "teamId":1,
+    "avatar":"https://blz.nosdn.127.net/2/Esports/2019GTC/players/WE.Yuansu.png"
+  }
+]

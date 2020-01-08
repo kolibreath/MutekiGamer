@@ -1,0 +1,50 @@
+[
+  {
+    "number":7,
+    "codeName":"MANO",
+    "realName":"Dong-Gyu Kim",
+    "position":1,
+    "teamId":1,
+     "avatar":"https://upload-images.jianshu.io/upload_images/20804610-8fb459df3c460532.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+  	"number":9,
+    "codeName":"SAEBYEOLBE",
+    "realName":"Jong-Ryeol Park",
+    "position":2,
+    "teamId":1 ,
+     "avatar":"https://upload-images.jianshu.io/upload_images/20804610-10010bf4d8280f18.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"  
+  },
+  {
+  	"number":9,
+    "codeName":"JJONAK",
+    "realName":"SeongHyun Bang",
+    "position":3,
+    "teamId":1 ,
+     "avatar":"https://upload-images.jianshu.io/upload_images/20804610-2d4d3c1ff7c8dd84.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" 
+  },
+  {
+  	"number":10,
+    "codeName":"LIBERO",
+    "realName":"Haeseong Kim",
+    "position":2,
+    "teamId":1,
+     "avatar":"https://upload-images.jianshu.io/upload_images/20804610-f5643b329904fd9b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+  	"number":97,
+    "codeName":"ANAMO",
+    "realName":"Tae-Sung Jung",
+    "position":3,
+    "teamId":1,
+     "avatar":"头https://upload-images.jianshu.io/upload_images/20804610-a9b437ac75244b97.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"  
+  },
+  {
+  	"number":31,
+    "codeName":"NENNE",
+    "realName":"Yeon-Gwan Jeong",
+    "position":2,
+    "teamId":1,
+     "avatar":"https://upload-images.jianshu.io/upload_images/20804610-f6faf7452f80c671.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"  
+  }
+]

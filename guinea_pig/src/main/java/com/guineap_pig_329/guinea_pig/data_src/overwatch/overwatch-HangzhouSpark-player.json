@@ -1,0 +1,81 @@
+[
+  {
+  	"number":1,
+    "codeName":"ADORA",
+    "realName":"JaeHwan Kang",
+    "position":2,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-65d1ab6f868b3146.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+    
+  },
+  {
+  	"number":0,
+    "codeName":"BAZZI",
+    "realName":"Junki Park",
+    "position":2,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-b1105da401a655eb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+    
+  },
+  {
+  	"number":10,
+    "codeName":"GOOSB",
+    "realName":"Kyeong Bo Kim",
+    "position":2,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-35fec8a9c6a3dff9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+    
+  },
+  {
+  	"number":11,
+    "codeName":"RIA",
+    "realName":"Sungwook Park",
+    "position":1,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-b63406d783d434ab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+    
+  },
+  {
+  	"number":37,
+    "codeName":"IDK",
+    "realName":"Ho Jin Park",
+    "position":3,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-e108f06d68f818b4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+    
+  },
+  {
+  	"number":7,
+    "codeName":"KRYSTAL",
+    "realName":"Cai Shilong",
+    "position":2,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-7bd9115ee34eb0f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+    
+  },
+  {
+  	"number":23,
+    "codeName":"BABE",
+    "realName":"Heechang Yoon",
+    "position":3,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-ca696cbf37e413df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+    
+  },
+  {
+    "number":8,
+    "codeName":"Guxue",
+    "realName":"Xu qiulin",
+    "position":1,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-5b7c8409a338896f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":20,
+    "codeName":"SASIN",
+    "realName":"Sanghyun Song",
+    "position":2,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-d1fd3f51e00a4e67.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  }
+]

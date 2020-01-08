@@ -33,10 +33,8 @@ public class PostController {
     private UserInfoRepo userInfoRepo;
 
     @RequestMapping("/selected")
-    public ResultBean getPosts(HttpSession session) {
-        UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
-        int userId = user.getId();
-        List<Post> posts = postRepo.findAllByUserId(userId);
+    public ResultBean getPosts() {
+        List<Post> posts = postRepo.findAll();
         posts = sortPost(posts);
         return ResultBean.success(Util.transform(posts,userRepo,userInfoRepo));
     }
