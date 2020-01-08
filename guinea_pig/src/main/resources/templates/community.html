@@ -5,7 +5,7 @@
     <meta name="referrer" content="no-referrer"/>
     <!-- <meta http-equiv="Content-Type" content="text/html" /> -->
     <meta name="keyword" content="HTML, CSS, image, navigation"/>
-    <title>VULCAN! - HomePage</title>
+    <title>Muteki_gamer - Community</title>
     <base th:href="@{/}">
     <link rel="stylesheet" type="text/css" href="./static/css/index.css"/>
     <link rel="stylesheet" type="text/css" href="./static/css/BBS.css"/>
@@ -109,13 +109,15 @@
                 </span>
             </div>-->
         </div>
-        <div class="contextFrame" style="min-height: 100px; height: auto;">
-            <div class="innerFrame">
+        <div class="contextFrame" style="min-height: 100px; height: 500px;">
+            <div class="innerFrame" style="width: 94%; margin:3%;">
+                <div class="textList">
+                    <h1>post!!!!</h1>
                 <!--游戏对应的帖子-->
-                post!!!!
-                <div id="game_posts" class="left">
+                    <div id="game_posts" >
                     <!--进入community 页面时默认显示的内容-->
-                    <div id="defult"></div>
+                        <div id="defult"></div>
+                    </div>
                 </div>
                 <!--<div class="left">-->
                 <!--<div class="textList">-->
@@ -159,15 +161,16 @@
     <ul>
         {{each data}}
         <li>
-            <!--发帖人信息-->
-            <div>{{$value.userName}}</div>
-            <div><img src="{{$value.userAvatar}}" style="width: 50px;height: 50px"></div>
+            <!--发帖人头像-->
+            <div style="float:left;"><img src="{{$value.userAvatar}}" style="width: 50px;height: 50px"></div>
             <!--帖子标题-->
             <div>{{$value.title}}</div>
+            <!--发帖人昵称-->
+            <div style="float:left;">{{$value.userName}}</div>
+            <!--帖子时间-->
+            <div style="float: left; margin-left: 5%; margin-right: 5%;">{{$value.time}}</div>
             <!--帖子内容-->
             <div>{{$value.content}}</div>
-            <!--帖子时间-->
-            <div>{{$value.time}}</div>
         </li>
         {{/each}}
     </ul>
