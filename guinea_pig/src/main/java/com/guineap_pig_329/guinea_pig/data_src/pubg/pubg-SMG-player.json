@@ -1,0 +1,51 @@
+[
+  {
+    "number":0,
+    "codeName":"AK",
+    "realName":"AK",
+    "position":1,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20795783-aa51a266d61f1cf2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":0,
+    "codeName":"shox",
+    "realName":"Chen jianghua",
+    "position":3,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20795783-cc6dd4b9a0279197.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":0,
+    "codeName":"shou",
+    "realName":"Wang kang",
+    "position":2,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20795783-66ffcac6ef163c0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":0,
+    "codeName":"BaoLeiii",
+    "realName":"Pan xinhao",
+    "position":2,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20795783-d54b03de026d7efd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":0,
+    "codeName":"yyxovo",
+    "realName":"yyxovo",
+    "position":1,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20795783-8ec7ac333e285c05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+
+  },
+  {
+    "number":0,
+    "codeName":"lanrennn",
+    "realName":"Xiao tianpeng",
+    "position":1,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20795783-b44ad99ab79fa95e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  }
+]

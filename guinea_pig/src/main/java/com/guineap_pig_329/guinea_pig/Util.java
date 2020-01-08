@@ -167,10 +167,35 @@ public class Util {
         }catch(Exception e){
             return null;
         }
-
         JSONObject jsonObject = JSONObject.fromObject(content.toString());
         return JSONObject.toBean(jsonObject,className);
     }
+
+
+    //todo array
+//    public static Object getInstaceArray(String path, Class className){
+//        File file = new File(path);
+//        if(!file.exists() || !file.isFile() ){
+//            return null;
+//        }
+//        StringBuffer content = new StringBuffer();
+//        try{
+//            char[] temp = new char[1024];
+//            FileInputStream fileInputStream = new FileInputStream(file);
+//            InputStreamReader reader = new InputStreamReader(fileInputStream, StandardCharsets.UTF_8);
+//            while(reader.read(temp) != -1){
+//                content.append(new String(temp));
+//                temp = new char[1024];
+//            }
+//
+//            fileInputStream.close();
+//            reader.close();
+//        }catch(Exception e){
+//            return null;
+//        }
+//        JSONArray array = JSONArray.fromObject(content.toString());
+//        return JSONObject.toBean(array,className);
+//    }
 
     public static List<PostWrapper> transform(List<Post> posts, UserRepo userRepo, UserInfoRepo userInfoRepo) {
         List<PostWrapper> postWrappers = new ArrayList<>();
@@ -211,7 +236,7 @@ public class Util {
             List<String> dirs = new ArrayList<>();
             File innerDir = new File(absolutePath + inner);
             if(!innerDir.isDirectory())
-                return;
+                continue;
             Collections.addAll(dirs, innerDir.list());
 
             User user = new User();
@@ -253,6 +278,7 @@ public class Util {
                                 player.setTeamId(team.getTeamId());
                                 teams.add(team);
                                 players.add(player);
+                                break;
                             }
                         }
                     }
