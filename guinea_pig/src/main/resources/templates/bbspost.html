@@ -21,7 +21,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
     <!-- 楼中楼是静态的，删除的话删下面的这个postreply.js -->
     <script type="text/javascript" th:src="@{/js/template-web.js}"></script>
-    <script type="text/javascript" th:src="@{js/postreply.js}"></script>
+    <script type="text/javascript" th:src="@{/js/postreply.js}"></script>
     <script type="text/javascript" th:src="@{/js/PostDetail.js}"></script>
 
 </head>
@@ -36,14 +36,14 @@
                 </span>
         </div>
         <div class="nav-text">
-            <span style="float: left"><a href="HomePage1">主页</a></span>
+            <span style="float: left"><a href="HomePage">主页</a></span>
             <span style="float: left"><a href="/homepage/community">社区</a></span>
             <span style="float: left"><a href="/homepage/news">头条</a></span>
             <span style="float: left"><a href="/homepage/battle">战场</a></span>
             <span style="float: right"><a href="/homepage/my">我</a></span>
             <span class="user">
-                    <a href="Login">Login</a>
-            </span>
+                    <a href="login">Login</a>
+                </span>
         </div>
     </div>
 </div>
@@ -253,6 +253,7 @@
 <!--获取帖子信息-->
 <script>
     PostDetail(function (result) {
+        console.log(result.post);
         var html = template('title', result.post);
         console.log(html);
         document.getElementById('posttitle').innerHTML = html;
