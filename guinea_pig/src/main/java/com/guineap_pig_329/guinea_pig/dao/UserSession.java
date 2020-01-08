@@ -11,6 +11,7 @@ public class UserSession {
     private String name;
     private String password;
     private int gameId;//关注的第一个游戏的Id
+    private int postId;//点击的帖子Id
     /**
      * @param session
      * @return 带userId 返回值的
@@ -36,6 +37,14 @@ public class UserSession {
                 e.printStackTrace();
             }
         }
+    }
+
+    public int getPostId() {
+        return postId;
+    }
+
+    public void setPostId(int postId) {
+        this.postId = postId;
     }
 
     public UserSession(int id, String name, String password, int gameId) {

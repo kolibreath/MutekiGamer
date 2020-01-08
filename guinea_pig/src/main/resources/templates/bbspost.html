@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
     <!-- <meta http-equiv="Content-Type" content="text/html" /> -->
@@ -12,25 +12,29 @@
     <link rel="stylesheet" type="text/css" href="css/bbspost2.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js">  </script>
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
     <!-- 楼中楼是静态的，删除的话删下面的这个postreply.js -->
-    <script type="text/javascript" src="js/postreply.js"></script>
+    <script type="text/javascript" th:src="@{/js/template-web.js}"></script>
+    <script type="text/javascript" th:src="@{js/postreply.js}"></script>
+    <script type="text/javascript" th:src="@{/js/PostDetail.js}"></script>
+
 </head>
 <body>
-    <!--nav-->
-    <div class="barContainer" style="background-color: white;">
-        <div class="nav-content"  style="position: relative;">
-            <div class="nav-title">
-                <span >
-                    <img src="https://static.dingtalk.com/media/lALPDgQ9rZl6KXPNAljNB0Q_1860_600.png?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222028145409841%22%7D&bizType=im&open_id=267508618" alt="MutekiGamer logo">
+<!--nav-->
+<div class="barContainer" style="background-color: white;">
+    <div class="nav-content" style="position: relative;">
+        <div class="nav-title">
+                <span>
+                    <img src="https://static.dingtalk.com/media/lALPDgQ9rZl6KXPNAljNB0Q_1860_600.png?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222028145409841%22%7D&bizType=im&open_id=267508618"
+                         alt="MutekiGamer logo">
                 </span>
-            </div>  
-            <div class="nav-text">
+        </div>
+        <div class="nav-text">
             <span style="float: left"><a href="HomePage1">主页</a></span>
             <span style="float: left"><a href="/homepage/community">社区</a></span>
             <span style="float: left"><a href="/homepage/news">头条</a></span>
@@ -39,203 +43,220 @@
             <span class="user">
                     <a href="Login">Login</a>
             </span>
+        </div>
+    </div>
+</div>
+
+<!-- 面包屑导航 -->
+<div class="container" style="margin-top: 20px;">
+    <div class="row">
+        <nav class="breadcrumb col-md-12 breadnav" style="background-color: white;opacity: 0.6">
+            <a class="breadcrumb-item" href="#"><img src="img/home.png" style="width:16px;height: auto; "> 论坛主页</a>
+            <a class="breadcrumb-item" href="#">游戏</a>
+            <a class="breadcrumb-item" href="#">英雄联盟</a>
+            <a class="breadcrumb-item active">攻略</a>
+        </nav>
+    </div>
+</div>
+
+<!-- 帖子内容and楼主信息 -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 postbg">
+            <div class="posttitle" style="color: #555;">
+                <!--<h1>电刑打野盲僧玩法技巧分享 电刑打野盲僧装备选择说明</h1>-->
+                <!--<div style="font-weight: 500;">2020/1/6 11:11</div>-->
+            </div>
+            <hr>
+            <div class="postdetail">电刑打野盲僧盲僧在9.18版本中终于得到了一次加强，首先加强了盲僧的基础属性，包括攻击力和生命值，其次加强了盲僧大招的伤害，这两个改动得以让盲僧重回主流打野行列。
+            </div>
+        </div>
+        <div class="col-md-4" style="padding: 0;">
+            <div class="author">
+                <p style="text-align: left;padding-left: 30px;"><img src="img/pencil.png"
+                                                                     style="width: 15px;height: 15px;"> 楼主</p>
+                <a href="">
+                    <img src="https://static.dingtalk.com/media/lADPDgQ9rbqFW6nNAQLNAQM_259_258.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222062145382217%22%7D&bizType=im&open_id=267508618">
+                    <p style="margin-top: 15px;">莫甘娜</p>
+                </a>
+                <ul>
+                    <li>帖子:5</li>
+                    <li>粉丝:55</li>
+                    <li>关注:555</li>
+                </ul>
+                <div id="ttpost_act" class="postbig">
+                    <a href="" class="fatie">发新帖</a>
+                    <a href="javascript:void(0);" class="huifu">回复</a>
+                </div>
+                <script type="text/javascript">
+                    (function () {
+                        var postAct = document.getElementById("ttpost_act");
+                        postAct.setAttribute("style", "display:none;");
+                        var postActTop = postAct.offsetTop;
+                        document.onscroll = function () {
+                            var docTop = document.body.scrollTop | document.documentElement.scrollTop;
+                            if (postActTop < docTop) {
+                                postAct.setAttribute("style", "width:290px;display:block;position:fixed;background:#fff; top:0px; z-index:300;padding:20px;box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);");
+                            } else {
+                                postAct.setAttribute("style", "display:none;");
+                            }
+                        }
+                    })()
+                    q_jq('#ttpost_act .huifu').on('click', function () {
+                        q_jq("html,body").animate({
+                            scrollTop: q_jq("#f_pst").offset().top
+                        }, 500);
+                        q_jq("#f_pst").find("textarea").focus();
+                    });
+                </script>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- 面包屑导航 -->
-    <div class="container" style="margin-top: 20px;">
+<!-- 回复框 -->
+<div class="container" style="margin-top: 50px;">
     <div class="row">
-    <nav class="breadcrumb col-md-12 breadnav" style="background-color: white;opacity: 0.6">
-        <a class="breadcrumb-item" href="#"><img src="img/home.png" style="width:16px;height: auto; "> 论坛主页</a>
-        <a class="breadcrumb-item" href="#">游戏</a>
-        <a class="breadcrumb-item" href="#">英雄联盟</a>
-        <a class="breadcrumb-item active">攻略</a>
-    </nav>
-    </div>
-    </div>
-
-    <!-- 帖子内容and楼主信息 -->
-    <div class="container">
-    	<div class="row">
-    		<div class="col-md-8 postbg">
-    			<div class="posttitle" style="color: #555;">
-    				<h1>电刑打野盲僧玩法技巧分享 电刑打野盲僧装备选择说明</h1>
-    				<div style="font-weight: 500;">2020/1/6 11:11</div>
-    			</div>
-    			<hr>
-    			<div class="postdetail">电刑打野盲僧盲僧在9.18版本中终于得到了一次加强，首先加强了盲僧的基础属性，包括攻击力和生命值，其次加强了盲僧大招的伤害，这两个改动得以让盲僧重回主流打野行列。
-    			</div>
-    		</div>
-    		<div class="col-md-4" style="padding: 0;">
-    			<div class="author">
-    				<p style="text-align: left;padding-left: 30px;"><img src="img/pencil.png" style="width: 15px;height: 15px;"> 楼主</p>
-    				<a href="">
-    				    <img src="https://static.dingtalk.com/media/lADPDgQ9rbqFW6nNAQLNAQM_259_258.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222062145382217%22%7D&bizType=im&open_id=267508618">
-    				    <p style="margin-top: 15px;">莫甘娜</p>
-    			    </a>
-    			    <ul>
-    			    	<li>帖子:5</li>
-    			    	<li>粉丝:55</li>
-    			    	<li>关注:555</li>
-    			    </ul>
-    			    <div id="ttpost_act" class="postbig">
-    	                <a href="" class="fatie">发新帖</a>
-    	                <a href="javascript:void(0);" class="huifu">回复</a>
-                    </div>
-                    <script type="text/javascript">
-                        (function(){
-                            var postAct = document.getElementById("ttpost_act");
-                            postAct.setAttribute("style", "display:none;");
-                            var postActTop = postAct.offsetTop;
-                            document.onscroll = function() {
-                                var docTop = document.body.scrollTop | document.documentElement.scrollTop;
-                                if (postActTop < docTop) {
-                                    postAct.setAttribute("style", "width:290px;display:block;position:fixed;background:#fff; top:0px; z-index:300;padding:20px;box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);");
-                                } else {
-                                    postAct.setAttribute("style", "display:none;");
-                                }
-                            }
-                        })()
-                        q_jq('#ttpost_act .huifu').on('click',function(){
-        	            q_jq("html,body").animate({
-        		            scrollTop: q_jq("#f_pst").offset().top
-        	            }, 500);
-        	            q_jq("#f_pst").find("textarea").focus();
-                    });  
-                </script>
-    			</div>
-    		</div>
-    	</div>
-    </div> 
-
-    <!-- 回复框 -->
-    <div class="container" style="margin-top: 50px;">
-   	    <div class="row">
-   		    <div class="col-md-8 postbg" style="padding: 25px;">
-   		    	<p style="text-align: left;;"><img src="img/pencil.png" style="width: 15px;height: 15px;margin-right: 10px;">回复</p>
-   		    	<form>
-   		    		<textarea class="form-control" rows="4" id=""></textarea>
-   		    	<!-- <div id="summernote"></div>
-                    <script>
-                    $('#summernote').summernote({
-                        placeholder: '在这里回复',
-                        tabsize: 2,
-                        height: 150
-                    });
-                    </script> -->
-                    <button type="submit" class="btn btn-outline-info" style="margin-top: 20px;float: right;">发表回复</button>
-                </form>
-   		    </div>
-   	    </div>
-    </div> 
-
-    <!-- 回复列表 -->
-    <div class="container" style="margin-top: 50px;margin-bottom: 50px;">
-    	<div class="row">
-    		<div class="col-md-8 postbg">
-    			<div style="color: #555;">
-    				<p>最新评论</p>
-    			</div>
-    			<hr>
-    			<div class="responselist">
-    				<ul  id="pn">
-    					<!-- 有楼中楼回复 -->
-    					<li class="list0"> 
-                            <div class="head">
-                            	<img src="https://static.dingtalk.com/media/lADPDgQ9rbqm0UjNARLNARM_275_274.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222052257905687%22%7D&bizType=im&open_id=267508618" alt="">
-                            </div>
-                            <div class="content">
-                                <p class="text"><span class="name">卡尔玛：</span>哈哈哈哈哈</p>
-                                <div class="good">
-                                	<span class="date">01-06 23:01</span>
-                                	<a class="dzan" href="javascript:;">赞</a>
-                                </div>
-                                <div class="people" total="298">298人觉得很赞</div>
-                                <div class="comment-list">
-                                    <div class="comment" user="self">
-                                        <div class="comment-left">
-                                        	<img src="https://static.dingtalk.com/media/lADPDgQ9rbqFW6nNAQLNAQM_259_258.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222062145382217%22%7D&bizType=im&open_id=267508618" alt="">
-                                        </div>
-                                        <div class="comment-right">
-                                            <div class="comment-text">
-                                            	<span class="user">老王：</span>
-                                            可
-                                            </div>
-                                            <div class="comment-date">
-                                            	01-06 24:00 
-                                            	<a class="comment-zan" href="javascript:;" total="23" my="1">23 取消赞</a> 
-                                            	<a class="comment-dele" href="javascript:;">回复</a> 
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="comment" user="self">
-                                        <div class="comment-left">
-                                        	<img src="https://static.dingtalk.com/media/lADPDgQ9rbqFW6nNAQLNAQM_259_258.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222062145382217%22%7D&bizType=im&open_id=267508618" alt="">
-                                        </div>
-                                        <div class="comment-right">
-                                            <div class="comment-text">
-                                            	<span class="user">我：</span>看哭了留卡号吧
-                                            </div>
-                                            <div class="comment-date">01-07 14:00 
-                                            	<a class="comment-zan" href="javascript:;" total="0" my="0">赞</a> 
-                                            	<a class="comment-dele" href="javascript:;">删除</a> 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="hf">
-                                    <textarea type="text" class="hf-text" autocomplete="off" maxlength="100">评论…</textarea>
-                                    <button class="hf-btn">回复</button>
-                                    <span class="hf-nub">0/100</span> </div>
-                                </div>
-                            </li>
-
-                        <!-- 简单的仅有回复 -->
-    					<!-- <li>
-    						<div style="height: auto;">
-    							<a href="">
-    							<img src="https://static.dingtalk.com/media/lADPDgQ9rbqm0UjNARLNARM_275_274.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222052257905687%22%7D&bizType=im&open_id=267508618" style="float: left;">
-    							<p style="float: left;">卡尔玛</p>
-    						    </a>
-    						    <em>2020/1/6 15:15</em>
-    						</div>
-    						<div class="responsedetail">
-    							<div id="">
-    								可
-    							</div>
-    						</div>
-    						<hr>
-    					</li> -->
-    				</ul>
-    			</div>
-    		</div>
-    	</div>
-    </div>
-
-
-    <!-- 回到顶部 -->
-    <div class="topbtn">  	
-    	<a class="btn btn-default" href="#" role="button">
-    		<img src="img/top.png">
-    	</a>
-    </div>
-
-
-
-    <footer style="position: relative;height: 60px;background-color:#5E5E5E; color:  #EAEAEA;overflow: hidden;" >
-    	<div style="height:50px;width: 180px;margin-left: 30%;float: left;">
-    		<img src="https://static.dingtalk.com/media/lALPDgQ9rZmS1SDNAcLNB0Q_1860_450.png?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222028305227287%22%7D&bizType=im&open_id=267508618">
-    	</div>
-    	<div style="float: left; padding-top: 25px;padding-left: 80px;">
-    	<p style="float: left;font-weight: 200;font-size: 14px;">@MutekiGamer 2020</p>
-    	<p style="float: left;margin-left: 40px;font-weight: 200;font-size: 14px;">联系我们:</p>
-    	<div style="float: left;">    		
-    		<img src="img/twitter.png" style="width: 20px;height: 20px;margin-left: 10px;">
-    		<img src="img/facebook.png" style="width: 20px;height: 20px;margin-left: 10px;">
-    		<img src="img/email.png" style="width: 20px;height: 20px;margin-left: 10px;">
-    	</div>
+        <div class="col-md-8 postbg" style="padding: 25px;">
+            <p style="text-align: left;;"><img src="img/pencil.png"
+                                               style="width: 15px;height: 15px;margin-right: 10px;">回复</p>
+            <form>
+                <textarea class="form-control" rows="4" id=""></textarea>
+                <!-- <div id="summernote"></div>
+                 <script>
+                 $('#summernote').summernote({
+                     placeholder: '在这里回复',
+                     tabsize: 2,
+                     height: 150
+                 });
+                 </script> -->
+                <button type="submit" class="btn btn-outline-info" style="margin-top: 20px;float: right;">发表回复</button>
+            </form>
         </div>
-    </footer>
+    </div>
+</div>
+
+<!-- 回复列表 -->
+<div class="container" style="margin-top: 50px;margin-bottom: 50px;">
+    <div class="row">
+        <div class="col-md-8 postbg">
+            <div style="color: #555;">
+                <p>最新评论</p>
+            </div>
+            <hr>
+            <div class="responselist">
+                <ul id="pn">
+                    <!-- 有楼中楼回复 -->
+                    <li class="list0">
+                        <div class="head">
+                            <img src="https://static.dingtalk.com/media/lADPDgQ9rbqm0UjNARLNARM_275_274.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222052257905687%22%7D&bizType=im&open_id=267508618"
+                                 alt="">
+                        </div>
+                        <div class="content">
+                            <p class="text"><span class="name">卡尔玛：</span>哈哈哈哈哈</p>
+                            <div class="good">
+                                <span class="date">01-06 23:01</span>
+                                <a class="dzan" href="javascript:;">赞</a>
+                            </div>
+                            <div class="people" total="298">298人觉得很赞</div>
+                            <div class="comment-list">
+                                <div class="comment" user="self">
+                                    <div class="comment-left">
+                                        <img src="https://static.dingtalk.com/media/lADPDgQ9rbqFW6nNAQLNAQM_259_258.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222062145382217%22%7D&bizType=im&open_id=267508618"
+                                             alt="">
+                                    </div>
+                                    <div class="comment-right">
+                                        <div class="comment-text">
+                                            <span class="user">老王：</span>
+                                            可
+                                        </div>
+                                        <div class="comment-date">
+                                            01-06 24:00
+                                            <a class="comment-zan" href="javascript:;" total="23" my="1">23 取消赞</a>
+                                            <a class="comment-dele" href="javascript:;">回复</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comment" user="self">
+                                    <div class="comment-left">
+                                        <img src="https://static.dingtalk.com/media/lADPDgQ9rbqFW6nNAQLNAQM_259_258.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222062145382217%22%7D&bizType=im&open_id=267508618"
+                                             alt="">
+                                    </div>
+                                    <div class="comment-right">
+                                        <div class="comment-text">
+                                            <span class="user">我：</span>看哭了留卡号吧
+                                        </div>
+                                        <div class="comment-date">01-07 14:00
+                                            <a class="comment-zan" href="javascript:;" total="0" my="0">赞</a>
+                                            <a class="comment-dele" href="javascript:;">删除</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hf">
+                                <textarea type="text" class="hf-text" autocomplete="off" maxlength="100">评论…</textarea>
+                                <button class="hf-btn">回复</button>
+                                <span class="hf-nub">0/100</span></div>
+                        </div>
+                    </li>
+
+                    <!-- 简单的仅有回复 -->
+                    <!-- <li>
+                        <div style="height: auto;">
+                            <a href="">
+                            <img src="https://static.dingtalk.com/media/lADPDgQ9rbqm0UjNARLNARM_275_274.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222052257905687%22%7D&bizType=im&open_id=267508618" style="float: left;">
+                            <p style="float: left;">卡尔玛</p>
+                            </a>
+                            <em>2020/1/6 15:15</em>
+                        </div>
+                        <div class="responsedetail">
+                            <div id="">
+                                可
+                            </div>
+                        </div>
+                        <hr>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 回到顶部 -->
+<div class="topbtn">
+    <a class="btn btn-default" href="#" role="button">
+        <img src="img/top.png">
+    </a>
+</div>
+
+<script id="title" type="text/html">
+
+</script>
+<script id="content" type="text/html">
+
+</script>
+<!--获取帖子信息-->
+<script>
+
+</script>
+<!--获取发帖人用户信息-->
+<script>
+
+</script>
+<footer style="position: relative;height: 60px;background-color:#5E5E5E; color:  #EAEAEA;overflow: hidden;">
+    <div style="height:50px;width: 180px;margin-left: 30%;float: left;">
+        <img src="https://static.dingtalk.com/media/lALPDgQ9rZmS1SDNAcLNB0Q_1860_450.png?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222028305227287%22%7D&bizType=im&open_id=267508618">
+    </div>
+    <div style="float: left; padding-top: 25px;padding-left: 80px;">
+        <p style="float: left;font-weight: 200;font-size: 14px;">@MutekiGamer 2020</p>
+        <p style="float: left;margin-left: 40px;font-weight: 200;font-size: 14px;">联系我们:</p>
+        <div style="float: left;">
+            <img src="img/twitter.png" style="width: 20px;height: 20px;margin-left: 10px;">
+            <img src="img/facebook.png" style="width: 20px;height: 20px;margin-left: 10px;">
+            <img src="img/email.png" style="width: 20px;height: 20px;margin-left: 10px;">
+        </div>
+    </div>
+</footer>
 </body>
 </html>
