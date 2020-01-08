@@ -15,7 +15,7 @@ public class ImageUploader {
         String fileName = file.getOriginalFilename();
         String suffix = fileName.substring(fileName.lastIndexOf(".") + 1);
 
-        String newName = "travelmanager/" + generateFileName(fileName) + "." + suffix;
+        String newName = "muteki_gamer/" + generateFileName(fileName) + "." + suffix;
         OSSUtil.uploadPic(file, newName);
 
         return URLprefix + newName;

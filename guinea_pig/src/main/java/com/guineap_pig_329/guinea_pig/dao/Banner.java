@@ -18,7 +18,7 @@ public class Banner {
     private String bannerContentId;
 
     @Column
-    private long time;
+    private String time;
 
     @Column
     private String bannerIntro;
@@ -28,7 +28,7 @@ public class Banner {
 
     public Banner(){}
 
-    public Banner(String bannerPicId, String bannerContentId, long time, String bannerIntro, int gameId) {
+    public Banner(String bannerPicId, String bannerContentId, String time, String bannerIntro, int gameId) {
         this.bannerPicId = bannerPicId;
         this.bannerContentId = bannerContentId;
         this.time = time;
@@ -44,11 +44,11 @@ public class Banner {
         this.gameId = gameId;
     }
 
-    public long getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(long time) {
+    public void setTime(String time) {
         this.time = time;
     }
 

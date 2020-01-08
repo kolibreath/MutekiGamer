@@ -273,9 +273,10 @@
 <script id="g" type="text/html">
     <ul>
         {{each data}}
-        <li>
-            <img src="{{$value.picture}}" style="width: 60px;height: 60px">
-            <button class="game" id="{{$value.gameId}}">{{$value.gameName}}</button>
+        <li style="margin: 20px; height: 80px;">
+            <img src="{{$value.picture}}" class="imgsize">
+<!--            <a class="dropdown-item" href="#">星际争霸2</a>-->
+            <a class="game nav-link gamelink" id="{{$value.gameId}}" >{{$value.gameName}}</a>
         </li>
         {{/each}}
     </ul>
@@ -299,6 +300,7 @@
         {{/each}}
     </ul>
 </script>
+
 <!--处理相应游戏的社区信息-->
 <script id="communities" type="text/html">
     <ul>

@@ -78,10 +78,10 @@
     </div>
 
     <div class="main-content">
-        <div class="contextFrame">
+        <div class="contextFrame" style="height: 70px;">
             <!--用户关注的游戏-->
             <!--            整个的div的float设置的是整个头像块的float位置-->
-            <div id="games" style="float:left; width: 80px;height: 80px;margin-left: 70px;">
+            <div id="games" style="float: left; width: 100%; height: 80px; margin-left: 3%; padding-top: 10px;">
             </div>
             <!--            <img src="https://blznav.akamaized.net/img/games/logo-ow-4be5755bc0a4cbaf.png" style="width: 80px;height: 80px;margin-left: 70px;">-->
 
@@ -109,11 +109,11 @@
                 </span>
             </div>-->
         </div>
-        <div class="contextFrame">
+        <div class="contextFrame" style="min-height: 100px; height: auto;">
             <div class="innerFrame">
                 <!--游戏对应的帖子-->
                 post!!!!
-                <div id="game_posts">
+                <div id="game_posts" class="left">
                     <!--进入community 页面时默认显示的内容-->
                     <div id="defult"></div>
                 </div>
@@ -144,11 +144,11 @@
 </div>
 <!--渲染游戏图标-->
 <script id="game" type="text/html">
-    <ul>
+    <ul style="height: 80px; width: 100%;">
         {{each data}}
-        <li>
-            <button class="game" id="{{$value.gameId}}"><img src="{{$value.picture}}"
-                                                             style="width:50px; height: 50px; list-style:none; float:left;">
+        <li style="width: 80px; height: 80px; float: left; margin-left: 5%;">
+            <button  style="float: left;" class="game" id="{{$value.gameId}}">
+                <img src="{{$value.picture}}" style="width: 50px; height: 50px; list-style: none; float: left;">
             </button>
         </li>
         {{/each}}
@@ -172,9 +172,6 @@
         {{/each}}
     </ul>
 </script>
-<script id="defults" type="text/html">
-
-</script>
 <script>
     var games = {};
     homepage(function (result) {
@@ -183,12 +180,6 @@
         console.log(html);
         document.getElementById('games').innerHTML = html;
     })
-</script>
-<script>
-    var game=defultDisplay();
-    var html = template('defults', game);
-    console.log(html);
-    document.getElementById('defult').innerHTML = html;
 </script>
 <script>
     $(function () {

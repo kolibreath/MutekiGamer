@@ -3,6 +3,8 @@ package com.guineap_pig_329.guinea_pig.controller;
 
 import com.guineap_pig_329.guinea_pig.Constants;
 import com.guineap_pig_329.guinea_pig.dao.*;
+import com.guineap_pig_329.guinea_pig.dao.wrapper.UserHomePageWrapper;
+import com.guineap_pig_329.guinea_pig.dao.wrapper.UserWrapper;
 import com.guineap_pig_329.guinea_pig.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -81,11 +83,17 @@ public class UserController {
         UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
         int userId = user.getId();
 
-        UserHomePage userHomePage = new UserHomePage();
-        userHomePage.setUserName(user.getName());
+        UserHomePageWrapper userHomePageWrapper = new UserHomePageWrapper();
+        userHomePageWrapper.setUserName(user.getName());
+
+        UserInfo userInfo = userInfoRepo.findUserInfoByUserId(userId);
+        String userAvatar = userInfo.getUserAvatar();
+
+        userHomePageWrapper.setUserAvatar(userAvatar);
 
         List<Game> games = new LinkedList<>();
         List<UserGame> user2Game =  userGameRepo.findAllByUserId(userId);
+
         for(UserGame userGame : user2Game){
             int gameId = userGame.getGameId();
             //如果存在
@@ -95,39 +103,55 @@ public class UserController {
 
         //todo 返回内容确定 缩减
         List<Post> posts = postRepo.findAllByUserId(userId);
-        userHomePage.setPosts(posts);
+        userHomePageWrapper.setPosts(posts);
+        userHomePageWrapper.setPostLength(posts.size());
+
 
         //找到所有的粉丝
         List<Friends> followed = friendsRepo.findFollowed(userId);
         //找到所有的关注者
         List<Friends> following = friendsRepo.findFollowing(userId);
 
-        userHomePage.setFollowingNum(following.size());
-        userHomePage.setFollowerNum(following.size());
+
 
         //所有的粉丝列表
-        List<User> followers = new LinkedList<>();
+        List<UserWrapper> followers = new LinkedList<>();
         //所有的关注者列表
-        List<User> followings = new LinkedList<>();
+        List<UserWrapper> followings = new LinkedList<>();
 
         for(Friends fd:followed){
             int fdId = fd.getUserId1();
             User fdUser = userRepo.findUserByUserId(fdId);
-            followers.add(fdUser);
+            UserInfo info  = userInfoRepo.findUserInfoByUserId(userId);
+            UserWrapper userWrapper = new UserWrapper(user.getName(),
+                    info.getUserAvatar(),
+                    userId,
+                    fdUser.getUserEmail(),
+                    fdUser.getUserType());
+            followers.add(userWrapper);
         }
 
         for(Friends fg:following){
             int fgId = fg.getUserId2();
             User fgUser = userRepo.findUserByUserId(fgId);
-            followings.add(fgUser);
+            UserInfo info  = userInfoRepo.findUserInfoByUserId(userId);
+            UserWrapper userWrapper = new UserWrapper(user.getName(),
+                    info.getUserAvatar(),
+                    userId,
+                    fgUser.getUserEmail(),
+                    fgUser.getUserType());
+            followings.add(userWrapper);
         }
 
-        userHomePage.setFollowers(followers);
-        userHomePage.setFollowing(followings);
+        userHomePageWrapper.setFollowers(followers);
+        userHomePageWrapper.setFollowing(followings);
+
+        userHomePageWrapper.setFollowingNum(following.size());
+        userHomePageWrapper.setFollowerNum(followers.size());
 
         ResultBean bean = new ResultBean();
         bean.setCode(200);
-        bean.setData(userHomePage);
+        bean.setData(userHomePageWrapper);
         bean.setMessage("成功请求");
 
         return bean;
