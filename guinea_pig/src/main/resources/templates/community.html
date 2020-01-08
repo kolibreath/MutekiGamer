@@ -185,14 +185,17 @@
     $(function () {
         $(".game").click(function () {
             let val = $(this).attr("id");
-            alert(val);
+            console.log(val);
             getPostByGameId(val, function (result) {
                 var p = result.post;
-                var html = template('game_post', p);
-                console.log(html);
-                document.getElementById('game_posts').innerHTML = html;
-            })
-
+                console.log(p);
+                var empty=$.isEmptyObject(p);
+                if(empty!=true) {
+                    var html = template('game_post', p);
+                    console.log(html);
+                    document.getElementById('game_posts').innerHTML = html;
+                }
+                })
         })
     })
 </script>
