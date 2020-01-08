@@ -13,7 +13,6 @@ import javax.servlet.http.HttpSession;
 /***
  * 管理整个主页面的逻辑请求
  */
-//todo restcontroller
 @Controller
 @RequestMapping("homepage")
 public class HomepageController {

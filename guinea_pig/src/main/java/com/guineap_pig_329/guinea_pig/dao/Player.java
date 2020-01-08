@@ -22,6 +22,8 @@ public class Player{
     private int position;
     @Column
     private int teamId;
+    @Column
+    private String avatar;
 
     public int getPlayerId() {
         return playerId;

@@ -5,9 +5,7 @@ import com.guineap_pig_329.guinea_pig.dao.ResultBean;
 import com.guineap_pig_329.guinea_pig.dao.User;
 import com.guineap_pig_329.guinea_pig.dao.UserGame;
 import com.guineap_pig_329.guinea_pig.dao.UserSession;
-import com.guineap_pig_329.guinea_pig.repo.BannerRepo;
-import com.guineap_pig_329.guinea_pig.repo.UserGameRepo;
-import com.guineap_pig_329.guinea_pig.repo.UserRepo;
+import com.guineap_pig_329.guinea_pig.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -37,6 +35,20 @@ public class AuthController {
     @Autowired
     private UserRepo userRepo;
     @Autowired
+    private  UserInfoRepo userInfoRepo;
+    @Autowired
+    private PostRepo postRepo;
+    @Autowired
+    private ContestRepo contestRepo;
+    @Autowired
+    private TeamRepo teamRepo;
+    @Autowired
+    private PlayerRepo playerRepo;
+    @Autowired
+    private GameRepo gameRepo;
+    @Autowired
+    private GameAttributeRepo gameAttributeRepo;
+    @Autowired
     private BannerRepo bannerRepo;
 
     @Value("${spring.mail.username}")
@@ -52,6 +64,18 @@ public class AuthController {
 
     @RequestMapping("/login")
     public String login() {
+//        Util.setUserInfoRepo(userInfoRepo);
+//        Util.setUserRepo(userRepo);
+//        Util.setPostRepo(postRepo);
+//        Util.setContestRepo(contestRepo);
+//        Util.setTeamRepo(teamRepo);
+//        Util.setPlayerRepo(playerRepo);
+//        Util.setGameRepo(gameRepo);
+//        Util.setGameAttributeRepo(gameAttributeRepo);
+//        Util.setBannerRepo(bannerRepo);
+//
+//        Util.genData("/guinea_pig/src/main/java/com/guineap_pig_329/guinea_pig/data_src/");
+
         return "login";
     }
 
