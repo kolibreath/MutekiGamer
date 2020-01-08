@@ -179,25 +179,23 @@
         var html = template('game', games);
         console.log(html);
         document.getElementById('games').innerHTML = html;
-    })
-</script>
-<script>
-    $(function () {
+        //ready()
+        console.log($(".game"));
+
         $(".game").click(function () {
             let val = $(this).attr("id");
             console.log(val);
             getPostByGameId(val, function (result) {
-                var p = result.post;
+                let p = result.post;
                 console.log(p);
-                var empty=$.isEmptyObject(p);
-                if(empty!=true) {
-                    var html = template('game_post', p);
+                let empty=$.isEmptyObject(p);
+                if(empty!=true) {var html = template('game_post', p);
                     console.log(html);
                     document.getElementById('game_posts').innerHTML = html;
                 }
                 })
-        })
-    })
+            })
+        });
 </script>
 <footer>
     <div class="container">
@@ -265,5 +263,7 @@
     }
 
 </script>
+
+
 </body>
 </html>
