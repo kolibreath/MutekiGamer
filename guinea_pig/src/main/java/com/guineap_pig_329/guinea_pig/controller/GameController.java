@@ -1,11 +1,10 @@
 package com.guineap_pig_329.guinea_pig.controller;
 
 
-import com.guineap_pig_329.guinea_pig.dao.Game;
-import com.guineap_pig_329.guinea_pig.dao.ResultBean;
-import com.guineap_pig_329.guinea_pig.dao.UserGame;
-import com.guineap_pig_329.guinea_pig.dao.UserSession;
+import com.guineap_pig_329.guinea_pig.dao.*;
+import com.guineap_pig_329.guinea_pig.dao.wrapper.GamePostWrapper;
 import com.guineap_pig_329.guinea_pig.repo.GameRepo;
+import com.guineap_pig_329.guinea_pig.repo.PostRepo;
 import com.guineap_pig_329.guinea_pig.repo.UserGameRepo;
 import com.guineap_pig_329.guinea_pig.repo.UserInfoRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +25,8 @@ public class GameController {
     private UserInfoRepo userInfoRepo;
     @Autowired
     private GameRepo gameRepo;
-
+    @Autowired
+    private PostRepo postRepo;
 
     @RequestMapping("/user")
     public ResultBean getGames(HttpSession session) throws IOException {
@@ -34,12 +34,16 @@ public class GameController {
         if(userId == ResultBean.SESSION_OUT_OF_DATE){
             return ResultBean.relogin("session 过期");
         }
-        List<Game> games = new ArrayList<>();
+        List<GamePostWrapper> games = new ArrayList<>();
         List<UserGame> userGames = userGameRepo.findAllByUserId(userId);
         for (UserGame userGame: userGames){
             Game game = gameRepo.findById(userGame.getGameId()).get();
-            games.add(game);
+            List<Post> mypost = postRepo.findByGameIdAndUserId(userGame.getGameId(),userId);
+            GamePostWrapper gamePostWrapper = new GamePostWrapper(userGame.getGameId()
+            ,game.getGameName(),game.getGameIntro(),game.getPicture(),mypost);
+            games.add(gamePostWrapper);
         }
+        //登陆用户关于这哥游戏的所有帖子
         return ResultBean.success(games);
     }
 

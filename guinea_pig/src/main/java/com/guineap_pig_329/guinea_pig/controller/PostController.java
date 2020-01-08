@@ -52,6 +52,14 @@ public class PostController {
         List<Post> posts = postRepo.findAllByGameId(gameId);
         return ResultBean.success(Util.transform(posts,userRepo,userInfoRepo));
     }
+    //通过游戏Id 用户id得到帖子
+    @RequestMapping("/usergame/{gameid}")
+    public ResultBean getPostByUserIdGameId(@PathVariable("gameid") Integer gameId,HttpSession session) {
+        UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
+        int userId = user.getId();
+        List<Post> posts = postRepo.findAllByGameIdAndUserId(userId,gameId);
+        return ResultBean.success(Util.transform(posts,userRepo,userInfoRepo));
+    }
 
     @PostMapping(value = "/new_post")
     //成功 200 错误 返回 500
@@ -63,11 +71,11 @@ public class PostController {
         String postContent = (String) map.get("postContent");
         String postTitle = (String) map.get("postTitle");
         int tag, gameId;
-        long time;
+        String time;
         try {
             tag = (int) map.get("tag");
             gameId = (int) map.get("gameId");
-            time = (int) map.get("time");
+            time = (String) map.get("time");
         } catch (Exception e) {
             return ResultBean.error(ResultBean.bad_request, "内容解析无效");
         }
@@ -139,7 +147,8 @@ public class PostController {
         int level = user.getLevel();
         int responseSize = responseRepo.findAllByPostId(post.getPostId()).size();
         long currentTime = System.currentTimeMillis();
-        long timeSubstract = post.getTime() - currentTime;
+//        long timeSubstract = post.getTime() - currentTime;
+        long timeSubstract = 0;
         int weight = level * 10 + responseSize * 25 + (int) timeSubstract / 10000;
         return weight;
     }

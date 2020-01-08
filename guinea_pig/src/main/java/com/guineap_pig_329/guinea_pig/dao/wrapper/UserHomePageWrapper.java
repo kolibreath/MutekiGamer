@@ -2,7 +2,6 @@ package com.guineap_pig_329.guinea_pig.dao.wrapper;
 
 import com.guineap_pig_329.guinea_pig.dao.Game;
 import com.guineap_pig_329.guinea_pig.dao.Post;
-import com.guineap_pig_329.guinea_pig.dao.User;
 
 import java.util.List;
 
@@ -22,8 +21,8 @@ public class UserHomePageWrapper {
         return userName;
     }
     private List<Post> posts;
-    private List<User> followers;
-    private List<User> following;
+    private List<UserWrapper> followers;
+    private List<UserWrapper> following;
 
     public void setUserName(String userName) {
         this.userName = userName;
@@ -62,19 +61,19 @@ public class UserHomePageWrapper {
         this.posts = posts;
     }
 
-    public List<User> getFollowers() {
+    public List<UserWrapper> getFollowers() {
         return followers;
     }
 
-    public void setFollowers(List<User> followers) {
+    public void setFollowers(List<UserWrapper> followers) {
         this.followers = followers;
     }
 
-    public List<User> getFollowing() {
+    public List<UserWrapper> getFollowing() {
         return following;
     }
 
-    public void setFollowing(List<User> following) {
+    public void setFollowing(List<UserWrapper> following) {
         this.following = following;
     }
 

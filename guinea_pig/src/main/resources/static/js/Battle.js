@@ -38,3 +38,5 @@ function search(content, call){
 
     $.when(request).done(() => {call(allData)});
 }
+
+

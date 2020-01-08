@@ -1,5 +1,6 @@
 package com.guineap_pig_329.guinea_pig.dao;
 
+
 import javax.persistence.*;
 
 @Entity
@@ -21,14 +22,6 @@ public class Player{
     private int position;
     @Column
     private int teamId;
-
-    public int getTeamId() {
-        return teamId;
-    }
-
-    public void setTeamId(int teamId) {
-        this.teamId = teamId;
-    }
 
     public int getPlayerId() {
         return playerId;
@@ -62,6 +55,15 @@ public class Player{
         this.realName = realName;
     }
 
+    public int getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(int teamId) {
+        this.teamId = teamId;
+    }
+
+
     public int getPosition() {
         return position;
     }
@@ -70,8 +72,8 @@ public class Player{
         this.position = position;
     }
 
-    public Player(){ }
 
+    public Player(){}
 
     public Player(int number, String codeName, String realName, int position, int teamId) {
         this.number = number;
