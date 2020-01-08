@@ -4,7 +4,7 @@ function news(gameId,call) {
         (
             {
                 url:"/battle/news/" +gameId,
-                type:"GET",
+                method:"GET",
                 success:function(result){
                     allData.post = result;
                 },
