@@ -281,28 +281,8 @@
     </ul>
 </script>
 
-
-<!--处理相应游戏的社区信息-->
-<script id="communities" type="text/html">
-    <ul>
-        {{each data}}
-        <li>
-            <!--发帖人信息-->
-            <div>{{$value.userName}}</div>
-            <div><img src="{{$value.userAvatar}}" style="width: 50px;height: 50px"></div>
-            <!--帖子标题-->
-            <div>{{$value.title}}</div>
-            <!--帖子内容-->
-            <div>{{$value.content}}</div>
-            <!--帖子时间-->
-            <div>{{$value.time}}</div>
-        </li>
-        {{/each}}
-    </ul>
-</script>
-
 <!--处理相应游戏的资讯-->
-<script id="infos" type="text/html">
+<script id="info1" type="text/html">
     <ul>
         {{each data}}
         <li>
@@ -320,8 +300,24 @@
     </ul>
 </script>
 
-
-
+<!--处理相应游戏的社区信息-->
+<script id="communities" type="text/html">
+    <ul>
+        {{each data}}
+        <li>
+            <!--发帖人信息-->
+            <div>{{$value.userName}}</div>
+            <div><img src="{{$value.userAvatar}}"style="width: 50px;height: 50px"></div>
+            <!--帖子标题-->
+            <div>{{$value.title}}</div>
+            <!--帖子内容-->
+            <div>{{$value.content}}</div>
+            <!--帖子时间-->
+            <div>{{$value.time}}</div>
+        </li>
+        {{/each}}
+    </ul>
+</script>
 <!--处理相应游戏的战队信息-->
 <script id="teams" type="text/html">
     <ul>
@@ -335,7 +331,19 @@
 </script>
 <!--处理相应游戏的赛事信息-->
 <script id="battles" type="text/html">
+<ul>
+    {{each data}}
+    <li>
+        <!--战队：-->
+        {{$value.teamName1}}
+        {{$value.teamName2}}
+        <!--分数：-->
+        {{$value.teamScore1}}
+        {{$value.teamScore2}}
 
+    </li>
+    {{/each}}
+</ul>
 </script>
 
 <!--请求左侧游戏列表-->
@@ -343,89 +351,56 @@
     var games = {};
     homepage(function (result) {
         games = result.game;
+
         var html = template('g', games);
-        console.log(html);
         document.getElementById('games').innerHTML = html;
 
 
         var infos = {};
         var comm = {};
         var teams = {};
-        var battles = {};
+        var matches = {};
 
         $(".game").click(function () {
             // 获取点击的游戏Id
             let val = $(this).attr("id");
 
             //游戏的资讯
-            let newsRequest = news(val, function (result) {
+            news(val, function (result) {
                 infos = result.post;
-                console.log(infos);
-                let  html = template('infos', infos);
+                var html = template('info1', infos);
                 document.getElementById('info').innerHTML = html;
             });
 
             //游戏的社区
-            let postRequest = getPostByGameId(val, function (result) {
+            getPostByGameId(val, function (result) {
                 comm = result.post;
                 var html = template('communities', comm);
+                // console.log(html);
                 document.getElementById('community').innerHTML = html;
             });
 
             //游戏的战队
-            let teamRequest = getTeamInfo(val, function (result) {
+            getTeamInfo(val, function (result) {
                 teams = result.result;
                 var html = template('teams', teams);
+                // console.log(html);
                 document.getElementById('team').innerHTML = html;
 
+            });
+            // 游戏的赛事
+            match(val,function (result) {
+                matches=result.result;
+                console.log(matches);
+                var html = template('battles',matches);
+                console.log(html);
+                document.getElementById('battle').innerHTML = html;
             });
 
         })
     })
 </script>
 
-<!--请求特定游戏的资讯 社区 战队 赛事信息-->
-<!--<script>-->
-    <!--var infos = {};-->
-    <!--var comm = {};-->
-    <!--var teams = {};-->
-    <!--var battles = {};-->
-    <!--$(function () {-->
-        <!--$(".game").click(function () {-->
-            <!--alert("fuck");-->
-            <!--// 获取点击的游戏Id-->
-            <!--let val = $(this).attr("id");-->
-            <!--console.log(val);-->
-            <!--//游戏的资讯-->
-            <!--news(val, function (result) {-->
-                <!--infos = result.post;-->
-                <!--var html = template('infos', infos);-->
-                <!--console.log(html);-->
-                <!--document.getElementById('info').innerHTML = html;-->
-            <!--});-->
-
-            <!--//游戏的社区-->
-            <!--getPostByGameId(val, function (result) {-->
-                <!--comm = result.post;-->
-                <!--var html = template('communities', comm);-->
-                <!--console.log(html);-->
-                <!--document.getElementById('community').innerHTML = html;-->
-            <!--});-->
-
-            <!--//游戏的战队-->
-            <!--getTeamInfo(val, function (result) {-->
-                <!--teams = result.result;-->
-                <!--var html = template('teams', teams);-->
-                <!--console.log(html);-->
-                <!--document.getElementById('team').innerHTML = html;-->
-
-            <!--});-->
-            <!--// 游戏的赛事-->
-
-        <!--})-->
-    <!--})-->
-<!--</script>-->
-<!--footer-->
 <footer class="navbar navbar-expand-sm navbar-fixed-bottom" style="height: 20px;">
     <!-- <div class="container">
         <div class="row">

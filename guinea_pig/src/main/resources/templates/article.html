@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
     <!-- <meta http-equiv="Content-Type" content="text/html" /> -->
@@ -29,7 +29,7 @@
 
 .divbox{
      width:70px;
-     height: 130px;
+     height: 240px;
     margin-top: 160px;
     margin-left:3%;
    background-color:rgba(255,255,255,0.8);
@@ -149,6 +149,10 @@
         <li><a  href="javascript:window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?title='+encodeURIComponent(document.title.substring(0,76))+'&amp;url='+encodeURIComponent(location.href)+'&amp;rcontent=','_blank','scrollbars=no,width=600,height=450,left=75,top=20,status=no,resizable=yes'); void 0;"><img src="https://www.easyicon.net/api/resizeApi.php?id=1193405&size=128"    style="width:38px; height:55px;padding-top: 25px;"></a></li>
 
         <li><a  href="javascript:window.open('http://v.t.sina.com.cn/share/share.php?title='+encodeURIComponent(document.title.substring(0,76))+'&amp;url='+encodeURIComponent(location.href)+'&amp;rcontent=','_blank','scrollbars=no,width=600,height=450,left=75,top=20,status=no,resizable=yes'); void 0"><img src="https://www.easyicon.net/api/resizeApi.php?id=1193419&size=128"    style="width:40px; height:50px; padding-top: 25px;"></a></li>
+
+        <li> <a type="button" class="btn btn-light" data-toggle="modal" data-target="#myModal" style="width:60px; height:50px; margin-top: 60px;"><img src="https://www.easyicon.net/api/resizeApi.php?id=1191666&size=128">
+
+        </a></li>
     </ul>
        
         <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
@@ -225,9 +229,9 @@
 
     <!--commends-->
   <!-- 按钮：用于打开评论框 -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="float: right;">
-    评论
-  </button>
+<!--  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="float: right;">-->
+<!--    评论-->
+<!--  </button>-->
    
   <!-- 评论框 -->
 <div class="container">
@@ -237,7 +241,7 @@
    
         <!-- 评论框头部 -->
         <div class="modal-header">
-          <img src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg"   style="width:60px; height:60;">
+          <img src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181214/6e00a9e09e8d4be8af46ebcd6e44a9db.jpeg"   style="width:60px; height:60px;">
          
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>

@@ -33,6 +33,16 @@ public class Util {
     private static GameRepo gameRepo;
     private static GameAttributeRepo gameAttributeRepo;
     private static BannerRepo bannerRepo;
+    private static ResponseRepo responseRepo;
+
+
+    public static ResponseRepo getResponseRepo() {
+        return responseRepo;
+    }
+
+    public static void setResponseRepo(ResponseRepo responseRepo) {
+        Util.responseRepo = responseRepo;
+    }
 
     public static BannerRepo getBannerRepo() {
         return bannerRepo;
@@ -209,6 +219,7 @@ public class Util {
         }
         return postWrappers;
     }
+
 
 
     //所有的都在一个路径下
