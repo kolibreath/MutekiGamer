@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /***
  * 管理整个主页面的逻辑请求
  */
-//todo restcontroller
 @Controller
 @RequestMapping("homepage")
 public class HomepageController {
