@@ -7,9 +7,9 @@
     <meta name="keyword" content="HTML, CSS, image, navigation"/>
     <title>VULCAN! - HomePage</title>
     <base th:href="@{/}">
-    <link rel="stylesheet" type="text/css" href="css/index.css"/>
-    <link rel="stylesheet" type="text/css" href="css/BBS.css"/>
-    <link rel="stylesheet" type="text/css" href="css/HomePage.css"/>
+    <link rel="stylesheet" type="text/css" href="./static/css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="./static/css/BBS.css"/>
+    <link rel="stylesheet" type="text/css" href="./static/css/HomePage.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
@@ -185,14 +185,17 @@
     $(function () {
         $(".game").click(function () {
             let val = $(this).attr("id");
-            alert(val);
+            console.log(val);
             getPostByGameId(val, function (result) {
                 var p = result.post;
-                var html = template('game_post', p);
-                console.log(html);
-                document.getElementById('game_posts').innerHTML = html;
-            })
-
+                console.log(p);
+                var empty=$.isEmptyObject(p);
+                if(empty!=true) {
+                    var html = template('game_post', p);
+                    console.log(html);
+                    document.getElementById('game_posts').innerHTML = html;
+                }
+                })
         })
     })
 </script>

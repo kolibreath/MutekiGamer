@@ -1,0 +1,223 @@
+body{
+	background-image: url("https://overwatch.nosdn.127.net/1/assets/img/pages/esports/v1/overview-background.jpg");
+	z-index: -1;
+	height: 100%;
+	width: 100%;
+	background-attachment: fixed;
+
+}
+ul.nav-pills{
+	top: 20px;
+	position: fixed;
+}
+div.col-8 div{
+	height: 500px;
+}
+.gamechose{
+	position: sticky;
+	top: 0;
+	float: left;
+	width: 35%;
+	/*position: fixed;*/
+	padding-left: 10%;
+	padding-top: 50px;
+	height: 80%;
+	z-index: 9;	
+}
+
+.battleindex{
+	float: left;
+	width: 55%;
+	height: auto;
+	padding-left: 20px;
+	padding-top: 50px;
+}
+
+.navbars{
+	/*position: fixed;
+	position: -webkit-sticky;*/
+	position: sticky;
+	top: 65px;
+	height: 50px;
+	width: 50%;
+	float: right;
+	margin-right: 10%;
+}
+
+.navroll{
+	background-color:lightgray;
+	height: 100%;
+	width: 100%;
+}
+
+.nav-menu{
+	height: 100%;
+}
+
+.nav-menu li{
+	float: left;
+	width: 25%;
+	text-align: center;
+	padding-top: 10px;
+}
+
+.imgsize{
+	width: 30%;
+	height: auto;
+	float: left;
+	margin-left: 20px;
+
+}
+
+.gamelink{
+	width: 50%;
+	float: right;
+	text-decoration: none;
+	margin-top: 25px;
+}
+
+.tabchose{
+	background: rgba(244,244,244,0.8);
+	width: 50%;
+	float: right;
+	height: auto;
+	margin-right: 10%;
+	margin-top: 50px;
+	padding:30px;
+	font-weight: 2px;
+	margin-bottom: 80px;
+}
+
+.chosebut{
+	width: 25%;
+}
+
+.newspage{
+	width: 100%;
+	height: 110px;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	margin-top: 20px;
+	padding-bottom: 0px;
+}
+
+.titledetail{
+	font-size: 20px;
+	text-overflow:ellipsis; 
+	white-space:nowrap; 
+	overflow:hidden;
+}
+
+.newsdetail{
+	text-overflow:ellipsis; 
+	white-space:nowrap; 
+	overflow:hidden; 
+}
+
+dl{
+	display: block;
+	padding-left: 20px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+
+.clublist{
+	float: left;
+	transition: 0.5s;
+	width: 45%;
+    height: 200px;
+    text-align: center;
+    border: 3px solid #eaeaea;
+    box-shadow: 0 2px 6px #e6e6e6;
+    margin: 20px 10px 0;
+    position: relative;
+    padding-top: 10px;
+}
+
+dd a:hover{color: red;display: block;}
+
+.clubname{
+	transition: 0.5s;
+	width: 100%;
+    text-align: center;
+    font-size: 24px;
+    color: #999;
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+}
+
+.battlemsg{
+	height: 25px;
+	width: 100%;
+	padding: 0px 10px;
+    background-color: #b2b2b2;
+}
+
+.gameteama{
+	width: 20%;
+	height: auto;
+	margin-left: 20px;
+	margin-top: 10px;
+	overflow: hidden;
+	text-align: center;
+	float: left;
+}
+
+.gameteamb{
+	width: 20%;
+	height: auto;
+	margin-right: 20px;
+	margin-top: 10px;
+	overflow: hidden;
+	text-align: center;
+	float: right;
+}
+
+.gamelist-score {
+    display: block;
+    font-family: dinbold;
+    width: 100px;
+    height: 40px;
+    color: #171717;
+    font-weight: 700;
+    text-align: center;
+    line-height: 40px;
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    font-size: 0;
+    margin-left: -43px;
+}
+
+.gamelist-score a {
+    display: inline-block;
+    vertical-align: middle;
+    float: left;
+    color: white;
+    width: 34px;
+    height: 44px;
+    line-height: 42px;
+    background-color: #3b3b3b;
+    -webkit-border-radius: 5px;
+    font-size: 34px;
+    margin: 0 4px;
+    text-decoration: none;
+}
+
+.gamelist-score a.win {
+    color: #0febc1!important;
+}
+.gamevideo{
+	margin-top: 100px;
+	text-align: center;
+}
+.matchname{
+	text-align: center;
+	width: 100%;
+	font-size: 12px;
+	padding-bottom: 4px;
+}

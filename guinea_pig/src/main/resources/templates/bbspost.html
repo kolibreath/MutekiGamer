@@ -18,8 +18,8 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
-    <!-- 楼中楼是静态的，删除的话删下面的这个post.js -->
-    <script type="text/javascript" src="js/post.js"></script>
+    <!-- 楼中楼是静态的，删除的话删下面的这个postreply.js -->
+    <script type="text/javascript" src="js/postreply.js"></script>
 </head>
 <body>
     <!--nav-->
@@ -81,7 +81,7 @@
     			    </ul>
     			    <div id="ttpost_act" class="postbig">
     	                <a href="" class="fatie">发新帖</a>
-    	                <a href="" class="huifu" id="toBottom">回复</a>
+    	                <a href="javascript:void(0);" class="huifu">回复</a>
                     </div>
                     <script type="text/javascript">
                         (function(){
@@ -97,24 +97,45 @@
                                 }
                             }
                         })()
-        // q_jq('#ttpost_act .huifu').on('click',function(){
-        // 	q_jq("html,body").animate({
-        // 		scrollTop: q_jq("#f_pst").offset().top
-        // 	}, 500);
-        // 	q_jq("#f_pst").find("textarea").focus();
-        // });  
+                        q_jq('#ttpost_act .huifu').on('click',function(){
+        	            q_jq("html,body").animate({
+        		            scrollTop: q_jq("#f_pst").offset().top
+        	            }, 500);
+        	            q_jq("#f_pst").find("textarea").focus();
+                    });  
                 </script>
     			</div>
     		</div>
     	</div>
-    </div>  
+    </div> 
+
+    <!-- 回复框 -->
+    <div class="container" style="margin-top: 50px;">
+   	    <div class="row">
+   		    <div class="col-md-8 postbg" style="padding: 25px;">
+   		    	<p style="text-align: left;;"><img src="img/pencil.png" style="width: 15px;height: 15px;margin-right: 10px;">回复</p>
+   		    	<form>
+   		    		<textarea class="form-control" rows="4" id=""></textarea>
+   		    	<!-- <div id="summernote"></div>
+                    <script>
+                    $('#summernote').summernote({
+                        placeholder: '在这里回复',
+                        tabsize: 2,
+                        height: 150
+                    });
+                    </script> -->
+                    <button type="submit" class="btn btn-outline-info" style="margin-top: 20px;float: right;">发表回复</button>
+                </form>
+   		    </div>
+   	    </div>
+    </div> 
 
     <!-- 回复列表 -->
-    <div class="container" style="margin-top: 50px;">
+    <div class="container" style="margin-top: 50px;margin-bottom: 50px;">
     	<div class="row">
     		<div class="col-md-8 postbg">
     			<div style="color: #555;">
-    				<p>55个回复</p>
+    				<p>最新评论</p>
     			</div>
     			<hr>
     			<div class="responselist">
@@ -192,25 +213,6 @@
     	</div>
     </div>
 
-    <!-- 回复框 -->
-    <div class="container" style="margin-top: 50px;margin-bottom: 50px;">
-   	    <div class="row">
-   		    <div class="col-md-8 postbg" style="padding: 25px;">
-   		    	<p style="text-align: left;;"><img src="img/pencil.png" style="width: 15px;height: 15px;margin-right: 10px;">回复</p>
-   		    	<form>
-   		    	<div id="summernote"></div>
-                    <script>
-                    $('#summernote').summernote({
-                        placeholder: '在这里回复',
-                        tabsize: 2,
-                        height: 150
-                    });
-                    </script>
-                    <button type="submit" class="btn btn-outline-info" style="margin-top: 20px;float: right;">发表回复</button>
-                </form>
-   		    </div>
-   	    </div>
-    </div>
 
     <!-- 回到顶部 -->
     <div class="topbtn">  	

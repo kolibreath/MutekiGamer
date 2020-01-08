@@ -8,9 +8,9 @@
     <base th:href="@{/}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/index.css"/>
-    <link rel="stylesheet" type="text/css" href="css/login.css"/>
-    <link rel="stylesheet" type="text/css" href="css/my.css"/>
+    <link rel="stylesheet" type="text/css" href="./static/css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="./static/css/login.css"/>
+    <link rel="stylesheet" type="text/css" href="./static/css/my.css"/>
     <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -524,7 +524,7 @@
     <ul>
         {{each following}}
         <li>
-            <div><img src="{{$value.picture}}"></div>
+            <img src="{{$value.userAvatar}}">
             <div>{{$value.userName}}</div>
             <button class="unfollow" id="{{$value.userId}}}">取关</button>
         </li>
@@ -537,7 +537,7 @@
         {{if following}}
         {{each following}}
         <li>
-            <div><img src="{{$value.picture}}"></div>
+            <div><img src="{{$value.userAvatar}}"></div>
             <div>{{$value.userName}}</div>
         </li>
         {{/each}}
@@ -557,12 +557,17 @@
     </ul>
 </script>
 <script id="test" type="text/html">
-    <ul>
         {{each data}}
-        <li>
-            <div id="{{$value.gameId}}">
-
+            <div id="{{$value.gameId}}" style="background-color: #4CAF50">
+                {{include 'test2' $value}}
             </div>
+        {{/each}}
+</script>
+<script id="test2" type="text/html">
+    <ul>
+        {{each myPost}}
+        <li>
+            {{$value.content}}
         </li>
         {{/each}}
     </ul>
