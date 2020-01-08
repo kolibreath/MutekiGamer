@@ -14,8 +14,10 @@
     <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js">  </script>
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" th:src="@{/js/template-web.js}"></script>
-    <script type="text/javascript" th:src="@{/js/Homepage.js}"></script>
+    </head>
+
+<script type="text/javascript" th:src="@{/js/template-web.js}"></script>
+<script type="text/javascript" th:src="@{/js/Homepage.js}"></script>
 </head>
 
 <body>
@@ -77,27 +79,29 @@
 
     <div class="main-content">
         <div class="contextFrame" style="padding-left;">
-                <span>
-                    <img src="https://blznav.akamaized.net/img/games/logo-ow-4be5755bc0a4cbaf.png" style="width: 80px;height: 80px;margin-left: 4.3%;">
-                </span>
-            <span>
-                    <img src="https://blznav.akamaized.net/img/games/logo-wow-3dd2cfe06df74407.png" style="width: 80px;height: 80px;margin-left: 3.5%;">
-                </span>
-            <span>
-                    <img src="https://blznav.akamaized.net/img/games/logo-hs-93512467e87f82c6.png" style="width: 80px;height: 80px;margin-left: 3.5%;">
-                </span>
-            <span>
-                    <img src="https://blznav.akamaized.net/img/games/logo-heroes-78cae505b7a524fb.png" style="width: 80px;height: 80px;margin-left: 3.5%;">
-                </span>
-            <span>
-                    <img src="https://static.dingtalk.com/media/lALPDgQ9raEYzETNBNjNBNg_1240_1240.png_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222029392066835%22%7D&bizType=im&open_id=267544667" style="width: 80px;height: 80px;margin-left: 8.5%;">
-                </span>
-            <span>
-                    <img src="https://static.dingtalk.com/media/lADPDgQ9raEaSzjNAgDNAgA_512_512.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222036017419199%22%7D&bizType=im&open_id=267544667" style="width: 80px;height: 80px;margin-left: 5.1%;">
-                </span>
-            <span>
-                    <img src="https://static.dingtalk.com/media/lADPDgQ9raEaS67NAmLNAmI_610_610.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222036017431238%22%7D&bizType=im&open_id=267544667" style="width: 80px;height: 80px;margin-left: 5.1%;">
-                </span>
+            <!--推荐的内容（游戏  用户）-->
+            <div id="recommend"></div>
+                <!--<span>-->
+                    <!--<img src="https://blznav.akamaized.net/img/games/logo-ow-4be5755bc0a4cbaf.png" style="width: 80px;height: 80px;margin-left: 4.3%;">-->
+                <!--</span>-->
+            <!--<span>-->
+                    <!--<img src="https://blznav.akamaized.net/img/games/logo-wow-3dd2cfe06df74407.png" style="width: 80px;height: 80px;margin-left: 3.5%;">-->
+                <!--</span>-->
+            <!--<span>-->
+                    <!--<img src="https://blznav.akamaized.net/img/games/logo-hs-93512467e87f82c6.png" style="width: 80px;height: 80px;margin-left: 3.5%;">-->
+                <!--</span>-->
+            <!--<span>-->
+                    <!--<img src="https://blznav.akamaized.net/img/games/logo-heroes-78cae505b7a524fb.png" style="width: 80px;height: 80px;margin-left: 3.5%;">-->
+                <!--</span>-->
+            <!--<span>-->
+                    <!--<img src="https://static.dingtalk.com/media/lALPDgQ9raEYzETNBNjNBNg_1240_1240.png_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222029392066835%22%7D&bizType=im&open_id=267544667" style="width: 80px;height: 80px;margin-left: 8.5%;">-->
+                <!--</span>-->
+            <!--<span>-->
+                    <!--<img src="https://static.dingtalk.com/media/lADPDgQ9raEaSzjNAgDNAgA_512_512.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222036017419199%22%7D&bizType=im&open_id=267544667" style="width: 80px;height: 80px;margin-left: 5.1%;">-->
+                <!--</span>-->
+            <!--<span>-->
+                    <!--<img src="https://static.dingtalk.com/media/lADPDgQ9raEaS67NAmLNAmI_610_610.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222036017431238%22%7D&bizType=im&open_id=267544667" style="width: 80px;height: 80px;margin-left: 5.1%;">-->
+                <!--</span>-->
             <button>
                 <a href="#">
                     <button class="login-button" style="float:right; margin-top: 4%; width: 80px;height: 35px;opacity: 0.8; outline: none;">
@@ -165,6 +169,16 @@
         <div class="division"></div>
     </div>
 </div>
+<!--推荐信息渲染模板-->
+<script id="recommend1" type="text/html">
+
+</script>
+<!--推荐请求-->
+<script>
+
+</script>
+
+<!--热门帖子-->
 
 <footer>
     <div class="container">

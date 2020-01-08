@@ -3,8 +3,8 @@ function news(gameId,call) {
     let newsRequest=$.ajax(
         (
             {
-                url:"/battle/news" +gameId,
-                type:"GET",
+                url:"/battle/news/" +gameId,
+                method:"GET",
                 success:function(result){
                     allData.post = result;
                 },
