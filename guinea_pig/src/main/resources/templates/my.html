@@ -524,7 +524,7 @@
     <ul>
         {{each following}}
         <li>
-            <div><img src="{{$value.picture}}"></div>
+            <img src="{{$value.userAvatar}}">
             <div>{{$value.userName}}</div>
             <button class="unfollow" id="{{$value.userId}}}">取关</button>
         </li>
@@ -537,7 +537,7 @@
         {{if following}}
         {{each following}}
         <li>
-            <div><img src="{{$value.picture}}"></div>
+            <div><img src="{{$value.userAvatar}}"></div>
             <div>{{$value.userName}}</div>
         </li>
         {{/each}}
