@@ -125,18 +125,5 @@ function deletePost(postId,call){
 
 }
 
-function filterByValue(tag){
-    switch(tag){
-        case 1:
-            return "长期施工";
-        case 2:
-            return "感想感言";
-        case 3:
-            return "游戏攻略";
-        case 4:
-            return "游戏前瞻";
-        case 5:
-            return "官方快讯";
-    }
-}
+
 
