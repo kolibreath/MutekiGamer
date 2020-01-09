@@ -1,0 +1,26 @@
+[
+  {
+    "number":0,
+    "codeName":"BLG.HLionKing",
+    "realName":"HLionKing",
+    "position":1,
+    "teamId":1,
+    "avatar":"https://blz.nosdn.127.net/2/Esports/2019GTC/players/BLG.HLionKing.png"
+  },
+  {
+    "number":1,
+    "codeName":"BLG.HpuJiGe",
+    "realName":"HpuJiGe",
+    "position":2,
+    "teamId":1,
+    "avatar":"https://blz.nosdn.127.net/2/Esports/2019GTC/players/BLG.HpuJiGe.png"
+  },
+  {
+    "number":2,
+    "codeName":"BLG.Hxiaoniao",
+    "realName":"Hxiaoniao",
+    "position":3,
+    "teamId":1,
+    "avatar":"https://blz.nosdn.127.net/2/Esports/2019GTC/players/BLG.Hxiaoniao.png"
+  }
+]

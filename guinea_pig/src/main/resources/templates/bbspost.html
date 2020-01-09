@@ -13,17 +13,16 @@
     <link rel="stylesheet" type="text/css" href="css/bbspost2.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js">  </script>
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
     <!-- 楼中楼是静态的，删除的话删下面的这个postreply.js -->
-    <script type="text/javascript" th:src="@{/js/template-web.js}"></script>
-    <script type="text/javascript" th:src="@{/js/postreply.js}"></script>
-    <script type="text/javascript" th:src="@{/js/PostDetail.js}"></script>
 
+    <script type="text/javascript" th:src="@{/js/template-web.js}"></script>
+    <!--<script type="text/javascript" th:src="@{/js/postreply.js}"></script>-->
+    <script type="text/javascript" th:src="@{/js/Homepage.js}"></script>
+    <script type="text/javascript" th:src="@{/js/PostDetail.js}"></script>
 </head>
 <body>
 <!--nav-->
@@ -65,11 +64,13 @@
     <div class="row">
         <div class="col-md-8 postbg">
             <div class="posttitle" style="color: #555;">
+                <div id="title"></div>
                 <!--<h1>电刑打野盲僧玩法技巧分享 电刑打野盲僧装备选择说明</h1>-->
                 <!--<div style="font-weight: 500;">2020/1/6 11:11</div>-->
             </div>
             <hr>
             <div class="postdetail">
+                <div  id="detail"></div>
             </div>
 
         </div>
@@ -78,39 +79,40 @@
                 <p style="text-align: left;padding-left: 30px;"><img src="img/pencil.png"
                                                                      style="width: 15px;height: 15px;"> 楼主</p>
                 <a href="">
-                    <img src="https://static.dingtalk.com/media/lADPDgQ9rbqFW6nNAQLNAQM_259_258.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222062145382217%22%7D&bizType=im&open_id=267508618">
-                    <p style="margin-top: 15px;">莫甘娜</p>
+                    <div id="userinfo"></div>
+                    <!--<img src="https://static.dingtalk.com/media/lADPDgQ9rbqFW6nNAQLNAQM_259_258.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222062145382217%22%7D&bizType=im&open_id=267508618">-->
+                    <!--<p style="margin-top: 15px;">莫甘娜</p>-->
                 </a>
-                <ul>
-                    <li>帖子:5</li>
-                    <li>粉丝:55</li>
-                    <li>关注:555</li>
-                </ul>
-                <div id="ttpost_act" class="postbig">
-                    <a href="" class="fatie">发新帖</a>
-                    <a href="javascript:void(0);" class="huifu">回复</a>
-                </div>
-                <script type="text/javascript">
-                    (function () {
-                        var postAct = document.getElementById("ttpost_act");
-                        postAct.setAttribute("style", "display:none;");
-                        var postActTop = postAct.offsetTop;
-                        document.onscroll = function () {
-                            var docTop = document.body.scrollTop | document.documentElement.scrollTop;
-                            if (postActTop < docTop) {
-                                postAct.setAttribute("style", "width:290px;display:block;position:fixed;background:#fff; top:0px; z-index:300;padding:20px;box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);");
-                            } else {
-                                postAct.setAttribute("style", "display:none;");
-                            }
-                        }
-                    })()
-                    q_jq('#ttpost_act .huifu').on('click', function () {
-                        q_jq("html,body").animate({
-                            scrollTop: q_jq("#f_pst").offset().top
-                        }, 500);
-                        q_jq("#f_pst").find("textarea").focus();
-                    });
-                </script>
+                <!--<ul>-->
+                <!--<li>帖子:5</li>-->
+                <!--<li>粉丝:55</li>-->
+                <!--<li>关注:555</li>-->
+                <!--</ul>-->
+                <!--<div id="ttpost_act" class="postbig">-->
+                    <!--<a href="" class="fatie">发新帖</a>-->
+                    <!--<a href="javascript:void(0);" class="huifu">回复</a>-->
+                <!--</div>-->
+                <!--<script type="text/javascript">-->
+                    <!--(function () {-->
+                        <!--var postAct = document.getElementById("ttpost_act");-->
+                        <!--postAct.setAttribute("style", "display:none;");-->
+                        <!--var postActTop = postAct.offsetTop;-->
+                        <!--document.onscroll = function () {-->
+                            <!--var docTop = document.body.scrollTop | document.documentElement.scrollTop;-->
+                            <!--if (postActTop < docTop) {-->
+                                <!--postAct.setAttribute("style", "width:290px;display:block;position:fixed;background:#fff; top:0px; z-index:300;padding:20px;box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);");-->
+                            <!--} else {-->
+                                <!--postAct.setAttribute("style", "display:none;");-->
+                            <!--}-->
+                        <!--}-->
+                    <!--})()-->
+                    <!--q_jq('#ttpost_act .huifu').on('click', function () {-->
+                        <!--q_jq("html,body").animate({-->
+                            <!--scrollTop: q_jq("#f_pst").offset().top-->
+                        <!--}, 500);-->
+                        <!--q_jq("#f_pst").find("textarea").focus();-->
+                    <!--});-->
+                <!--</script>-->
             </div>
         </div>
     </div>
@@ -147,78 +149,80 @@
             </div>
             <hr>
             <div class="responselist">
-                <ul id="pn">
-                    <!-- 有楼中楼回复 -->
-                    <li class="list0">
-                        <div class="head">
-                            <img src="https://static.dingtalk.com/media/lADPDgQ9rbqm0UjNARLNARM_275_274.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222052257905687%22%7D&bizType=im&open_id=267508618"
-                                 alt="">
-                        </div>
-                        <div class="content">
-                            <p class="text"><span class="name">卡尔玛：</span>哈哈哈哈哈</p>
-                            <div class="good">
-                                <span class="date">01-06 23:01</span>
-                                <a class="dzan" href="javascript:;">赞</a>
-                            </div>
-                            <div class="people" total="298">298人觉得很赞</div>
-                            <div class="comment-list">
-                                <div class="comment" user="self">
-                                    <div class="comment-left">
-                                        <img src="https://static.dingtalk.com/media/lADPDgQ9rbqFW6nNAQLNAQM_259_258.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222062145382217%22%7D&bizType=im&open_id=267508618"
-                                             alt="">
-                                    </div>
-                                    <div class="comment-right">
-                                        <div class="comment-text">
-                                            <span class="user">老王：</span>
-                                            可
-                                        </div>
-                                        <div class="comment-date">
-                                            01-06 24:00
-                                            <a class="comment-zan" href="javascript:;" total="23" my="1">23 取消赞</a>
-                                            <a class="comment-dele" href="javascript:;">回复</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="comment" user="self">
-                                    <div class="comment-left">
-                                        <img src="https://static.dingtalk.com/media/lADPDgQ9rbqFW6nNAQLNAQM_259_258.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222062145382217%22%7D&bizType=im&open_id=267508618"
-                                             alt="">
-                                    </div>
-                                    <div class="comment-right">
-                                        <div class="comment-text">
-                                            <span class="user">我：</span>看哭了留卡号吧
-                                        </div>
-                                        <div class="comment-date">01-07 14:00
-                                            <a class="comment-zan" href="javascript:;" total="0" my="0">赞</a>
-                                            <a class="comment-dele" href="javascript:;">删除</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hf">
-                                <textarea type="text" class="hf-text" autocomplete="off" maxlength="100">评论…</textarea>
-                                <button class="hf-btn">回复</button>
-                                <span class="hf-nub">0/100</span></div>
-                        </div>
-                    </li>
+                <!--回复列表-->
+                <div id="response"></div>
+                <!--<ul id="pn">-->
+                    <!--&lt;!&ndash; 有楼中楼回复 &ndash;&gt;-->
+                    <!--<li class="list0">-->
+                        <!--<div class="head">-->
+                            <!--<img src="https://static.dingtalk.com/media/lADPDgQ9rbqm0UjNARLNARM_275_274.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222052257905687%22%7D&bizType=im&open_id=267508618"-->
+                                 <!--alt="">-->
+                        <!--</div>-->
+                        <!--<div class="content">-->
+                            <!--<p class="text"><span class="name">卡尔玛：</span>哈哈哈哈哈</p>-->
+                            <!--<div class="good">-->
+                                <!--<span class="date">01-06 23:01</span>-->
+                                <!--<a class="dzan" href="javascript:;">赞</a>-->
+                            <!--</div>-->
+                            <!--<div class="people" total="298">298人觉得很赞</div>-->
+                            <!--<div class="comment-list">-->
+                                <!--<div class="comment" user="self">-->
+                                    <!--<div class="comment-left">-->
+                                        <!--<img src="https://static.dingtalk.com/media/lADPDgQ9rbqFW6nNAQLNAQM_259_258.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222062145382217%22%7D&bizType=im&open_id=267508618"-->
+                                             <!--alt="">-->
+                                    <!--</div>-->
+                                    <!--<div class="comment-right">-->
+                                        <!--<div class="comment-text">-->
+                                            <!--<span class="user">老王：</span>-->
+                                            <!--可-->
+                                        <!--</div>-->
+                                        <!--<div class="comment-date">-->
+                                            <!--01-06 24:00-->
+                                            <!--<a class="comment-zan" href="javascript:;" total="23" my="1">23 取消赞</a>-->
+                                            <!--<a class="comment-dele" href="javascript:;">回复</a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="comment" user="self">-->
+                                    <!--<div class="comment-left">-->
+                                        <!--<img src="https://static.dingtalk.com/media/lADPDgQ9rbqFW6nNAQLNAQM_259_258.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222062145382217%22%7D&bizType=im&open_id=267508618"-->
+                                             <!--alt="">-->
+                                    <!--</div>-->
+                                    <!--<div class="comment-right">-->
+                                        <!--<div class="comment-text">-->
+                                            <!--<span class="user">我：</span>看哭了留卡号吧-->
+                                        <!--</div>-->
+                                        <!--<div class="comment-date">01-07 14:00-->
+                                            <!--<a class="comment-zan" href="javascript:;" total="0" my="0">赞</a>-->
+                                            <!--<a class="comment-dele" href="javascript:;">删除</a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="hf">-->
+                                <!--<textarea type="text" class="hf-text" autocomplete="off" maxlength="100">评论…</textarea>-->
+                                <!--<button class="hf-btn">回复</button>-->
+                                <!--<span class="hf-nub">0/100</span></div>-->
+                        <!--</div>-->
+                    <!--</li>-->
 
-                    <!-- 简单的仅有回复 -->
-                    <!-- <li>
-                        <div style="height: auto;">
-                            <a href="">
-                            <img src="https://static.dingtalk.com/media/lADPDgQ9rbqm0UjNARLNARM_275_274.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222052257905687%22%7D&bizType=im&open_id=267508618" style="float: left;">
-                            <p style="float: left;">卡尔玛</p>
-                            </a>
-                            <em>2020/1/6 15:15</em>
-                        </div>
-                        <div class="responsedetail">
-                            <div id="">
-                                可
-                            </div>
-                        </div>
-                        <hr>
-                    </li> -->
-                </ul>
+                    <!--&lt;!&ndash; 简单的仅有回复 &ndash;&gt;-->
+                    <!--&lt;!&ndash; <li>-->
+                        <!--<div style="height: auto;">-->
+                            <!--<a href="">-->
+                            <!--<img src="https://static.dingtalk.com/media/lADPDgQ9rbqm0UjNARLNARM_275_274.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222052257905687%22%7D&bizType=im&open_id=267508618" style="float: left;">-->
+                            <!--<p style="float: left;">卡尔玛</p>-->
+                            <!--</a>-->
+                            <!--<em>2020/1/6 15:15</em>-->
+                        <!--</div>-->
+                        <!--<div class="responsedetail">-->
+                            <!--<div id="">-->
+                                <!--可-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<hr>-->
+                    <!--</li> &ndash;&gt;-->
+                <!--</ul>-->
             </div>
         </div>
     </div>
@@ -231,8 +235,8 @@
         <img src="img/top.png">
     </a>
 </div>
-
-<script id="title" type="text/html">
+<!--帖子模板-->
+<script id="title1" type="text/html">
 <ul>
     {{each data}}
     <li>
@@ -246,30 +250,59 @@
     {{each data}}
     <li>
         {{$value.content}}
+        {{$value.time}}
     </li>
     {{/each}}
 </ul>
 </script>
-<!--获取帖子信息-->
-<script>
-    PostDetail(function (result) {
-        console.log(result.post);
-        var html = template('title', result.post);
-        console.log(html);
-        document.getElementById('posttitle').innerHTML = html;
-    })
+
+<!--发帖人信息模板-->
+<script id="userinfo1" type="text/html">
+    <div>{{userName}}</div>
+    <img src="{{userAvatar}}">
+    <div>粉丝数：{{followerNum}}</div>
+    <div>关注数:{{followingNum}}</div>
+    <div>帖子数：{{postLength}}</div>
+</script>
+<!--帖子回复模板-->
+<script id="response1" type="text/html">
+<ul>
+    {{each data}}
+    <li>
+        <div>
+            {{$value.content}}
+        </div>
+    </li>
+    {{/each}}
+</ul>
 </script>
 
+<!--信息请求-->
 <script>
-    PostDetail(function (result) {
-        var html = template('content', result.post);
-        console.log(html);
-        document.getElementById('postdetail').innerHTML = html;
-    })
-</script>
-<!--获取发帖人用户信息-->
-<script>
+    postDetail(function (result) {
+        var userId=result.result.data[0].userId;
+        var postId=result.result.data[0].postId;
+        var html = template('title1', result.result);
+        // console.log(html);
+        document.getElementById('title').innerHTML = html;
 
+        var htmls = template('content', result.result);
+        // console.log(htmls);
+        document.getElementById('detail').innerHTML = htmls;
+
+        postUserInfo(userId,function (result) {
+            // console.log(result);
+            var html = template('userinfo1', result.data);
+            // console.log(html);
+            document.getElementById('userinfo').innerHTML = html;
+        })
+        getResponse(postId,function (result) {
+            console.log(result);
+            var html = template('response1', result);
+            console.log(html);
+            document.getElementById('response').innerHTML = html;
+        })
+    })
 </script>
 <footer style="position: relative;height: 60px;background-color:#5E5E5E; color:  #EAEAEA;overflow: hidden;">
     <div style="height:50px;width: 180px;margin-left: 30%;float: left;">

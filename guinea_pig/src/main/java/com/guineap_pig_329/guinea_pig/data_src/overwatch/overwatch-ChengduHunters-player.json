@@ -1,0 +1,82 @@
+[
+  {
+    "number":88,
+    "codeName":"YANGXIAOLONG",
+    "realName":"Zhang Zhihao",
+    "position":2,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-18173691a5af4ffa.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":7,
+    "codeName":"KYO",
+    "realName":"Chunting Kong",
+    "position":3,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-14c5f76c73d2e669.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":77,
+    "codeName":"GARRY",
+    "realName":"Li Guan",
+    "position":3,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-0b359626263298c5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":64,
+    "codeName":"Lateyoung",
+    "realName":"Ma Tianbin",
+    "position":1,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-a6aabdcf65c61ee1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":3,
+    "codeName":"ELSA",
+    "realName":"Luo Wenjie",
+    "position":1,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-c02acd3195d6ed32.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":24,
+    "codeName":"JINMU",
+    "realName":"Yi Hu",
+    "position":2,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-48790d26d21b0e1e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":5,
+    "codeName":"AMeng",
+    "realName":"Ding Menghan",
+    "position":1,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-b59c91c6ceacb248.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":28,
+    "codeName":"YVELTAL",
+    "realName":"Xiaoyao Li",
+    "position":3,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-cc253143b9ad085f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":74,
+    "codeName":"BACONJACK",
+    "realName":"Tzu-Heng Lo",
+    "position":2,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-d8cc771406a9cf00.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":99,
+    "codeName":"JIQIREN",
+    "realName":"Wei Yansong",
+    "position":1,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-812d2cf740a77886.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  }
+]

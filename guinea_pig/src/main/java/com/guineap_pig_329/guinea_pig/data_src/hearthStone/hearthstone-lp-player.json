@@ -1,0 +1,34 @@
+[
+  {
+    "number":0,
+    "codeName":"LP.Xhope",
+    "realName":"Xhope",
+    "position":1,
+    "teamId":1,
+    "avatar":"https://blz.nosdn.127.net/2/Esports/2019GTC/players/LP.Xhope.png"
+  },
+  {
+    "number":1,
+    "codeName":"LP.Trunks",
+    "realName":"Trunks",
+    "position":2,
+    "teamId":1,
+    "avatar":"https://blz.nosdn.127.net/2/Esports/2019GTC/players/LP.Trunks.png"
+  },
+  {
+    "number":2,
+    "codeName":"LP.Omegazero",
+    "realName":"Omegazero",
+    "position":3,
+    "teamId":1,
+    "avatar":"https://blz.nosdn.127.net/2/Esports/2019GTC/players/LP.Omegazero.png"
+  },
+  {
+    "number":3,
+    "codeName":"LP.vVv",
+    "realName":"vVv",
+    "position":2,
+    "teamId":1,
+    "avatar":"https://blz.nosdn.127.net/2/Esports/2019GTC/players/LP.vVv.png"
+  }
+]

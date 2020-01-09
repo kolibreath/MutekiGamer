@@ -7,6 +7,7 @@ import com.guineap_pig_329.guinea_pig.dao.wrapper.UserHomePageWrapper;
 import com.guineap_pig_329.guinea_pig.dao.wrapper.UserWrapper;
 import com.guineap_pig_329.guinea_pig.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -157,5 +158,81 @@ public class UserController {
         return bean;
     }
 
+    @RequestMapping("/postUserInfo/{id}")
+    public ResultBean getpostUserInfo(@PathVariable("id") int userId){
+        User user=userRepo.findUserByUserId(userId);
+        UserHomePageWrapper userHomePageWrapper = new UserHomePageWrapper();
+        userHomePageWrapper.setUserName(user.getUserName());
+
+        UserInfo userInfo = userInfoRepo.findUserInfoByUserId(userId);
+        String userAvatar = userInfo.getUserAvatar();
+
+        userHomePageWrapper.setUserAvatar(userAvatar);
+
+        List<Game> games = new LinkedList<>();
+        List<UserGame> user2Game =  userGameRepo.findAllByUserId(userId);
+
+        for(UserGame userGame : user2Game){
+            int gameId = userGame.getGameId();
+            //如果存在
+            Game game = gameRepo.findById(gameId).get();
+            games.add(game);
+        }
+
+        //todo 返回内容确定 缩减
+        List<Post> posts = postRepo.findAllByUserId(userId);
+        userHomePageWrapper.setPosts(posts);
+        userHomePageWrapper.setPostLength(posts.size());
+
+
+        //找到所有的粉丝
+        List<Friends> followed = friendsRepo.findFollowed(userId);
+        //找到所有的关注者
+        List<Friends> following = friendsRepo.findFollowing(userId);
+
+
+
+        //所有的粉丝列表
+        List<UserWrapper> followers = new LinkedList<>();
+        //所有的关注者列表
+        List<UserWrapper> followings = new LinkedList<>();
+
+        for(Friends fd:followed){
+            int fdId = fd.getUserId1();
+            User fdUser = userRepo.findUserByUserId(fdId);
+            UserInfo info  = userInfoRepo.findUserInfoByUserId(userId);
+            UserWrapper userWrapper = new UserWrapper(user.getUserName(),
+                    info.getUserAvatar(),
+                    userId,
+                    fdUser.getUserEmail(),
+                    fdUser.getUserType());
+            followers.add(userWrapper);
+        }
+
+        for(Friends fg:following){
+            int fgId = fg.getUserId2();
+            User fgUser = userRepo.findUserByUserId(fgId);
+            UserInfo info  = userInfoRepo.findUserInfoByUserId(userId);
+            UserWrapper userWrapper = new UserWrapper(user.getUserName(),
+                    info.getUserAvatar(),
+                    userId,
+                    fgUser.getUserEmail(),
+                    fgUser.getUserType());
+            followings.add(userWrapper);
+        }
+
+        userHomePageWrapper.setFollowers(followers);
+        userHomePageWrapper.setFollowing(followings);
+
+        userHomePageWrapper.setFollowingNum(following.size());
+        userHomePageWrapper.setFollowerNum(followers.size());
+
+        ResultBean bean = new ResultBean();
+        bean.setCode(200);
+        bean.setData(userHomePageWrapper);
+        bean.setMessage("成功请求");
+
+        return bean;
+    }
 
 }

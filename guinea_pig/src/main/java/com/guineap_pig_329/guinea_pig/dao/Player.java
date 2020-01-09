@@ -22,6 +22,15 @@ public class Player{
     private int position;
     @Column
     private int teamId;
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
     @Column
     private String avatar;
 
