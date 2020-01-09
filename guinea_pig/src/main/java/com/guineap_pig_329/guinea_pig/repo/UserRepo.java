@@ -7,13 +7,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
 @Repository
 public interface UserRepo extends JpaRepository<User,Integer> {
     User findAllByUserEmail(String useremail);
     User findByUserEmail(String userEmail);
     User findUserByUserId(int userId);
+    User findByUserName(String userName);
 
     @Transactional
     @Query("update User u set u.userPassword = ?1 where u.userId = ?2")

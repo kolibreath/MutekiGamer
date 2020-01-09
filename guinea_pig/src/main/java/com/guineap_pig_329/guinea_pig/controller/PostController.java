@@ -33,10 +33,8 @@ public class PostController {
     private UserInfoRepo userInfoRepo;
 
     @RequestMapping("/selected")
-    public ResultBean getPosts(HttpSession session) {
-        UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
-        int userId = user.getId();
-        List<Post> posts = postRepo.findAllByUserId(userId);
+    public ResultBean getPosts() {
+        List<Post> posts = postRepo.findAll();
         posts = sortPost(posts);
         return ResultBean.success(Util.transform(posts,userRepo,userInfoRepo));
     }
@@ -46,12 +44,6 @@ public class PostController {
         UserSession userSession=(UserSession)session.getAttribute(Constants.USE_SESSION_KEY);
         int postId=userSession.getPostId();
         List<Post> posts=postRepo.findAllByPostId(postId);
-//        UserInfo userInfo=new UserInfo();
-//        if(!posts.isEmpty())
-//        {
-//            int userId=posts.get(0).getUserId();
-//            userInfo=userInfoRepo.findUserInfoByUserId(userId);
-//        }
         return ResultBean.success(Util.transform(posts,userRepo,userInfoRepo));
     }
     /**
@@ -120,6 +112,11 @@ public class PostController {
         return ResultBean.success(null);
     }
 
+    @RequestMapping("/getResponse/{postId}")
+    public ResultBean getResponse(@PathVariable("postId") int postId){
+        List<Response> responses=responseRepo.findAllByPostId(postId);
+        return ResultBean.success(responses);
+    }
     @PostMapping("/delete_post")
     public ResultBean deletePost(@RequestBody Map<String, Object> map) {
         int postId;

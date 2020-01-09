@@ -61,7 +61,6 @@ function getUserInfo(call) {
             //todo 错误处理
         }
     }));
-
     $.when(request).done( () => { call(allData) } );
 }
 
