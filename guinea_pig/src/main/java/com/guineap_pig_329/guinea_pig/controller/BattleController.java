@@ -30,6 +30,8 @@ public class BattleController {
     @Autowired
     private UserInfoRepo userInfoRepo;
 
+    @Autowired
+    private PlayerRepo playerRepo;
 
     /**
      * 找到关于一个游戏的官方号发的所有的帖子
@@ -91,5 +93,19 @@ public class BattleController {
         return  ResultBean.success(teamRepo.findByGameId(gameId));
     }
 
-
+//    获得特定个战队的信息
+    @RequestMapping("/teaminfo")
+    public ResultBean getTeam(HttpSession session){
+        UserSession userSession=(UserSession)session.getAttribute(Constants.USE_SESSION_KEY);
+        int teamId=userSession.getTeamId();
+        Team team=teamRepo.findAllByTeamId(teamId);
+        return ResultBean.success(team);
+    }
+    @RequestMapping("/teamMember")
+    public ResultBean getmember(HttpSession session){
+        UserSession userSession=(UserSession)session.getAttribute(Constants.USE_SESSION_KEY);
+        int teamId=userSession.getTeamId();
+        List<Player>players=playerRepo.findAllByTeamId(teamId);
+        return ResultBean.success(players);
+    }
 }

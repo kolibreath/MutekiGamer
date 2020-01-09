@@ -12,6 +12,7 @@ public class UserSession {
     private String password;
     private int gameId;//关注的第一个游戏的Id
     private int postId;//点击的帖子Id
+    private int teamId;//所点击的战队id
     /**
      * @param session
      * @return 带userId 返回值的
@@ -37,6 +38,14 @@ public class UserSession {
                 e.printStackTrace();
             }
         }
+    }
+
+    public int getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(int teamId) {
+        this.teamId = teamId;
     }
 
     public int getPostId() {

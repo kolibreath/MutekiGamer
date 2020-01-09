@@ -3,6 +3,8 @@ package com.guineap_pig_329.guinea_pig.controller;
 
 import com.guineap_pig_329.guinea_pig.Constants;
 import com.guineap_pig_329.guinea_pig.dao.UserSession;
+import com.guineap_pig_329.guinea_pig.repo.TeamRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +18,8 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("homepage")
 public class HomepageController {
+    @Autowired
+    TeamRepo repo;
     //社区跳转
     @RequestMapping("/community")
     public String community(){
@@ -48,5 +52,14 @@ public class HomepageController {
     @RequestMapping("/post")
     public String post() {
         return "post";
+    }
+
+
+    @RequestMapping("/teaminfo/{teamId}")
+    public String team(@PathVariable("teamId") int teamId,HttpSession httpSession){
+        UserSession userSession=(UserSession)httpSession.getAttribute(Constants.USE_SESSION_KEY);
+        userSession.setTeamId(teamId);
+        httpSession.setAttribute(Constants.USE_SESSION_KEY,userSession);
+        return "teaminfo";
     }
 }
