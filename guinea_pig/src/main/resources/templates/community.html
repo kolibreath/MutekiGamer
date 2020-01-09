@@ -164,7 +164,7 @@
             <!--发帖人头像-->
             <div style="float:left;"><img src="{{$value.userAvatar}}" style="width: 50px;height: 50px"></div>
             <!--帖子标题-->
-            <div>{{$value.title}}</div>
+            <a href="/homepage/bbspost/{{$value.postId}}"><div>{{$value.title}}</div></a>
             <!--发帖人昵称-->
             <div style="float:left;">{{$value.userName}}</div>
             <!--帖子时间-->
@@ -185,6 +185,14 @@
         //ready()
         console.log($(".game"));
 
+        defultDisplay(function (result) {
+            var posts=result.post;
+            console.log(posts);
+            var html = template('game_post', posts);
+            console.log(html);
+            document.getElementById('game_posts').innerHTML = html;
+        });
+
         $(".game").click(function () {
             let val = $(this).attr("id");
             console.log(val);
@@ -192,7 +200,8 @@
                 let p = result.post;
                 console.log(p);
                 let empty=$.isEmptyObject(p);
-                if(empty!=true) {var html = template('game_post', p);
+                if(empty!=true) {
+                    var html = template('game_post', p);
                     console.log(html);
                     document.getElementById('game_posts').innerHTML = html;
                 }

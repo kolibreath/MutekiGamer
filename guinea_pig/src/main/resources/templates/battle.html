@@ -21,6 +21,7 @@
     <script type="text/javascript" th:src="@{/js/Homepage.js}"></script>
     <script type="text/javascript" th:src="@{/js/Battle.js}"></script>
     <script type="text/javascript" th:src="@{/js/Team.js}"></script>
+    <script type="text/javascript" th:src="@{/js/Default.js}"></script>
 
 </head>
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
@@ -290,7 +291,9 @@
             <div>{{$value.userName}}</div>
             <div><img src="{{$value.userAvatar}}" style="width: 50px;height: 50px"></div>
             <!--帖子标题-->
-            <div>{{$value.title}}</div>
+           <a href="/homepage/bbspost/{{$value.postId}}" >
+               <div>{{$value.title}}</div>
+           </a>
             <!--帖子内容-->
             <div>{{$value.content}}</div>
             <!--帖子的时间-->
@@ -309,7 +312,9 @@
             <div>{{$value.userName}}</div>
             <div><img src="{{$value.userAvatar}}"style="width: 50px;height: 50px"></div>
             <!--帖子标题-->
+            <a href="/homepage/bbspost/{{$value.postId}}" >
             <div>{{$value.title}}</div>
+            </a>
             <!--帖子内容-->
             <div>{{$value.content}}</div>
             <!--帖子时间-->
@@ -355,6 +360,14 @@
         var html = template('g', games);
         document.getElementById('games').innerHTML = html;
 
+        // 显示默认的游戏帖子
+        officalDefault(function (result) {
+            var posts=result.post;
+            console.log(posts);
+            var html = template('info1', posts);
+            console.log(html);
+            document.getElementById('info').innerHTML = html;
+        });
 
         var infos = {};
         var comm = {};
