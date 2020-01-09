@@ -38,9 +38,15 @@ public class HomepageController {
     }
 
     @RequestMapping("/bbspost/{postId}")
-    public String p(@PathVariable("postId") int postId, HttpSession httpSession){
+    public String bbspost(@PathVariable("postId") int postId, HttpSession httpSession){
         UserSession userSession=(UserSession)httpSession.getAttribute(Constants.USE_SESSION_KEY);
         userSession.setPostId(postId);
         httpSession.setAttribute(Constants.USE_SESSION_KEY,userSession);
-        return "bbspost";}
+        return "bbspost";
+    }
+
+    @RequestMapping("/post")
+    public String post() {
+        return "post";
+    }
 }

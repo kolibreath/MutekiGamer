@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:https="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
@@ -201,19 +202,21 @@
         {{/each}}
     </ul>
 </script>
+
 <script>
-homepage(function(result){
-console.log(result);
-var html = template('all', result.post);
-document.getElementById('content').innerHTML = html;
-});
+    homepage(function(result){
+    console.log(result);
+    var html = template('all', result.post);
+    document.getElementById('content').innerHTML = html;
+    });
+    </script>
+    <script>
+        homepage(function (result) {
+            var html=template('games',result.game);
+            document.getElementById('game').innerHTML = html;
+        })
 </script>
-<script>
-    homepage(function (result) {
-        var html=template('games',result.game);
-        document.getElementById('game').innerHTML = html;
-    })
-</script>
+
 <footer>
     <div class="footercontainer">
         <div class="row">

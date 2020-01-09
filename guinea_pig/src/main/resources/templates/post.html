@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
     <!-- <meta http-equiv="Content-Type" content="text/html" /> -->
@@ -16,9 +16,15 @@
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap-autohidingnavbar/4.0.0/jquery.bootstrap-autohidingnavbar.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js">  </script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
+    <script type="text/javascript" th:src="@{/js/template-web.js}"></script>
+    <script type="text/javascript" th:src="@{/js/User.js}"></script>
 </head>
+
 <body>
     <!--nav-->
     <div class="barContainer" style="background-color: white;">
@@ -58,21 +64,46 @@
                 </form>
             </div>
             <div class="col-md-4" style="padding: 0;">
-                <div class="author">
-                    <p style="text-align: left;padding-left: 30px;"><img src="img/pencil.png" style="width: 15px;height: 15px;"> 我</p>
-                    <a href="">
-                        <img src="https://static.dingtalk.com/media/lADPDgQ9rbqFW6nNAQLNAQM_259_258.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222062145382217%22%7D&bizType=im&open_id=267508618">
-                        <p style="margin-top: 15px;">莫甘娜</p>
-                    </a>
-                    <ul>
-                        <li>帖子:5</li>
-                        <li>粉丝:55</li>
-                        <li>关注:555</li>
-                    </ul>
+                <div class="author" id="userinfo_container">
+                    <!--<p style="text-align: left;padding-left: 30px;"><img src="img/pencil.png" style="width: 15px;height: 15px;"> 我</p>-->
+                    <!--<a href="">-->
+                        <!--<img src="https://static.dingtalk.com/media/lADPDgQ9rbqFW6nNAQLNAQM_259_258.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222062145382217%22%7D&bizType=im&open_id=267508618">-->
+                        <!--<p style="margin-top: 15px;">莫甘娜</p>-->
+                    <!--</a>-->
+                    <!--<ul>-->
+                        <!--<li>帖子:5</li>-->
+                        <!--<li>粉丝:55</li>-->
+                        <!--<li>关注:555</li>-->
+                    <!--</ul>-->
                 </div>
             </div>
         </div>
     </div>
+
+    <!--个人-->
+    <script type="text/html" id="userinfo">
+        <p style="text-align: left;padding-left: 30px;">
+            <img src="img/pencil.png" style="width: 15px;height: 15px;"> 我</p>
+        <a href="">
+            <img src="https://static.dingtalk.com/media/lADPDgQ9rbqFW6nNAQLNAQM_259_258.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222062145382217%22%7D&bizType=im&open_id=267508618">
+            <p style="margin-top: 15px;">{{userName}}</p>
+        </a>
+        <ul>
+            <li>帖子:{{postLength}}</li>
+            <li>粉丝:{{followerNum}}</li>
+            <li>关注:{{followingNum}}</li>
+        </ul>
+    </script>
+
+    <script type="text/javascript">
+        getUserInfo(function (result) {
+            let _html ;
+            console.log(result.data);
+            _html = template("userinfo", result.data);
+            $("#userinfo_container").html(_html);
+        })
+    </script>
+
 
     <footer style="position: relative;height: 60px;background-color:#5E5E5E; color:  #EAEAEA;overflow: hidden;" >
         <div style="height:50px;width: 180px;margin-left: 30%;float: left;">
