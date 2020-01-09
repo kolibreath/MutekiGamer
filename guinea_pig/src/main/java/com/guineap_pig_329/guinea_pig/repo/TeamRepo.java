@@ -16,4 +16,6 @@ public interface TeamRepo extends JpaRepository<Team,Integer> {
     @Query("update Team team set team.gameId = ?1 where team.teamId = ?2")
     @Modifying
     int updateTeamGameId(int newGameId, int teamId);
+
+    Team findByTeamName(String teamName);
 }

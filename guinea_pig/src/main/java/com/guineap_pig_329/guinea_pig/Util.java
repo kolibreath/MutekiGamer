@@ -13,10 +13,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class Util {
 
@@ -157,6 +156,14 @@ public class Util {
     public static void error(Class className,String string){
         getLoggerInstance(className).error(string);
     }
+
+    public static long dateStr2long(String dateStr) throws ParseException {
+        String formatStr = "yyyy-MM-dd";
+        SimpleDateFormat format = new SimpleDateFormat(formatStr);
+        Date date =  format.parse(dateStr);
+        return date.getTime();
+    }
+
 
     public static Object getInstance(String path, Class className){
         String content = readJsonStr(path);

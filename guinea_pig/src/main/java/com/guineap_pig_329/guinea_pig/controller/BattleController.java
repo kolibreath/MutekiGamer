@@ -1,13 +1,13 @@
 package com.guineap_pig_329.guinea_pig.controller;
 
-import com.guineap_pig_329.guinea_pig.Constants;
 import com.guineap_pig_329.guinea_pig.Util;
 import com.guineap_pig_329.guinea_pig.dao.*;
+import com.guineap_pig_329.guinea_pig.dao.wrapper.ContestWrapper;
 import com.guineap_pig_329.guinea_pig.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
+import java.util.LinkedList;
 import java.util.List;
 
 @RestController
@@ -19,9 +19,6 @@ public class BattleController {
 
     @Autowired
     PostRepo postRepo;
-
-    @Autowired
-    private UserGameRepo userGameRepo;
     @Autowired
     private OfficialRepo officialRepo;
     @Autowired
@@ -48,14 +45,6 @@ public class BattleController {
                 Util.transform(postRepo.findAllByUserId(official.getUserId()),userRepo,userInfoRepo));
     }
 
-    @RequestMapping("/newsDefault")
-    public ResultBean getNewsDefault(HttpSession httpSession){
-        UserSession userSession=(UserSession)httpSession.getAttribute(Constants.USE_SESSION_KEY);
-        int gameId=userSession.getGameId();
-        Official official = officialRepo.findByGameId(gameId);
-        return ResultBean.success(
-                Util.transform(postRepo.findAllByUserId(official.getUserId()),userRepo,userInfoRepo));
-    }
 //
     @GetMapping("/game")
     public ResultBean search(@RequestParam String search){
@@ -71,7 +60,29 @@ public class BattleController {
     @RequestMapping("/match/{gameId}")
     public ResultBean getMatchRecord(@PathVariable("gameId") int gameId){
         List<Contest> contests = contestRepo.findByGameId(gameId);
-        return ResultBean.success(contests);
+        List<ContestWrapper> contestWrappers = new LinkedList<>();
+        for(Contest contest:contests){
+            Team team1 = teamRepo.findByTeamName(contest.getTeamName1());
+            Team team2 = teamRepo.findByTeamName(contest.getTeamName2());
+
+            ContestWrapper contestWrapper = new ContestWrapper(
+              contest.getTeamName1(),
+              contest.getTeamName2(),
+                    team1.getAvatar(),
+                    team2.getAvatar(),
+                    contest.getTime(),
+                    contest.getRecordReviewLink(),
+                    contest.getTeamScore1(),
+                    contest.getTeamScore2(),
+                    contest.getGameId(),
+                    contest.getWinnerId(),
+                    contest.getStatus(),
+                    contest.getMatchId()
+            );
+
+            contestWrappers.add(contestWrapper);
+        }
+        return ResultBean.success(contestWrappers);
     }
 
 
