@@ -363,10 +363,10 @@
         // 显示默认的游戏帖子
         officalDefault(function (result) {
             var posts=result.post;
-            console.log(posts);
+            // 默认资讯
             var html = template('info1', posts);
-            console.log(html);
             document.getElementById('info').innerHTML = html;
+
         });
 
         var infos = {};
