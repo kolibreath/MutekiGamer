@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
     <!-- <meta http-equiv="Content-Type" content="text/html" /> -->
     <meta name="keyword" content="HTML, CSS, image, navigation"/>
+    <meta name="referrer" content="no-referrer"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>MutekiGamer - Team</title>
     <base th:href="@{/}">
@@ -12,53 +13,69 @@
     <link rel="stylesheet" type="text/css" href="css/teaminfo.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js">  </script>
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap-autohidingnavbar/4.0.0/jquery.bootstrap-autohidingnavbar.js"></script>
+    <script type="text/javascript" th:src="@{/js/template-web.js}"></script>
+    <script type="text/javascript" th:src="@{/js/Homepage.js}"></script>
+    <script type="text/javascript" th:src="@{/js/Time.js}"></script>
+    <script type="text/javascript" th:src="@{/js/Team.js}"></script>
+
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
-    <!--nav-->
-    <div class="barContainer">
-        <div class="nav-content"  style="position: relative;">
-            <div class="nav-title">
-                <span >
-                    <img src="https://static.dingtalk.com/media/lALPDgQ9rZl6KXPNAljNB0Q_1860_600.png?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222028145409841%22%7D&bizType=im&open_id=267508618" alt="MutekiGamer logo">
+<!--nav-->
+<div class="barContainer">
+    <div class="nav-content" style="position: relative;">
+        <div class="nav-title">
+                <span>
+                    <img src="https://static.dingtalk.com/media/lALPDgQ9rZl6KXPNAljNB0Q_1860_600.png?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222028145409841%22%7D&bizType=im&open_id=267508618"
+                         alt="MutekiGamer logo">
                 </span>
-            </div>  
-            <div class="nav-text">
-            <span style="float: left"><a href="HomePage1">主页</a></span>
+        </div>
+        <div class="nav-text">
+            <span style="float: left"><a href="HomePage">主页</a></span>
             <span style="float: left"><a href="/homepage/community">社区</a></span>
             <span style="float: left"><a href="/homepage/news">头条</a></span>
             <span style="float: left"><a href="/homepage/battle">战场</a></span>
             <span style="float: right"><a href="/homepage/my">我</a></span>
-            <span class="user">
-                    <a href="Login">Login</a>
-            </span>
-            </div>
         </div>
     </div>
+</div>
 
-    <div class="main-body">
+<div class="main-body">
 
-        <!-- banner -->
+    <!-- banner -->
+    <!--战队基本信息-->
+    <div id="teaminfo"></div>
+    <script id="teaminfo1" type="text/html">
         <div class="teambanner">
             <div class="teamimg">
-                <img src="http://img.crawler.qq.com/lolwebvideo/20180925110111/80bf5eec07a3f921ba7b9821b046ecdd/0">
+                <img src="{{avatar}}">
             </div>
             <div class="teamintro">
-                <h1 style="font-size: 48px;">EDG</h1>
-                <p style="font-size: 24px;">EdwardGaming</p>
+                <h1 style="font-size: 48px;">{{teamName}}</h1>
+                <!--<p style="font-size: 24px;">EdwardGaming</p>-->
                 <div class="teamabout">
-                    EDG的出道是在2014年的LPL春季赛上。从一开始，EDG就只有一个目标，那就是夺冠。他们斩获过2014年LPL春季赛和夏季赛的冠军，还有2015年LPL的春季赛，2016和2017年的夏季赛。除此之外，每一届全球总决赛也都有这支队伍的身影。除了参加了五届全球总决赛之外，他们也为中国赛区首次拿下了国际比赛的胜利，成为了2015年第一届季中冠军赛的获胜者。作为LPL赛区的一支老牌队伍，新赛季他们保持了18年的原班选手阵容，并引进了明星教练Heart，这支凶猛的队伍心态依然年轻，并且准备再次书写历史。
                 </div>
             </div>
         </div>
+    </script>
 
-        <!-- member -->
-        <div class="member">
-            <div class="teamsection">
-            <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="position: sticky;top: 0;z-index: 99;">  
+    <!--处理战队基本信息-->
+    <script>
+        teaminfo(function (result) {
+            var teaminfo = result.result;
+            console.log(teaminfo);
+            var html = template('teaminfo1', teaminfo.data);
+            // console.log(html);
+            document.getElementById('teaminfo').innerHTML = html;
+        })
+    </script>
+    <!-- member -->
+    <div class="member">
+        <div class="teamsection">
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="position: sticky;top: 0;z-index: 99;">
                 <ul class="navbar-nav navnavnavbar">
                     <li class="nav-item navnavnavitem">
                         <a class="nav-link" href="#section1">现役成员</a>
@@ -72,85 +89,41 @@
                 </ul>
             </nav>
 
+
             <div id="section1" class="container-fluid bg-light" style="padding-top:30px;padding-bottom: 70px;padding-left: 6%;">
                 <div style="height: 100%;width: 100%;">
-                 <ul>
-                    <li class="memberlist">
-                        <a href="" class="memberinfo1">
-                            <div class="memberpic">
-                                <img src="https://img.crawler.qq.com/lolwebvideo/20190529185130/8c25f8e7ba76c21877d5d6239d916f56/0" alt="">
-                            </div>
-                        </a>
-                        <div class="membername" >
-                            <p style="margin-bottom: 0;">ClearLove</p>
-                            <p style="font-size: 14px;color: #8E8E8E;">明凯</p> 
-                        </div>
-                        <span class="memberlabel">打野</span>
-                    </li>
-                    <li class="memberlist">
-                        <a href="" class="memberinfo1">
-                            <div class="memberpic">
-                                <img src="https://img.crawler.qq.com/lolwebvideo/20190104163311/2b032f87506074b682954bb9856b40b8/0" alt="">
-                            </div>
-                        </a>
-                        <div class="membername" >
-                            <p style="margin-bottom: 0;">Ray</p>
-                            <p style="font-size: 14px;color: #8E8E8E;">全志愿</p> 
-                        </div>
-                        <span class="memberlabel">上单</span>
-                    </li>
-                    <li class="memberlist">
-                        <a href="" class="memberinfo1">
-                            <div class="memberpic">
-                                <img src="https://img.crawler.qq.com/lolwebvideo/20190529185418/0b266c3af00dee6839ce7b2b9818a71b/0" alt="">
-                            </div>
-                        </a>
-                        <div class="membername" >
-                            <p style="margin-bottom: 0;">Jinoo</p>
-                            <p style="font-size: 14px;color: #8E8E8E;">林辰佑</p> 
-                        </div>
-                        <span class="memberlabel">上单</span>
-                    </li>
-                    <li class="memberlist">
-                        <a href="" class="memberinfo1">
-                            <div class="memberpic">
-                                <img src="http://img.crawler.qq.com/lolwebvideo/20180609211512/69bdc0f800cb7452625b52b2c476c869/0" alt="">
-                            </div>
-                        </a>
-                        <div class="membername" >
-                            <p style="margin-bottom: 0;">Xinyi</p>
-                            <p style="font-size: 14px;color: #8E8E8E;">常平</p> 
-                        </div>
-                        <span class="memberlabel">打野</span>
-                    </li>
-                    <li class="memberlist">
-                        <a href="" class="memberinfo1">
-                            <div class="memberpic">
-                                <img src="https://img.crawler.qq.com/lolwebvideo/20191224171548/ee49d2c4627f407de2b79a1da9892db9/0" alt="">
-                            </div>
-                        </a>
-                        <div class="membername" >
-                            <p style="margin-bottom: 0;">Aodi</p>
-                            <p style="font-size: 14px;color: #8E8E8E;">赵奥迪</p> 
-                        </div>
-                        <span class="memberlabel">上单</span>
-                    </li>
-                    <li class="memberlist">
-                        <a href="" class="memberinfo1">
-                            <div class="memberpic">
-                                <img src="https://img.crawler.qq.com/lolwebvideo/20190529185107/20442a577a92aed39e9bd8a888817afa/0" alt="">
-                            </div>
-                        </a>
-                        <div class="membername" >
-                            <p style="margin-bottom: 0;">BBD</p>
-                            <p style="font-size: 14px;color: #8E8E8E;">吴凌风</p> 
-                        </div>
-                        <span class="memberlabel">ADC</span>
-                    </li>
-                </ul>
+                    <div id="member"></div>
+                    <script id="member1" type="text/html">
+                        <ul>
+                            {{each data}}
+                            <li class="memberlist">
+                                <a href="" class="memberinfo1">
+                                    <div class="memberpic">
+                                        <img src="{{$value.avatar}}" alt="">
+                                    </div>
+                                </a>
+                                <div class="membername">
+                                    <p style="margin-bottom: 0;">{{$value.codeName}}</p>
+                                    <p style="font-size: 14px;color: #8E8E8E;">{{$value.realName}}</p>
+                                </div>
+                                <span class="memberlabel">{{$value.position}}</span>
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </script>
+                    <div class="clearfloat"></div>
                 </div>
-                <div class="clearfloat"></div>
             </div>
+            <!--获取战队成员信息-->
+            <script>
+                member(function (result) {
+                    var members = result.result;
+                    console.log(members);
+                    var html = template('member1', members);
+                    // console.log(html);
+                    document.getElementById('member').innerHTML = html;
+                })
+            </script>
             <div id="section2" class="container-fluid bg-gray" style="padding-top:70px;padding-bottom:70px">
                 <div class="table-responsive teamdata">
                     <table class="table table-hover">
@@ -170,22 +143,22 @@
                             <th>场均大龙</th>
                         </tr>
                         </thead>
-                        <tbody id="teamdata">
-                           <tr>
-                               <td class="mname" style="padding-left:0px;padding-right: 0px;">2019德玛西亚杯</td>
-                               <td class="mname">淘汰赛</td>
-                               <td>14</td> 
-                               <td>7/7</td> 
-                               <td>50.00%</td> 
-                               <td>223(15)</td> 
-                               <td>217(15)</td> 
-                               <td>121</td> 
-                               <td>49</td>
-                               <td>58111</td>
-                               <td>2</td>
-                               <td>0</td>                 
-                           </tr>
-                        </tbody>
+                        <!--<tbody id="teamdata">-->
+                        <tr>
+                            <td class="mname" style="padding-left:0px;padding-right: 0px;">2019德玛西亚杯</td>
+                            <td class="mname">淘汰赛</td>
+                            <td>14</td>
+                            <td>7/7</td>
+                            <td>50.00%</td>
+                            <td>223(15)</td>
+                            <td>217(15)</td>
+                            <td>121</td>
+                            <td>49</td>
+                            <td>58111</td>
+                            <td>2</td>
+                            <td>0</td>
+                        </tr>
+                        <!--</tbody>-->
                     </table>
                 </div>
             </div>
@@ -194,50 +167,51 @@
                     <table class="table table-hover">
                         <thead class="thead-dark" style="width: 100%">
                         <tr>
-                            <th>状态</th> 
-                            <th>时间</th> 
-                            <th>胜败</th> 
-                            <th>赛事</th> 
+                            <th>状态</th>
+                            <th>时间</th>
+                            <th>胜败</th>
+                            <th>赛事</th>
                             <th>观看</th>
                         </tr>
                         </thead>
-                        <tbody id="teamdata" >
-                            <tr>
-                               <td class="recentmatch">未开始</td>
-                               <td class="recentmatch">2020-02-08</td>
-                               <td>
-                                   <span>RNG</span>
-                                   <span>0</span>
-                                   :
-                                   <span>0</span>
-                                   <span>EDG</span>
-                               </td> 
-                               <td class="recentmatch">2020职业联赛</td> 
-                               <td class="recentmatch">敬请期待</td>             
-                            </tr>
-                            <tr>
-                               <td class="recentmatch">已结束</td>
-                               <td class="recentmatch">
+                        <tbody id="teamdata">
+                        <tr>
+                            <td class="recentmatch">未开始</td>
+                            <td class="recentmatch">2020-02-08</td>
+                            <td>
+                                <span>RNG</span>
+                                <span>0</span>
+                                :
+                                <span>0</span>
+                                <span>EDG</span>
+                            </td>
+                            <td class="recentmatch">2020职业联赛</td>
+                            <td class="recentmatch">敬请期待</td>
+                        </tr>
+                        <tr>
+                            <td class="recentmatch">已结束</td>
+                            <td class="recentmatch">
                                 <span> 2019-12-19</span>
-                               </td>
-                               <td>
-                                   <span>EDG</span>
-                                   <span>1</span>
-                                   :
-                                   <span>3</span>
-                                   <span>RNG</span>
-                               </td> 
-                               <td class="recentmatch">2019德玛西亚杯</td> 
-                               <td class="recentmatch">
-                                   <a href="" target="_blank" class='btn btn-outline-dark btn-sm golookvideo' style="font-size: 16px;font-weight: 600;">观看录像</a>
-                               </td>             
-                           </tr>
+                            </td>
+                            <td>
+                                <span>EDG</span>
+                                <span>1</span>
+                                :
+                                <span>3</span>
+                                <span>RNG</span>
+                            </td>
+                            <td class="recentmatch">2019德玛西亚杯</td>
+                            <td class="recentmatch">
+                                <a href="" target="_blank" class='btn btn-outline-dark btn-sm golookvideo'
+                                   style="font-size: 16px;font-weight: 600;">观看录像</a>
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-            </div>
         </div>
+    </div>
 
     <!--footer-->
     <footer class="navbar navbar-inverse navbar-fixed-bottom" style="position: relative;">
@@ -245,7 +219,7 @@
             <div class="row" style="height: 100%;">
                 <div class="col" style="height: 100%">
                     <h3 class="footer_title">Product</h3>
-                    <ul class="footer_list">                        
+                    <ul class="footer_list">
                         <li>Integrations</li>
                         <li>Slack Bot</li>
                         <li>Customers</li>
@@ -279,7 +253,7 @@
                     </ul>
                 </div>
             </div>
-        </div>     
+        </div>
     </footer>
 
 </body>

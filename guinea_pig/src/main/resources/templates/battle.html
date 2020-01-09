@@ -328,7 +328,7 @@
     <ul>
         {{each data}}
         <li>
-            <div>{{$value.teamName}}</div>
+            <div><a href="/homepage/teaminfo/{{$value.teamId}}">{{$value.teamName}}</a></div>
             <div><img src="{{$value.avatar}}" style="width: 50px;height: 50px"></div>
         </li>
         {{/each}}
@@ -363,10 +363,10 @@
         // 显示默认的游戏帖子
         officalDefault(function (result) {
             var posts=result.post;
-            console.log(posts);
+            // 默认资讯
             var html = template('info1', posts);
-            console.log(html);
             document.getElementById('info').innerHTML = html;
+
         });
 
         var infos = {};
