@@ -18,7 +18,6 @@
     <script type="text/javascript" th:src="@{/js/template-web.js}"></script>
     <script type="text/javascript" th:src="@{/js/Homepage.js}"></script>
     <script type="text/javascript" th:src="@{/js/Default.js}"></script>
-
 </head>
 <body>
 <!-- Navigation Bar-->
@@ -149,7 +148,7 @@
     <ul style="height: 80px; width: 100%;">
         {{each data}}
         <li style="width: 80px; height: 80px; float: left; margin-left: 5%;">
-            <button  style="float: left;" class="game" id="{{$value.gameId}}">
+            <button  style="float: left;border: none;" class="game imgButton" id="{{$value.gameId}}">
                 <img src="{{$value.picture}}" style="width: 50px; height: 50px; list-style: none; float: left;">
             </button>
         </li>
