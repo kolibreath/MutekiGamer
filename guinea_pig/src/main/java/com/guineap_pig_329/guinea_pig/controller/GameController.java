@@ -43,9 +43,30 @@ public class GameController {
             ,game.getGameName(),game.getGameIntro(),game.getPicture(),mypost);
             games.add(gamePostWrapper);
         }
-        //登陆用户关于这哥游戏的所有帖子
+        //登陆用户关于这个游戏的所有帖子
         return ResultBean.success(games);
     }
 
+//
+//    private int gameWeight(List<Game> userGame){
+//
+//    }
+//
+//
+//    @RequestMapping("/selected")
+//    public ResultBean getSelectedGame(HttpSession httpSession) {
+//        int userId = UserSession.getInstance(httpSession).getCode();
+//        List<Game> games = gameRepo.findAll();
+//        List<UserGame> userGameRepoList = userGameRepo.findAllByUserId(userId);
+//        for (Game game : games) {
+//            for (UserGame userGame : userGameRepoList) {
+//                //说明已经关注过这个游戏
+//                if(userGame.getGameId() == game.getGameId()){
+//                    continue;
+//                }
+//
+//            }
+//        }
+//    }
 
 }
