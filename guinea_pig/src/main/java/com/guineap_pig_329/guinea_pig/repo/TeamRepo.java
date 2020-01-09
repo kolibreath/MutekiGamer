@@ -11,7 +11,7 @@ import java.util.List;
 
 public interface TeamRepo extends JpaRepository<Team,Integer> {
     List<Team> findByGameId(int gameId);
-
+    Team findAllByTeamId(int teamId);
     @Transactional
     @Query("update Team team set team.gameId = ?1 where team.teamId = ?2")
     @Modifying

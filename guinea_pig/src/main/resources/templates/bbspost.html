@@ -23,6 +23,7 @@
     <!--<script type="text/javascript" th:src="@{/js/postreply.js}"></script>-->
     <script type="text/javascript" th:src="@{/js/Homepage.js}"></script>
     <script type="text/javascript" th:src="@{/js/PostDetail.js}"></script>
+    <script type="text/javascript" th:src="@{/js/Post.js}"></script>
 </head>
 <body>
 <!--nav-->
@@ -138,16 +139,9 @@
             <p style="text-align: left;;"><img src="img/pencil.png"
                                                style="width: 15px;height: 15px;margin-right: 10px;">回复</p>
             <form>
-                <textarea class="form-control" rows="4" id=""></textarea>
-                <!-- <div id="summernote"></div>
-                 <script>
-                 $('#summernote').summernote({
-                     placeholder: '在这里回复',
-                     tabsize: 2,
-                     height: 150
-                 });
-                 </script> -->
-                <button type="submit" class="btn btn-outline-info" style="margin-top: 20px;float: right;">发表回复</button>
+                <textarea class="form-control" rows="4" id="responseContent">
+                </textarea>
+                <button type="submit" class="btn btn-outline-info" id="hand_in"  style="margin-top: 20px;float: right;">发表回复</button>
             </form>
         </div>
     </div>
@@ -315,8 +309,18 @@
             console.log(html);
             document.getElementById('response').innerHTML = html;
         })
+
+            $("#hand_in").click(function () {
+            var content=document.getElementById("responseContent").value;
+            console.log(content);
+            newResponse(content,postId,function (result) {
+
+                location.reload();
+            });
+        })
     })
 </script>
+
 <footer style="position: relative;height: 60px;background-color:#5E5E5E; color:  #EAEAEA;overflow: hidden;">
     <div style="height:50px;width: 180px;margin-left: 30%;float: left;">
         <img src="https://static.dingtalk.com/media/lALPDgQ9rZmS1SDNAcLNB0Q_1860_450.png?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222028305227287%22%7D&bizType=im&open_id=267508618">

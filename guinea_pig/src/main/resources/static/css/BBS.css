@@ -67,6 +67,16 @@ body
 	outline-width: 1px;
 }
 
+.main-content .contextFrame span.active{
+	background-color: red;
+}
+/*.main-content .contextFrame span button.hover{*/
+/*	background-color: red;*/
+/*}*/
+/*.main-content .contextFrame span button.active{*/
+/*	background-color: red;*/
+/*}*/
+
 .attention .attentionFrame{
 	/* margin-top: 40px; */
 	width: 80%;
@@ -88,7 +98,6 @@ body
 	outline: none;
 }
 .attention .attentionFrame .attention-button:hover{
-
 	opacity:0.8;
 }
 

@@ -18,7 +18,58 @@
     <script type="text/javascript" th:src="@{/js/template-web.js}"></script>
     <script type="text/javascript" th:src="@{/js/Homepage.js}"></script>
     <script type="text/javascript" th:src="@{/js/Default.js}"></script>
+    <style>
 
+        /*.main-content .contextFrame li span:link{*/
+        /*    background-color:blue;*/
+        /*}*/
+        /*.main-content .contextFrame li span{*/
+        /*    background-color:white;*/
+        /*}*/
+        .main-content .contextFrame li span:visited{
+            background-color:blue;
+        }
+        .main-content .contextFrame li span:hover{
+            background-color:red;
+        }
+        .main-content .contextFrame li span:active{
+            background-color:yellow;
+        }
+        /*.main-content .contextFrame li span:focus{*/
+        /*    background-color:blue;*/
+        /*}*/
+        /*.main-content .contextFrame li span:active:after{*/
+        /*    background-color: green;*/
+        /*}*/
+        /*.main-content .contextFrame li span:after{*/
+        /*    background-color: blue;*/
+        /*}*/
+        /*.main-content .contextFrame li span:active{*/
+        /*    background-color: blue;*/
+        /*}*/
+        /*.main-content .contextFrame li span:hover{*/
+        /*    background-color: red;*/
+        /*}*/
+        /*.main-content .contextFrame li span a:active{*/
+        /*    background-color: red;*/
+        /*}*/
+        /*.main-content .contextFrame li span a:focus{*/
+        /*    background-color: black;*/
+        /*}*/
+        /*.main-content .contextFrame li span a:hover{*/
+        /*    background-color: red;*/
+        /*}*/
+        /*.main-content .contextFrame li span a:active:after{*/
+        /*    transform:scale(1.5);*/
+        /*    background-color:green;*/
+        /*}*/
+        /*.main-content .contextFrame span button.hover{*/
+        /*    background-color: red;*/
+        /*}*/
+        /*.main-content .contextFrame span button.active {*/
+        /*    background-color: red;*/
+        /*}*/
+    </style>
 </head>
 <body>
 <!-- Navigation Bar-->
@@ -94,7 +145,8 @@
         <div class="contextFrame" style="height: 70px;">
             <!--用户关注的游戏-->
             <!--            整个的div的float设置的是整个头像块的float位置-->
-            <div id="games" style="float: left; width: 100%; height: 80px; margin-left: 3%; padding-top: 10px;">
+            <div id="games" style="float: left; width: 100%; height: 80px; margin-left: 3%;
+             padding-top: 10px;">
             </div>
             <!--            <img src="https://blznav.akamaized.net/img/games/logo-ow-4be5755bc0a4cbaf.png" style="width: 80px;height: 80px;margin-left: 70px;">-->
 
@@ -163,9 +215,11 @@
     <ul style="height: 80px; width: 100%;">
         {{each data}}
         <li style="width: 80px; height: 80px; float: left; margin-left: 5%;">
-            <button  style="float: left;" class="game" id="{{$value.gameId}}">
-                <img src="{{$value.picture}}" style="width: 50px; height: 50px; list-style: none; float: left;">
-            </button>
+            <span  style="width: 50px; display: block; height: 50px;">
+                <a style="float: left; border: none;" class="game active" id="{{$value.gameId}}">
+                <img src="{{$value.picture}}" style="width: 50px; height: 50px; list-style: none; float: left; cursor:pointer;">
+                </a>
+            </span>
         </li>
         {{/each}}
     </ul>
