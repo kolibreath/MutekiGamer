@@ -46,7 +46,7 @@ public class TestController {
     public String inject() {
         Util.setUserInfoRepo(userInfoRepo);
         Util.setUserRepo(userRepo);
-        Util.setPostRepo(postRepo);
+        Util.setPostRepo(postRepo) ;
         Util.setContestRepo(contestRepo);
         Util.setTeamRepo(teamRepo);
         Util.setPlayerRepo(playerRepo);
