@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:https="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
@@ -135,7 +136,6 @@
                     <div class="textList">
                             <div class="listTitle">
                                 <!-- 新闻资讯 -->
-                                <h1>posts</h1>
                                 <!--帖子内容-->
                                 <div id="content"></div>
                             </div>
@@ -214,18 +214,19 @@
         {{/each}}
     </ul>
 </script>
+
 <script>
-homepage(function(result){
-console.log(result);
-var html = template('all', result.post);
-document.getElementById('content').innerHTML = html;
-});
-</script>
-<script>
-    homepage(function (result) {
-        var html=template('games',result.game);
-        document.getElementById('game').innerHTML = html;
-    })
+    homepage(function(result){
+    console.log(result);
+    var html = template('all', result.post);
+    document.getElementById('content').innerHTML = html;
+    });
+    </script>
+    <script>
+        homepage(function (result) {
+            var html=template('games',result.game);
+            document.getElementById('game').innerHTML = html;
+        })
 </script>
 <footer style="position: relative;height: 60px;background-color:#5E5E5E; color:  #EAEAEA;overflow: hidden;">
     <div style="height:50px;width: 180px;margin-left: 30%;float: left;">
