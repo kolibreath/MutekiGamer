@@ -88,31 +88,31 @@
                 <!--<li>粉丝:55</li>-->
                 <!--<li>关注:555</li>-->
                 <!--</ul>-->
-                <!--<div id="ttpost_act" class="postbig">-->
-                    <!--<a href="" class="fatie">发新帖</a>-->
-                    <!--<a href="javascript:void(0);" class="huifu">回复</a>-->
-                <!--</div>-->
-                <!--<script type="text/javascript">-->
-                    <!--(function () {-->
-                        <!--var postAct = document.getElementById("ttpost_act");-->
-                        <!--postAct.setAttribute("style", "display:none;");-->
-                        <!--var postActTop = postAct.offsetTop;-->
-                        <!--document.onscroll = function () {-->
-                            <!--var docTop = document.body.scrollTop | document.documentElement.scrollTop;-->
-                            <!--if (postActTop < docTop) {-->
-                                <!--postAct.setAttribute("style", "width:290px;display:block;position:fixed;background:#fff; top:0px; z-index:300;padding:20px;box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);");-->
-                            <!--} else {-->
-                                <!--postAct.setAttribute("style", "display:none;");-->
-                            <!--}-->
-                        <!--}-->
-                    <!--})()-->
-                    <!--q_jq('#ttpost_act .huifu').on('click', function () {-->
-                        <!--q_jq("html,body").animate({-->
-                            <!--scrollTop: q_jq("#f_pst").offset().top-->
-                        <!--}, 500);-->
-                        <!--q_jq("#f_pst").find("textarea").focus();-->
-                    <!--});-->
-                <!--</script>-->
+                <div id="ttpost_act" class="postbig">
+                    <a href="" class="fatie">发新帖</a>
+                    <a href="javascript:void(0);" class="huifu">回复</a>
+                </div>
+                <script type="text/javascript">
+                    (function () {
+                        var postAct = document.getElementById("ttpost_act");
+                        postAct.setAttribute("style", "display:none;");
+                        var postActTop = postAct.offsetTop;
+                        document.onscroll = function () {
+                            var docTop = document.body.scrollTop | document.documentElement.scrollTop;
+                            if (postActTop < docTop) {
+                                postAct.setAttribute("style", "width:290px;display:block;position:fixed;background:#fff; top:0px; z-index:300;padding:20px;box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);");
+                            } else {
+                                postAct.setAttribute("style", "display:none;");
+                            }
+                        }
+                    })()
+                    q_jq('#ttpost_act .huifu').on('click', function () {
+                        q_jq("html,body").animate({
+                            scrollTop: q_jq("#f_pst").offset().top
+                        }, 500);
+                        q_jq("#f_pst").find("textarea").focus();
+                    });
+                </script>
             </div>
         </div>
     </div>
@@ -230,11 +230,11 @@
 
 
 <!-- 回到顶部 -->
-<div class="topbtn">
-    <a class="btn btn-default" href="#" role="button">
-        <img src="img/top.png">
-    </a>
-</div>
+<!--<div class="topbtn">-->
+    <!--<a class="btn btn-default" href="#" role="button">-->
+        <!--<img src="img/top.png">-->
+    <!--</a>-->
+<!--</div>-->
 <!--帖子模板-->
 <script id="title1" type="text/html">
 <ul>
