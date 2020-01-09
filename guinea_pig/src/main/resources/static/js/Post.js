@@ -100,3 +100,4 @@ function deletePost(postId,call){
     $.when(createNewPost).done(()=>call(resultCode))
 
 }
+
