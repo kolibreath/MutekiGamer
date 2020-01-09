@@ -112,6 +112,14 @@ public class PostController {
         return ResultBean.success(null);
     }
 
+//    进入页面默认显示的帖子
+    @RequestMapping("/defult")
+    public ResultBean getDefult(HttpSession session){
+        UserSession userSession=(UserSession)session.getAttribute(Constants.USE_SESSION_KEY);
+        int gameId=userSession.getGameId();
+        List<Post> posts=postRepo.findAllByGameId(gameId);
+        return ResultBean.success(Util.transform(posts,userRepo,userInfoRepo));
+    }
     @RequestMapping("/getResponse/{postId}")
     public ResultBean getResponse(@PathVariable("postId") int postId){
         List<Response> responses=responseRepo.findAllByPostId(postId);
@@ -143,7 +151,6 @@ public class PostController {
         }
         return ResultBean.success(filteredPost);
     }
-
 
     //重新排序帖子的方法
     //todo 根据用户的喜好进行推荐

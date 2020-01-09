@@ -585,6 +585,10 @@ margin-left:200px;">
     <ul>
         {{each myPost}}
         <li>
+
+            <a href="/homepage/bbspost/{{$value.postId}}" >
+                <div>{{$value.title}}</div>
+            </a>
             {{$value.content}}
         </li>
         {{/each}}

@@ -1,14 +1,13 @@
 package com.guineap_pig_329.guinea_pig.controller;
 
+import com.guineap_pig_329.guinea_pig.Constants;
 import com.guineap_pig_329.guinea_pig.Util;
-import com.guineap_pig_329.guinea_pig.dao.Contest;
-import com.guineap_pig_329.guinea_pig.dao.Game;
-import com.guineap_pig_329.guinea_pig.dao.Official;
-import com.guineap_pig_329.guinea_pig.dao.ResultBean;
+import com.guineap_pig_329.guinea_pig.dao.*;
 import com.guineap_pig_329.guinea_pig.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RestController
@@ -49,6 +48,14 @@ public class BattleController {
                 Util.transform(postRepo.findAllByUserId(official.getUserId()),userRepo,userInfoRepo));
     }
 
+    @RequestMapping("/newsDefault")
+    public ResultBean getNewsDefault(HttpSession httpSession){
+        UserSession userSession=(UserSession)httpSession.getAttribute(Constants.USE_SESSION_KEY);
+        int gameId=userSession.getGameId();
+        Official official = officialRepo.findByGameId(gameId);
+        return ResultBean.success(
+                Util.transform(postRepo.findAllByUserId(official.getUserId()),userRepo,userInfoRepo));
+    }
 //
     @GetMapping("/game")
     public ResultBean search(@RequestParam String search){
