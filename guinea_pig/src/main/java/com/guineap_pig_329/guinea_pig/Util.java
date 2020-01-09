@@ -4,6 +4,7 @@ import com.guineap_pig_329.guinea_pig.dao.*;
 import com.guineap_pig_329.guinea_pig.dao.wrapper.Cen;
 import com.guineap_pig_329.guinea_pig.dao.wrapper.PostWrapper;
 import com.guineap_pig_329.guinea_pig.repo.*;
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -158,9 +159,26 @@ public class Util {
     }
 
     public static Object getInstance(String path, Class className){
+        String content = readJsonStr(path);
+        JSONObject jsonObject = JSONObject.fromObject(content);
+        return JSONObject.toBean(jsonObject,className); }
+
+
+    public static List<Object> getInstanceArray(String path, Class className){
+        String content = readJsonStr(path);
+        JSONArray array = JSONArray.fromObject(content);
+        List<Object> list = new LinkedList<>();
+        for(int i =0 ;i < array.size();i++){
+            list.add(JSONObject.toBean(array.getJSONObject(i),className));
+        }
+
+        return list;
+    }
+
+    private static String readJsonStr(String path){
         File file = new File(path);
         if(!file.exists() || !file.isFile() ){
-                            return null;
+            return null;
         }
         StringBuffer content = new StringBuffer();
         try{
@@ -177,35 +195,8 @@ public class Util {
         }catch(Exception e){
             return null;
         }
-        JSONObject jsonObject = JSONObject.fromObject(content.toString());
-        return JSONObject.toBean(jsonObject,className);
+        return content.toString();
     }
-
-
-    //todo array
-//    public static Object getInstaceArray(String path, Class className){
-//        File file = new File(path);
-//        if(!file.exists() || !file.isFile() ){
-//            return null;
-//        }
-//        StringBuffer content = new StringBuffer();
-//        try{
-//            char[] temp = new char[1024];
-//            FileInputStream fileInputStream = new FileInputStream(file);
-//            InputStreamReader reader = new InputStreamReader(fileInputStream, StandardCharsets.UTF_8);
-//            while(reader.read(temp) != -1){
-//                content.append(new String(temp));
-//                temp = new char[1024];
-//            }
-//
-//            fileInputStream.close();
-//            reader.close();
-//        }catch(Exception e){
-//            return null;
-//        }
-//        JSONArray array = JSONArray.fromObject(content.toString());
-//        return JSONObject.toBean(array,className);
-//    }
 
     public static List<PostWrapper> transform(List<Post> posts, UserRepo userRepo, UserInfoRepo userInfoRepo) {
         List<PostWrapper> postWrappers = new ArrayList<>();
@@ -281,14 +272,29 @@ public class Util {
                         if (tempQ.endsWith("player")) {
                             String playerTeamName = q.split("-")[1];
                             if (teamName.equals(playerTeamName)) {
+
                                 Team team = (Team) getInstance(absoluteP, Team.class);
-                                Player player = (Player) getInstance(absoluteQ, Player.class);
 
-                                teamRepo.save(team);
+                                char firstChar = readJsonStr(absoluteQ).charAt(0);
+                                if(firstChar == '['){
+                                    List<Object> objects = getInstanceArray(absoluteQ,Player.class);
+                                    teamRepo.save(team);
 
-                                player.setTeamId(team.getTeamId());
-                                teams.add(team);
-                                players.add(player);
+                                    teams.add(team);
+                                    for(Object object:objects){
+                                        Player player = (Player) object;
+                                        player.setTeamId(team.getTeamId());
+                                        players.add((player));
+                                    }
+                                }else{
+                                    Player player = (Player) getInstance(absoluteQ, Player.class);
+                                    teamRepo.save(team);
+
+                                    player.setTeamId(team.getTeamId());
+                                    teams.add(team);
+                                    players.add(player);
+                                }
+
                                 break;
                             }
                         }
@@ -347,7 +353,13 @@ public class Util {
                         }
                     }
                 }
+
                 contestRepo.save(contest);
+            }
+
+            for(Team team:teams){
+                team.setGameId(game.getGameId());
+                teamRepo.save(team);
             }
         }
     }

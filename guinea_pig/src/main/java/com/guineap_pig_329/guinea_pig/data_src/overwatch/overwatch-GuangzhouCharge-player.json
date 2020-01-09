@@ -1,0 +1,50 @@
+[
+  {
+    "number":42,
+    "codeName":"NERO",
+    "realName":"Charlie Zwarg",
+    "position":2,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-fdfd498ef8f6e5ff.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":3,
+    "codeName":"CHARA",
+    "realName":"Jeong Yeon Kim",
+    "position":3,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-a32aa028db26ff8c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":0,
+    "codeName":"EILEEN",
+    "realName":"Yiliang Ou",
+    "position":2,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-4086f1effc41b50a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":20,
+    "codeName":"HAPPY",
+    "realName":"Jeong Woo Lee",
+    "position":2,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-6094ae6198c9ef97.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":14,
+    "codeName":"RIO",
+    "realName":"Seungpyo Oh",
+    "position":1,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-15f2b5080c9cbf4e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":1,
+    "codeName":"SHU",
+    "realName":"Jin Sea Kim",
+    "position":3,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-7b01cc8fa4e230ba.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  }
+]

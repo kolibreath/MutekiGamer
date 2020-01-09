@@ -1,0 +1,34 @@
+[
+  {
+    "number":0,
+    "codeName":"SN.Jing",
+    "realName":"Jing",
+    "position":1,
+    "teamId":1,
+    "avatar":"https://blz.nosdn.127.net/2/Esports/2019GTC/players/SN.Jing.png"
+  },
+  {
+    "number":1,
+    "codeName":"SN.Syu",
+    "realName":"Syu",
+    "position":2,
+    "teamId":1,
+    "avatar":"https://blz.nosdn.127.net/2/Esports/2019GTC/players/SN.Syu.png"
+  },
+  {
+    "number":2,
+    "codeName":"SN.Brox",
+    "realName":"Brox",
+    "position":3,
+    "teamId":1,
+    "avatar":"https://blz.nosdn.127.net/2/Esports/2019GTC/players/SN.Brox.png"
+  },
+  {
+    "number":3,
+    "codeName":"SN.Rugal",
+    "realName":"Rugal",
+    "position":2,
+    "teamId":1,
+    "avatar":"https://blz.nosdn.127.net/2/Esports/2019GTC/players/SN.Ragal.png"
+  }
+]

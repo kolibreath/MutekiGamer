@@ -1,0 +1,34 @@
+[
+  {
+    "number":0,
+    "codeName":"RNG.Leaoh",
+    "realName":"Leaoh",
+    "position":1,
+    "teamId":1,
+    "avatar":"https://blz.nosdn.127.net/2/Esports/2019GTC/players/RNG.Leaoh.png"
+  },
+  {
+    "number":1,
+    "codeName":"RNG.Lys",
+    "realName":"Lys",
+    "position":2,
+    "teamId":1,
+    "avatar":"https://blz.nosdn.127.net/2/Esports/2019GTC/players/RNG.Lys.png"
+  },
+  {
+    "number":2,
+    "codeName":"RNG.Tyrion",
+    "realName":"Tyrion",
+    "position":3,
+    "teamId":1,
+    "avatar":"https://blz.nosdn.127.net/2/Esports/2019GTC/players/RNG.Tyrion.png"
+  },
+  {
+    "number":3,
+    "codeName":"RNG.KylinS",
+    "realName":"KylinS",
+    "position":2,
+    "teamId":1,
+    "avatar":"https://blz.nosdn.127.net/2/Esports/2019GTC/players/RNG.Kylins.png"
+  }
+]

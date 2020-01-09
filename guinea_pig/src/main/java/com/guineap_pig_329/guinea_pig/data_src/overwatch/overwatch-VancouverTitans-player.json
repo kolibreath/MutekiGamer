@@ -1,0 +1,50 @@
+[
+  {
+    "number":18,
+    "codeName":"SEOMINSOO",
+    "realName":"MinSoo Seo",
+    "position":2,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-26209e8363455c1e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":7,
+    "codeName":"TWILIGHT",
+    "realName":"Juseok Lee",
+    "position":3,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-e1136fe734752aaa.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":22,
+    "codeName":"STITCH",
+    "realName":"Chunghee Lee",
+    "position":2,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-560a9467eacdf5dc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":14,
+    "codeName":"JJANU",
+    "realName":"HyunWoo Choi",
+    "position":1,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-02656ebfb434a51c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":28,
+    "codeName":"SLIME",
+    "realName":"Seong jun Kim",
+    "position":3,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-3e0f0f477757fd5d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":1,
+    "codeName":"HAKSAL",
+    "realName":"Hyojong Kim",
+    "position":2,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-f15611a7a221d900.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  }
+]

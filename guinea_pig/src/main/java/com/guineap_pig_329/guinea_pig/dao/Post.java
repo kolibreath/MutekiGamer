@@ -21,7 +21,8 @@ public class    Post {
     @Column
     private String time;
 
-    @Column
+    @Lob
+    @Column(length = 10000)
     @Nullable
     private String content;
 

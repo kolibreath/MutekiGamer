@@ -1,0 +1,74 @@
+[
+  {
+    "number":2,
+    "codeName":"SINATRAA",
+    "realName":"Jay Won",
+    "position":2,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-0f9f2b489341509e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":1,
+    "codeName":"SUPER",
+    "realName":"Matthew DeLisi",
+    "position":1,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-559b1c08be2de96c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":7,
+    "codeName":"STRIKER",
+    "realName":"NamJu Gwon",
+    "position":2,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-873f6d473ec39deb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":27,
+    "codeName":"RASCAL",
+    "realName":"DongJun Kim",
+    "position":2,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-3f8bdb72e38ee684.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":3,
+    "codeName":"ARCHIITECT",
+    "realName":"Minho Park",
+    "position":2,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-07121080c60a1040.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":64,
+    "codeName":"MOTH",
+    "realName":"Grant Espe",
+    "position":3,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-6d7b2f58c53fa4fb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":11,
+    "codeName":"CHOIHYOBIN",
+    "realName":"Hyobin Choi",
+    "position":1,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-c29200e78970eca2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":5,
+    "codeName":"SMURF",
+    "realName":"Myeong Hwan Yoo",
+    "position":1,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-34a90e2db0985215.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  },
+  {
+    "number":17,
+    "codeName":"VIOL2T",
+    "realName":"Minki Park",
+    "position":3,
+    "teamId":1,
+    "avatar":"https://upload-images.jianshu.io/upload_images/20804610-a9b240f933dacb99.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+  }
+]

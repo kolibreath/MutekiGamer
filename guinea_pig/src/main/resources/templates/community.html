@@ -166,11 +166,11 @@
             <!--帖子标题-->
             <a href="/homepage/bbspost/{{$value.postId}}"><div>{{$value.title}}</div></a>
             <!--发帖人昵称-->
-            <div style="float:left;">{{$value.userName}}</div>
+            <div style="float:left;width: 13%;">{{$value.userName}}</div>
             <!--帖子时间-->
-            <div style="float: left; margin-left: 5%; margin-right: 5%;">{{$value.time}}</div>
+            <div style="float: left; width:10%; margin-left: 5%; margin-right: 5%;">{{$value.time}}</div>
             <!--帖子内容-->
-            <div>{{$value.content}}</div>
+            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{$value.content}}</div>
         </li>
         {{/each}}
     </ul>
