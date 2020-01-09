@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.text.ParseException;
 import java.util.*;
 
 
@@ -151,8 +152,6 @@ public class PostController {
         }
         return ResultBean.success(filteredPost);
     }
-
-    //重新排序帖子的方法
     //todo 根据用户的喜好进行推荐
     private List<Post> sortPost(List<Post> posts) {
         Collections.sort(posts, Comparator.comparingInt(this::weight));
@@ -164,10 +163,13 @@ public class PostController {
         int level = user.getLevel();
         int responseSize = responseRepo.findAllByPostId(post.getPostId()).size();
         long currentTime = System.currentTimeMillis();
-//        long timeSubstract = post.getTime() - currentTime;
         long timeSubstract = 0;
-        int weight = level * 10 + responseSize * 25 + (int) timeSubstract / 10000;
-        return weight;
+        try {
+            timeSubstract = Util.dateStr2long(post.getTime()) - currentTime;
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return level * 10 + responseSize * 25 + (int) timeSubstract / 10000;
     }
 
 }
