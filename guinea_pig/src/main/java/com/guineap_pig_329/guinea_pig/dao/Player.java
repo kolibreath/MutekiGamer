@@ -22,6 +22,8 @@ public class Player{
     private int position;
     @Column
     private int teamId;
+    @Column
+    private String avatar;
 
     public String getAvatar() {
         return avatar;
@@ -31,8 +33,7 @@ public class Player{
         this.avatar = avatar;
     }
 
-    @Column
-    private String avatar;
+
 
     public int getPlayerId() {
         return playerId;

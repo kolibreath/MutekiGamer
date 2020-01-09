@@ -76,10 +76,10 @@ public class PostController {
         int userId = user.getId();
         String postContent = (String) map.get("postContent");
         String postTitle = (String) map.get("postTitle");
-        int tag, gameId;
+        int gameId, tag;
         String time;
         try {
-            tag = (int) map.get("tag");
+            tag = filterByValue((String) map.get("tag"));
             gameId = (int) map.get("gameId");
             time = (String) map.get("time");
         } catch (Exception e) {
@@ -172,4 +172,20 @@ public class PostController {
         return level * 10 + responseSize * 25 + (int) timeSubstract / 10000;
     }
 
+
+    private int filterByValue(String tagStr){
+        switch(tagStr){
+            case "长期施工":
+                return 1;
+            case "感想感言":
+                return 2;
+            case "游戏攻略":
+                return 3;
+            case "游戏前瞻":
+                return 4;
+            case "官方快讯":
+                return 5;
+        }
+        return -1;
+    }
 }
