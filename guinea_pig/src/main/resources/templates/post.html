@@ -33,10 +33,23 @@
             <span style="float: left"><a href="/homepage/community">社区</a></span>
             <span style="float: left"><a href="/homepage/news">头条</a></span>
             <span style="float: left"><a href="/homepage/battle">战场</a></span>
-            <span style="float: right"><a href="/homepage/my">我</a></span>
-            <span class="user">
-                    <a href="Login">Login</a>
-            </span>
+            <!--<span style="float: right"><a href="/homepage/my">我</a></span>-->
+            <!--<span class="user">-->
+                    <!--<a href="Login">Login</a>-->
+            <!--</span>-->
+                <div class="dropdown" style="float: right;margin: 5px 30px;">
+                    <a href="/homepage/my">
+                        <!--下面的img插用户头像-->
+                        <img src="https://static.dingtalk.com/media/lADPDgQ9rbqFW6nNAQLNAQM_259_258.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222062145382217%22%7D&bizType=im&open_id=267508618" style="width: 50px;height: 50px;border-radius: 50%;">
+                    </a>
+                    <a class="dropdown-toggle"  data-toggle="dropdown" style="text-decoration: none;">
+                    </a>
+                    <div class="dropdown-menu" >
+                        <!--两个跳转-->
+                        <a class="dropdown-item" href="#">修改信息</a>
+                        <a class="dropdown-item" href="#">退出</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -44,7 +57,19 @@
     <div class="container" style="margin-top: 50px;margin-bottom: 80px;">
         <div class="row">
             <div class="col-md-8 postbg" style="padding: 25px;">
-                <p style="text-align: left;"><img src="img/pencil.png" style="width: 15px;height: 15px;margin-right: 10px;">发表新帖</p>
+                <p style="text-align: left;width: 120px;float: left;font-size: 18px;"><img src="img/pencil.png" style="width: 15px;height: 15px;margin-right: 10px;">发表新帖</p>
+                <select class="form-control" style="width: 200px;margin-left: 70%;margin-bottom: 10px;">
+                    <option>长期施工</option>
+                    <option>感想感言</option>
+                    <option>游戏攻略</option>
+                    <option>游戏前瞻</option>
+                    <option>官方快讯</option>
+                </select>
+                <form>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="1" id="" placeholder="输入标题" style="border-color: #A7A4A4;font-size: 16px;font-weight: 600;"></textarea>
+                    </div>
+                </form>
                 <form>
                 <div id="summernote"></div>
                     <script>
@@ -74,19 +99,14 @@
         </div>
     </div>
 
-    <footer style="position: relative;height: 60px;background-color:#5E5E5E; color:  #EAEAEA;overflow: hidden;" >
+    <footer style="position: relative;height: 60px;background-color:#5E5E5E; color:  #EAEAEA;overflow: hidden;">
         <div style="height:50px;width: 180px;margin-left: 30%;float: left;">
             <img src="https://static.dingtalk.com/media/lALPDgQ9rZmS1SDNAcLNB0Q_1860_450.png?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222028305227287%22%7D&bizType=im&open_id=267508618">
         </div>
         <div style="float: left; padding-top: 25px;padding-left: 80px;">
-        <p style="float: left;font-weight: 200;font-size: 14px;">@MutekiGamer 2020</p>
-        <p style="float: left;margin-left: 40px;font-weight: 200;font-size: 14px;">联系我们:</p>
-        <div style="float: left;">          
-            <img src="img/twitter.png" style="width: 20px;height: 20px;margin-left: 10px;">
-            <img src="img/facebook.png" style="width: 20px;height: 20px;margin-left: 10px;">
-            <img src="img/email.png" style="width: 20px;height: 20px;margin-left: 10px;">
+            <p style="float: left;font-weight: 200;font-size: 14px;">@MutekiGamer 2020</p>
+            <p style="float: left;margin-left: 70px;font-weight: 200;font-size: 14px;">联系我们:&nbsp&nbspmuteki_gamer@163.com</p>
         </div>
-        </div>  
     </footer>
 </body>
 </html>
