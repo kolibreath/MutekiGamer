@@ -187,7 +187,8 @@
             </script>
             <div id="section3" class="container-fluid bg-light" style="padding-top:70px;padding-bottom:70px">
                 <div class="table-responsive teamdata">
-                    <script id="battle"></script>
+                    <div id="battle"></div>
+
                     <script id="battle1" type="text/html">
                         <table class="table table-hover">
                             <thead class="thead-dark" style="width: 100%">
@@ -207,7 +208,7 @@
                                     未开始
                                     {{else}}
                                     已结束
-                                    {{/if}}}
+                                    {{/if}}
                                 </td>
                                 <td class="recentmatch">{{$value.time}}</td>
                                 <td>
@@ -226,12 +227,12 @@
                     </script>
                 </div>
             </div>
-
             <script>
                 teamContest(function (result) {
                     var contest = result.result;
+
                     var html = template('battle1', contest);
-                    // console.log(html);
+                    console.log(html);
                     document.getElementById('battle').innerHTML = html;
                 })
             </script>
