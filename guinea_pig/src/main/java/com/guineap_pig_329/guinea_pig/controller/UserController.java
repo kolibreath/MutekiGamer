@@ -102,6 +102,8 @@ public class UserController {
             games.add(game);
         }
 
+        userHomePageWrapper.setGames(games);
+
         //todo 返回内容确定 缩减
         List<Post> posts = postRepo.findAllByUserId(userId);
         userHomePageWrapper.setPosts(posts);
