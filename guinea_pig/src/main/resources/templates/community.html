@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="./static/css/index.css"/>
     <link rel="stylesheet" type="text/css" href="./static/css/BBS.css"/>
     <link rel="stylesheet" type="text/css" href="./static/css/HomePage.css"/>
+    <link rel="stylesheet" type="text/css" href="./static/css/bbspost.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
@@ -18,6 +19,30 @@
     <script type="text/javascript" th:src="@{/js/template-web.js}"></script>
     <script type="text/javascript" th:src="@{/js/Homepage.js}"></script>
     <script type="text/javascript" th:src="@{/js/Default.js}"></script>
+    <style>
+        /*.main-content .contextFrame li span:visited{*/
+        /*    background-color:blue;*/
+        /*}*/
+        .main-content .contextFrame img:hover{
+            background-color:darkgrey;
+            border-radius: 50%;
+            transition:all .4s;
+            transform:scale(1.2);
+        }
+        .main-content .contextFrame img:active{
+            background-color:grey;
+            border-radius: 50%;
+            transition:all .4s;
+            transform:scale(1.2);
+        }
+        .main-content .contextFrame span{
+            overflow: hidden;
+        }
+        .main-content .contextFrame img{
+            transition:all 0.4s;
+        }
+
+    </style>
 </head>
 <body>
 <!-- Navigation Bar-->
@@ -90,10 +115,28 @@
     </div>
 
     <div class="main-content">
-        <div class="contextFrame" style="height: 70px;">
+        <div class="col-md-4" style="padding: 0;width: 25%;float: right;margin-right: 10%;">
+            <div class="author" >
+                <p style="text-align: left;padding-left: 30px;"><img src="img/pencil.png" style="width: 15px;height: 15px;"> 我</p>
+                <a href="">
+                <img src="https://static.dingtalk.com/media/lADPDgQ9rbqFW6nNAQLNAQM_259_258.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222062145382217%22%7D&bizType=im&open_id=267508618">
+                <p style="margin-top: 15px;">莫甘娜</p>
+                </a>
+                <ul>
+                <li>帖子:5</li>
+                <li>粉丝:55</li>
+                <li>关注:555</li>
+                </ul>
+                <div style="margin-top: 30px;margin-bottom: 0px;">
+                    <a href="/homepage/post" type="button" class="btn btn-info" style="color:white; width: 100%;">发帖</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="contextFrame" style="height: 70px; width: 55%; margin-left: 10%; background: rgba(244,244,244,0.8);">
             <!--用户关注的游戏-->
             <!--            整个的div的float设置的是整个头像块的float位置-->
-            <div id="games" style="float: left; width: 100%; height: 80px; margin-left: 3%; padding-top: 10px;">
+            <div id="games" style="float: left; width: 100%; height: 70px;">
             </div>
             <!--            <img src="https://blznav.akamaized.net/img/games/logo-ow-4be5755bc0a4cbaf.png" style="width: 80px;height: 80px;margin-left: 70px;">-->
 
@@ -121,17 +164,19 @@
                 </span>
             </div>-->
         </div>
-        <div class="contextFrame" style="min-height: 100px; height: 500px;">
-            <a href="/homepage/post" type="buttom" class="btn btn-light" style="float: right; margin-right:5%;margin-top: 20px;">发帖</a>
+
+        <div class="contextFrame" style=" height: auto; width: 55%; margin-left: 10%;background: rgba(244,244,244,0.8);">
+<!--            <a href="/homepage/post" type="buttom" class="btn btn-light" style="float: right; margin-right:5%;margin-top: 20px;">发帖</a>-->
             <div class="innerFrame" style="width: 94%; margin-left:3%;">
-                <div class="textList">
-                    <h1>post!!!!</h1>
+                <div class="textList" style="border-color: gray;">
+<!--                    <h1>post!!!!</h1>-->
                 <!--游戏对应的帖子-->
                     <div id="game_posts" >
                     <!--进入community 页面时默认显示的内容-->
                         <div id="defult"></div>
                     </div>
                 </div>
+                <div class="clearfloat"></div>
                 <!--<div class="left">-->
                 <!--<div class="textList">-->
                 <!--<ul>-->
@@ -151,20 +196,25 @@
                 <!--</div>-->
                 <!--</div>-->
             </div>
+            <div class="clearfloat"></div>
         </div>
+        <div class="clearfloat"></div>
         <div class="division"></div>
         <div class="division"></div>
         <div class="division"></div>
     </div>
+    <div class="clearfloat"></div>
 </div>
 <!--渲染游戏图标-->
 <script id="game" type="text/html">
-    <ul style="height: 80px; width: 100%;">
+    <ul style="height: 70px; width: 100%;">
         {{each data}}
-        <li style="width: 80px; height: 80px; float: left; margin-left: 5%;">
-            <button  style="float: left;border: none;" class="game imgButton" id="{{$value.gameId}}">
-                <img src="{{$value.picture}}" style="width: 50px; height: 50px; list-style: none; float: left;">
-            </button>
+        <li style="width: 70px; height: 70px; float: left; margin-left: 5%;">
+            <span  style="width: 100%; display: block; height: 100%;">
+                <a style="float: left; border: none;" class="game active" id="{{$value.gameId}}">
+                <img src="{{$value.picture}}" style="width: 56px; height: 56px; list-style: none; margin: 10%; cursor:pointer;">
+                </a>
+            </span>
         </li>
         {{/each}}
     </ul>
@@ -173,21 +223,22 @@
 <script id="game_post" type="text/html">
     <ul>
         {{each data}}
-        <li>
+        <li style="padding: 10px 10px;border-bottom-color: gray;">
             <!--发帖人头像-->
             <div style="float:left;"><img src="{{$value.userAvatar}}" style="width: 50px;height: 50px"></div>
-            <!--帖子标题-->
-            <a href="/homepage/bbspost/{{$value.postId}}"><div>{{$value.title}}</div></a>
             <!--发帖人昵称-->
-            <div style="float:left;width: 14%;">{{$value.userName}}</div>
+            <div style="float:left;width: 14%; font-weight: lighter; font-size: 14px; color:#EC7259;margin-left: 1%;">{{$value.userName}}</div>
             <!--帖子时间-->
-            <div style="float: left; width:10%; margin-left: 5%; margin-right: 5%;">{{$value.time}}</div>
+            <div style="float: right; width:10%; margin-left: 5%;font-weight: lighter;font-size: 14px;color:#555;">{{$value.time}}</div>
+            <!--帖子标题-->
+            <a href="/homepage/bbspost/{{$value.postId}}"><div style="float: left; width: 90%; color: #555;margin-left: 1%;">{{$value.title}}</div></a>
             <!--帖子内容-->
-            <div style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;margin-bottom: 40px;">{{$value.content}}</div>
+            <div style="font-weight: lighter; overflow: hidden; height: 24px; white-space: nowrap; text-overflow: ellipsis; margin-bottom: 10px;width: 90%; margin-top: 5%;margin-left: 6%;">{{$value.content}}</div>
         </li>
         {{/each}}
     </ul>
 </script>
+
 <script>
     var games = {};
     homepage(function (result) {

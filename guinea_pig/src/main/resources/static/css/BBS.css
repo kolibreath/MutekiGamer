@@ -67,13 +67,15 @@ body
 	outline-width: 1px;
 }
 
-.main-content .contextFrame .imgButton{
-	 width: 50px;
-	 height: 50px;
+.main-content .contextFrame span.active{
+	background-color: red;
 }
-.main-content .contextFrame .imgButton:after {
-	background: #777777;
-}
+/*.main-content .contextFrame span button.hover{*/
+/*	background-color: red;*/
+/*}*/
+/*.main-content .contextFrame span button.active{*/
+/*	background-color: red;*/
+/*}*/
 
 .attention .attentionFrame{
 	/* margin-top: 40px; */

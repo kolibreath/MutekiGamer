@@ -1,16 +1,18 @@
 package com.guineap_pig_329.guinea_pig.controller;
 
 import com.guineap_pig_329.guinea_pig.Constants;
-import com.guineap_pig_329.guinea_pig.util.Util;
 import com.guineap_pig_329.guinea_pig.dao.*;
 import com.guineap_pig_329.guinea_pig.dao.wrapper.ContestWrapper;
 import com.guineap_pig_329.guinea_pig.repo.*;
+import com.guineap_pig_329.guinea_pig.util.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.LinkedList;
 import java.util.List;
+
+//import jdk.vm.ci.meta.Constant;
 
 @RestController
 @RequestMapping("battle")
@@ -109,5 +111,14 @@ public class BattleController {
         int teamId=userSession.getTeamId();
         List<Player>players=playerRepo.findAllByTeamId(teamId);
         return ResultBean.success(players);
+    }
+
+    @RequestMapping("/teamBattle")
+    public ResultBean getTeamBattle(HttpSession session){
+        UserSession userSession=(UserSession)session.getAttribute(Constants.USE_SESSION_KEY);
+        int teamId=userSession.getTeamId();
+        String teamName=teamRepo.findAllByTeamId(teamId).getTeamName();
+        List<Contest>contests=contestRepo.findAllByTeamName1OrTeamName2(teamName,teamName);
+        return ResultBean.success(contests);
     }
 }

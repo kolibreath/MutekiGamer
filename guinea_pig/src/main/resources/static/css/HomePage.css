@@ -2,8 +2,19 @@ body{
 	/*background-image: url("http://overwatch.nos.netease.com/1/images/bbs/bg-community-bg.jpeg");
     background-repeat:repeat;*/
 	background-size: cover;
-	z-index: -1;
+	/*z-index: -1;*/
 	background-attachment: fixed;
+}
+.clearfloat{
+	clear:both;
+	height:0;
+	font-size:1px;
+	line-height:0px;
+}
+.homepagebanner{
+	background-image: url("http://img0.178.com/wow/201608/264021669723/264022007192.jpg");
+	background-size: cover;
+	z-index: -1;
 }
 .main-content{
 	max-width: 1440px;
@@ -51,12 +62,12 @@ body{
 
 .main-content .contextFrame{
 	margin-top: 40px;
-	width: 80%;
-	margin-left: 10%;
+	width: 90%;
+	margin-left: 5%;
 	border-radius: 10px;
 	height: auto;
 	outline-style: none;
-	background: rgba(244,244,244,0.3);
+	/*background: rgba(244,244,244,0.3);*/
 	outline-width: 1px;
 }
 
@@ -64,7 +75,7 @@ body{
 	padding-top: 20px;
 	padding-bottom: 20px;
 	margin: 0px auto;
-	max-width: 1080px;
+	width: 100%;
 	height: 100%;
 	overflow: hidden;
 }
@@ -94,8 +105,9 @@ body{
 }
 
 .contextFrame .innerFrame .textList ul{
-	padding: 20px 10px;
+	padding: 0px 10px 20px 10px;
 }
+
 
 .contextFrame .innerFrame .textList .listTitle{
 	padding-left: 0px !important;
@@ -105,7 +117,7 @@ body{
 }
 
 .contextFrame .innerFrame .textList li{
-	padding: 10px 10px;
+	padding: 3px 10px;
 	border-bottom-style: solid;
 	border-bottom-color: lightgray;
 	border-bottom-width: 1px;
@@ -119,6 +131,6 @@ body{
 
 .contextFrame .innerFrame a{text-decoration: none;}
 .contextFrame .innerFrame a:link {color:#141414;}
-.contextFrame .innerFrame a:visited {color:	#FFFFF0;}
+.contextFrame .innerFrame a:visited {color:	#555;}
 .contextFrame .innerFrame a:hover {color:#141414;}
-.contextFrame .innerFrame a:active {color:#696969;}
+.contextFrame .innerFrame a:active {color:	#555;}
