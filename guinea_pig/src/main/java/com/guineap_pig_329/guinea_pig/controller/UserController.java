@@ -39,6 +39,8 @@ public class UserController {
     @Autowired
     private UserRepo userRepo;
 
+    @Autowired
+    private GameAttributeRepo gameAttributeRepo;
 
     @RequestMapping("/follow")
     public ResultBean  follow(HttpSession session, @RequestBody Map<String,Object> map){
@@ -101,6 +103,8 @@ public class UserController {
             Game game = gameRepo.findById(gameId).get();
             games.add(game);
         }
+
+        userHomePageWrapper.setGames(games);
 
         //todo 返回内容确定 缩减
         List<Post> posts = postRepo.findAllByUserId(userId);
@@ -233,6 +237,23 @@ public class UserController {
         bean.setMessage("成功请求");
 
         return bean;
+    }
+
+    private List<List<String> > recommend(HttpSession session){
+        UserSession userSession=(UserSession)session.getAttribute(Constants.USE_SESSION_KEY);
+        int userId=userSession.getId();
+        List<UserGame>userGames=userGameRepo.findAllByUserId(userId);
+        List<GameAttribute>gameAttributes=new LinkedList<>();
+//        存放该用户的游戏信息数据
+        List<List<String> >favor=new LinkedList<>();
+        for(UserGame u :userGames)
+        {
+            GameAttribute gameAttribute=gameAttributeRepo.findAllByGameId(u.getGameId());
+            gameAttributes.add(gameAttribute);
+
+
+        }
+
     }
 
 }
