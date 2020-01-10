@@ -18,34 +18,34 @@
     <script type="text/javascript" th:src="@{/js/Homepage.js}"></script>
     <script type="text/javascript" th:src="@{/js/User.js}"></script>
     <script type="text/javascript" th:src="@{/js/Post.js}"></script>
-    <style type="text/css">
-        body {
-            background: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1578632066944&di=488f11f15dcf0dec1695494ad1fb86a3&imgtype=jpg&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D3531975901%2C102568049%26fm%3D214%26gp%3D0.jpg") no-repeat;
-            color: rgba(220, 220, 220, 1);
-        }
-
-        .divbox1.right1.ul.li a:link {
-            color: #5c5c5c;
-            text-decoration: none;
-        }
-
-        .nav-pills .nav-link:active {
-            background-color: rgba(220, 220, 220, 0.6);
-
-        }
-
-        .nav-pills .nav-link:hover {
-            background-color: rgba(220, 220, 220, 0.6);
-
-        }
+<style type="text/css">
+    body{
+        background:url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1578632066944&di=488f11f15dcf0dec1695494ad1fb86a3&imgtype=jpg&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D3531975901%2C102568049%26fm%3D214%26gp%3D0.jpg") no-repeat;
+        color: rgba(220,220,220,1) ;
+    }
+    .divbox1.right1.ul.li a:link{
+        color: #5c5c5c;
+        text-decoration:none;
+    }
+    .nav-pills .nav-link:active{
+        background-color: rgba(220,220,220,0.6);
 
 
-    </style>
+    }
+    .nav-pills .nav-link:hover{
+        background-color: rgba(220,220,220,0.6);
+
+
+    }
+
+
+
+</style>
 
 </head>
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="300">
 <!-- Navigation Bar -->
-<div class="barContainer">
+<div class="barContainer" >
     <div class="nav-content">
         <div class="nav-title">
                 <span>
@@ -60,17 +60,16 @@
             <span style="float: left"><a href="/homepage/battle">战场</a></span>
             <!--<span style="float: right"><a href="/homepage/my">我</a></span>-->
             <!--<span class="user">-->
-            <!--<a href="login">Login</a>-->
-            <!--</span>-->
+                    <!--<a href="login">Login</a>-->
+                <!--</span>-->
             <div class="dropdown" style="float: right;margin: 5px 30px;">
                 <a href="/homepage/my">
                     <!--下面的img插用户头像-->
-                    <img src="https://static.dingtalk.com/media/lADPDgQ9rbqFW6nNAQLNAQM_259_258.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222062145382217%22%7D&bizType=im&open_id=267508618"
-                         style="width: 50px;height: 50px;border-radius: 50%;">
+                    <img src="https://static.dingtalk.com/media/lADPDgQ9rbqFW6nNAQLNAQM_259_258.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222062145382217%22%7D&bizType=im&open_id=267508618" style="width: 50px;height: 50px;border-radius: 50%;">
                 </a>
-                <a class="dropdown-toggle" data-toggle="dropdown" style="text-decoration: none;">
+                <a class="dropdown-toggle"  data-toggle="dropdown" style="text-decoration: none;">
                 </a>
-                <div class="dropdown-menu">
+                <div class="dropdown-menu" >
                     <!--两个跳转-->
                     <a class="dropdown-item" href="#">修改信息</a>
                     <a class="dropdown-item" href="#">退出</a>
@@ -84,24 +83,23 @@
 <div class="divbox1">
     <div class="left1" style="font-size: 13px;  width:120px;
     height:120px;
-margin-left:200px;">
+margin-left:200px;margin-top: 50px;">
         <div id="myinfo1"></div>
 
     </div>
-    <div class=right1 style="margin-top:120px;">
-        <div id="myname" style="padding-left: 18px;"></div>
+    <div class=right1 style="margin-top:50px;">
+        <div id="myname" style="padding-left: 18px;font-size: 30px;"></div>
         <!--用户名<br><br>-->
         <ul class="ui" style="font-color: rgba(220,220,220,1);">
             <li style="margin: 0;">
-                <!--                <a type="button" class="btn  btn-link btn-lg ">-->
-                <!--发帖数-->
-                <div id="post_num" style="margin-top:24px;height: 100px;"></div>
-                <!--                </a>-->
+<!--                <a type="button" class="btn  btn-link btn-lg ">-->
+                    <!--发帖数-->
+                    <div id="post_num" style="margin-top:24px;height: 100px;"></div>
+<!--                </a>-->
             </li>
             <li style="margin-right: 60px;">
                 <a type="button" class="btn  btn-link btn-lg " data-toggle="modal" data-target="#myModal1">
-                    <div id="follow_num" style="height: 100px;"></div>
-                </a>
+                    <div id="follow_num" style="height: 100px;"></div></a>
                 <!-- 关注人数框 -->
                 <div class="container">
                     <div class="modal fade" id="myModal1">
@@ -300,11 +298,235 @@ margin-left:200px;">
         <div class="row">
             <nav class="col-sm-3 col-4" id="myScrollspy">
                 <!--导航-->
-                <div id="navigation"></div>
+                <div id="navigation" ></div>
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link active" href="#section1"><img src="img/lushi.png" style="width:60px; height:60px;"></a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link" href="#section2"><img src="img/anhei.png"style="width:60px; height:60px;"></a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link" href="#section3"><img src="img/moshou.png" style="width:60px; height:60px;"></a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link" href="#section4"><img src="img/fengbao.png" style="width:60px; height:60px;"></a>-->
+                <!--</li>-->
+                <!--</ul>-->
             </nav>
+
             <div class="col-sm-9 col-8">
                 <!--帖子-->
                 <div id="post"></div>
+                <!--<div id="section1">-->
+                <!--<ul>-->
+                <!--<li>-->
+                <!--<div style="font-size: 20px; padding-top:20px">24分钟前-->
+                <!--</div>-->
+                <!--<div style="font-size: 18px;margin-top: 20px;margin-bottom: 20px;">虽败犹荣,9倍的快乐你想象不到（狗头）<br>为早上的莽撞自罚一杯！-->
+
+                <!--</div>-->
+                <!--<div style="border: 0.5px solid gray;width:680px;height:1px"></div>-->
+                <!--<div>-->
+                <!--<ul class="ul">-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128"-->
+                <!--style="width: 25px;height: 17px">&nbsp浏览数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128"-->
+                <!--style="width: 18px;height: 18px">&nbsp评论数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128"-->
+                <!--style="width: 20px;height: 20px">&nbsp点赞数-->
+                <!--</li>-->
+                <!--<button type="button" class="btn btn-outline-light text-dark"-->
+                <!--style="margin-left:55px; margin-bottom:20px;font-weight: 700;">删除-->
+                <!--</button>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--</li>-->
+                <!--<li style="border: 0.5px solid gray;width:780px;height:2px"></li>-->
+                <!--<li>-->
+                <!--<div style="font-size: 20px; padding-top: 20px">一天前</div>-->
+                <!--<div style="font-size: 18px; margin-top: 20px;margin-bottom: 20px;">#炉石传说#圣光指引我！<br>-->
+                <!--我觉得鲍勃在骗我，只有小粉，我的恶魔呢？-->
+                <!--</div>-->
+                <!--<div style="border: 0.5px solid gray;width:680px;height:1px"></div>-->
+                <!--<div>-->
+                <!--<ul class="ul">-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128"-->
+                <!--style="width: 25px;height: 17px">&nbsp浏览数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128"-->
+                <!--style="width: 18px;height: 18px">&nbsp评论数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128"-->
+                <!--style="width: 20px;height: 20px">&nbsp点赞数-->
+                <!--</li>-->
+                <!--<button type="button" class="btn btn-outline-light text-dark"-->
+                <!--style="margin-left:55px; margin-bottom:20px;font-weight: 700;">删除-->
+                <!--</button>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--</li>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--<div id="section2">-->
+                <!--<ul>-->
+                <!--<li>-->
+                <!--<div style="font-size: 20px; padding-top:20px">24分钟前-->
+                <!--</div>-->
+                <!--<div style="font-size: 18px;margin-top: 20px;margin-bottom: 20px;">-->
+                <!--#暗黑破坏神#虽败犹荣,9倍的快乐你想象不到（狗头）<br>为早上的莽撞自罚一杯！-->
+                <!--</div>-->
+                <!--<div style="border: 0.5px solid gray;width:680px;height:1px"></div>-->
+                <!--<div>-->
+                <!--<ul class="ul">-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128"-->
+                <!--style="width: 25px;height: 17px">&nbsp浏览数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128"-->
+                <!--style="width: 18px;height: 18px">&nbsp评论数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128"-->
+                <!--style="width: 20px;height: 20px">&nbsp点赞数-->
+                <!--</li>-->
+                <!--<button type="button" class="btn btn-outline-light text-dark"-->
+                <!--style="margin-left:55px; margin-bottom:20px;font-weight: 700;">删除-->
+                <!--</button>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--</li>-->
+                <!--<li style="border: 0.5px solid gray;width:780px;height:2px"></li>-->
+                <!--<li>-->
+                <!--<div style="font-size: 20px; padding-top: 20px">一天前-->
+                <!--</div>-->
+                <!--<div style="font-size: 18px; margin-top: 20px;margin-bottom: 20px;">圣光指引我！<br>-->
+                <!--我觉得鲍勃在骗我，只有小粉，我的恶魔呢？-->
+                <!--</div>-->
+                <!--<div style="border: 0.5px solid gray;width:680px;height:1px"></div>-->
+                <!--<div>-->
+                <!--<ul class="ul">-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128"-->
+                <!--style="width: 25px;height: 17px">&nbsp浏览数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128"-->
+                <!--style="width: 18px;height: 18px">&nbsp评论数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128"-->
+                <!--style="width: 20px;height: 20px">&nbsp点赞数-->
+                <!--</li>-->
+                <!--<button type="button" class="btn btn-outline-light text-dark"-->
+                <!--style="margin-left:55px; margin-bottom:20px;font-weight: 700;">删除-->
+                <!--</button>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--</li>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--<div id="section3">-->
+                <!--<ul>-->
+                <!--<li>-->
+                <!--<div style="font-size: 20px; padding-top:20px">24分钟前-->
+                <!--</div>-->
+                <!--<div style="font-size: 18px;margin-top: 20px;margin-bottom: 20px;">#魔兽世界#虽败犹荣,9倍的快乐你想象不到（狗头）<br>为早上的莽撞自罚一杯！-->
+                <!--</div>-->
+                <!--<div style="border: 0.5px solid gray;width:680px;height:1px"></div>-->
+                <!--<div>-->
+                <!--<ul class="ul">-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128"-->
+                <!--style="width: 25px;height: 17px">&nbsp浏览数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128"-->
+                <!--style="width: 18px;height: 18px">&nbsp评论数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128"-->
+                <!--style="width: 20px;height: 20px">&nbsp点赞数-->
+                <!--</li>-->
+                <!--<button type="button" class="btn btn-outline-light text-dark"-->
+                <!--style="margin-left:55px; margin-bottom:20px;font-weight: 700;">删除-->
+                <!--</button>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--</li>-->
+                <!--<li style="border: 0.5px solid gray;width:780px;height:2px"></li>-->
+                <!--<li>-->
+                <!--<div style="font-size: 20px; padding-top: 20px">一天前-->
+                <!--</div>-->
+                <!--<div style="font-size: 18px; margin-top: 20px;margin-bottom: 20px;">圣光指引我！<br>-->
+                <!--我觉得鲍勃在骗我，只有小粉，我的恶魔呢？-->
+                <!--</div>-->
+                <!--<div style="border: 0.5px solid gray;width:680px;height:1px"></div>-->
+                <!--<div>-->
+                <!--<ul class="ul">-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128"-->
+                <!--style="width: 25px;height: 17px">&nbsp浏览数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128"-->
+                <!--style="width: 18px;height: 18px">&nbsp评论数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128"-->
+                <!--style="width: 20px;height: 20px">&nbsp点赞数-->
+                <!--</li>-->
+                <!--<button type="button" class="btn btn-outline-light text-dark"-->
+                <!--style="margin-left:55px; margin-bottom:20px;font-weight: 700;">删除-->
+                <!--</button>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--</li>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--<div id="section4">-->
+                <!--<ul>-->
+                <!--<li>-->
+                <!--<div style="font-size: 20px; padding-top:20px">24分钟前-->
+                <!--</div>-->
+                <!--<div style="font-size: 18px;margin-top: 20px;margin-bottom: 20px;">-->
+                <!--#风暴英雄1#虽败犹荣,9倍的快乐你想象不到（狗头）<br>为早上的莽撞自罚一杯！-->
+                <!--</div>-->
+                <!--<div style="border: 0.5px solid gray;width:680px;height:1px"></div>-->
+                <!--<div>-->
+                <!--<ul class="ul">-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128"-->
+                <!--style="width: 25px;height: 17px">&nbsp浏览数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128"-->
+                <!--style="width: 18px;height: 18px">&nbsp评论数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128"-->
+                <!--style="width: 20px;height: 20px">&nbsp点赞数-->
+                <!--</li>-->
+                <!--<button type="button" class="btn btn-outline-light text-dark"-->
+                <!--style="margin-left:55px; margin-bottom:20px;font-weight: 700;">删除-->
+                <!--</button>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--</li>-->
+                <!--<li style="border: 0.5px solid gray;width:780px;height:2px"></li>-->
+                <!--<li>-->
+                <!--<div style="font-size: 20px; padding-top: 20px">一天前-->
+                <!--</div>-->
+                <!--<div style="font-size: 18px; margin-top: 20px;margin-bottom: 20px;">圣光指引我！<br>-->
+                <!--我觉得鲍勃在骗我，只有小粉，我的恶魔呢？-->
+                <!--</div>-->
+                <!--<div style="border: 0.5px solid gray;width:680px;height:1px"></div>-->
+                <!--<div>-->
+                <!--<ul class="ul">-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1196657&size=128"-->
+                <!--style="width: 25px;height: 17px">&nbsp浏览数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1190746&size=128"-->
+                <!--style="width: 18px;height: 18px">&nbsp评论数-->
+                <!--</li>-->
+                <!--<li><img src="http://www.easyicon.net/api/resizeApi.php?id=1223115&size=128"-->
+                <!--style="width: 20px;height: 20px">&nbsp点赞数-->
+                <!--</li>-->
+                <!--<button type="button" class="btn btn-outline-light text-dark"-->
+                <!--style="margin-left:55px; margin-bottom:20px;font-weight: 700;">删除-->
+                <!--</button>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--</li>-->
+                <!--</ul>-->
+                <!--</div>-->
 
             </div>
         </div>
@@ -315,10 +537,8 @@ margin-left:200px;">
     <img src="{{userAvatar}}" style="width: 120px;height: 120px">
 </script>
 
-<script id="myname1" type="text/html">
-    <div  style="font-size: 100px">
-        {{userName}}
-    </div>
+<script id="myname1" type="text/html" style="font-size: 100px">
+    {{userName}}
 </script>
 
 <script id="post_num1" type="text/html">
@@ -328,30 +548,25 @@ margin-left:200px;">
 
 <script id="follow_num1" type="text/html">
     <a class="btn  btn-link btn-lg " data-toggle="modal" data-target="#myModal1">
-        <button id="follow_click" class="btn  btn-link btn-lg " style=" color:  rgba(220,220,220,1);
-  text-decoration:none;">关注：{{followingNum}}
-        </button>
+        <button id="follow_click"  class="btn  btn-link btn-lg " style=" color:  rgba(220,220,220,1);
+  text-decoration:none;" >关注：{{followingNum}}</button>
     </a>
 </script>
 
 <script id="follower_num1" type="text/html">
     <a class="btn  btn-link btn-lg " data-toggle="modal" data-target="#myModal2">
         <button id="follower_click" class="btn  btn-link btn-lg " style=" color:  rgba(220,220,220,1);
-  text-decoration:none;">粉丝：{{followerNum}}
-        </button>
+  text-decoration:none;">粉丝：{{followerNum}}</button>
     </a>
 </script>
 
 <script id="follow_info1" type="text/html">
-    <ul>
+    <ul >
         {{each following}}
         <li style="width:466px;">
             <img src="{{$value.userAvatar}}" style="height: 50px;width: 50px;float: left;">
             <div style="float: left;margin-top: 10px;margin-left: 10px;">{{$value.userName}}</div>
-            <button class="unfollow btn btn-outline-light text-dark"
-                    style=" font-weight: 700;border-radius:20px;float: right;margin-right: 40px;margin-top: 7px;"
-                    id="{{$value.userId}}}">取关
-            </button>
+            <button class="unfollow btn btn-outline-light text-dark" style=" font-weight: 700;border-radius:20px;float: right;margin-right: 40px;margin-top: 7px;" id="{{$value.userId}}}">取关</button>
         </li>
         {{/each}}
     </ul>
@@ -371,8 +586,8 @@ margin-left:200px;">
 </script>
 <!--处理显示左侧游戏-->
 <script id="navigation1" type="text/html">
-    <ul class="nav nav-pills flex-column" style="text-align: center;margin-left: 190px;">
-        {{each games}}
+    <ul class="nav nav-pills flex-column" style="text-align: center;margin-left: 190px;margin-top: 0;top:280px;" >
+        {{each data}}
         <li class="nav-item">
             <a class="nav-link " href="#{{$value.gameId}}">
                 <img src="{{$value.picture}}" style="width: 80px; height: 80px; ">
@@ -382,18 +597,18 @@ margin-left:200px;">
     </ul>
 </script>
 <script id="test" type="text/html">
-    {{each data}}
-    <div id="{{$value.gameId}}" style="color: #000; background-color: rgba(220,220,220,0.4);">
-        {{$value.content}}
-    </div>
-    {{/each}}
+        {{each data}}
+            <div id="{{$value.gameId}}" style="color: #000; background-color: rgba(220,220,220,0.4);">
+                {{$value.content}}
+            </div>
+        {{/each}}
 </script>
 <script id="test2" type="text/html">
     <ul>
         {{each myPost}}
         <li>
 
-            <a href="/homepage/bbspost/{{$value.postId}}">
+            <a href="/homepage/bbspost/{{$value.postId}}" >
                 <div>{{$value.title}}</div>
             </a>
             {{$value.content}}
@@ -405,8 +620,10 @@ margin-left:200px;">
 <script>
     var myinfo = {};
     getUserInfo(function (result) {
+        console.log(result);
         myinfo = result.data;
 
+        console.log(myinfo);
         var h1 = template('myinfo11', myinfo);
         document.getElementById('myinfo1').innerHTML = h1;
 
@@ -428,12 +645,8 @@ margin-left:200px;">
         var follower_info = template('follower_info1', myinfo);
         document.getElementById('follower_info').innerHTML = follower_info;
 
-        // 处理游戏和帖子
-        var html = template('navigation1', myinfo);
-        console.log(html);
-        document.getElementById('navigation').innerHTML = html;
-
     })
+
 </script>
 
 <!--处理游戏请求-->
@@ -450,7 +663,6 @@ margin-left:200px;">
         document.getElementById('post').innerHTML = h;
     })
 </script>
-
 <script>
     $(function () {
         $(".unfollow").click(function () {
