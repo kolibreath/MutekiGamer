@@ -293,6 +293,7 @@
     <ul>
         {{each data}}
         <li class="clublist" style="float: left;width: 46.5%;">
+            <div><a href="/homepage/teaminfo/{{$value.teamId}}">{{$value.teamName}}</a></div>
             <div><img src="{{$value.avatar}}" style="width: 50%; height: auto; border-radius: 50%"></div>
             <div style=" width: 100%; text-align: center;">{{$value.teamName}}</div>
         </li>
