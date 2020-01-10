@@ -75,3 +75,39 @@ function getPostByGameId(gameId,call){
     $.when(post).done(() =>{call(allData)});
 
 }
+
+function homepage1(call) {
+    let allData = {};
+    //请求用户游戏数据
+    let gamesRequest = $.ajax(({
+        url:"/game/allgame",
+        type: "GET",
+        success:function (result) {
+            allData.game  = result;
+        },
+        error: function (result) {
+            allData.game  = result;
+        },
+        complete:function (result) {
+            // completeFunction(result);
+        }
+    }));
+
+    //请求帖子数据
+    let postRequest = $.ajax(({
+        url:"/post/selected",
+        type:"GET",
+        success:function (result) {
+            allData.post = result;
+        },
+        error:function (result) {
+            allData.post = result;
+        },
+        complete:function (result) {
+            // completeFunction(result);
+        }
+    }));
+
+    //todo 前端ajax filter
+    $.when(  gamesRequest,postRequest).done(() => {call(allData)});
+}
