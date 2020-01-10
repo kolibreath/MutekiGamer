@@ -47,6 +47,12 @@ public class GameController {
         return ResultBean.success(games);
     }
 
+
+    @RequestMapping("/allgame")
+    public ResultBean getallgame(){
+        List<Game>games=gameRepo.findAll();
+        return ResultBean.success(games);
+    }
 //
 //    private int gameWeight(List<Game> userGame){
 //
