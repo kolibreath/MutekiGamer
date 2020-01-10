@@ -7,10 +7,7 @@ import com.guineap_pig_329.guinea_pig.dao.wrapper.UserHomePageWrapper;
 import com.guineap_pig_329.guinea_pig.dao.wrapper.UserWrapper;
 import com.guineap_pig_329.guinea_pig.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.LinkedList;
@@ -245,7 +242,41 @@ public class UserController {
     }
 
     @RequestMapping("/alter_user_info")
-    private ResultBean alterUserInfo(){
-        return null;
+    private ResultBean alterUserInfo(HttpSession httpSession,@RequestBody Map<String,Object> map){
+        UserSession userSession = (UserSession) httpSession.getAttribute(Constants.USE_SESSION_KEY);
+        int userId = userSession.getId();
+
+        String nickName ;
+        String avatar;
+        int sex ,age;
+        String city,userOccupation,intro;
+
+        try{
+
+            nickName = (String) map.get("nickname");
+            avatar = (String) map.get("avatar");
+            sex = (int) map.get("sex");
+            age = Integer.parseInt((String) map.get("age"));
+            city = (String) map.get("city");
+            userOccupation = (String) map.get("occupation");
+            intro = (String) map.get("intro");
+            User user = userRepo.findUserByUserId(userId);
+            UserInfo userInfo = userInfoRepo.findUserInfoByUserId(userId);
+            userInfo.setUserAvatar(avatar);
+            user.setUserName(nickName);
+            userInfo.setUserSex(sex);
+            userInfo.setUserAge(age);
+            userInfo.setUserCity(city);
+            userInfo.setUserOccupation(userOccupation);
+            userInfo.setUserIntro(intro);
+            userRepo.save(user);
+            userInfoRepo.save(userInfo);
+
+            return ResultBean.success(null);
+
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResultBean.error(ResultBean.bad_request,"解析异常");
+        }
     }
 }

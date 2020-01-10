@@ -15,8 +15,6 @@
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-
-
 </head>
 <body >
 <!-- Navigation Bar -->
@@ -54,11 +52,17 @@
 
         <div class="col-md-3">
             <div id="alter_avatar_container">
-
             </div>
             <a class="btn btn-outline-primary" style="margin-left: 30%;margin-top: 20px;">
-                <input style="position: absolute;display: block !important;width: 82px;opacity: 0;" type="file"   unselectable="on" name="">更改头像</a>
+                <form method="POST" enctype="multipart/form-data" onsubmit="return false" id="user_avatar_form">
+                    <input style="position: absolute;display: block !important;width: 82px;opacity: 0;"
+                           type="file" id="upload_pic" unselectable="on" name="file">更改头像
+                </form>
+            </a>
+
         </div>
+
+
         <div class="col-md-9" style="padding-left: 30px;">
             <h1 style="margin-top: 50px;">昵称
                 <a href="my.html" type="button" class="btn  btn-link " style="margin-left: 60%">
@@ -139,30 +143,75 @@
     getUserInfo(function(result){
         let userInfo = result.data;
         $("#user_avatar_container").html(" <!--下面的img插用户头像-->\n" +
-            "                    <img src=\""+userInfo.userAvatar+"\" style=\"width: 50px;height: 50px;border-radius: 50%;\">\n")
+            "                    <img src=\""+userInfo.userAvatar+"\" style=\"width: 50px;height: 50px;border-radius: 50%;\">\n");
         $("#alter_avatar_container").html("  <img style=\"border-radius: 50%; margin-top: 20px;margin-left:10px; height: 200px; width: 200px;\" src=\" "+userInfo.userAvatar+"\" >");
     });
 
+    $("#upload_pic").click(function(){
 
-    console.log($("#submit_info"));
+    });
+
+    function checkForm(){
+        let formData = new FormData($("#user_avatar")[0]);
+        $.ajax({
+           url:"/upload" ,
+           type:"POST",
+           data:formData,
+           cache:false,
+           async:false,
+           processData:false,
+           contentType:false,
+
+            success:function(data){
+               console.log(data);
+               return data.data;
+            },
+            error:function(data){
+
+            }
+        });
+    }
+
+
     $("#submit_info").click( function () {
         let degree = $("#id").val();
         let nickName = $("#name").val();
-        let city =  $("#email").val();
+        let city = $("#email").val();
         let sexStr = $("input[name='optionsRadiosinline'][checked]").val();
         let sexInt = 1;
-        if(sexStr  == "男"){
+        if (sexStr == "男") {
             sexInt = 1;
-        }else{
+        } else {
             sexInt = 0;
         }
         let age = $("#age").val();
         let occupation = $("#occupation").val();
         let intro = $("#intro").val();
 
-        i
+        let formdata = new FormData($("#user_avatar_form")[0]);
+        console.log(formdata);
+        $.ajax({
+            url: "/upload/img",
+            type: "POST",
+            data: formdata,
+            enctype: 'multipart/form-data',
+            processData: false,  // 告诉jQuery不要去处理发送的数据
+            contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+            success: function (res) {
+                console.log(res);
+                //上传头像完成
+                let userAvatar = res.data;
+                alterUserInfo(userAvatar,nickName,sexInt,age,city,occupation,intro,
+                    function(result){
+                    if(result.code == 200){
+                        //todo
+                        alert("修改成功");
+                    }
+                });
+            }
 
-    })
+        });
+    });
 
 </script>
 

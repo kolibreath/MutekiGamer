@@ -25,12 +25,27 @@ public class UserInfo {
     private String userCity;
     @Column
     private int userAge;
-//    @Column
-//    private String userDegree;
-//    @Column
-//    private String
+    @Column
+    private String userDegree;
+    @Column
+    private String userOccupation;
 
 
+    public String getUserDegree() {
+        return userDegree;
+    }
+
+    public void setUserDegree(String userDegree) {
+        this.userDegree = userDegree;
+    }
+
+    public String getUserOccupation() {
+        return userOccupation;
+    }
+
+    public void setUserOccupation(String userOccupation) {
+        this.userOccupation = userOccupation;
+    }
 
     public int getUserInfoId() {
         return userInfoId;
@@ -99,5 +114,16 @@ public class UserInfo {
         this.userSex = userSex;
         this.userCity = userCity;
         this.userAge = userAge;
+    }
+
+    public UserInfo(int userId, String userAvatar, String userIntro, int userSex, String userCity, int userAge, String userDegree, String userOccupation) {
+        this.userId = userId;
+        this.userAvatar = userAvatar;
+        this.userIntro = userIntro;
+        this.userSex = userSex;
+        this.userCity = userCity;
+        this.userAge = userAge;
+        this.userDegree = userDegree;
+        this.userOccupation = userOccupation;
     }
 }

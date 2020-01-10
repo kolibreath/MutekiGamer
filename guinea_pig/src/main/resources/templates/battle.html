@@ -21,6 +21,7 @@
     <script type="text/javascript" th:src="@{/js/Homepage.js}"></script>
     <script type="text/javascript" th:src="@{/js/Battle.js}"></script>
     <script type="text/javascript" th:src="@{/js/Team.js}"></script>
+    <script type="text/javascript" th:src="@{/js/User.js}"></script>
     <script type="text/javascript" th:src="@{/js/Default.js}"></script>
 
 </head>
@@ -43,7 +44,7 @@
                     <!--<a href="Login">Login</a>-->
             <!--</span>-->
             <div class="dropdown" style="float: right;margin: 5px 30px;">
-                <a href="/homepage/my">
+                <a href="/homepage/my" id="user_avatar_container">
                     <!--下面的img插用户头像-->
                     <img src="https://static.dingtalk.com/media/lADPDgQ9rbqFW6nNAQLNAQM_259_258.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222062145382217%22%7D&bizType=im&open_id=267508618" style="width: 50px;height: 50px;border-radius: 50%;">
                 </a>
@@ -363,6 +364,7 @@
     <ul>
         {{each data}}
         <li class="clublist" style="float: left;width: 46.5%;">
+            <div><a href="/homepage/teaminfo/{{$value.teamId}}">{{$value.teamName}}</a></div>
             <div><img src="{{$value.avatar}}" style="width: 50%; height: auto; border-radius: 50%"></div>
             <div style=" width: 100%; text-align: center;">{{$value.teamName}}</div>
         </li>
@@ -447,7 +449,13 @@
                 document.getElementById('battle').innerHTML = html;
             });
         })
-    })
+    });
+
+    getUserInfo(function(result){
+        let userInfo = result.data;
+        $("#user_avatar_container").html(" <!--下面的img插用户头像-->\n" +
+            "                    <img src=\""+userInfo.userAvatar+"\" style=\"width: 50px;height: 50px;border-radius: 50%;\">\n");
+    });
 </script>
 
 

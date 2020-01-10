@@ -19,6 +19,7 @@
     <script type="text/javascript" th:src="@{/js/template-web.js}"></script>
     <script type="text/javascript" th:src="@{/js/Homepage.js}"></script>
     <script type="text/javascript" th:src="@{/js/Default.js}"></script>
+    <script type="text/javascript" th:src="@{/js/User.js}"></script>
     <style>
         /*.main-content .contextFrame li span:visited{*/
         /*    background-color:blue;*/
@@ -60,9 +61,8 @@
             <span style="float: left"><a href="/homepage/news">头条</a></span>
             <span style="float: left"><a href="/homepage/battle">战场</a></span>
             <div class="dropdown" style="float: right;margin: 5px 30px;">
-                <a href="/homepage/my">
+                <a href="/homepage/my" id="user_avatar_container">
                     <!--下面的img插用户头像-->
-                    <img src="https://static.dingtalk.com/media/lADPDgQ9rbqFW6nNAQLNAQM_259_258.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222062145382217%22%7D&bizType=im&open_id=267508618" style="width: 50px;height: 50px;border-radius: 50%;">
                 </a>
                 <a class="dropdown-toggle"  data-toggle="dropdown" style="text-decoration: none;">
                 </a>
@@ -93,14 +93,14 @@
             <div class="carousel-inner">
                 <!-- <a href=" "> -->
                 <div class="carousel-item active">
-                    <img src="https://static.dingtalk.com/media/lALPDgQ9raEHz7bMy80DJQ_805_203.png?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222029248153781%22%7D&bizType=im&open_id=267544667">
+                    <a href="https://ow.blizzard.cn/home"><img src="https://upload-images.jianshu.io/upload_images/20804610-a0d129783b4b007d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></a>
                 </div>
                 <!--  </a> -->
                 <div class="carousel-item">
-                    <img src="https://static.dingtalk.com/media/lALPDgQ9raEHz7DMkM0COQ_569_144.png_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222029248153460%22%7D&bizType=im&open_id=267544667">
+                    <a href="https://hs.blizzard.cn/landing"><img src="https://upload-images.jianshu.io/upload_images/20804610-441123370fdff572.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></a>
                 </div>
                 <div class="carousel-item">
-                    <img src="https://static.dingtalk.com/media/lALPDgQ9raEHz7jMy80DJQ_805_203.png_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222035921406135%22%7D&bizType=im&open_id=267544667">
+                    <a href="https://www.wowchina.com/zh-cn/"><img src="https://upload-images.jianshu.io/upload_images/20804610-e87190ca831a74a6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></a>
                 </div>
             </div>
 
@@ -116,20 +116,8 @@
 
     <div class="main-content">
         <div class="col-md-4" style="padding: 0;width: 25%;float: right;margin-right: 10%;">
-            <div class="author" >
-                <p style="text-align: left;padding-left: 30px;"><img src="img/pencil.png" style="width: 15px;height: 15px;"> 我</p>
-                <a href="">
-                <img src="https://static.dingtalk.com/media/lADPDgQ9rbqFW6nNAQLNAQM_259_258.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222062145382217%22%7D&bizType=im&open_id=267508618">
-                <p style="margin-top: 15px;">莫甘娜</p>
-                </a>
-                <ul>
-                <li>帖子:5</li>
-                <li>粉丝:55</li>
-                <li>关注:555</li>
-                </ul>
-                <div style="margin-top: 30px;margin-bottom: 0px;">
-                    <a href="/homepage/post" type="button" class="btn btn-info" style="color:white; width: 100%;">发帖</a>
-                </div>
+            <div class="author" id="user_info_container" >
+
             </div>
 
         </div>
@@ -272,6 +260,27 @@
                 })
             })
         });
+
+    getUserInfo(function(result){
+        let userInfo = result.data;
+        $("#user_avatar_container").html(" <!--下面的img插用户头像-->\n" +
+            "                    <img src=\""+userInfo.userAvatar+"\" style=\"width: 50px;height: 50px;border-radius: 50%;\">\n");
+        $("#user_info_container").html(" <p style=\"text-align: left;padding-left: 30px;\"><img src=\"img/pencil.png\" style=\"width: 15px;height: 15px;\"> 我</p>\n" +
+            "                <a href=\"\">\n" +
+            "                <img src=\""+userInfo.userAvatar+"\">\n" +
+            "                <p style=\"margin-top: 15px;\">"+userInfo.userName+"</p>\n" +
+            "                </a>\n" +
+            "                <ul>\n" +
+            "                <li>帖子:"+userInfo.postLength+"</li>\n" +
+            "                <li>粉丝:"+userInfo.followerNum+"</li>\n" +
+            "                <li>关注:"+userInfo.followingNum+"</li>\n" +
+            "                </ul>\n" +
+            "                <div style=\"margin-top: 30px;margin-bottom: 0px;\">\n" +
+            "                    <a href=\"/homepage/post\" type=\"button\" class=\"btn btn-info\" style=\"color:white; width: 100%;\">发帖</a>\n" +
+            "                </div>")
+    });
+
+
 </script>
 <footer style="position: relative;height: 60px;background-color:#5E5E5E; color:  #EAEAEA;overflow: hidden;">
     <div style="height:50px;width: 180px;margin-left: 30%;float: left;">

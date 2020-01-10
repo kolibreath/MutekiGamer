@@ -48,7 +48,6 @@ public class HomepageController {
         httpSession.setAttribute(Constants.USE_SESSION_KEY,userSession);
         return "bbspost";
     }
-
     @RequestMapping("/post")
     public String post() {
         return "post";

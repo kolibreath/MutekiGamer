@@ -87,18 +87,20 @@ function sendEmail(call){
 }
 
 
-function alterUserInfo (avatar,nickname,sex, age, city,call ) {
+function alterUserInfo (avatar,nickname,sex, age, city,occupation,intro,call ) {
     let postBody = {
         nickname:nickname,
         avatar:avatar,
         sex:sex,
         age:age,
-        city:city
+        city:city,
+        occupation:occupation,
+        intro:intro
     };
 
     let allData = {};
     let alterUserInfo = $.ajax({
-        url:"/alter_user_info",
+        url:"/user/alter_user_info",
         type:"POST",
         contentType:"application/json",
         data:JSON.stringify(postBody),
