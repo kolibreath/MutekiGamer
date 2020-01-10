@@ -110,4 +110,13 @@ public class BattleController {
         List<Player>players=playerRepo.findAllByTeamId(teamId);
         return ResultBean.success(players);
     }
+
+    @RequestMapping("/teamBattle")
+    public ResultBean getTeamBattle(HttpSession session){
+        UserSession userSession=(UserSession)session.getAttribute(Constants.USE_SESSION_KEY);
+        int teamId=userSession.getTeamId();
+        String teamName=teamRepo.findAllByTeamId(teamId).getTeamName();
+        List<Contest>contests=contestRepo.findAllByTeamName1OrTeamName2(teamName,teamName);
+        return ResultBean.success(contests);
+    }
 }
