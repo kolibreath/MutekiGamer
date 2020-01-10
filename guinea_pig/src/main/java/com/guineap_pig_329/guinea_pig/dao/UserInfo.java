@@ -11,27 +11,24 @@ public class UserInfo {
     @Id
     @GeneratedValue
     private int userInfoId;
-
     @Column
     private int userId;
-
     @Column
     private String userAvatar;
-
     @Column
     @Nullable
     private String userIntro;
-
     @Column
     private int userSex;
-
     @Column
     @Nullable
-
     private String userCity;
-
     @Column
     private int userAge;
+//    @Column
+//    private String userDegree;
+//    @Column
+//    private String
 
 
 

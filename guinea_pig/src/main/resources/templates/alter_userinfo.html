@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./static/css/index.css"/>
     <link rel="stylesheet" type="text/css" href="./static/css/login.css"/>
-
-
+    <meta name="referrer" content="no-referrer"/>
+    <script type="text/javascript" th:src="@{/js/User.js}"></script>
     <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -33,21 +33,13 @@
             <span style="float: left"><a href="/homepage/community">社区</a></span>
             <span style="float: left"><a href="/homepage/news">头条</a></span>
             <span style="float: left"><a href="/homepage/battle">战场</a></span>
-            <!--<span style="float: right"><a href="/homepage/my">我</a></span> -->
 
-            <!--<span class="user">-->
-            <!--<a href="login">Login</a>-->
-            <!--</span>-->
             <div class="dropdown" style="float: right;margin: 5px 30px;">
-                <a href="/homepage/my">
-                    <!--下面的img插用户头像-->
-                    <img src="https://static.dingtalk.com/media/lADPDgQ9rbqFW6nNAQLNAQM_259_258.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222062145382217%22%7D&bizType=im&open_id=267508618" style="width: 50px;height: 50px;border-radius: 50%;">
+                <a href="/homepage/my" id="user_avatar_container">
                 </a>
                 <a class="dropdown-toggle"  data-toggle="dropdown" style="text-decoration: none;">
                 </a>
                 <div class="dropdown-menu" >
-                    <!--两个跳转-->
-                    <a class="dropdown-item" href="#">修改信息</a>
                     <a class="dropdown-item" href="#">退出</a>
                 </div>
             </div>
@@ -61,8 +53,9 @@
     <div class="row" style="background-color: white;margin-top: 80px;height:auto;margin-bottom: 40px;">
 
         <div class="col-md-3">
-            <img style="border-radius: 50%; margin-top: 20px;margin-left:10px; height: 200px; width: 200px;" src="img/photo.png " >
+            <div id="alter_avatar_container">
 
+            </div>
             <a class="btn btn-outline-primary" style="margin-left: 30%;margin-top: 20px;">
                 <input style="position: absolute;display: block !important;width: 82px;opacity: 0;" type="file"   unselectable="on" name="">更改头像</a>
         </div>
@@ -74,7 +67,7 @@
             </h1>
             <from  class="form-inline" role="form" style="margin-top: 60px;">
                 <div class="form-group">
-                    <label for="id" class=" control-label" style="margin-right:100px;">ID:</label>
+                    <label for="id" class=" control-label" style="margin-right:100px;">学历:</label>
                     <input type="text" class="form-control" style="margin-left: 25px; width: 250px; " placeholder="" id="id" name="id">
                 </div>
             </from>
@@ -88,7 +81,7 @@
 
             <from  class="form-inline" role="form" style="margin-top: 60px;">
                 <div class="form-group">
-                    <label for="email" class=" control-label" style="margin-right:100px;">邮箱：</label>
+                    <label for="email" class=" control-label" style="margin-right:100px;">城市：</label>
                     <input type="text" class="form-control" style="width: 250px;" placeholder="" id="email" name="email">
                 </div>
             </from>
@@ -96,7 +89,6 @@
             <from  class="form-inline" role="form" style="margin-top: 60px;">
                 <div class="form-group">
                     <label  class=" control-label" style="margin-right:100px;">性别：</label>
-
 
                     <div class="radio ">
                         <label class="radio-inline ">
@@ -133,7 +125,7 @@
                 </div>
             </from>
 
-            <button type="submit" class="btn btn-primary" style="margin-top: 60px; margin-bottom: 30px; margin-left:15%;margin-right: 100px;">提交</button>
+            <button id="submit_info" type="submit" class="btn btn-primary" style="margin-top: 60px; margin-bottom: 30px; margin-left:15%;margin-right: 100px;">提交</button>
             <button type="submit" class="btn btn-light" style="margin-top: 60px;margin-bottom: 30px; ">取消</button>
 
 
@@ -142,6 +134,37 @@
     </div>
 
 </div>
+
+<script type="text/javascript">
+    getUserInfo(function(result){
+        let userInfo = result.data;
+        $("#user_avatar_container").html(" <!--下面的img插用户头像-->\n" +
+            "                    <img src=\""+userInfo.userAvatar+"\" style=\"width: 50px;height: 50px;border-radius: 50%;\">\n")
+        $("#alter_avatar_container").html("  <img style=\"border-radius: 50%; margin-top: 20px;margin-left:10px; height: 200px; width: 200px;\" src=\" "+userInfo.userAvatar+"\" >");
+    });
+
+
+    console.log($("#submit_info"));
+    $("#submit_info").click( function () {
+        let degree = $("#id").val();
+        let nickName = $("#name").val();
+        let city =  $("#email").val();
+        let sexStr = $("input[name='optionsRadiosinline'][checked]").val();
+        let sexInt = 1;
+        if(sexStr  == "男"){
+            sexInt = 1;
+        }else{
+            sexInt = 0;
+        }
+        let age = $("#age").val();
+        let occupation = $("#occupation").val();
+        let intro = $("#intro").val();
+
+        i
+
+    })
+
+</script>
 
 <footer style="position: relative;height: 60px;background-color:#5E5E5E; color:  #EAEAEA;overflow: hidden;">
     <div style="height:50px;width: 180px;margin-left: 30%;float: left;">
