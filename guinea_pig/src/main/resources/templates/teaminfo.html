@@ -90,7 +90,8 @@
             </nav>
 
 
-            <div id="section1" class="container-fluid bg-light" style="padding-top:30px;padding-bottom: 70px;padding-left: 6%;">
+            <div id="section1" class="container-fluid bg-light"
+                 style="padding-top:30px;padding-bottom: 70px;padding-left: 6%;">
                 <div style="height: 100%;width: 100%;">
                     <div id="member"></div>
                     <script id="member1" type="text/html">
@@ -124,92 +125,117 @@
                     document.getElementById('member').innerHTML = html;
                 })
             </script>
+            <!--没有数据-->
             <div id="section2" class="container-fluid bg-gray" style="padding-top:70px;padding-bottom:70px">
                 <div class="table-responsive teamdata">
-                    <table class="table table-hover">
-                        <thead class="thead-dark" style="width: 100%">
-                        <tr>
-                            <th>赛事名称</th>
-                            <th>赛事阶段</th>
-                            <th>出场次数</th>
-                            <th>胜/负</th>
-                            <th>胜率</th>
-                            <th>总击杀(场均)</th>
-                            <th>总死亡(场均)</th>
-                            <th>场均插眼</th>
-                            <th>场均排眼</th>
-                            <th>场均金钱</th>
-                            <th>场均小龙</th>
-                            <th>场均大龙</th>
-                        </tr>
-                        </thead>
-                        <!--<tbody id="teamdata">-->
-                        <tr>
-                            <td class="mname" style="padding-left:0px;padding-right: 0px;">2019德玛西亚杯</td>
-                            <td class="mname">淘汰赛</td>
-                            <td>14</td>
-                            <td>7/7</td>
-                            <td>50.00%</td>
-                            <td>223(15)</td>
-                            <td>217(15)</td>
-                            <td>121</td>
-                            <td>49</td>
-                            <td>58111</td>
-                            <td>2</td>
-                            <td>0</td>
-                        </tr>
-                        <!--</tbody>-->
-                    </table>
+                    <div id="match"></div>
+                    <script id="match1" type="text/html">
+                        <table class="table table-hover">
+                            <thead class="thead-dark" style="width: 100%">
+                            <tr>
+                                <th>赛事名称</th>
+                                <th>赛事阶段</th>
+                                <th>出场次数</th>
+                                <th>胜/负</th>
+                                <th>胜率</th>
+                                <!--<th>总击杀(场均)</th>-->
+                                <!--<th>总死亡(场均)</th>-->
+                                <!--<th>场均插眼</th>-->
+                                <!--<th>场均排眼</th>-->
+                                <!--<th>场均金钱</th>-->
+                                <!--<th>场均小龙</th>-->
+                                <!--<th>场均大龙</th>-->
+                            </tr>
+                            </thead>
+                            {{each test}}
+                            <tr>
+                                <th>{{$index+1}}</th>
+                                <th>2</th>
+                                <th>2</th>
+                                <th>2</th>
+                                <th>2</th>
+                            </tr>
+                            {{/each}}
+                            <!--&lt;!&ndash;<tbody id="teamdata">&ndash;&gt;-->
+                            <!--<tr>-->
+                            <!--<td class="mname" style="padding-left:0px;padding-right: 0px;">2019德玛西亚杯</td>-->
+                            <!--<td class="mname">淘汰赛</td>-->
+                            <!--<td>14</td>-->
+                            <!--<td>7/7</td>-->
+                            <!--<td>50.00%</td>-->
+                            <!--<td>223(15)</td>-->
+                            <!--<td>217(15)</td>-->
+                            <!--<td>121</td>-->
+                            <!--<td>49</td>-->
+                            <!--<td>58111</td>-->
+                            <!--<td>2</td>-->
+                            <!--<td>0</td>-->
+                            <!--</tr>-->
+                            <!--</tbody>-->
+                        </table>
+                    </script>
                 </div>
             </div>
+            <script>
+                var data = {
+                    test: [
+                        1, 2, 3, 4
+                    ]
+                }
+                var html = template('match1', data);
+                document.getElementById('match').innerHTML = html;
+            </script>
             <div id="section3" class="container-fluid bg-light" style="padding-top:70px;padding-bottom:70px">
                 <div class="table-responsive teamdata">
-                    <table class="table table-hover">
-                        <thead class="thead-dark" style="width: 100%">
-                        <tr>
-                            <th>状态</th>
-                            <th>时间</th>
-                            <th>胜败</th>
-                            <th>赛事</th>
-                            <th>观看</th>
-                        </tr>
-                        </thead>
-                        <tbody id="teamdata">
-                        <tr>
-                            <td class="recentmatch">未开始</td>
-                            <td class="recentmatch">2020-02-08</td>
-                            <td>
-                                <span>RNG</span>
-                                <span>0</span>
-                                :
-                                <span>0</span>
-                                <span>EDG</span>
-                            </td>
-                            <td class="recentmatch">2020职业联赛</td>
-                            <td class="recentmatch">敬请期待</td>
-                        </tr>
-                        <tr>
-                            <td class="recentmatch">已结束</td>
-                            <td class="recentmatch">
-                                <span> 2019-12-19</span>
-                            </td>
-                            <td>
-                                <span>EDG</span>
-                                <span>1</span>
-                                :
-                                <span>3</span>
-                                <span>RNG</span>
-                            </td>
-                            <td class="recentmatch">2019德玛西亚杯</td>
-                            <td class="recentmatch">
-                                <a href="" target="_blank" class='btn btn-outline-dark btn-sm golookvideo'
-                                   style="font-size: 16px;font-weight: 600;">观看录像</a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                    <div id="battle"></div>
+
+                    <script id="battle1" type="text/html">
+                        <table class="table table-hover">
+                            <thead class="thead-dark" style="width: 100%">
+                            <tr>
+                                <th>状态</th>
+                                <th>时间</th>
+                                <th>胜败</th>
+                                <th>赛事</th>
+                                <th>观看</th>
+                            </tr>
+                            </thead>
+                            <tbody id="teamdata">
+                            {{each data}}
+                            <tr>
+                                <td class="recentmatch">
+                                    {{if $value.status==0}}
+                                    未开始
+                                    {{else}}
+                                    已结束
+                                    {{/if}}
+                                </td>
+                                <td class="recentmatch">{{$value.time}}</td>
+                                <td>
+                                    <span>{{$value.teamName1}}</span>
+                                    <span>{{$value.teamScore1}}</span>
+                                    :
+                                    <span>{{$value.teamScore2}}</span>
+                                    <span>{{$value.teamName2}}</span>
+                                </td>
+                                <td class="recentmatch">{{$value.winnerId}}</td>
+                                <td><a href="{{$value.recordReviewLink}}">查看</a></td>
+                            </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
+                    </script>
                 </div>
             </div>
+            <script>
+                teamContest(function (result) {
+                    var contest = result.result;
+
+                    var html = template('battle1', contest);
+                    console.log(html);
+                    document.getElementById('battle').innerHTML = html;
+                })
+            </script>
         </div>
     </div>
 

@@ -8,4 +8,5 @@ import java.util.List;
 public interface ContestRepo extends JpaRepository<Contest,Integer> {
 
     List<Contest> findByGameId(int gameId);
+    List<Contest> findAllByTeamName1OrTeamName2(String str1,String str2);
 }
