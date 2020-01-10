@@ -1,4 +1,4 @@
-package com.guineap_pig_329.guinea_pig;
+package com.guineap_pig_329.guinea_pig.util;
 
 import com.guineap_pig_329.guinea_pig.dao.*;
 import com.guineap_pig_329.guinea_pig.dao.wrapper.Cen;

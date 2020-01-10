@@ -27,7 +27,6 @@ function unfollow(otherUserId,call){
     let follow = {
         otherUserId:otherUserId,
     };
-x
     let createNewPost = $.ajax(({
         type:"POST",
         url:"/user/unfollow",
@@ -85,4 +84,31 @@ function sendEmail(call){
     }));
 
     $.when(request).done( () => { call(allData) } );
+}
+
+
+function alterUserInfo (avatar,nickname,sex, age, city,call ) {
+    let postBody = {
+        nickname:nickname,
+        avatar:avatar,
+        sex:sex,
+        age:age,
+        city:city
+    };
+
+    let allData = {};
+    let alterUserInfo = $.ajax({
+        url:"/alter_user_info",
+        type:"POST",
+        contentType:"application/json",
+        data:JSON.stringify(postBody),
+        success:function (result) {
+            allData = result;
+        },
+        error:function (result) {
+            allData = result;
+        }
+    });
+
+    $.when(alterUserInfo).done( ()=> {call(allData)});
 }

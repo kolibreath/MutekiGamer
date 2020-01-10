@@ -1,12 +1,14 @@
 package com.guineap_pig_329.guinea_pig.controller;
 
-import com.guineap_pig_329.guinea_pig.Util;
+import com.guineap_pig_329.guinea_pig.Constants;
+import com.guineap_pig_329.guinea_pig.util.Util;
 import com.guineap_pig_329.guinea_pig.dao.*;
 import com.guineap_pig_329.guinea_pig.dao.wrapper.ContestWrapper;
 import com.guineap_pig_329.guinea_pig.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.LinkedList;
 import java.util.List;
 

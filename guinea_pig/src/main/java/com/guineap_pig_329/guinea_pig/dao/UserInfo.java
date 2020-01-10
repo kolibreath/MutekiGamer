@@ -1,5 +1,7 @@
 package com.guineap_pig_329.guinea_pig.dao;
 
+import com.sun.istack.Nullable;
+
 import javax.persistence.*;
 
 @Entity
@@ -17,16 +19,21 @@ public class UserInfo {
     private String userAvatar;
 
     @Column
+    @Nullable
     private String userIntro;
 
     @Column
     private int userSex;
 
     @Column
+    @Nullable
+
     private String userCity;
 
     @Column
     private int userAge;
+
+
 
     public int getUserInfoId() {
         return userInfoId;

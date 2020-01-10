@@ -235,4 +235,17 @@ public class UserController {
         return bean;
     }
 
+
+    @RequestMapping("/simple_info")
+    private ResultBean getUserInfoSimple(HttpSession session){
+        int userId = ((UserSession)session.getAttribute(Constants.USE_SESSION_KEY)).getId();
+        UserInfo userInfo = userInfoRepo.findUserInfoByUserId(userId);
+
+        return ResultBean.success(userInfo);
+    }
+
+    @RequestMapping("/alter_user_info")
+    private ResultBean alterUserInfo(){
+        return null;
+    }
 }

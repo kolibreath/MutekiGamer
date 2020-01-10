@@ -40,15 +40,13 @@
                     <!--<a href="login">Login</a>-->
         <!--</span>-->
             <div class="dropdown" style="float: right;margin: 5px 30px;">
-                <a href="/homepage/my">
-                    <!--下面的img插用户头像-->
-                <img src="https://static.dingtalk.com/media/lADPDgQ9rbqFW6nNAQLNAQM_259_258.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222062145382217%22%7D&bizType=im&open_id=267508618" style="width: 50px;height: 50px;border-radius: 50%;">
+                <a href="/homepage/my" id="user_avatar_container">
                 </a>
                 <a class="dropdown-toggle"  data-toggle="dropdown" style="text-decoration: none;">
                 </a>
                 <div class="dropdown-menu" >
                     <!--两个跳转-->
-                    <a class="dropdown-item" href="#">修改信息</a>
+                    <a class="dropdown-item" href="/homepage/alter_userinfo">修改信息</a>
                     <a class="dropdown-item" href="#">退出</a>
                 </div>
             </div>
@@ -74,23 +72,21 @@
                 <li data-target="#demo" data-slide-to="4"></li>
             </ul>
 
-            <!-- 轮播图片 -->
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="https://static.dingtalk.com/media/lADPDgQ9rbnHwbbNAv7NCWA_2400_766.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222057680759502%22%7D&bizType=im&open_id=267544667">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://static.dingtalk.com/media/lADPDgQ9rbnHwn_NAv7NCWA_2400_766.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222057680767172%22%7D&bizType=im&open_id=267544667">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://static.dingtalk.com/media/lADPDgQ9rbnHwyrNAvzNCWA_2400_764.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222057680773787%22%7D&bizType=im&open_id=267544667">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://static.dingtalk.com/media/lADPDgQ9rbnHw5nNAv3NCV8_2399_765.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222057680778385%22%7D&bizType=im&open_id=267544667">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://static.dingtalk.com/media/lADPDgQ9rbnI9JbNAv3NCWA_2400_765.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222057680781744%22%7D&bizType=im&open_id=267544667">
-                </div>
+            <!-- 轮播图片 第一个图片的class 要加active-->
+            <div class="carousel-inner" id="banner">
+                <!--<div class="carousel-item active">-->
+                    <!--<img src="https://static.dingtalk.com/media/lADPDgQ9rbnHwbbNAv7NCWA_2400_766.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222057680759502%22%7D&bizType=im&open_id=267544667">-->
+                <!--</div>-->
+                <!--<div class="carousel-item">-->
+                    <!--<img src="https://static.dingtalk.com/media/lADPDgQ9rbnHwn_NAv7NCWA_2400_766.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222057680767172%22%7D&bizType=im&open_id=267544667">-->
+                <!--</div>-->
+                <!--<div class="carousel-item">-->
+                    <!--<img src="https://static.dingtalk.com/media/lADPDgQ9rbnHwyrNAvzNCWA_2400_764.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222057680773787%22%7D&bizType=im&open_id=267544667">-->
+                <!--</div>-->
+                <!--<div class="carousel-item">-->
+                    <!--<img src="https://static.dingtalk.com/media/lADPDgQ9rbnHw5nNAv3NCV8_2399_765.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222057680778385%22%7D&bizType=im&open_id=267544667">-->
+                <!--</div>-->
+
             </div>
 
             <!-- 左右切换按钮 -->
@@ -107,18 +103,6 @@
         <div class="contextFrame" style="padding-left: 50px;height: 80px;">
             <!--用户关注的游戏-->
              <div id="game" style="width: 70%;height: 80px; float: left;"></div>
-                <!--<span>-->
-                    <!--<img src="https://blznav.akamaized.net/img/games/logo-ow-4be5755bc0a4cbaf.png" style="width: 80px;height: 80px;margin-left: 10%;">-->
-                <!--</span>-->
-            <!--<span>-->
-                    <!--<img src="https://blznav.akamaized.net/img/games/logo-wow-3dd2cfe06df74407.png" style="width: 80px;height: 80px;margin-left: 10%;">-->
-                <!--</span>-->
-            <!--<span>-->
-                    <!--<img src="https://blznav.akamaized.net/img/games/logo-hs-93512467e87f82c6.png" style="width: 80px;height: 80px;margin-left:  10%;">-->
-                <!--</span>-->
-            <!--<span>-->
-                    <!--<img src="https://blznav.akamaized.net/img/games/logo-heroes-78cae505b7a524fb.png" style="width: 80px;height: 80px;margin-left:  10%;">-->
-                <!--</span>-->
                 <button class="login-button" style=" float:right; margin-top:2%;
                          width: 80px;height: 35px;opacity: 0.8">
                 <img src="img/change.png" style="height: 15px;width: 15px;opacity: 0.5">
@@ -143,35 +127,6 @@
                 </div>
             </div>
         </div>
-<!--        <div class="contextFrame">-->
-<!--            <div class="innerFrame">-->
-<!--                <div class="left">-->
-<!--                    <div class="textList">-->
-<!--                        <ul>-->
-<!--                            <li class="listTitle"><h1>Post</h1></li>-->
-<!--                                &lt;!&ndash; 帖子 &ndash;&gt;-->
-<!--                                <div id="content1">-->
-
-<!--                                </div>-->
-<!--                            <li><a href="">Soccer Match between THU and BNU</a></li>-->
-<!--                        </ul>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="right">-->
-<!--                    <div class="textList">-->
-<!--                        <ul>-->
-<!--                            <li class="listTitle"><h1>Games</h1></li>-->
-<!--                            &lt;!&ndash; 游戏 &ndash;&gt;-->
-<!--                            <div id="content2">-->
-
-<!--                            </div>-->
-<!--                            <li><a href="">THU Soccer Club</a></li>-->
-
-<!--                        </ul>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
 
         <div class="division"></div>
         <div class="division"></div>
@@ -189,6 +144,7 @@
     {{/each}}
 </ul>
 </script>
+
 
 <!--content-->
 <script id="all" type="text/html">
@@ -215,19 +171,45 @@
     </ul>
 </script>
 
+
+
 <script>
     homepage(function(result){
-    console.log(result);
-    var html = template('all', result.post);
-    document.getElementById('content').innerHTML = html;
+        console.log(result);
+        let _html1 = template('all', result.post);
+        document.getElementById('content').innerHTML = _html1;
+
+        let _html2 =template('games',result.game);
+        document.getElementById('game').innerHTML = _html2;
+
+        let _html3 = "";
+        let banners = result.banner.data;
+        for (let i = 0; i < banners.length ; i++) {
+            if (i != 0) {
+                _html3 += "<div class=\"carousel-item\">\n" +
+                    "    <a href=\""+banners[i].bannerContentId+"\">\n" +
+                        "    <img src=\"" + banners[i].bannerPicId + "\">\n" +
+                    "    </a>\n" +
+                    "</div>\n";
+            }else{
+                _html3 += "<div class=\"carousel-item active\">\n" +
+                    "    <a href=\""+banners[i].bannerContentId+ "\">\n" +
+                    "    <img src=\"" + banners[i].bannerPicId + "\">\n" +
+                    "    </a>\n" +
+                    "</div>\n"
+            }
+        }
+
+        $("#banner").html(_html3);
+
+        let userInfo = result.info.data;
+        let _html4 = "<!--下面的img插用户头像-->\n" +
+            "    <img src=\""+ userInfo.userAvatar+"\" style=\"width: 50px;height: 50px;border-radius: 50%;\">\n" +
+            "      ";
+        $("#user_avatar_container").html(_html4);
     });
-    </script>
-    <script>
-        homepage(function (result) {
-            var html=template('games',result.game);
-            document.getElementById('game').innerHTML = html;
-        })
 </script>
+
 <footer style="position: relative;height: 60px;background-color:#5E5E5E; color:  #EAEAEA;overflow: hidden;">
     <div style="height:50px;width: 180px;margin-left: 30%;float: left;">
         <img src="https://static.dingtalk.com/media/lALPDgQ9rZmS1SDNAcLNB0Q_1860_450.png?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222028305227287%22%7D&bizType=im&open_id=267508618">

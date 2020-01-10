@@ -2,7 +2,7 @@ package com.guineap_pig_329.guinea_pig.controller;
 
 
 import com.guineap_pig_329.guinea_pig.Constants;
-import com.guineap_pig_329.guinea_pig.Util;
+import com.guineap_pig_329.guinea_pig.util.Util;
 import com.guineap_pig_329.guinea_pig.dao.*;
 import com.guineap_pig_329.guinea_pig.dao.wrapper.PostWrapper;
 import com.guineap_pig_329.guinea_pig.repo.PostRepo;

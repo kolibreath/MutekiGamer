@@ -2,6 +2,17 @@
 function homepage(call) {
     let allData = {};
 
+    let userInfoRequest = $.ajax({
+        url:"/user/simple_info",
+        type:"GET",
+        success:function (result) {
+            allData.info = result;
+        },
+        error:function (result) {
+            allData.info = result;
+        }
+    });
+
     //请求banner 数据
     let bannerRequest= $.ajax(({
         url:"/banner/all",
@@ -52,7 +63,7 @@ function homepage(call) {
     // array[1] = postRequest;
     // array[2] = gamesRequest;
     //todo 前端ajax filter
-    $.when(gamesRequest, postRequest, bannerRequest).done(() => {call(allData)});
+    $.when(userInfoRequest,gamesRequest, postRequest, bannerRequest).done(() => {call(allData)});
 }
 
 function getPostByGameId(gameId,call){

@@ -54,12 +54,16 @@ public class HomepageController {
         return "post";
     }
 
-
     @RequestMapping("/teaminfo/{teamId}")
     public String team(@PathVariable("teamId") int teamId,HttpSession httpSession){
         UserSession userSession=(UserSession)httpSession.getAttribute(Constants.USE_SESSION_KEY);
         userSession.setTeamId(teamId);
         httpSession.setAttribute(Constants.USE_SESSION_KEY,userSession);
         return "teaminfo";
+    }
+
+    @RequestMapping("/alter_userinfo")
+    public String alterUserInfo(){
+        return "alter_userinfo";
     }
 }
