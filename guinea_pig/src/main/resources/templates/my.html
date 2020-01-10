@@ -19,11 +19,20 @@
     <script type="text/javascript" th:src="@{/js/User.js}"></script>
     <script type="text/javascript" th:src="@{/js/Post.js}"></script>
 <style type="text/css">
+    body{
+        background:url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1578632066944&di=488f11f15dcf0dec1695494ad1fb86a3&imgtype=jpg&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D3531975901%2C102568049%26fm%3D214%26gp%3D0.jpg") no-repeat;
+        color: rgba(220,220,220,1) ;
+    }
     .divbox1.right1.ul.li a:link{
         color: #5c5c5c;
         text-decoration:none;
     }
-    .nav-pills .nav-link.active{
+    .nav-pills .nav-link:active{
+        background-color: rgba(220,220,220,0.6);
+
+
+    }
+    .nav-pills .nav-link:hover{
         background-color: rgba(220,220,220,0.6);
 
 
@@ -36,8 +45,8 @@
 </head>
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="300">
 <!-- Navigation Bar -->
-<div class="barContainer" style="z-index: 999;">
-    <div class="nav-content" style="background-color:rgba(220,220,220,0.8) ">
+<div class="barContainer" >
+    <div class="nav-content">
         <div class="nav-title">
                 <span>
                     <img src="https://static.dingtalk.com/media/lALPDgQ9rZl6KXPNAljNB0Q_1860_600.png?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222028145409841%22%7D&bizType=im&open_id=267508618"
@@ -79,18 +88,18 @@ margin-left:200px;">
 
     </div>
     <div class=right1 style="margin-top:120px;">
-        <div id="myname"></div>
+        <div id="myname" style="padding-left: 18px;"></div>
         <!--用户名<br><br>-->
-        <ul class="ui" style="font-color: #5c5c5c;">
-            <li>
+        <ul class="ui" style="font-color: rgba(220,220,220,1);">
+            <li style="margin: 0;">
 <!--                <a type="button" class="btn  btn-link btn-lg ">-->
                     <!--发帖数-->
-                    <div id="post_num" style="margin-top:24px;height: 100px;text-align: center;"></div>
+                    <div id="post_num" style="margin-top:24px;height: 100px;"></div>
 <!--                </a>-->
             </li>
-            <li>
+            <li style="margin-right: 60px;">
                 <a type="button" class="btn  btn-link btn-lg " data-toggle="modal" data-target="#myModal1">
-                    <div id="follow_num" style="height: 100px;text-align: center;"></div></a>
+                    <div id="follow_num" style="height: 100px;"></div></a>
                 <!-- 关注人数框 -->
                 <div class="container">
                     <div class="modal fade" id="myModal1">
@@ -182,8 +191,8 @@ margin-left:200px;">
                     </div>
                 </div>
             </li>
-            <li>
-                <div id="follower_num" style="margin-top:11px;height: 100px;text-align: center;"></div>
+            <li style="margin: 0;">
+                <div id="follower_num" style="margin-top:11px;height: 100px;"></div>
                 <!--   <a href="#">粉丝数</a>-->
                 <!-- 按钮：用于打开粉丝数框 -->
                 <!--<a type="button" class="btn  btn-link btn-lg " data-toggle="modal" data-target="#myModal2">-->
@@ -533,20 +542,20 @@ margin-left:200px;">
 </script>
 
 <script id="post_num1" type="text/html">
-    <button id="post_click" class="btn  btn-link btn-lg " style=" color: #5c5c5c;
+    <button id="post_click" class="btn  btn-link btn-lg " style=" color:  rgba(220,220,220,1);
   text-decoration:none;">帖子：{{postLength}}</button>
 </script>
 
 <script id="follow_num1" type="text/html">
     <a class="btn  btn-link btn-lg " data-toggle="modal" data-target="#myModal1">
-        <button id="follow_click"  class="btn  btn-link btn-lg " style=" color: #5c5c5c;
+        <button id="follow_click"  class="btn  btn-link btn-lg " style=" color:  rgba(220,220,220,1);
   text-decoration:none;" >关注：{{followingNum}}</button>
     </a>
 </script>
 
 <script id="follower_num1" type="text/html">
     <a class="btn  btn-link btn-lg " data-toggle="modal" data-target="#myModal2">
-        <button id="follower_click" class="btn  btn-link btn-lg " style=" color: #5c5c5c;
+        <button id="follower_click" class="btn  btn-link btn-lg " style=" color:  rgba(220,220,220,1);
   text-decoration:none;">粉丝：{{followerNum}}</button>
     </a>
 </script>
@@ -580,7 +589,7 @@ margin-left:200px;">
     <ul class="nav nav-pills flex-column" style="text-align: center;margin-left: 190px;" >
         {{each data}}
         <li class="nav-item">
-            <a class="nav-link active" href="#{{$value.gameId}}">
+            <a class="nav-link " href="#{{$value.gameId}}">
                 <img src="{{$value.picture}}" style="width: 80px; height: 80px; ">
             </a>
         </li>
