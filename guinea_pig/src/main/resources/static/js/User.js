@@ -51,7 +51,7 @@ x
 function getUserInfo(call) {
     let allData={};
 
-    let request = $.ajax(({
+    let request = $.ajax({
         type:"GET",
         url:"/user/info",
         success:function (result) {
@@ -60,7 +60,8 @@ function getUserInfo(call) {
         error:function () {
             //todo 错误处理
         }
-    }));
+    });
+
     $.when(request).done( () => { call(allData) } );
 }
 

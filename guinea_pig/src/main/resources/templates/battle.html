@@ -37,11 +37,24 @@
             <span style="float: left"><a href="HomePage">主页</a></span>
             <span style="float: left"><a href="/homepage/community">社区</a></span>
             <span style="float: left"><a href="/homepage/news">头条</a></span>
-            <span style="float: left"><a href="/homepage/battle">战场</a></span>
-            <span style="float: right"><a href="/homepage/my">我</a></span>
-            <span class="user">
-                    <a href="Login">Login</a>
-            </span>
+            <span class="active" style="float: left"><a href="/homepage/battle" style="color: #dadada">战场</a></span>
+            <!--<span style="float: right"><a href="/homepage/my">我</a></span>-->
+            <!--<span class="user">-->
+                    <!--<a href="Login">Login</a>-->
+            <!--</span>-->
+            <div class="dropdown" style="float: right;margin: 5px 30px;">
+                <a href="/homepage/my">
+                    <!--下面的img插用户头像-->
+                    <img src="https://static.dingtalk.com/media/lADPDgQ9rbqFW6nNAQLNAQM_259_258.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222062145382217%22%7D&bizType=im&open_id=267508618" style="width: 50px;height: 50px;border-radius: 50%;">
+                </a>
+                <a class="dropdown-toggle"  data-toggle="dropdown" style="text-decoration: none;">
+                </a>
+                <div class="dropdown-menu" >
+                    <!--两个跳转-->
+                    <a class="dropdown-item" href="#">修改信息</a>
+                    <a class="dropdown-item" href="#">退出</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -54,39 +67,39 @@
             </form>
             <div class="container">
                 <div id="games"></div>
-                <!--<ul class="nav flex-column">-->
-                <!--<li style="margin: 20px;height: 80px;">-->
-                <!--<img src="https://game.gtimg.cn/images/lol/v3/logo-public.png" class="imgsize"-->
-                <!--style="  margin-top: 30px;">-->
-                <!--<a class="nav-link gamelink" href="#">英雄联盟</a>-->
-                <!--</li>-->
-                <!--<li style="margin: 20px;height: 80px;">-->
-                <!--<img src="https://blznav.akamaized.net/img/games/logo-heroes-78cae505b7a524fb.png"-->
-                <!--class="imgsize">-->
-                <!--<a class="nav-link gamelink" href="#">风暴英雄</a>-->
-                <!--</li>-->
-                <!--<li style="margin: 20px;height: 80px;">-->
-                <!--<img src="https://blznav.akamaized.net/img/games/logo-ow-4be5755bc0a4cbaf.png"-->
-                <!--class="imgsize">-->
-                <!--<a class="nav-link gamelink" href="#">守望先锋</a>-->
-                <!--</li>-->
-                <!--<li style="margin: 20px;height: 80px;">-->
-                <!--<img src="https://game.gtimg.cn/images/pubg/act/a20171114feature/logo_b.png"-->
-                <!--class="imgsize" style="  margin-top: 25px;">-->
-                <!--<a class="nav-link gamelink" href="#">绝地求生</a>-->
-                <!--</li>-->
-                <!--<li class="nav-item dropdown" style="text-align: center;">-->
-                <!--<a class="nav-link dropdown-toggle" href="#" id="navbardrop"-->
-                <!--data-toggle="dropdown">更多游戏-->
-                <!--</a>-->
-                <!--<div class="dropdown-menu"-->
-                <!--style="text-align: center;width: 60%;margin-left: 20%;">-->
-                <!--<a class="dropdown-item" href="#">星际争霸2</a>-->
-                <!--<a class="dropdown-item" href="#">炉石传说</a>-->
-                <!--<a class="dropdown-item" href="#">魔兽重置</a>-->
-                <!--</div>-->
-                <!--</li>-->
-                <!--</ul>-->
+<!--                <ul class="nav flex-column">-->
+<!--                <li style="margin: 20px;height: 80px;">-->
+<!--                <img src="https://game.gtimg.cn/images/lol/v3/logo-public.png" class="imgsize"-->
+<!--                style="  margin-top: 30px;">-->
+<!--                <a class="nav-link gamelink" href="#">英雄联盟</a>-->
+<!--                </li>-->
+<!--                <li style="margin: 20px;height: 80px;">-->
+<!--                <img src="https://blznav.akamaized.net/img/games/logo-heroes-78cae505b7a524fb.png"-->
+<!--                class="imgsize">-->
+<!--                <a class="nav-link gamelink" href="#">风暴英雄</a>-->
+<!--                </li>-->
+<!--                <li style="margin: 20px;height: 80px;">-->
+<!--                <img src="https://blznav.akamaized.net/img/games/logo-ow-4be5755bc0a4cbaf.png"-->
+<!--                class="imgsize">-->
+<!--                <a class="nav-link gamelink" href="#">守望先锋</a>-->
+<!--                </li>-->
+<!--                <li style="margin: 20px;height: 80px;">-->
+<!--                <img src="https://game.gtimg.cn/images/pubg/act/a20171114feature/logo_b.png"-->
+<!--                class="imgsize" style="  margin-top: 25px;">-->
+<!--                <a class="nav-link gamelink" href="#">绝地求生</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item dropdown" style="text-align: center;">-->
+<!--                <a class="nav-link dropdown-toggle" href="#" id="navbardrop"-->
+<!--                data-toggle="dropdown">更多游戏-->
+<!--                </a>-->
+<!--                <div class="dropdown-menu"-->
+<!--                style="text-align: center;width: 60%;margin-left: 20%;">-->
+<!--                <a class="dropdown-item" href="#">星际争霸2</a>-->
+<!--                <a class="dropdown-item" href="#">炉石传说</a>-->
+<!--                <a class="dropdown-item" href="#">魔兽重置</a>-->
+<!--                </div>-->
+<!--                </li>-->
+<!--                </ul>-->
             </div>
         </div>
     </div>
@@ -140,7 +153,7 @@
     </div>
     <!-- 社区 -->
     <div id="menu1" class="container tab-pane fade">
-        社区
+
         <div id="community"></div>
         <!--<ul class="flex-column" style="height: auto;">-->
         <!--<li class="newspage">-->
@@ -163,7 +176,6 @@
     </div>
     <!-- 战队 -->
     <div id="menu2" class="container tab-pane fade">
-        战队
         <div id="team"></div>
         <!--<dl>-->
         <!--<dd class="clublist">-->
@@ -272,11 +284,14 @@
 </div>
 <!--处理左侧游戏列表-->
 <script id="g" type="text/html">
-    <ul>
+    <ul class="nav flex-column">
         {{each data}}
         <li style="margin: 20px; height: 80px;">
-            <img src="{{$value.picture}}" class="imgsize">
-            <button class="game" id="{{$value.gameId}}" >{{$value.gameName}}</button>
+            <img src="{{$value.picture}}" class="imgsize" style="margin-top: 15px;">
+            <a  class="nav-link gamelink game" style="cursor:pointer;"  id="{{$value.gameId}}"  >{{$value.gameName}}</a>
+<!--            <div  class="nav-link gamelink">-->
+<!--                <button class="game" id="{{$value.gameId}}" >{{$value.gameName}}</button>-->
+<!--            </div>-->
         </li>
         {{/each}}
     </ul>
@@ -307,18 +322,38 @@
 <script id="communities" type="text/html">
     <ul>
         {{each data}}
+<!--        <li class="newspage">-->
+
+<!--            <h1 class="titledetail"><a href="" target="_blank" title="" style="text-decoration: none;">第一天揭幕战就太劲爆了吧！FPX VS IG</a></h1>-->
+<!--            <p id="" class="newsdetail">1月13号 17:00 LPL春季赛开赛，第一场由FPX对阵iG~你们觉得谁将获得春季赛第一场胜利呢？</p>-->
+<!--            <div>-->
+<!--                <a href="#" title="作者">callmeGKD</a>-->
+<!--                <span style="float: right;">2020-1-1 09:24</span>-->
+<!--            </div>-->
+<!--        </li>-->
         <li>
-            <!--发帖人信息-->
-            <div>{{$value.userName}}</div>
-            <div><img src="{{$value.userAvatar}}"style="width: 50px;height: 50px"></div>
             <!--帖子标题-->
-            <a href="/homepage/bbspost/{{$value.postId}}" >
-            <div>{{$value.title}}</div>
-            </a>
+            <h1 class="titledetail">
+                <a href="/homepage/bbspost/{{$value.postId}}" target="_blank" style="text-decoration: none;" >
+                    <div>{{$value.title}}</div>
+                </a>
+            </h1>
             <!--帖子内容-->
-            <div>{{$value.content}}</div>
-            <!--帖子时间-->
-            <div>{{$value.time}}</div>
+            <p class="newsdetail">
+                <div>{{$value.content}}</div>
+            </p>
+            <!--发帖人信息，头像先不要-->
+            <div>
+                <a>{{$value.userName}}</a>
+                <span style="float: right;">{{$value.time}}</span>
+            </div>
+<!--            <div>{{$value.userName}}</div>-->
+            <!-- <div><img src="{{$value.userAvatar}}"style="width: 50px;height: 50px"></div>-->
+             <!--帖子时间-->
+<!--            <div>{{$value.time}}</div>-->
+
+
+
         </li>
         {{/each}}
     </ul>
@@ -327,9 +362,9 @@
 <script id="teams" type="text/html">
     <ul>
         {{each data}}
-        <li>
-            <div><a href="/homepage/teaminfo/{{$value.teamId}}">{{$value.teamName}}</a></div>
-            <div><img src="{{$value.avatar}}" style="width: 50px;height: 50px"></div>
+        <li class="clublist" style="float: left;width: 46.5%;">
+            <div><img src="{{$value.avatar}}" style="width: 50%; height: auto; border-radius: 50%"></div>
+            <div style=" width: 100%; text-align: center;">{{$value.teamName}}</div>
         </li>
         {{/each}}
     </ul>
@@ -339,12 +374,14 @@
 <ul>
     {{each data}}
     <li>
-        <!--战队：-->
+        <!--战队1：-->
         {{$value.teamName1}}
-        {{$value.teamName2}}
         <!--分数：-->
         {{$value.teamScore1}}
+        <p>:</p>
         {{$value.teamScore2}}
+        <!--战队2：-->
+        {{$value.teamName2}}
 
     </li>
     {{/each}}
@@ -409,52 +446,71 @@
                 console.log(html);
                 document.getElementById('battle').innerHTML = html;
             });
-
         })
     })
 </script>
 
-<footer class="navbar navbar-expand-sm navbar-fixed-bottom" style="height: 20px;">
-    <!-- <div class="container">
-        <div class="row">
-            <div class="col">
-                <h3 class="footer_title">Product</h3>
-                <ul class="footer_list">
-                    <li>Integrations</li>
-                    <li>Slack Bot</li>
-                    <li>Customers</li>
-                    <li>Case Studies</li>
-                    <li>Pricing</li>
-                </ul>
-            </div>
-            <div class="col">
-                <h3 class="footer_title">Company</h3>
-                <ul class="footer_list">
-                    <li>About</li>
-                    <li>Blog</li>
-                    <li>Newsletter</li>
-                    <li>Community</li>
-                    <li>Contact</li>
-                </ul>
-            </div>
-            <div class="col">
-                <h3 class="footer_title">Help</h3>
-                <ul class="footer_list">
-                    <li>Knowledge Base</li>
-                    <li>Forum</li>
-                </ul>
-            </div>
-            <div class="col">
-                <ul style="text-align: right;padding-top: 100px;">
-                    <li><img src="img/twitter.png" style="width: 20px;height: 20px;"></li>
-                    <li><img src="img/facebook.png" style="width: 20px;height: 20px;"></li>
-                    <li><img src="img/email.png" style="width: 20px;height: 20px;"></li>
-                    <li>© MutekiGamer 2019</li>
-                </ul>
-            </div>
-        </div>
-    </div>      -->
+
+<footer style="position: relative;height: 60px;background-color:#5E5E5E; color:  #EAEAEA;overflow: hidden;" >
+
+    <div style="height:50px;width: 180px;margin-left: 30%;float: left;">
+        <img src="https://static.dingtalk.com/media/lALPDgQ9rZmS1SDNAcLNB0Q_1860_450.png?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222028305227287%22%7D&bizType=im&open_id=267508618">
+    </div>
+    <div style="float: left; padding-top: 25px;padding-left: 80px;">
+        <p style="float: left;font-weight: 200;font-size: 14px;">@MutekiGamer 2020</p>
+
+        <p style="float: left;margin-left: 70px;font-weight: 200;font-size: 14px;">联系我们:&nbsp&nbspmuteki_gamer@163.com</p>
+
+<!--        <p style="float: left;margin-left: 40px;font-weight: 200;font-size: 14px;">联系我们:</p>-->
+<!--        <div style="float: left;">-->
+<!--            <img src="img/twitter.png" style="width: 20px;height: 20px;margin-left: 10px;">-->
+<!--            <img src="img/facebook.png" style="width: 20px;height: 20px;margin-left: 10px;">-->
+<!--            <img src="img/email.png" style="width: 20px;height: 20px;margin-left: 10px;">-->
+<!--        </div>-->
+
+    </div>
 </footer>
+<!--<footer style="margin-top: 1100px;">-->
+<!--    <div class="container">-->
+<!--        <div class="row">-->
+<!--            <div class="col">-->
+<!--                <h3 class="footer_title">Product</h3>-->
+<!--                <ul class="footer_list">-->
+<!--                    <li>Integrations</li>-->
+<!--                    <li>Slack Bot</li>-->
+<!--                    <li>Customers</li>-->
+<!--                    <li>Case Studies</li>-->
+<!--                    <li>Pricing</li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--            <div class="col">-->
+<!--                <h3 class="footer_title">Company</h3>-->
+<!--                <ul class="footer_list">-->
+<!--                    <li>About</li>-->
+<!--                    <li>Blog</li>-->
+<!--                    <li>Newsletter</li>-->
+<!--                    <li>Community</li>-->
+<!--                    <li>Contact</li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--            <div class="col">-->
+<!--                <h3 class="footer_title">Help</h3>-->
+<!--                <ul class="footer_list">-->
+<!--                    <li>Knowledge Base</li>-->
+<!--                    <li>Forum</li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--            <div class="col">-->
+<!--                <ul style="text-align: right;padding-top: 100px;">-->
+<!--                    <li><img src="img/twitter.png" style="width: 20px;height: 20px;"></li>-->
+<!--                    <li><img src="img/facebook.png" style="width: 20px;height: 20px;"></li>-->
+<!--                    <li><img src="img/email.png" style="width: 20px;height: 20px;"></li>-->
+<!--                    <li>© MutekiGamer 2019</li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</footer>-->
 
 </body>
 </html>
