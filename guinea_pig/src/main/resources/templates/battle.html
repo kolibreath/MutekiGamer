@@ -379,11 +379,21 @@
         {{$value.teamName1}}
         <!--分数：-->
         {{$value.teamScore1}}
+        <img src="{{$value.teamAvatar1}}">
         <p>:</p>
+        <img src="{{$value.teamAvatar2}}">
         {{$value.teamScore2}}
         <!--战队2：-->
         {{$value.teamName2}}
 
+        <!--状态-->
+        {{if $value.status==1}}
+        一开始
+        {{else}}
+        已结束
+        {{/if}}
+        <!--时间-->
+        {{$value.time}}
     </li>
     {{/each}}
 </ul>

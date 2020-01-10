@@ -249,18 +249,17 @@
             var html = template('userinfo1', result.data);
             // console.log(html);
             document.getElementById('userinfo').innerHTML = html;
-        })
+        });
         getResponse(postId,function (result) {
             console.log(result);
             var html = template('response1', result);
             console.log(html);
             document.getElementById('response').innerHTML = html;
-        })
+        });
         $("#hand_in").click(function () {
             var content=document.getElementById("responseContent").value;
             console.log(content);
             newResponse(content,postId,function (result) {
-
                 location.reload();
             });
         })
