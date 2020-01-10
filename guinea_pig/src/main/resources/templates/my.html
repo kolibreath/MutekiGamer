@@ -599,7 +599,7 @@ margin-left:200px;margin-top: 50px;">
 <script id="test" type="text/html">
         {{each data}}
             <div id="{{$value.gameId}}" style="color: #000; background-color: rgba(220,220,220,0.4);">
-                {{include 'test2' $value}}
+                {{$value.content}}
             </div>
         {{/each}}
 </script>
