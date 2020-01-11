@@ -330,6 +330,7 @@ public class Util {
 
             for (Post post:posts){
                 post.setGameId(game.getGameId());
+                post.setUserId(user.getUserId());
                 postRepo.save(post);
             }
             for(Banner banner:banners){

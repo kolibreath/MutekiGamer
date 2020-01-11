@@ -557,33 +557,24 @@ margin-left:200px;margin-top: 50px;">
     <ul>
         {{each data}}
         <li>
+
             <div style="font-size: 20px; padding-top: 20px;margin-left: 20px;color:rgba(225,225,225,1); ">
+
 
                 <a href="/homepage/bbspost/{{$value.postId}}">
                     <div style="font-size: 18px; margin-top: 20px;margin-bottom: 20px;color: white">
                         {{$value.title}}
                     </div>
                 </a>
-                <div style="border: 0.5px solid gray;width:680px;height:1px"></div>
+                <div>{{$value.time}}</div>
+
+                <!--<div style="border: 0.5px solid gray;width:680px;height:1px"></div>-->
             </div>
         </li>
         {{/each}}
     </ul>
 </script>
-<!--<script id="test2" type="text/html">-->
-<!--<ul>-->
-<!--{{each myPost}}-->
-<!--<li>-->
 
-<!--<a href="/homepage/bbspost/{{$value.postId}}">-->
-<!--<div>{{$value.title}}</div>-->
-<!--</a>-->
-<!--{{$value.content}}-->
-<!--</li>-->
-<!--{{/each}}-->
-<!--</ul>-->
-<!--</script>-->
-<!--处理个人信息请求-->
 <script>
     var myinfo = {};
     getUserInfo(function (result) {
@@ -624,10 +615,12 @@ margin-left:200px;margin-top: 50px;">
         console.log(html);
         document.getElementById('navigation').innerHTML = html;
 
-        var h = template('test', result.post);
-        console.log(h);
-        document.getElementById('post').innerHTML = h;
     })
+   getMyPost(function (result) {
+       var h = template('test', result.post);
+       console.log(h);
+       document.getElementById('post').innerHTML = h;
+   })
 </script>
 <script>
     $(function () {

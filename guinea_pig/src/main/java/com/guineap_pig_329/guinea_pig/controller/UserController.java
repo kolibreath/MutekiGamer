@@ -93,9 +93,12 @@ public class UserController {
 
         UserInfo userInfo = userInfoRepo.findUserInfoByUserId(userId);
         String userAvatar = userInfo.getUserAvatar();
+
         userHomePageWrapper.setCity(userInfo.getUserCity());
         userHomePageWrapper.setAge(userInfo.getUserAge());
-//        userHomePageWrapper.setAge();
+        userHomePageWrapper.setOccupation(userInfo.getUserOccupation());
+        userHomePageWrapper.setDegree(userInfo.getUserDegree());
+        userHomePageWrapper.setIntro(userInfo.getUserIntro());
 
         userHomePageWrapper.setUserAvatar(userAvatar);
 
