@@ -185,7 +185,14 @@
     </div>
 </div>
 
-
+<!--渲染右上角头像-->
+<script>
+    getUserInfo(function(result){
+        let userInfo = result.data;
+        $("#user_avatar_container").html(" <!--下面的img插用户头像-->\n" +
+            "                    <img src=\""+userInfo.userAvatar+"\" style=\"width: 50px;height: 50px;border-radius: 50%;\">\n");
+    });
+</script>
 <!-- 回到顶部 -->
 <!--<div class="topbtn">-->
     <!--<a class="btn btn-default" href="#" role="button">-->
@@ -216,7 +223,7 @@
 <!--发帖人信息模板-->
 <script id="userinfo1" type="text/html">
     <div>{{userName}}</div>
-    <img src="{{userAvatar}}">
+    <img src="{{userAvatar}}" style="background-color: rgba(220,220,220,1);">
     <div style="margin-top: 40px;">粉丝数：{{followerNum}} &nbsp&nbsp&nbsp 关注数:{{followingNum}} &nbsp&nbsp&nbsp 帖子数：{{postLength}}</div>
 <!--    <div>关注数:{{followingNum}}</div>-->
 <!--    <div>帖子数：{{postLength}}</div>-->
