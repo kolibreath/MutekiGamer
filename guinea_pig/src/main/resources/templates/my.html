@@ -563,20 +563,7 @@ margin-left:200px;margin-top: 50px;">
         {{/each}}
     </ul>
 </script>
-<!--<script id="test2" type="text/html">-->
-<!--<ul>-->
-<!--{{each myPost}}-->
-<!--<li>-->
 
-<!--<a href="/homepage/bbspost/{{$value.postId}}">-->
-<!--<div>{{$value.title}}</div>-->
-<!--</a>-->
-<!--{{$value.content}}-->
-<!--</li>-->
-<!--{{/each}}-->
-<!--</ul>-->
-<!--</script>-->
-<!--处理个人信息请求-->
 <script>
     var myinfo = {};
     getUserInfo(function (result) {
@@ -617,10 +604,12 @@ margin-left:200px;margin-top: 50px;">
         console.log(html);
         document.getElementById('navigation').innerHTML = html;
 
-        var h = template('test', result.post);
-        console.log(h);
-        document.getElementById('post').innerHTML = h;
     })
+   getMyPost(function (result) {
+       var h = template('test', result.post);
+       console.log(h);
+       document.getElementById('post').innerHTML = h;
+   })
 </script>
 <script>
     $(function () {
