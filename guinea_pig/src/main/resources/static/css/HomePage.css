@@ -14,7 +14,6 @@ body{
 .homepagebanner{
 	background-image: url("http://img0.178.com/wow/201608/264021669723/264022007192.jpg");
 	background-size: cover;
-	z-index: -1;
 }
 .main-content{
 	max-width: 1440px;
