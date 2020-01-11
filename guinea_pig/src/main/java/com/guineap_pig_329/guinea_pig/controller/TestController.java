@@ -72,7 +72,7 @@ public class TestController {
 
 
 
-        UserInfo rickInfo = new UserInfo(rick.getUserId(), Constants.OVERWATCH_THUMBNAIL,"the universe destroy", Constants.MALE,"Washington",70);
+        UserInfo rickInfo = new UserInfo(rick.getUserId(), Constants.OVERWATCH_THUMBNAIL,"the universe destroyer", Constants.MALE,"Washington",70);
         userInfoRepo.save(rickInfo);
 
         userRepo.save(rick);
@@ -87,16 +87,18 @@ public class TestController {
 
         Game overwatch = gameRepo.findByGameName("守望先锋");
         Game hearthStone = gameRepo.findByGameName("炉石传说");
+        Game lol = gameRepo.findByGameName("英雄联盟");
 
         GameManage gameManage = new GameManage(rick.getUserId(),overwatch.getGameId());
         userPermissionRepo.save(gameManage);
 
         //用户关注的游戏
         UserGame rick2ow = new UserGame(rick.getUserId(),overwatch.getGameId());
-        UserGame rick2hearthStone = new UserGame(rick.getUserId(),hearthStone.getGameId());
+        UserGame rick2lol = new UserGame(rick.getUserId(),lol.getGameId());
 
         userGameRepo.save(rick2ow);
-        userGameRepo.save(rick2hearthStone);
+        userGameRepo.save(rick2lol
+        );
 
         User ow_official  = userRepo.findByUserName("守望先锋官方账号");
         User wow_official = userRepo.findByUserName("炉石传说官方账号");
