@@ -52,7 +52,12 @@ public class BattleController {
                 Util.transform(postRepo.findAllByUserId(official.getUserId()),userRepo,userInfoRepo));
     }
 
-//
+
+    /**
+     * 搜索和游戏相关的内容
+     * @param search
+     * @return
+     */
     @GetMapping("/game")
     public ResultBean search(@RequestParam String search){
         List<Game> resultGames = gameRepo.findByGameNameContaining(search);
@@ -64,7 +69,11 @@ public class BattleController {
                 resultPosts.add(post);
             }
         }
-        BattleSearchWrapper battleSearchWrapper = new BattleSearchWrapper(resultPosts, resultGames);
+        int postLength = resultPosts.size() > 4? 4 :resultPosts.size();
+        int gameLength = resultGames.size() > 4? 4 :resultGames.size();
+
+        BattleSearchWrapper battleSearchWrapper = new BattleSearchWrapper(resultPosts.subList(0,postLength),
+                resultGames.subList(0,gameLength));
        return ResultBean.success(battleSearchWrapper);
     }
 
