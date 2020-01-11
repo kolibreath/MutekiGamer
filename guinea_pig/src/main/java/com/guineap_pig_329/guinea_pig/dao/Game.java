@@ -1,7 +1,5 @@
 package com.guineap_pig_329.guinea_pig.dao;
 
-import org.omg.CORBA.PRIVATE_MEMBER;
-
 import javax.persistence.*;
 
 @Entity
@@ -15,10 +13,12 @@ public class Game {
     @Column
     private String gameName;
 
-    @Column
+    @Lob
+    @Column(length = 10000)
     private String gameIntro;
 
-    @Column
+    @Lob
+    @Column(length = 10000)
     private String picture;
 
     public String getPicture() {

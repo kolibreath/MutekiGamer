@@ -1,10 +1,10 @@
 {
   "gameId":1,
-  "paintingStyle":"RPG",
-  "gameBackground":" ",
-  "gamePrice":48,
-  "playerNumber":6,
+  "paintingStyle":"RPG inde",
+  "gameBackground":"",
+  "gamePrice":40,
+  "playerNumber":1,
   "playerAge":12,
-  "platform":"Windows MacOS Linux",
-  "time":"2020-01-02"
+  "platform":"windows macos linux",
+  "time":"2020-1-2"
 }
