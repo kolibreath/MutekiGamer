@@ -67,6 +67,11 @@ public class AuthController {
         return "login";
     }
 
+    @RequestMapping("/HomePage1")
+    public String homepage1(){
+        return "HomePage1";
+    }
+
     @RequestMapping("/dologin")
     public String dologin(HttpServletRequest httpServletRequest, HttpSession httpSession) {
         String name = httpServletRequest.getParameter("name");

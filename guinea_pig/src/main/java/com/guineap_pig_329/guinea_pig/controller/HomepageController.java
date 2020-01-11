@@ -46,7 +46,7 @@ public class HomepageController {
         UserSession userSession=(UserSession)httpSession.getAttribute(Constants.USE_SESSION_KEY);
         userSession.setPostId(postId);
         httpSession.setAttribute(Constants.USE_SESSION_KEY,userSession);
-        return "bbspost";
+            return "bbspost";
     }
     @RequestMapping("/post")
     public String post() {

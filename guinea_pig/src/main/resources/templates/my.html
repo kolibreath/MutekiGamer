@@ -83,12 +83,12 @@
 <div class="divbox1">
     <div class="left1" style="font-size: 13px;  width:120px;
     height:120px;
-margin-left:200px;">
+margin-left:200px;margin-top: 50px;">
         <div id="myinfo1"></div>
 
     </div>
-    <div class=right1 style="margin-top:120px;">
-        <div id="myname" style="padding-left: 18px;"></div>
+    <div class=right1 style="margin-top:50px;">
+        <div id="myname" style="padding-left: 18px;font-size: 30px;"></div>
         <!--用户名<br><br>-->
         <ul class="ui" style="font-color: rgba(220,220,220,1);">
             <li style="margin: 0;">
@@ -586,7 +586,7 @@ margin-left:200px;">
 </script>
 <!--处理显示左侧游戏-->
 <script id="navigation1" type="text/html">
-    <ul class="nav nav-pills flex-column" style="text-align: center;margin-left: 190px;" >
+    <ul class="nav nav-pills flex-column" style="text-align: center;margin-left: 190px;margin-top: 0;top:280px;" >
         {{each data}}
         <li class="nav-item">
             <a class="nav-link " href="#{{$value.gameId}}">
@@ -599,7 +599,7 @@ margin-left:200px;">
 <script id="test" type="text/html">
         {{each data}}
             <div id="{{$value.gameId}}" style="color: #000; background-color: rgba(220,220,220,0.4);">
-                {{include 'test2' $value}}
+                {{$value.content}}
             </div>
         {{/each}}
 </script>
