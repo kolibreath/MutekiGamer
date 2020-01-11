@@ -52,11 +52,11 @@
             height: 42px;
         }
         .bar7 input {
-            width: 250px;
+            width: 300px;
             border-radius: 42px;
             border: 2px solid #324B4E;
             background: #F9F0DA;
-            transition: .3s linear;
+            /*transition: .3s linear;*/
             float: right;
         }
         .bar7 input:focus {
@@ -71,6 +71,10 @@
             content: "\f002";
             font-family: FontAwesome;
             color: #324b4e;
+        }
+        .dropdown-menu.show{
+            margin-left: -260px !important;
+            width: 300px;
         }
 
     </style>
@@ -93,7 +97,13 @@
             <div class="search bar7" style="float: left;width: 20%;margin-left: 18%;margin-top: 1%;background: none;">
                 <form>
                     <input  style="background: none;" type="text" placeholder="请输入您要搜索的内容...">
-                    <button type="submit"></button>
+                    <div class="dropdown"></div>
+                    <button type="submit" class="dropdown-toggle" data-toggle="dropdown"></button>
+                    <div class="dropdown-menu" style="left: -100px;">
+                        <a class="dropdown-item" href="#">Link 1</a>
+                        <a class="dropdown-item" href="#">Link 2</a>
+                        <a class="dropdown-item" href="#">Link 3</a>
+                    </div>
                 </form>
             </div>
             <div class="dropdown" style="float: right;margin: 5px 30px;">
