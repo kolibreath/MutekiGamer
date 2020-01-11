@@ -149,6 +149,7 @@
 <div class="tab-content tabchose">
     <!-- 资讯 -->
     <div id="home" class="container tab-pane active">
+
         <div id="info"></div>
     </div>
     <!-- 社区 -->
@@ -170,7 +171,7 @@
         {{each data}}
         <li style="margin: 20px; height: 80px;">
             <img src="{{$value.picture}}" class="imgsize" style="margin-top: 15px;">
-            <a  class="nav-link gamelink game" style="cursor:pointer;"  id="{{$value.gameId}}"  >{{$value.gameName}}</a>
+            <a  class="game" style="cursor:pointer;"  id="{{$value.gameId}}"  >{{$value.gameName}}</a>
 <!--            <div  class="nav-link gamelink">-->
 <!--                <button class="game" id="{{$value.gameId}}" >{{$value.gameName}}</button>-->
 <!--            </div>-->
@@ -192,7 +193,7 @@
                <div>{{$value.title}}</div>
            </a>
             <!--帖子内容-->
-            <div>{{$value.content}}</div>
+            <div style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{$value.content}}</div>
             <!--帖子的时间-->
             <div>{{$value.time}}</div>
         </li>
@@ -200,6 +201,25 @@
     </ul>
 </script>
 
+<script id="info2" type="text/html">
+    <ul>
+        {{each data}}
+        <li>
+            <!--发帖人信息-->
+            <div>{{$value.userName}}</div>
+            <!--<div><img src="{{$value.userAvatar}}" style="width: 50px;height: 50px"></div>-->
+            <!--&lt;!&ndash;帖子标题&ndash;&gt;-->
+            <a href="/homepage/bbspost/{{$value.postId}}" >
+                <div>{{$value.title}}</div>
+            </a>
+            <!--帖子内容-->
+            <div style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{$value.content}}</div>
+            <!--帖子的时间-->
+            <div>{{$value.time}}</div>
+        </li>
+        {{/each}}
+    </ul>
+</script>
 <!--处理相应游戏的社区信息-->
 <script id="communities" type="text/html">
     <ul>
@@ -213,7 +233,7 @@
             </h1>
             <!--帖子内容-->
             <p class="newsdetail">
-                <div>{{$value.content}}</div>
+                <div style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{$value.content}}</div>
             </p>
             <!--发帖人信息，头像先不要-->
             <div>
@@ -294,8 +314,9 @@
         // 显示默认的游戏帖子
         officalDefault(function (result) {
             var posts=result.post;
+            console.log(posts);
             // 默认资讯
-            var html = template('info1', posts);
+            var html = template('info2', posts);
             document.getElementById('info').innerHTML = html;
 
         });
