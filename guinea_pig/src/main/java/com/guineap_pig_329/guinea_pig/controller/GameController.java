@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -55,9 +56,10 @@ public class GameController {
     }
 
 
-    @RequestMapping("/hotGames")
+    @RequestMapping("/hot")
     public ResultBean hotGames(){
         List<Game> games = gameRepo.findAll().subList(0,5);
+        Collections.shuffle(games);
         return ResultBean.success(games);
     }
 
