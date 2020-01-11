@@ -1,0 +1,10 @@
+{
+  "gameId":1,
+  "paintingStyle":"MOBA",
+  "gameBackground":"",
+  "gamePrice":0,
+  "playerNumber":5,
+  "playerAge":15,
+  "platform":"windows MacOS Linux",
+  "time":"2013-7-9"
+}
