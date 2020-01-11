@@ -89,6 +89,10 @@ public class TestController {
         Game overwatch = gameRepo.findByGameName("守望先锋");
         Game hearthStone = gameRepo.findByGameName("炉石传说");
         Game lol = gameRepo.findByGameName("英雄联盟");
+        Game wow = gameRepo.findByGameName("魔兽世界");
+        Game apex = gameRepo.findByGameName("Apex 英雄");
+        Game heroofstorm = gameRepo.findByGameName("风暴英雄");
+        Game pubg = gameRepo.findByGameName("绝地求生大逃杀");
 
         GameManage gameManage = new GameManage(rick.getUserId(),overwatch.getGameId());
         userPermissionRepo.save(gameManage);
@@ -98,17 +102,32 @@ public class TestController {
         UserGame rick2lol = new UserGame(rick.getUserId(),lol.getGameId());
 
         userGameRepo.save(rick2ow);
-        userGameRepo.save(rick2lol
-        );
+        userGameRepo.save(rick2lol);
 
         User ow_official  = userRepo.findByUserName("守望先锋官方账号");
-        User wow_official = userRepo.findByUserName("炉石传说官方账号");
+        User wow_official = userRepo.findByUserName("魔兽世界官方账号");
+        User apex_official = userRepo.findByUserName("Apex官方账号");
+        User hs_official = userRepo.findByUserName("炉石传说官方账号");
+        User lol_official = userRepo.findByUserName("英雄联盟官方账号");
+        User heroofstorm_official = userRepo.findByUserName("风暴英雄官方账号");
+        User pubg_official = userRepo.findByUserName("绝地求生大逃杀官方账号");
 
         Official ow_op = new Official(overwatch.getGameId(),ow_official.getUserId());
-        Official wow_op = new Official(hearthStone.getGameId(),wow_official.getUserId());
+        Official hs_op = new Official(hearthStone.getGameId(),hs_official.getUserId());
+        Official wow_op = new Official(wow.getGameId(),wow_official.getUserId());
+        Official apex_op = new Official(apex.getGameId(),apex_official.getUserId());
+        Official lol_op = new Official(lol.getGameId(),lol_official.getUserId());
+        Official heroofstorm_op = new Official(heroofstorm.getGameId(),heroofstorm_official.getUserId());
+        Official pubg_op = new Official(pubg.getGameId(),pubg_official.getUserId());
 
         officialRepo.save(ow_op);
         officialRepo.save(wow_op);
+        officialRepo.save(hs_op);
+        officialRepo.save(apex_op);
+        officialRepo.save(lol_op);
+        officialRepo.save(heroofstorm_op);
+        officialRepo.save(pubg_op);
+
 
         return "fuck";
 

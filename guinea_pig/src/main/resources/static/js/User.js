@@ -68,8 +68,6 @@ function getUserInfo(call) {
 function sendEmail(call){
     let allData={};
 
-    alert("fuck 豚鼠邮箱");
-
     let request = $.ajax(({
         type:"GET",
         url:"/mail/send",
@@ -113,4 +111,22 @@ function alterUserInfo (avatar,nickname,sex, age, city,occupation,intro,call ) {
     });
 
     $.when(alterUserInfo).done( ()=> {call(allData)});
+}
+
+//直接推荐用户数据库中的其他用户
+function getRecommendUser(call) {
+    let allData={};
+
+    let request = $.ajax({
+       url:"/user/hot",
+       type:"GET",
+        success:function (result) {
+            allData = result
+        },
+        error:function (result) {
+           allData = result;
+        }
+    });
+
+    $.when(request).done( () => { call(allData) } );
 }
