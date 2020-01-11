@@ -39,10 +39,10 @@ public class UserController {
     private PostRepo postRepo;
     @Autowired
     private UserRepo userRepo;
-
+    @Autowired
+    private OfficialRepo officialRepo;
     @Autowired
     private GameAttributeRepo gameAttributeRepo;
-
     @RequestMapping("/follow")
     public ResultBean  follow(HttpSession session, @RequestBody Map<String,Object> map){
         UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
@@ -296,11 +296,42 @@ public class UserController {
     }
 
 
+    @RequestMapping("/hot")
+    public ResultBean recommendUser(HttpSession httpSession){
+        UserSession user = (UserSession) httpSession.getAttribute(Constants.USE_SESSION_KEY);
+        List<Friends> friends  = friendsRepo.findFollowing(user.getId());
+
+        //userid2 是别人的id
+        List<User> officials = userRepo.findAll();
+        for(User o: officials){
+            boolean flag = false;
+            for (Friends f:friends){
+                if(f.getUserId2() == o.getUserId()){
+                    flag = true;
+                    break;
+                }
+                if(flag) continue;
+                officials.add(o);
+            }
+        }
+
+        return ResultBean.success(officials);
+    }
+
     @RequestMapping("/test_al")
     public ResultBean test(HttpSession httpSession){
         UserSession userSession = (UserSession) httpSession.getAttribute(Constants.USE_SESSION_KEY);
         return ResultBean.success(Util.recommend(userSession.getId(),10,userGameRepo));
     }
 
-
+    @RequestMapping("/followRecommend/{id}")
+    public ResultBean followRecommend(@PathVariable("id") int gameId,HttpSession httpSession){
+         Official official=officialRepo.findByGameId(gameId);
+         int userId=official.getUserId();
+         UserSession userSession=(UserSession)httpSession.getAttribute(Constants.USE_SESSION_KEY);
+         int u=userSession.getId();
+         Friends friends=new Friends(userId,u);
+         friendsRepo.save(friends);
+         return ResultBean.success(null);
+    }
 }

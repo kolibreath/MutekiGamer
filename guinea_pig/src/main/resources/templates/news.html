@@ -1,25 +1,26 @@
 <!DOCTYPE html>
-<html lang="en"xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <!-- <meta http-equiv="Content-Type" content="text/html" /> -->
-    <meta name="keyword" content="HTML, CSS, image, navigation" />
+    <meta name="keyword" content="HTML, CSS, image, navigation"/>
     <title>Muteki_gamer - News</title>
     <base th:href="@{/}">
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <link rel="stylesheet" type="text/css" href="css/news.css" />
-    <link rel="stylesheet" type="text/css" href="css/HomePage.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="css/news.css"/>
+    <link rel="stylesheet" type="text/css" href="css/HomePage.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js">  </script>
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    </head>
+</head>
 
 <script type="text/javascript" th:src="@{/js/template-web.js}"></script>
 <script type="text/javascript" th:src="@{/js/User.js}"></script>
 <script type="text/javascript" th:src="@{/js/News.js}"></script>
 <script type="text/javascript" th:src="@{/js/Homepage.js}"></script>
+<script type="text/javascript" th:src="@{/js/recommend.js}"></script>
 </head>
 
 <body>
@@ -39,15 +40,15 @@
             <span style="float: left"><a href="/homepage/battle">战场</a></span>
             <!--<span style="float: right"><a href="/homepage/my">我</a></span>-->
             <!--<span class="user">-->
-                    <!--<a href="login">Login</a>-->
-                <!--</span>-->
+            <!--<a href="login">Login</a>-->
+            <!--</span>-->
             <div class="dropdown" style="float: right;margin: 5px 30px;">
                 <a href="/homepage/my" id="user_avatar_container">
                     <!--下面的img插用户头像-->
                 </a>
-                <a class="dropdown-toggle"  data-toggle="dropdown" style="text-decoration: none;">
+                <a class="dropdown-toggle" data-toggle="dropdown" style="text-decoration: none;">
                 </a>
-                <div class="dropdown-menu" >
+                <div class="dropdown-menu">
                     <!--两个跳转-->
                     <a class="dropdown-item" href="/homepage/alter_userinfo">修改信息</a>
                     <a class="dropdown-item" href="#">退出</a>
@@ -56,6 +57,7 @@
         </div>
     </div>
 </div>
+
 <div class="main-body" style="margin-top: 0px; padding-top: 0px;">
     <div style="padding-left: 10%;">
         <div id="demo" class="carousel slide" data-ride="carousel" style="width: 90%;height: 90%;">
@@ -79,101 +81,140 @@
                 <span class="carousel-control-next-icon"></span>
             </a>
         </div>
+
+        <div class="main-content">
+            <div class="contextFrame"
+                 style="background: rgba(244,244,244,0.8);padding-left: 0px;width: 80%;margin-left: 10%;border-top-left-radius: 10px;border-top-right-radius: 10px;border-bottom-left-radius: 0px;border-bottom-right-radius: 0px;">
+                <!--推荐的内容（游戏  用户）-->
+                <div id="recommend">fuck</div>
+                <!--<span>-->
+                <!--<img src="https://blznav.akamaized.net/img/games/logo-ow-4be5755bc0a4cbaf.png" style="width: 80px;height: 80px;margin-left: 6%;border-radius: 50%;margin-top: 10px;">-->
+                <!--</span>-->
+                <!--<span>-->
+                <!--<img src="https://blznav.akamaized.net/img/games/logo-ow-4be5755bc0a4cbaf.png" style="width: 80px;height: 80px;margin-left: 6%;border-radius: 50%;margin-top: 10px;">-->
+                <!--</span>-->
+
+                <!--<span>-->
+                <!--<img src="https://blznav.akamaized.net/img/games/logo-wow-3dd2cfe06df74407.png" style="width: 80px;height: 80px;margin-left: 6%;border-radius: 50%;margin-top: 10px;">-->
+                <!--</span>-->
+                <!--<span>-->
+                <!--<img src="https://blznav.akamaized.net/img/games/logo-hs-93512467e87f82c6.png" style="width: 80px;height: 80px;margin-left: 6%;border-radius: 50%;margin-top: 10px;">-->
+                <!--</span>-->
+                <!--<span>-->
+                <!--<img src="https://blznav.akamaized.net/img/games/logo-heroes-78cae505b7a524fb.png" style="width: 80px;height: 80px;margin-left: 6%;border-radius: 50%;margin-top: 10px;">-->
+                <!--</span>-->
+
+                <!--<span>-->
+                <!--<img src="https://static.dingtalk.com/media/lALPDgQ9raEYzETNBNjNBNg_1240_1240.png_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222029392066835%22%7D&bizType=im&open_id=267544667" style="width: 80px;height: 80px;margin-left: 6%;border-radius: 50%;margin-top: 10px;">-->
+                <!--</span>-->
+                <!--<span>-->
+                <!--<img src="https://static.dingtalk.com/media/lADPDgQ9raEaSzjNAgDNAgA_512_512.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222036017419199%22%7D&bizType=im&open_id=267544667" style="width: 80px;height: 80px;margin-left: 6%;border-radius: 50%;margin-top: 10px;">-->
+                <!--</span>-->
+                <!--<span>-->
+                <!--<img src="https://static.dingtalk.com/media/lADPDgQ9raEaS67NAmLNAmI_610_610.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222036017431238%22%7D&bizType=im&open_id=267544667" style="width: 80px;height: 80px;margin-left: 6%;border-radius: 50%;margin-top: 10px;">-->
+
+                <!--</span>-->
+            </div>
+        </div>
     </div>
 
-    <div class="main-content">
-        <div class="contextFrame" style="background: rgba(244,244,244,0.8);padding-left: 0px;width: 80%;margin-left: 10%;border-top-left-radius: 10px;border-top-right-radius: 10px;border-bottom-left-radius: 0px;border-bottom-right-radius: 0px;">
-            <!--推荐的内容（游戏  用户）-->
-            <div id="recommend"></div>
-                <span>
-                    <img src="https://blznav.akamaized.net/img/games/logo-ow-4be5755bc0a4cbaf.png" style="width: 80px;height: 80px;margin-left: 6%;border-radius: 50%;margin-top: 10px;">
-                </span>
-            <span>
-                    <img src="https://blznav.akamaized.net/img/games/logo-wow-3dd2cfe06df74407.png" style="width: 80px;height: 80px;margin-left: 6%;border-radius: 50%;margin-top: 10px;">
-                </span>
-            <span>
-                    <img src="https://blznav.akamaized.net/img/games/logo-hs-93512467e87f82c6.png" style="width: 80px;height: 80px;margin-left: 6%;border-radius: 50%;margin-top: 10px;">
-                </span>
-            <span>
-                    <img src="https://blznav.akamaized.net/img/games/logo-heroes-78cae505b7a524fb.png" style="width: 80px;height: 80px;margin-left: 6%;border-radius: 50%;margin-top: 10px;">
-                </span>
-            <span>
-                    <img src="https://static.dingtalk.com/media/lALPDgQ9raEYzETNBNjNBNg_1240_1240.png_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222029392066835%22%7D&bizType=im&open_id=267544667" style="width: 80px;height: 80px;margin-left: 6%;border-radius: 50%;margin-top: 10px;">
-                </span>
-            <span>
-                    <img src="https://static.dingtalk.com/media/lADPDgQ9raEaSzjNAgDNAgA_512_512.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222036017419199%22%7D&bizType=im&open_id=267544667" style="width: 80px;height: 80px;margin-left: 6%;border-radius: 50%;margin-top: 10px;">
-                </span>
-            <span>
-                    <img src="https://static.dingtalk.com/media/lADPDgQ9raEaS67NAmLNAmI_610_610.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222036017431238%22%7D&bizType=im&open_id=267544667" style="width: 80px;height: 80px;margin-left: 6%;border-radius: 50%;margin-top: 10px;">
-                </span>
-        </div>
-        <div class="attention">
-            <div class="attentionFrame" style="background: rgba(244,244,244,0.8);padding-left: 0px;padding-top: 1%;padding-bottom: 1%;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;border-top-left-radius: 0px;border-top-right-radius: 0px;">
-                <input type="button" id="btn1" onclick="change1()" value="关注Ta" class="attention-button" style="margin-left: 6%" ></input>
-                <input type="button" id="btn2" onclick="change2()" value="关注Ta" class="attention-button" style="margin-left: 6%;"  ></input>
-                <input type="button" id="btn3" onclick="change3()" value="关注Ta" class="attention-button" style="margin-left: 6%;"  ></input>
-                <input type="button" id="btn4" onclick="change4()" value="关注Ta" class="attention-button" style="margin-left: 6%;"  ></input>
-                <input type="button" id="btn5" onclick="change5()" value="关注Ta" class="attention-button" style="margin-left: 6%;"  ></input>
-                <input type="button" id="btn6" onclick="change6()" value="关注Ta" class="attention-button" style="margin-left: 6%;"></input>
-                <input type="button" id="btn7" onclick="change7()" value="关注Ta" class="attention-button" style="margin-left: 6%;" ></input>
-            </div>
-        </div>
-        <div class="contextFrame" style="background: rgba(244,244,244,0.8);width: 80%; margin-left: 10%;">
-            <div class="innerFrame" style=" padding-top: 30px">
-                <div class="textList" style=" padding-left: 20px;">
-                    <ul>
-                        <li class="listTitle"><h1>热门话题</h1></li>
-                        <ol>
-                            <li>
-                                <a href="https://dazhe.blizzard.cn/">2020暴雪打折季12月20日盛大开启&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>539786<img
-                                    src="img/fire.png" style="float: right; height: 25px;width: 25px"></li>
-                            <li><a href="https://ow.blizzard.cn/article/news/1520">守望先锋主播跨年欢乐车队12月31日20点准时发车&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>418450<img
-                                    src="img/new.png" style="float: right; height: 30px;width: 30px"></li>
-                            <li><a href="https://hs.blizzard.cn/article/20/17107">1月1日暴雪游戏全民实力赛与你相约萤火虫&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>236203<img
-                                    src="img/happy.png" style="float: right; height: 25px;width: 25px"></li>
-                        </ol>
-                    </ul>
-                </div>
-            </div>
-        </div>
+</div>
 
-        <div class="division"></div>
-        <div class="division"></div>
-        <div class="division"></div>
+<div class="contextFrame" style="background: rgba(244,244,244,0.8);width: 80%; margin-left: 10%;">
+    <div class="innerFrame" style=" padding-top: 30px">
+        <div class="textList" style=" padding-left: 20px;">
+            <ul>
+                <li class="listTitle"><h1>热门话题</h1></li>
+                <ol>
+                    <li>
+                        <a href="https://dazhe.blizzard.cn/">2020暴雪打折季12月20日盛大开启&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>539786<img
+                            src="img/fire.png" style="float: right; height: 25px;width: 25px"></li>
+                    <li><a href="https://ow.blizzard.cn/article/news/1520">守望先锋主播跨年欢乐车队12月31日20点准时发车&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>418450<img
+                            src="img/new.png" style="float: right; height: 30px;width: 30px"></li>
+                    <li><a href="https://hs.blizzard.cn/article/20/17107">1月1日暴雪游戏全民实力赛与你相约萤火虫&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>236203<img
+                            src="img/happy.png" style="float: right; height: 25px;width: 25px"></li>
+                </ol>
+            </ul>
+        </div>
     </div>
 </div>
+
+<div class="division"></div>
+<div class="division"></div>
+<div class="division"></div>
+
 <!--推荐信息渲染模板-->
 <script id="recommend1" type="text/html">
+    <ul>
+        {{each data}}
+        <li>
+            <img src="{{$value.gameAvatar}}"
+                 style="width: 80px;height: 80px;margin-left: 6%;border-radius: 50%;margin-top: 10px;">
+            <div class="attention">
+                <div class="attentionFrame"
+                     style="background: rgba(244,244,244,0.8);padding-left: 0px;padding-top: 1%;padding-bottom: 1%;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;border-top-left-radius: 0px;border-top-right-radius: 0px;">
+                    <button id="{{$value.gameId}}" class="attention-button" style="margin-left: 6%">
+                        关注
+                    </button>
+                    </input>
+                </div>
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+</script>
+<script>
+    recommend(function (result) {
+        alert("fuck");
+        var games = result;
+        console.log(games);
+        var html = template('recommend1', games);
+        document.getElementById('recommend').innerHTML = html;
+
+        //点击变为已关注的处理
+        $(".attention-button").click(function () {
+            let gameId = $(this).attr("id");
+            followrecommend(gameId, function (result) {
+                document.getElementById('gameId').innerHTML = "已关注";
+            })
+        })
+    })
 
 </script>
 
 <!--推荐请求-->
 <script>
-    getUserInfo(function(result){
+    getUserInfo(function (result) {
         let userInfo = result.data;
         $("#user_avatar_container").html(" <!--下面的img插用户头像-->\n" +
-            "                    <img src=\""+userInfo.userAvatar+"\" style=\"width: 50px;height: 50px;border-radius: 50%;\">\n");
+            "                    <img src=\"" + userInfo.userAvatar + "\" style=\"width: 50px;height: 50px;border-radius: 50%;\">\n");
     });
-    getBanners(function(result){
+    getBanners(function (result) {
         let _banner_html = "";
         let banners = result.data;
-        for (let i = 0; i < banners.length ; i++) {
+        for (let i = 0; i < banners.length; i++) {
             if (i != 0) {
                 _banner_html += "<div class=\"carousel-item\">\n" +
-                    "    <a href=\""+banners[i].bannerContentId+"\">\n" +
+                    "    <a href=\"" + banners[i].bannerContentId + "\">\n" +
                     "    <img src=\"" + banners[i].bannerPicId + "\">\n" +
                     "    </a>\n" +
                     "</div>\n";
-            }else{
+            } else {
                 _banner_html += "<div class=\"carousel-item active\">\n" +
-                    "    <a href=\""+banners[i].bannerContentId+ "\">\n" +
+                    "    <a href=\"" + banners[i].bannerContentId + "\">\n" +
                     "    <img src=\"" + banners[i].bannerPicId + "\">\n" +
                     "    </a>\n" +
                     "</div>\n"
             }
         }
         $("#banner").html(_banner_html);
+
+
+        getRecommendUser(function (result) {
+
+        });
     });
+
 
 </script>
 
@@ -183,7 +224,8 @@
     </div>
     <div style="float: left; padding-top: 25px;padding-left: 80px;">
         <p style="float: left;font-weight: 200;font-size: 14px;">@MutekiGamer 2020</p>
-        <p style="float: left;margin-left: 70px;font-weight: 200;font-size: 14px;">联系我们:&nbsp&nbspmuteki_gamer@163.com</p>
+        <p style="float: left;margin-left: 70px;font-weight: 200;font-size: 14px;">
+            联系我们:&nbsp&nbspmuteki_gamer@163.com</p>
     </div>
 </footer>
 <script type="text/javascript">
@@ -211,96 +253,96 @@
 
 </script>
 
-<script type="text/javascript">
-    function change1()
-    {
-        var btn1 = document.getElementById("btn1");
-        if(btn1.value="关注Ta")
-        {
-//var btn = document.getElementById("btn");
-            btn1.value="已关注";
-            btn1.disabled=true;
-        }
+<!--<script type="text/javascript">-->
+<!--function change1()-->
+<!--{-->
+<!--var btn1 = document.getElementById("btn1");-->
+<!--if(btn1.value="关注Ta")-->
+<!--{-->
+<!--//var btn = document.getElementById("btn");-->
+<!--btn1.value="已关注";-->
+<!--btn1.disabled=true;-->
+<!--}-->
 
-    }
-</script>
-<script type="text/javascript">
-    function change2()
-    {
-        var btn2 = document.getElementById("btn2");
-        if(btn2.value="关注Ta")
-        {
-//var btn = document.getElementById("btn");
-            btn2.value="已关注";
-            btn2.disabled=true;
-        }
+<!--}-->
+<!--</script>-->
+<!--<script type="text/javascript">-->
+<!--function change2()-->
+<!--{-->
+<!--var btn2 = document.getElementById("btn2");-->
+<!--if(btn2.value="关注Ta")-->
+<!--{-->
+<!--//var btn = document.getElementById("btn");-->
+<!--btn2.value="已关注";-->
+<!--btn2.disabled=true;-->
+<!--}-->
 
-    }
-</script>
-<script type="text/javascript">
-    function change3()
-    {
-        var btn3 = document.getElementById("btn3");
-        if(btn3.value="关注Ta")
-        {
-//var btn = document.getElementById("btn");
-            btn3.value="已关注";
-            btn3.disabled=true;
-        }
+<!--}-->
+<!--</script>-->
+<!--<script type="text/javascript">-->
+<!--function change3()-->
+<!--{-->
+<!--var btn3 = document.getElementById("btn3");-->
+<!--if(btn3.value="关注Ta")-->
+<!--{-->
+<!--//var btn = document.getElementById("btn");-->
+<!--btn3.value="已关注";-->
+<!--btn3.disabled=true;-->
+<!--}-->
 
-    }
-</script>
-<script type="text/javascript">
-    function change4()
-    {
-        var btn4 = document.getElementById("btn4");
-        if(btn4.value="关注Ta")
-        {
-//var btn = document.getElementById("btn");
-            btn4.value="已关注";
-            btn4.disabled=true;
-        }
+<!--}-->
+<!--</script>-->
+<!--<script type="text/javascript">-->
+<!--function change4()-->
+<!--{-->
+<!--var btn4 = document.getElementById("btn4");-->
+<!--if(btn4.value="关注Ta")-->
+<!--{-->
+<!--//var btn = document.getElementById("btn");-->
+<!--btn4.value="已关注";-->
+<!--btn4.disabled=true;-->
+<!--}-->
 
-    }
-</script>
-<script type="text/javascript">
-    function change5()
-    {
-        var btn5 = document.getElementById("btn5");
-        if(btn5.value="关注Ta")
-        {
-//var btn = document.getElementById("btn");
-            btn5.value="已关注";
-            btn5.disabled=true;
-        }
+<!--}-->
+<!--</script>-->
+<!--<script type="text/javascript">-->
+<!--function change5()-->
+<!--{-->
+<!--var btn5 = document.getElementById("btn5");-->
+<!--if(btn5.value="关注Ta")-->
+<!--{-->
+<!--//var btn = document.getElementById("btn");-->
+<!--btn5.value="已关注";-->
+<!--btn5.disabled=true;-->
+<!--}-->
 
-    }
-</script>
-<script type="text/javascript">
-    function change6()
-    {
-        var btn6 = document.getElementById("btn6");
-        if(btn6.value="关注Ta")
-        {
-//var btn = document.getElementById("btn");
-            btn6.value="已关注";
-            btn6.disabled=true;
-        }
+<!--}-->
+<!--</script>-->
+<!--<script type="text/javascript">-->
+<!--function change6()-->
+<!--{-->
+<!--var btn6 = document.getElementById("btn6");-->
+<!--if(btn6.value="关注Ta")-->
+<!--{-->
+<!--//var btn = document.getElementById("btn");-->
+<!--btn6.value="已关注";-->
+<!--btn6.disabled=true;-->
+<!--}-->
 
-    }
-</script>
-<script type="text/javascript">
-    function change7()
-    {
-        var btn7 = document.getElementById("btn7");
-        if(btn7.value="关注Ta")
-        {
-//var btn = document.getElementById("btn");
-            btn7.value="已关注";
-            btn7.disabled=true;
-        }
+<!--}-->
+<!--</script>-->
+<!--<script type="text/javascript">-->
+<!--function change7()-->
+<!--{-->
+<!--var btn7 = document.getElementById("btn7");-->
+<!--if(btn7.value="关注Ta")-->
+<!--{-->
+<!--//var btn = document.getElementById("btn");-->
+<!--btn7.value="已关注";-->
+<!--btn7.disabled=true;-->
+<!--}-->
 
-    }
-</script>
+<!--}-->
+<!--</script>-->
 </body>
 </html>
