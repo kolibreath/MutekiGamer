@@ -73,6 +73,14 @@ public class PostController {
         return ResultBean.success(postWrappers);
     }
 
+    @RequestMapping("/mypost")
+    public ResultBean getMypost(HttpSession session){
+        UserSession userSession=(UserSession)session.getAttribute(Constants.USE_SESSION_KEY);
+        int userId=userSession.getId();
+        List<Post>posts=postRepo.findAllByUserId(userId);
+        return ResultBean.success(posts);
+    }
+
     //通过游戏Id 用户id得到帖子
     @RequestMapping("/usergame/{gameid}")
     public ResultBean getPostByUserIdGameId(@PathVariable("gameid") Integer gameId,HttpSession session) {
