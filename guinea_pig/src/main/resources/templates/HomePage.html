@@ -50,15 +50,13 @@
                     <!--<a href="login">Login</a>-->
         <!--</span>-->
             <div class="dropdown" style="float: right;margin: 5px 30px;">
-                <a href="/homepage/my">
-                    <!--下面的img插用户头像-->
-                <img src="https://static.dingtalk.com/media/lADPDgQ9rbqFW6nNAQLNAQM_259_258.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222062145382217%22%7D&bizType=im&open_id=267508618" style="width: 50px;height: 50px;border-radius: 50%;">
+                <a href="/homepage/my" id="user_avatar_container">
                 </a>
                 <a class="dropdown-toggle"  data-toggle="dropdown" style="text-decoration: none;">
                 </a>
                 <div class="dropdown-menu" >
                     <!--两个跳转-->
-                    <a class="dropdown-item" href="#">修改信息</a>
+                    <a class="dropdown-item" href="/homepage/alter_userinfo">修改信息</a>
                     <a class="dropdown-item" href="#">退出</a>
                 </div>
             </div>
@@ -72,6 +70,7 @@
     <!--</video>-->
 <!--</div>-->
 <!-- body -->
+
 <div class="homepagebanner" style="width: 100%;height: 650px;">
     <div style="margin-left: 15%;padding-top: 120px;width: 70%;height: auto;">
         <img src="https://static.dingtalk.com/media/lALPDgQ9rZmS1SDNAcLNB0Q_1860_450.png?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222028305227287%22%7D&bizType=im&open_id=267508618">
@@ -97,22 +96,8 @@
                     </ul>
 
                     <!-- 轮播图片 -->
-                    <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="https://upload-images.jianshu.io/upload_images/20795783-d1990a00336d9e5a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://upload-images.jianshu.io/upload_images/20795783-af1aef75edf192c3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://upload-images.jianshu.io/upload_images/20795783-1f484890054cda66.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://upload-images.jianshu.io/upload_images/20795783-5ec40a019b5d2bb4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://upload-images.jianshu.io/upload_images/20795783-15f0036184739dbb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-                    </div>
+                    <div class="carousel-inner" id="banner">
+
                     </div>
 
                     <!-- 左右切换按钮 -->
@@ -179,6 +164,7 @@
 </ul>
 </script>
 
+
 <!--content-->
 <script id="all" type="text/html">
     <ul>
@@ -204,19 +190,46 @@
         {{/each}}
     </ul>
 </script>
+
+
 <script>
-homepage(function(result){
-console.log(result);
-var html = template('all', result.post);
-document.getElementById('content').innerHTML = html;
-});
+    homepage(function(result){
+        console.log(result);
+        let _html1 = template('all', result.post);
+        document.getElementById('content').innerHTML = _html1;
+
+        let _html2 =template('games',result.game);
+        document.getElementById('game').innerHTML = _html2;
+
+        let _html3 = "";
+        let banners = result.banner.data;
+        for (let i = 0; i < banners.length ; i++) {
+            if (i != 0) {
+                _html3 += "<div class=\"carousel-item\">\n" +
+                    "    <a href=\""+banners[i].bannerContentId+"\">\n" +
+                        "    <img src=\"" + banners[i].bannerPicId + "\">\n" +
+                    "    </a>\n" +
+                    "</div>\n";
+            }else{
+                _html3 += "<div class=\"carousel-item active\">\n" +
+                    "    <a href=\""+banners[i].bannerContentId+ "\">\n" +
+                    "    <img src=\"" + banners[i].bannerPicId + "\">\n" +
+                    "    </a>\n" +
+                    "</div>\n"
+            }
+        }
+
+        $("#banner").html(_html3);
+
+        let userInfo = result.info.data;
+        let _html4 = "<!--下面的img插用户头像-->\n" +
+            "    <img src=\""+ userInfo.userAvatar+"\" style=\"width: 50px;height: 50px;border-radius: 50%;\">\n" +
+            "      ";
+        $("#user_avatar_container").html(_html4);
+    });
 </script>
-<script>
-    homepage(function (result) {
-        var html=template('games',result.game);
-        document.getElementById('game').innerHTML = html;
-    })
-</script>
+
+
 <footer style="position: relative;height: 60px;background-color:#5E5E5E; color:  #EAEAEA;overflow: hidden;">
     <div style="height:50px;width: 180px;margin-left: 30%;float: left;">
         <img src="https://static.dingtalk.com/media/lALPDgQ9rZmS1SDNAcLNB0Q_1860_450.png?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222028305227287%22%7D&bizType=im&open_id=267508618">

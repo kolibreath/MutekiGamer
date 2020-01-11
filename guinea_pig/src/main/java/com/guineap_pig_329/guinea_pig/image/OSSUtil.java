@@ -3,7 +3,7 @@ package com.guineap_pig_329.guinea_pig.image;
 import com.aliyun.oss.OSSClient;
 import com.aliyun.oss.model.OSSObjectSummary;
 import com.aliyun.oss.model.ObjectListing;
-import com.guineap_pig_329.guinea_pig.Util;
+import com.guineap_pig_329.guinea_pig.util.Util;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
