@@ -250,10 +250,8 @@ public class UserController {
         {
             GameAttribute gameAttribute=gameAttributeRepo.findAllByGameId(u.getGameId());
             gameAttributes.add(gameAttribute);
-
-
         }
-
+        return favor;
     }
 
 }
