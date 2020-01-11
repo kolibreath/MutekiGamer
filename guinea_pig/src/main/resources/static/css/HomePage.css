@@ -11,10 +11,6 @@ body{
 	font-size:1px;
 	line-height:0px;
 }
-/*.homepagebanner{*/
-	/*!*background-image: url("/static/img/homepagebanner.jpg");*!*/
-	/*background-size: cover;*/
-/*}*/
 .main-content{
 	max-width: 1440px;
 	height: auto;

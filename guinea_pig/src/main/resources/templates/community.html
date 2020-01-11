@@ -69,7 +69,7 @@
                 </a>
                 <div class="dropdown-menu" >
                     <!--两个跳转-->
-                    <a class="dropdown-item" href="#">修改信息</a>
+                    <a class="dropdown-item" href="/homepage/alter_userinfo">修改信息</a>
                     <a class="dropdown-item" href="#">退出</a>
                 </div>
             </div>
@@ -127,31 +127,6 @@
             <!--            整个的div的float设置的是整个头像块的float位置-->
             <div id="games" style="float: left; width: 100%; height: 70px;">
             </div>
-            <!--            <img src="https://blznav.akamaized.net/img/games/logo-ow-4be5755bc0a4cbaf.png" style="width: 80px;height: 80px;margin-left: 70px;">-->
-
-            <!--<div class="contextFrame">
-                <span>
-                <img src="https://blznav.akamaized.net/img/games/logo-ow-4be5755bc0a4cbaf.png" style="width: 80px;height: 80px;margin-left: 6.5%;">
-                </span>
-                <span>
-                <img src="https://blznav.akamaized.net/img/games/logo-wow-3dd2cfe06df74407.png" style="width: 80px;height: 80px;margin-left: 6%;">
-                </span>
-                <span>
-                <img src="https://blznav.akamaized.net/img/games/logo-hs-93512467e87f82c6.png" style="width: 80px;height: 80px;margin-left: 6%;">
-                </span>
-                <span>
-                <img src="https://blznav.akamaized.net/img/games/logo-heroes-78cae505b7a524fb.png" style="width: 80px;height: 80px;margin-left: 6%;">
-                </span>
-                <span>
-                <img src="https://blznav.akamaized.net/img/games/logo-w3r-c8a76eea272dbd55.png" style="width: 80px;height: 80px;margin-left: 6%;">
-                </span>
-                <span>
-                <img src="https://blznav.akamaized.net/img/games/logo-di-01f9ac836ec31eed.png" style="width: 80px;height: 80px;margin-left: 6%;">
-                </span>
-                <span>
-                <img src="https://blznav.akamaized.net/img/games/logo-sc2-6e33583ba0547b6a.png" style="width: 80px;height: 80px;margin-left: 6%;">
-                </span>
-            </div>-->
         </div>
 
         <div class="contextFrame" style=" height: auto; width: 55%; margin-left: 10%;background: rgba(244,244,244,0.8);">
@@ -166,24 +141,6 @@
                     </div>
                 </div>
                 <div class="clearfloat"></div>
-                <!--<div class="left">-->
-                <!--<div class="textList">-->
-                <!--<ul>-->
-                <!--<li class="listTitle"><h1>英雄联盟</h1></li>-->
-                <!--<li><a href="">【盘点】英雄联盟LOL召唤师头像（国服）300*300</a><br>&nbsp;&nbsp;Riot&nbsp;&nbsp;1小时前<p style="float:right; margin-right: 0px; ">5517</p><img src="img/look.png" style=" float: right; height: 20px; width: 30px; "></li>-->
-                <!--<li><a href="">【皮肤鉴赏】神秘的永恒之森系列&#45;&#45;魔腾、维嘉、阿狸</a><br>&nbsp;&nbsp;&nbsp;Alen&nbsp;&nbsp;2小时前<p style="float:right; margin-right: 0px; ">1764</p><img src="img/look.png" style=" float: right; height: 20px; width: 30px; "></li>-->
-                <!--</ul>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--<div class="right">-->
-                <!--<div class="textList">-->
-                <!--<ul>-->
-                <!--<li class="listTitle"><h1>魔兽世界</h1></li>-->
-                <!--<li><a href="">【活动】【投票】魔兽世界：怀旧服最适合什么职业？</a><br>&nbsp;&nbsp;Riot&nbsp;&nbsp;1小时前<p style="float:right; margin-right: 0px; ">8549</p><img src="img/look.png" style=" float: right; height: 20px; width: 30px; "></li>-->
-                <!--<li><a href="">【更新】12月12日全服同步开启战歌峡谷和奥特兰特峡谷！</a><br>&nbsp;&nbsp;Riot&nbsp;&nbsp;1小时前<p style="float:right; margin-right: 0px; ">3892</p><img src="img/look.png" style=" float: right; height: 20px; width: 30px; "></li>-->
-                <!--</ul>-->
-                <!--</div>-->
-                <!--</div>-->
             </div>
             <div class="clearfloat"></div>
         </div>
@@ -210,17 +167,18 @@
 </script>
 <!--渲染游戏相应帖子-->
 <script id="game_post" type="text/html">
+
     <ul>
         {{each data}}
         <li style="padding: 10px 10px;border-bottom-color: gray;">
             <!--发帖人头像-->
             <div style="float:left;"><img src="{{$value.userAvatar}}" style="width: 50px;height: 50px"></div>
             <!--发帖人昵称-->
-            <div style="float:left;width: 14%; font-weight: lighter; font-size: 14px; color:#EC7259;margin-left: 1%;">{{$value.userName}}</div>
+            <div style="float:left;width: 20%; font-weight: lighter; font-size: 14px; color:#EC7259;margin-left: 1%;">{{$value.userName}}</div>
             <!--帖子时间-->
             <div style="float: right; width:10%; margin-left: 5%;font-weight: lighter;font-size: 14px;color:#555;">{{$value.time}}</div>
             <!--帖子标题-->
-            <a href="/homepage/bbspost/{{$value.postId}}"><div style="float: left; width: 90%; color: #555;margin-left: 1%;">{{$value.title}}</div></a>
+            <a href="/homepage/bbspost/{{$value.postId}}"><div style="float: left; width: 90%; color: #555;margin-left: 1%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{$value.title}}</div></a>
             <!--帖子内容-->
             <div style="font-weight: lighter; overflow: hidden; height: 24px; white-space: nowrap; text-overflow: ellipsis; margin-bottom: 10px;width: 90%; margin-top: 5%;margin-left: 6%;">{{$value.content}}</div>
         </li>
@@ -248,7 +206,6 @@
 
         $(".game").click(function () {
             let val = $(this).attr("id");
-            console.log(val);
             getPostByGameId(val, function (result) {
                 let p = result.post;
                 console.log(p);

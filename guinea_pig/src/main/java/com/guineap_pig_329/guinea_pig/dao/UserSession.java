@@ -13,6 +13,17 @@ public class UserSession {
     private int gameId;//关注的第一个游戏的Id
     private int postId;//点击的帖子Id
     private int teamId;//所点击的战队id
+
+    private int selectedGameId; //发帖的时候选中的游戏id
+
+    public int getSelectedGameId() {
+        return selectedGameId;
+    }
+
+    public void setSelectedGameId(int selectedGameId) {
+        this.selectedGameId = selectedGameId;
+    }
+
     /**
      * @param session
      * @return 带userId 返回值的

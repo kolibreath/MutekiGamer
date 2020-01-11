@@ -24,7 +24,7 @@ function createParse(){
         return fmt;
     }
 }
-function newPost(postContent,postTitle,tag,gameId,call){
+function newPost(postContent,postTitle,tag,call){
     let resultCode ;
     //time
     createParse();
@@ -33,8 +33,7 @@ function newPost(postContent,postTitle,tag,gameId,call){
         time:time,
         postContent:postContent,
         postTitle:postTitle,
-        tag:tag,
-        gameId:gameId
+        tag:tag
     };
 
     let createNewPost = $.ajax(({
@@ -125,5 +124,24 @@ function deletePost(postId,call){
 
 }
 
+function getMyPost(call) {
+        let allData = {};
+        let post =$.ajax(({
+            url:"post/mypost",
+            type:"GET",
+            success:function(result){
+                allData.post = result;
+            },
+            //todo 错误处理
+            error:function (result) {
 
+            },
+            complete:function (result) {
+
+            }
+        }));
+
+        $.when(post).done(() =>{call(allData)});
+
+}
 

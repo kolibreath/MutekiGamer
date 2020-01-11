@@ -17,6 +17,10 @@
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://www.huangwx.cn/css/sweetalert.css">
+    <script type="text/javascript" src="https://www.huangwx.cn/js/sweetalert-dev.js"></script>
+
     <!-- 楼中楼是静态的，删除的话删下面的这个postreply.js -->
 
     <script type="text/javascript" th:src="@{/js/template-web.js}"></script>
@@ -221,11 +225,11 @@
 <script id="response1" type="text/html">
 <ul>
     {{each data}}
-    <li>
+    <li style="border-bottom: 1px solid #d5d2d2;padding-bottom: 20px;">
         <div>
-            <img src=" {{$value.userAvatar}}">
-            {{$value.userName}}
-            {{$value.content}}
+            <img src=" {{$value.userAvatar}}" style="float: left;">
+            <div style="font-size: 22px; color:#EC7259;">{{$value.userName}}</div>
+            <div style="margin-top: 20px;word-wrap: break-word;word-break: normal;margin-left: 65px;">{{$value.content}}</div>
         </div>
     </li>
     {{/each}}
@@ -260,7 +264,7 @@
         $("#hand_in").click(function () {
             var content=document.getElementById("responseContent").value;
             console.log(content);
-
+            alert("修改成功");
             newResponse(content,postId,function (result) {
                 location.reload();
             });

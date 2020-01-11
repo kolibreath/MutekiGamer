@@ -6,6 +6,7 @@ import com.guineap_pig_329.guinea_pig.dao.*;
 import com.guineap_pig_329.guinea_pig.dao.wrapper.UserHomePageWrapper;
 import com.guineap_pig_329.guinea_pig.dao.wrapper.UserWrapper;
 import com.guineap_pig_329.guinea_pig.repo.*;
+import com.guineap_pig_329.guinea_pig.util.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 处理用户相关的请求
@@ -85,10 +88,17 @@ public class UserController {
         int userId = user.getId();
 
         UserHomePageWrapper userHomePageWrapper = new UserHomePageWrapper();
+
         userHomePageWrapper.setUserName(user.getName());
 
         UserInfo userInfo = userInfoRepo.findUserInfoByUserId(userId);
         String userAvatar = userInfo.getUserAvatar();
+
+        userHomePageWrapper.setCity(userInfo.getUserCity());
+        userHomePageWrapper.setAge(userInfo.getUserAge());
+        userHomePageWrapper.setOccupation(userInfo.getUserOccupation());
+        userHomePageWrapper.setDegree(userInfo.getUserDegree());
+        userHomePageWrapper.setIntro(userInfo.getUserIntro());
 
         userHomePageWrapper.setUserAvatar(userAvatar);
 
@@ -289,261 +299,8 @@ public class UserController {
     @RequestMapping("/test_al")
     public ResultBean test(HttpSession httpSession){
         UserSession userSession = (UserSession) httpSession.getAttribute(Constants.USE_SESSION_KEY);
-        return ResultBean.success(recommend(userSession.getId(),10));
-    }
-    /**
-     * 推荐算法
-     * @param userId 用户名
-     * @param n  返回的数量
-     * @return
-     */
-    private List<GameRank> recommend(int userId,int n){
-
-        String platforms[] = {"windows","macos","linux","phone","station"};
-        int platformHash[] = new int[platforms.length];
-
-        String divisions[] =  {"moba","rts","rpg","racing","horror","card","rogue-like","inde","fps",
-        "arcade","shooting","ps"};
-        int divisionHash[] = new int[divisions.length];
-
-        int playerRange[] = {1,2,4,5,6,8};
-        int playerRangeHash[] = new int[playerRange.length];
-
-        int priceRange[] = {50,100,200,500};
-        int priceRangeHash[] = new int[priceRange.length];
-
-        List<UserGame> userGame =  userGameRepo.findAllByUserId(userId);
-        // 遍历用户的游戏 生成一个object 和对应的得分
-        for (UserGame game : userGame) {
-            Game g = gameRepo.findById(game.getGameId()).get();
-            GameAttribute gameAttribute = gameAttributeRepo.findByGameId(g.getGameId());
-
-            String pStr[] = gameAttribute.getPlatform().split(" ");
-
-            //遍历平台hash
-            for (int i = 0; i < pStr.length ; i++) {
-                for (int j = 0; j < platforms.length ; j++) {
-                    if(platforms[j].equals(pStr[i].toLowerCase())){
-                        platformHash[i]++;
-                    }
-                }
-            }
-
-            String dStr[] = gameAttribute.getPaintingStyle().split(" ");
-            //遍历风格分类hash
-            for (int i = 0;i < dStr.length;i++){
-                for (int j = 0; j <divisions.length ; j++) {
-                    if(dStr[i].toLowerCase().equals(divisions[j])){
-                        divisionHash[i]++;
-                    }
-                }
-            }
-
-            //遍历玩家人数
-            int playerNumber = gameAttribute.getPlayerNumber();
-            for (int i = 0; i < playerRange.length ; i++) {
-                if(playerNumber <= playerRange[i])
-                playerRangeHash[i]++;
-            }
-
-            //遍历价格区间
-            int price = gameAttribute.getGamePrice();
-            for (int i = 0; i < priceRange.length ; i++) {
-                if(price <= priceRange[i]){
-                    priceRangeHash[i]++;
-                }
-            }
-        }
-
-
-        List<String> platFormList = new LinkedList<>();
-        List<String> divisionList = new LinkedList<>();
-        List<Integer> playerRangeList = new LinkedList<>();
-        List<Integer> gamePriceList = new LinkedList<>();
-
-        platFormList = array2stringList(platforms,platformHash);
-        divisionList = array2stringList(divisions,divisionHash);;
-
-        playerRangeList = array2intList(playerRange,playerRangeHash);
-        gamePriceList = array2intList(priceRange,priceRangeHash);
-
-        Map<String,Integer> map = new TreeMap<>();
-        List<Game> allGame = gameRepo.findAll();
-
-        List<GameRank> sortedGame = new LinkedList<>();
-
-        for(Game game:allGame){
-
-            boolean flag = false;
-            //跳过关注的游戏
-            for (int i = 0; i < userGame.size(); i++) {
-                if(userGame.get(i).getGameId() == game.getGameId())
-                    flag = true;
-                break;
-            }
-
-            if(flag){
-                continue;
-            }
-
-            GameAttribute allGameAttribute = gameAttributeRepo.findByGameId(game.getGameId());
-
-            String p[] = allGameAttribute.getPlatform().split(" ");
-            List<String> allGamePlatforms = new LinkedList<>();
-
-            for(String pStr: p){
-                allGamePlatforms.add(pStr.toLowerCase());
-            }
-
-            int pRank = platFormList.size() - 1;
-            for (int i = 0; i < platFormList.size() ; i++) {
-                if(allGamePlatforms.contains(platFormList.get(i))){
-                    pRank = i;
-                    break;
-                }
-            }
-            String d[]= allGameAttribute.getPaintingStyle().split(" ");
-            List<String> allGameDivisions = new LinkedList<>();
-
-            for(String dStr: d){
-                allGameDivisions.add(dStr.toLowerCase());
-            }
-
-            int dRank = gamePriceList.size() - 1;
-            for (int i = 0; i < gamePriceList.size() ; i++) {
-                if(allGameDivisions.contains(gamePriceList.get(i))){
-                    dRank = i;
-                    break;
-                }
-            }
-
-            //乡下匹配
-            int allGamePlayerRangeMax = allGameAttribute.getPlayerNumber();
-            int playerRank = playerRangeList.size()-1;
-            for (int i = 0; i < playerRangeList.size() ; i++) {
-                if(playerRangeList.get(i)<= allGamePlayerRangeMax){
-                    playerRank =i;
-                    break;
-                }
-            }
-
-            int allGamePriceMax = allGameAttribute.getGamePrice();
-            int priceRank = gamePriceList.size() - 1;
-            for (int i = 0; i < gamePriceList.size() ; i++) {
-                if(gamePriceList.get(i) <= allGamePriceMax){
-                    priceRank = i;
-                    break;
-                }
-            }
-
-            int score = Integer.parseInt(pRank +"" + dRank +"" + playerRank +"" + priceRank);
-            GameRank gameRank = new GameRank(game.getGameName(),game.getPicture(),game.getGameId(),score);
-            sortedGame.add(gameRank);
-        }
-
-        Collections.sort(sortedGame, new Comparator<GameRank>() {
-            @Override
-            public int compare(GameRank o1, GameRank o2) {
-                return (int) (o1.getRank() - o2.getRank());
-            }
-        });
-
-        return sortedGame.size() > n ? sortedGame.subList(0,n) : sortedGame;
+        return ResultBean.success(Util.recommend(userSession.getId(),10,userGameRepo));
     }
 
-    private List<String> array2stringList(String str[], int i[]){
-        Map<String,Integer> map = new TreeMap<>();
-        for (int j = 0; j < str.length ; j++) {
-            map.put(str[j],i[j]);
-        }
-
-        Comparator<Map.Entry<String, Integer>> valueComparator = new Comparator<Map.Entry<String,Integer>>() {
-            @Override
-            public int compare(Map.Entry<String, Integer> o1,
-                               Map.Entry<String, Integer> o2) {
-                return o2.getValue()-o1.getValue();
-            }
-        };
-        List<Map.Entry<String,Integer>> list = new ArrayList<>(map.entrySet());
-        Collections.sort(list,valueComparator);
-
-        List<String> result = new LinkedList<>();
-        for(Map.Entry<String,Integer> mapping:list){
-            result.add(mapping.getKey());
-        }
-        return result;
-    }
-
-    private List<Integer> array2intList(int str[],int i[]){
-        Map<Integer, Integer> map = new TreeMap<>();
-        for (int j = 0; j < str.length ; j++) {
-            map.put(str[j],i[j]);
-        }
-
-        Comparator<Map.Entry<Integer, Integer>> valueComparator = new Comparator<Map.Entry<Integer, Integer>>() {
-            @Override
-            public int compare(Map.Entry<Integer, Integer> o1, Map.Entry<Integer, Integer> o2) {
-                return o2.getValue() - o1.getValue();
-            }
-        };
-
-        List<Map.Entry<Integer,Integer>> list = new ArrayList<>(map.entrySet());
-        Collections.sort(list,valueComparator);
-
-        List<Integer> result = new LinkedList<>();
-        for(Map.Entry<Integer,Integer> mapping:list){
-            result.add(mapping.getKey());
-        }
-
-        return result;
-    }
-
-
-    // 游戏评分 进行推荐排序的一句
-    private class GameRank{
-        private String gameName;
-        private String gameAvatar;
-        private int gameId;
-        private long rank;
-
-        public int getGameId() {
-            return gameId;
-        }
-
-        public void setGameId(int gameId) {
-            this.gameId = gameId;
-        }
-
-        public long getRank() {
-            return rank;
-        }
-
-        public void setRank(long rank) {
-            this.rank = rank;
-        }
-
-        public String getGameName() {
-            return gameName;
-        }
-
-        public void setGameName(String gameName) {
-            this.gameName = gameName;
-        }
-
-        public String getGameAvatar() {
-            return gameAvatar;
-        }
-
-        public void setGameAvatar(String gameAvatar) {
-            this.gameAvatar = gameAvatar;
-        }
-
-        public GameRank(String gameName, String gameAvatar, int gameId, long rank) {
-            this.gameName = gameName;
-            this.gameAvatar = gameAvatar;
-            this.gameId = gameId;
-            this.rank = rank;
-        }
-    }
 
 }

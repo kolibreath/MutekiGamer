@@ -2,13 +2,10 @@ package com.guineap_pig_329.guinea_pig.controller;
 
 
 import com.guineap_pig_329.guinea_pig.Constants;
+import com.guineap_pig_329.guinea_pig.repo.*;
 import com.guineap_pig_329.guinea_pig.util.Util;
 import com.guineap_pig_329.guinea_pig.dao.*;
 import com.guineap_pig_329.guinea_pig.dao.wrapper.PostWrapper;
-import com.guineap_pig_329.guinea_pig.repo.PostRepo;
-import com.guineap_pig_329.guinea_pig.repo.ResponseRepo;
-import com.guineap_pig_329.guinea_pig.repo.UserInfoRepo;
-import com.guineap_pig_329.guinea_pig.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,6 +29,10 @@ public class PostController {
     private ResponseRepo responseRepo;
     @Autowired
     private UserInfoRepo userInfoRepo;
+    @Autowired
+    private UserGameRepo userGameRepo;
+    @Autowired
+    private GameRepo gameRepo;
 
     @RequestMapping("/selected")
     public ResultBean getPosts() {
@@ -54,10 +55,32 @@ public class PostController {
      * @return
      */
     @RequestMapping("/user/{id}")
-    public ResultBean getPostByGameId(@PathVariable("id") Integer gameId) {
+    public ResultBean getPostByGameId(@PathVariable("id") Integer gameId,HttpSession session) {
+        UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
+        user.setSelectedGameId(gameId);
         List<Post> posts = postRepo.findAllByGameId(gameId);
-        return ResultBean.success(Util.transform(posts,userRepo,userInfoRepo));
+        List<PostWrapper> postWrappers = new LinkedList<>();
+
+        Game game = gameRepo.findById(gameId).get();
+
+        for (Post post:posts){
+
+            User postUser = userRepo.findUserByUserId(post.getUserId());
+            PostWrapper postWrapper = new PostWrapper(post.getPostId(),postUser.getUserId(),game.getGameId(),
+                    post.getTag(), post.getTime(), post.getContent(), post.getTitle(), postUser.getUserName() ,game.getPicture());
+            postWrappers.add(postWrapper);
+        }
+        return ResultBean.success(postWrappers);
     }
+
+    @RequestMapping("/mypost")
+    public ResultBean getMypost(HttpSession session){
+        UserSession userSession=(UserSession)session.getAttribute(Constants.USE_SESSION_KEY);
+        int userId=userSession.getId();
+        List<Post>posts=postRepo.findAllByUserId(userId);
+        return ResultBean.success(posts);
+    }
+
     //通过游戏Id 用户id得到帖子
     @RequestMapping("/usergame/{gameid}")
     public ResultBean getPostByUserIdGameId(@PathVariable("gameid") Integer gameId,HttpSession session) {
@@ -76,11 +99,10 @@ public class PostController {
         int userId = user.getId();
         String postContent = (String) map.get("postContent");
         String postTitle = (String) map.get("postTitle");
-        int gameId, tag;
+        int gameId = user.getSelectedGameId(), tag;
         String time;
         try {
             tag = filterByValue((String) map.get("tag"));
-            gameId = (int) map.get("gameId");
             time = (String) map.get("time");
         } catch (Exception e) {
             return ResultBean.error(ResultBean.bad_request, "内容解析无效");
@@ -92,6 +114,22 @@ public class PostController {
         );
         postRepo.save(post);
         return ResultBean.success(null);
+    }
+
+
+    @PostMapping("/hot")
+    public ResultBean getHotPost(HttpSession session){
+        UserSession userSession = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
+        List<Util.GameRank> gameRanks = Util.recommend(userSession.getId(),10,userGameRepo);
+
+        List<Post> posts = new LinkedList<>();
+        for(Util.GameRank gameRank : gameRanks) {
+            List<Post> postCore = postRepo.findAllByGameId(gameRank.getGameId());
+            posts.addAll(postCore);
+        }
+
+        Collections.shuffle(posts);
+        return ResultBean.success(posts);
     }
 
     @PostMapping("/new_response")

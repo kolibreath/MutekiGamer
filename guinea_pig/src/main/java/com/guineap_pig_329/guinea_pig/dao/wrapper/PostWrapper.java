@@ -85,7 +85,9 @@ public class PostWrapper {
         this.userAvatar = userAvatar;
     }
 
-    public PostWrapper(int postId, int userId, int gameId, int tag, String time, String content, String title, String userName, String userAvatar) {
+    public PostWrapper(int postId, int userId, int gameId, int tag, String time,
+                       String content, String title,
+                       String userName, String userAvatar) {
         this.postId = postId;
         this.userId = userId;
         this.gameId = gameId;
