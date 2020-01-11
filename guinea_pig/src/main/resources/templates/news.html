@@ -18,6 +18,7 @@
 
 <script type="text/javascript" th:src="@{/js/template-web.js}"></script>
 <script type="text/javascript" th:src="@{/js/User.js}"></script>
+<script type="text/javascript" th:src="@{/js/News.js}"></script>
 <script type="text/javascript" th:src="@{/js/Homepage.js}"></script>
 </head>
 
@@ -48,7 +49,7 @@
                 </a>
                 <div class="dropdown-menu" >
                     <!--两个跳转-->
-                    <a class="dropdown-item" href="#">修改信息</a>
+                    <a class="dropdown-item" href="/homepage/alter_userinfo">修改信息</a>
                     <a class="dropdown-item" href="#">退出</a>
                 </div>
             </div>
@@ -66,16 +67,8 @@
             </ul>
 
             <!-- 轮播图片 -->
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="https://static.dingtalk.com/media/lALPDgQ9raEHz7bMy80DJQ_805_203.png?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222029248153781%22%7D&bizType=im&open_id=267544667">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://static.dingtalk.com/media/lALPDgQ9raEHz7DMkM0COQ_569_144.png_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222029248153460%22%7D&bizType=im&open_id=267544667">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://static.dingtalk.com/media/lALPDgQ9raEHz7jMy80DJQ_805_203.png_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222035921406135%22%7D&bizType=im&open_id=267544667">
-                </div>
+            <div class="carousel-inner" id="banner">
+
             </div>
 
             <!-- 左右切换按钮 -->
@@ -116,34 +109,13 @@
         </div>
         <div class="attention">
             <div class="attentionFrame" style="background: rgba(244,244,244,0.8);padding-left: 0px;padding-top: 1%;padding-bottom: 1%;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;border-top-left-radius: 0px;border-top-right-radius: 0px;">
-                    <a href="https://ow.blizzard.cn/home">
-                        <button class="attention-button" style="margin-left:6%;  " >
-                            关注Ta</button>
-                    </a>
-                    <a href="https://www.wowchina.com/zh-cn/">
-                        <button class="attention-button" style="margin-left:6%; ">
-                            关注Ta</button>
-                    </a>
-                    <a href="https://hs.blizzard.cn/landing">
-                        <button class="attention-button" style="margin-left:6%; ">
-                            关注Ta</button>
-                    </a>
-                    <a href="https://heroes.blizzard.cn/landing">
-                        <button class="attention-button" style="margin-left:6%; ">
-                            关注Ta</button>
-                    </a>
-                    <a href="">
-                        <button class="attention-button" style="margin-left:6%; ">
-                            关注Ta</button>
-                    </a>
-                    <a>
-                        <button class="attention-button" style="margin-left:6%; ">
-                            关注Ta</button>
-                    </a>
-                    <a>
-                        <button class="attention-button" style="margin-left:6%; ">
-                            关注Ta</button>
-                    </a>
+                <input type="button" id="btn1" onclick="change1()" value="关注Ta" class="attention-button" style="margin-right: 50px;" ></input>
+                <input type="button" id="btn2" onclick="change2()" value="关注Ta" class="attention-button" style="margin-right: 50px;"  ></input>
+                <input type="button" id="btn3" onclick="change3()" value="关注Ta" class="attention-button" style="margin-right: 50px;"  ></input>
+                <input type="button" id="btn4" onclick="change4()" value="关注Ta" class="attention-button" style="margin-right: 50px;"  ></input>
+                <input type="button" id="btn5" onclick="change5()" value="关注Ta" class="attention-button" style="margin-right: 50px;"  ></input>
+                <input type="button" id="btn6" onclick="change6()" value="关注Ta" class="attention-button" style="margin-right: 50px;"  ></input>
+                <input type="button" id="btn7" onclick="change7()" value="关注Ta" class="attention-button"  ></input>
             </div>
         </div>
         <div class="contextFrame" style="background: rgba(244,244,244,0.8);width: 80%; margin-left: 10%;">
@@ -182,6 +154,27 @@
         $("#user_avatar_container").html(" <!--下面的img插用户头像-->\n" +
             "                    <img src=\""+userInfo.userAvatar+"\" style=\"width: 50px;height: 50px;border-radius: 50%;\">\n");
     });
+    getBanners(function(result){
+        let _banner_html = "";
+        let banners = result.data;
+        for (let i = 0; i < banners.length ; i++) {
+            if (i != 0) {
+                _banner_html += "<div class=\"carousel-item\">\n" +
+                    "    <a href=\""+banners[i].bannerContentId+"\">\n" +
+                    "    <img src=\"" + banners[i].bannerPicId + "\">\n" +
+                    "    </a>\n" +
+                    "</div>\n";
+            }else{
+                _banner_html += "<div class=\"carousel-item active\">\n" +
+                    "    <a href=\""+banners[i].bannerContentId+ "\">\n" +
+                    "    <img src=\"" + banners[i].bannerPicId + "\">\n" +
+                    "    </a>\n" +
+                    "</div>\n"
+            }
+        }
+        $("#banner").html(_banner_html);
+    });
+
 </script>
 
 <footer style="position: relative;height: 60px;background-color:#5E5E5E; color:  #EAEAEA;overflow: hidden;">
@@ -216,6 +209,98 @@
         setTimeout(showSlides, 2000); // Change image every 2 seconds
     }
 
+</script>
+
+<script type="text/javascript">
+    function change1()
+    {
+        var btn1 = document.getElementById("btn1");
+        if(btn1.value="关注Ta")
+        {
+//var btn = document.getElementById("btn");
+            btn1.value="已关注";
+            btn1.disabled=true;
+        }
+
+    }
+</script>
+<script type="text/javascript">
+    function change2()
+    {
+        var btn2 = document.getElementById("btn2");
+        if(btn2.value="关注Ta")
+        {
+//var btn = document.getElementById("btn");
+            btn2.value="已关注";
+            btn2.disabled=true;
+        }
+
+    }
+</script>
+<script type="text/javascript">
+    function change3()
+    {
+        var btn3 = document.getElementById("btn3");
+        if(btn3.value="关注Ta")
+        {
+//var btn = document.getElementById("btn");
+            btn3.value="已关注";
+            btn3.disabled=true;
+        }
+
+    }
+</script>
+<script type="text/javascript">
+    function change4()
+    {
+        var btn4 = document.getElementById("btn4");
+        if(btn4.value="关注Ta")
+        {
+//var btn = document.getElementById("btn");
+            btn4.value="已关注";
+            btn4.disabled=true;
+        }
+
+    }
+</script>
+<script type="text/javascript">
+    function change5()
+    {
+        var btn5 = document.getElementById("btn5");
+        if(btn5.value="关注Ta")
+        {
+//var btn = document.getElementById("btn");
+            btn5.value="已关注";
+            btn5.disabled=true;
+        }
+
+    }
+</script>
+<script type="text/javascript">
+    function change6()
+    {
+        var btn6 = document.getElementById("btn6");
+        if(btn6.value="关注Ta")
+        {
+//var btn = document.getElementById("btn");
+            btn6.value="已关注";
+            btn6.disabled=true;
+        }
+
+    }
+</script>
+<script type="text/javascript">
+    function change7()
+    {
+        var btn7 = document.getElementById("btn7");
+        if(btn7.value="关注Ta")
+        {
+//var btn = document.getElementById("btn");
+            btn7.value="已关注";
+            btn7.disabled=true;
+        }
+
+    }
 </script>
 </body>
 </html>

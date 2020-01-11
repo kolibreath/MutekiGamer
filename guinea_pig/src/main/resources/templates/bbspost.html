@@ -17,6 +17,10 @@
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://www.huangwx.cn/css/sweetalert.css">
+    <script type="text/javascript" src="https://www.huangwx.cn/js/sweetalert-dev.js"></script>
+
     <!-- 楼中楼是静态的，删除的话删下面的这个postreply.js -->
 
     <script type="text/javascript" th:src="@{/js/template-web.js}"></script>
@@ -261,8 +265,10 @@
         $("#hand_in").click(function () {
             var content=document.getElementById("responseContent").value;
             console.log(content);
+            // swal("修改成功","success");
             newResponse(content,postId,function (result) {
                 location.reload();
+                swal("这还是标题！","这还是文本","success");
             });
         })
     })

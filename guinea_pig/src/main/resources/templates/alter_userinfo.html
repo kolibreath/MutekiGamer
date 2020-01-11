@@ -14,7 +14,20 @@
     <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
 
+    <script src="http://http://i.gtimg.cn/qzone/biz/gdt/lib/jquery/jquery-2.1.4.js?max_age=31536000"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+<style type="text/css">
+    body{
+        background:url("http://www.waibao123.com/Uploads/photo/2014-07-04/0e97fb95bebea744edc4bc45e189be1b_big.jpg") no-repeat;
+    position: relative;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+</style>
 </head>
 <body >
 <!-- Navigation Bar -->
@@ -27,7 +40,7 @@
                 </span>
         </div>
         <div class="nav-text container-fluid">
-            <span style="float: left"><a href="HomePage.html">主页</a></span>
+            <span style="float: left"><a href="HomePage">主页</a></span>
             <span style="float: left"><a href="/homepage/community">社区</a></span>
             <span style="float: left"><a href="/homepage/news">头条</a></span>
             <span style="float: left"><a href="/homepage/battle">战场</a></span>
@@ -48,7 +61,7 @@
 
 <!--mainbody-->
 <div class="container" style="padding-left: 100px;padding-right: 100px;">
-    <div class="row" style="background-color: white;margin-top: 80px;height:auto;margin-bottom: 40px;">
+    <div class="row" style="background-color: rgba(255,255,255,0.8);margin-top: 80px;height:auto;margin-bottom: 40px;">
 
         <div class="col-md-3">
             <div id="alter_avatar_container">
@@ -64,15 +77,15 @@
 
 
         <div class="col-md-9" style="padding-left: 30px;">
-            <h1 style="margin-top: 50px;">昵称
-                <a href="my.html" type="button" class="btn  btn-link " style="margin-left: 60%">
+            <h1 style="margin-top: 50px;">rick
+                <a href="/homepage/my" type="button" class="btn  btn-link " style="margin-left: 60%">
                     返回我的个人主页
                 </a>
             </h1>
             <from  class="form-inline" role="form" style="margin-top: 60px;">
                 <div class="form-group">
                     <label for="id" class=" control-label" style="margin-right:100px;">学历:</label>
-                    <input type="text" class="form-control" style="margin-left: 25px; width: 250px; " placeholder="" id="id" name="id">
+                    <input type="text" class="form-control" style="margin-left: 10px; width: 250px; " placeholder="" id="id" name="id">
                 </div>
             </from>
 
@@ -141,36 +154,22 @@
 
 <script type="text/javascript">
     getUserInfo(function(result){
+        //完成之后刷新
         let userInfo = result.data;
+        $("#id").val(userInfo.userDegree);
+        $("#name").val(userInfo.userName);
+        $("#email").val(userInfo.userCity);
+        $("#age").val(userInfo.age);
+        $("#occupation").val(userInfo.occupation);
+        $("#intro").val(userInfo)
+
+        $("#head_nickname").val(userInfo.userName);
+
         $("#user_avatar_container").html(" <!--下面的img插用户头像-->\n" +
             "                    <img src=\""+userInfo.userAvatar+"\" style=\"width: 50px;height: 50px;border-radius: 50%;\">\n");
         $("#alter_avatar_container").html("  <img style=\"border-radius: 50%; margin-top: 20px;margin-left:10px; height: 200px; width: 200px;\" src=\" "+userInfo.userAvatar+"\" >");
     });
 
-    $("#upload_pic").click(function(){
-
-    });
-
-    function checkForm(){
-        let formData = new FormData($("#user_avatar")[0]);
-        $.ajax({
-           url:"/upload" ,
-           type:"POST",
-           data:formData,
-           cache:false,
-           async:false,
-           processData:false,
-           contentType:false,
-
-            success:function(data){
-               console.log(data);
-               return data.data;
-            },
-            error:function(data){
-
-            }
-        });
-    }
 
 
     $("#submit_info").click( function () {
@@ -205,7 +204,8 @@
                     function(result){
                     if(result.code == 200){
                         //todo
-                        alert("修改成功");
+                        // alert("修改成功");
+                        toastr.success("修改成功");
                     }
                 });
             }
