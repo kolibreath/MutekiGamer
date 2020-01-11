@@ -477,6 +477,13 @@ margin-left:200px;margin-top: 50px;">
     </div>
 </div>
 <!--渲染我的基本信息-->
+<script>
+    getUserInfo(function(result){
+        let userInfo = result.data;
+        $("#user_avatar_container").html(" <!--下面的img插用户头像-->\n" +
+            "                    <img src=\""+userInfo.userAvatar+"\" style=\"width: 50px;height: 50px;border-radius: 50%;\">\n");
+    });
+</script>
 
 
 <script id="myinfo11" type="text/html">
