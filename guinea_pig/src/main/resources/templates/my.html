@@ -21,7 +21,12 @@
     <style type="text/css">
         body {
             background: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1578632066944&di=488f11f15dcf0dec1695494ad1fb86a3&imgtype=jpg&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D3531975901%2C102568049%26fm%3D214%26gp%3D0.jpg") no-repeat;
+            position: relative;
+            background-size: cover;
+            background-attachment: fixed;
+
             color: rgba(220, 220, 220, 1);
+
         }
 
         .divbox1.right1.ul.li a:link {
@@ -63,7 +68,9 @@
             <!--<a href="login">Login</a>-->
             <!--</span>-->
             <div class="dropdown" style="float: right;margin: 5px 30px;">
-                <a href="/homepage/my" id="user_avatar_container">
+
+                 <a href="/homepage/my" id="user_avatar_container">
+
                 </a>
                 <a class="dropdown-toggle" data-toggle="dropdown" style="text-decoration: none;">
                 </a>
@@ -230,7 +237,7 @@ margin-left:200px;margin-top: 50px;">
     </div>
 </div>
 <!--scroll-->
-<div class=divbox2>
+<div class=divbox2 style="padding-top: 50px;">
     <div class="container-fluid">
         <div class="row">
             <nav class="col-sm-3 col-4" id="myScrollspy">
@@ -253,7 +260,7 @@ margin-left:200px;margin-top: 50px;">
 
             <div class="col-sm-9 col-8">
                 <!--帖子-->
-                <div id="post"></div>
+                <div id="post" style="margin-left: 20px;"></div>
                 <!--<div id="section1">-->
                 <!--<ul>-->
                 <!--<li>-->
@@ -477,7 +484,7 @@ margin-left:200px;margin-top: 50px;">
 </script>
 
 <script id="myname1" type="text/html">
-    <div style="font-size: 100px">{{userName}}</div>
+    <div style="font-size: 40px">{{userName}}</div>
 </script>
 
 <script id="post_num1" type="text/html">
@@ -550,14 +557,16 @@ margin-left:200px;margin-top: 50px;">
     <ul>
         {{each data}}
         <li>
-            <div style="font-size: 20px; padding-top: 20px">
+            <div style="font-size: 20px; padding-top: 20px;margin-left: 20px;color: white ;">
 
                 <a href="/homepage/bbspost/{{$value.postId}}">
-                    <div style="font-size: 18px; margin-top: 20px;margin-bottom: 20px;">
+                    <div style="font-size: 18px; margin-top: 20px;margin-bottom: 20px;color: white">
                         {{$value.title}}
                     </div>
                 </a>
-                <div style="border: 0.5px solid gray;width:680px;height:1px"></div>
+                <div>{{$value.time}}</div>
+
+                <!--<div style="border: 0.5px solid gray;width:680px;height:1px"></div>-->
             </div>
         </li>
         {{/each}}
