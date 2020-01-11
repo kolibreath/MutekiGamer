@@ -127,7 +127,6 @@ public class PostController {
             List<Post> postCore = postRepo.findAllByGameId(gameRank.getGameId());
             posts.addAll(postCore);
         }
-
         Collections.shuffle(posts);
         return ResultBean.success(posts);
     }

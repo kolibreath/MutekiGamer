@@ -76,7 +76,13 @@
             margin-left: -260px !important;
             width: 300px;
         }
+        .newsposts{
+            a:hover{
+                text-decoration: none;
+                color: #555555;
+            }
 
+        }
     </style>
 </head>
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
@@ -115,7 +121,7 @@
                 </a>
                 <a class="dropdown-toggle"  data-toggle="dropdown" style="text-decoration: none;">
                 </a>
-                <div class="dropdown-menu" >
+                <div class="dropdown-menu">
                     <!--两个跳转-->
                     <a class="dropdown-item" href="/homepage/alter_userinfo">修改信息</a>
                     <a class="dropdown-item" href="#">退出</a>
@@ -160,7 +166,7 @@
     <!-- 资讯 -->
     <div id="home" class="container tab-pane active">
 
-        <div id="info"></div>
+        <div id="info" class="newsposts"></div>
     </div>
     <!-- 社区 -->
     <div id="menu1" class="container tab-pane fade">
@@ -179,9 +185,9 @@
 <script id="g" type="text/html">
     <ul class="nav flex-column">
         {{each data}}
-        <li style="margin: 20px; height: 80px;">
-            <img src="{{$value.picture}}" class="imgsize" style="margin-top: 15px;">
-            <a  class="game" style="cursor:pointer;"  id="{{$value.gameId}}"  >{{$value.gameName}}</a>
+        <li class="justify-content-center" style="margin: 20px; height: 80px;display: flex;">
+            <img src="{{$value.picture}}" class="imgsize">
+            <a  class="game" style="cursor:pointer;	width: 50%;float: right;text-decoration: none;margin-top: 25px;text-align: center;"  id="{{$value.gameId}}"  >{{$value.gameName}}</a>
 <!--            <div  class="nav-link gamelink">-->
 <!--                <button class="game" id="{{$value.gameId}}" >{{$value.gameName}}</button>-->
 <!--            </div>-->
@@ -194,18 +200,18 @@
 <script id="info1" type="text/html">
     <ul>
         {{each data}}
-        <li>
+        <li class="newsposts" style="border-bottom: 1px solid gray;height: 120px;padding-top: 10px;">
             <!--发帖人信息-->
-            <div>{{$value.userName}}</div>
-            <div><img src="{{$value.userAvatar}}" style="width: 50px;height: 50px"></div>
+            <div><img src="{{$value.userAvatar}}" style="width: 60px;height: 60px;float: left;"></div>
+            <div style="color: #EC7259;">{{$value.userName}}</div>
             <!--帖子标题-->
-           <a href="/homepage/bbspost/{{$value.postId}}" >
-               <div>{{$value.title}}</div>
+           <a href="/homepage/bbspost/{{$value.postId}}"  target="_blank" style="text-decoration: none;">
+               <div style="margin-top: 5px;margin-left:6px;font-size: 18px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{$value.title}}</div>
            </a>
             <!--帖子内容-->
-            <div style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{$value.content}}</div>
+            <div style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;margin-left: 66px;font-weight: 500;">{{$value.content}}</div>
             <!--帖子的时间-->
-            <div>{{$value.time}}</div>
+            <div style="float: right;font-size: 14px;font-weight: 500;">{{$value.time}}</div>
         </li>
         {{/each}}
     </ul>
@@ -214,18 +220,18 @@
 <script id="info2" type="text/html">
     <ul>
         {{each data}}
-        <li>
-            <!--发帖人信息-->
-            <div>{{$value.userName}}</div>
+        <li class="newsposts" style="border-bottom: 1px solid gray;height: 110px;padding-top: 15px;">
             <!--<div><img src="{{$value.userAvatar}}" style="width: 50px;height: 50px"></div>-->
             <!--&lt;!&ndash;帖子标题&ndash;&gt;-->
-            <a href="/homepage/bbspost/{{$value.postId}}" >
-                <div>{{$value.title}}</div>
+            <a href="/homepage/bbspost/{{$value.postId}}" target="_blank" style="text-decoration: none;" >
+                <div style="margin-top: 5px;font-size: 18px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{$value.title}}</div>
             </a>
             <!--帖子内容-->
-            <div style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{$value.content}}</div>
+            <div style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;font-weight: 500;">{{$value.content}}</div>
+            <!--发帖人信息-->
+            <div style="color: #EC7259;">{{$value.userName}}</div>
             <!--帖子的时间-->
-            <div>{{$value.time}}</div>
+            <div style="float: right;font-size: 14px;font-weight: 500;">{{$value.time}}</div>
         </li>
         {{/each}}
     </ul>
@@ -234,21 +240,21 @@
 <script id="communities" type="text/html">
     <ul>
         {{each data}}
-        <li>
+        <li class="newsposts" style="border-bottom: 1px solid gray;height: 110px;padding-top: 15px;">
             <!--帖子标题-->
-            <h1 class="titledetail">
+            <h1 class="titledetail" style="font-size: 18px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
                 <a href="/homepage/bbspost/{{$value.postId}}" target="_blank" style="text-decoration: none;" >
                     <div>{{$value.title}}</div>
                 </a>
             </h1>
             <!--帖子内容-->
-            <p class="newsdetail">
-                <div style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{$value.content}}</div>
-            </p>
+            <!--<p>-->
+                <div style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;font-weight: 500;">{{$value.content}}</div>
+            <!--</p>-->
             <!--发帖人信息，头像先不要-->
-            <div>
-                <a>{{$value.userName}}</a>
-                <span style="float: right;">{{$value.time}}</span>
+            <div style="margin-top: 8px;">
+                <a style="color:#EC7259;font-weight: 500;">{{$value.userName}}</a>
+                <span style="float: right;font-size: 14px;font-weight: 500;">{{$value.time}}</span>
             </div>
         </li>
         {{/each}}

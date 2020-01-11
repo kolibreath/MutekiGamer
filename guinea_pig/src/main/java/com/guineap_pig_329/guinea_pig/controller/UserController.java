@@ -40,6 +40,8 @@ public class UserController {
     @Autowired
     private UserRepo userRepo;
     @Autowired
+    private OfficialRepo officialRepo;
+    @Autowired
     private GameAttributeRepo gameAttributeRepo;
     @RequestMapping("/follow")
     public ResultBean  follow(HttpSession session, @RequestBody Map<String,Object> map){
@@ -322,5 +324,14 @@ public class UserController {
         return ResultBean.success(Util.recommend(userSession.getId(),10,userGameRepo));
     }
 
-
+    @RequestMapping("/followRecommend/{id}")
+    public ResultBean followRecommend(@PathVariable("id") int gameId,HttpSession httpSession){
+         Official official=officialRepo.findByGameId(gameId);
+         int userId=official.getUserId();
+         UserSession userSession=(UserSession)httpSession.getAttribute(Constants.USE_SESSION_KEY);
+         int u=userSession.getId();
+         Friends friends=new Friends(userId,u);
+         friendsRepo.save(friends);
+         return ResultBean.success(null);
+    }
 }
