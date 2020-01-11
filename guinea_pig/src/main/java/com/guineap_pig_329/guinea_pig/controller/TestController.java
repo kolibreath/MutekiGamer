@@ -100,11 +100,11 @@ public class TestController {
         //用户关注的游戏
         UserGame rick2ow = new UserGame(rick.getUserId(),overwatch.getGameId());
         UserGame rick2lol = new UserGame(rick.getUserId(),lol.getGameId());
-        UserGame rick2pubg = new UserGame(rick.getUserId(),pubg.getGameId());
+        UserGame rick2heathStone = new UserGame(rick.getUserId(),hearthStone.getGameId());
         UserGame rick2apex = new UserGame(rick.getUserId(),apex.getGameId());
 
         userGameRepo.save(rick2apex);
-        userGameRepo.save(rick2pubg);
+        userGameRepo.save(rick2heathStone);
         userGameRepo.save(rick2ow);
         userGameRepo.save(rick2lol);
 
