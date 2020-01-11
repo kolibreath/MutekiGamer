@@ -69,12 +69,12 @@ div.col-8 div{
 
 }
 
-.gamelink{
-	width: 50%;
-	float: right;
-	text-decoration: none;
-	margin-top: 25px;
-}
+/*.gamelink{*/
+	/*width: 50%;*/
+	/*float: right;*/
+	/*text-decoration: none;*/
+	/*margin-top: 25px;*/
+/*}*/
 
 .tabchose{
 	background: rgba(244,244,244,0.8);
