@@ -151,12 +151,11 @@
                 <p style="font-size: 24px;margin-left: 8px;float: left;">热门游戏</p>
             </div>
             <div style="width: 10%; float: right;">
-                  <button class="login-button" style="float:right; margin-top: 4%; width: 80px;height: 35px; outline: none;">
+                  <button class="login-button"  id="change_button" style="float:right; margin-top: 4%; width: 80px;height: 35px; outline: none;">
                       <img src="img/change.png" style="height: 15px;width: 15px;">
                          换一批
                   </button>
             </div>
-            随机推荐游戏
             <div class="imgbox">
                 <div id="game1" style="width: 100%;height: auto; float: left;"></div>
             </div>
@@ -237,6 +236,18 @@
             "    <img src=\""+ userInfo.userAvatar+"\" style=\"width: 50px;height: 50px;border-radius: 50%;\">\n" +
             "      ";
         $("#user_avatar_container").html(_html4);
+
+    });
+
+
+    $("#change_button").click(function(){
+        $("#game1").empty();
+        getRecommendGames(function(result){
+            console.log(result);
+            let _html5 = template('games',result.post);
+            console.log(_html5);
+            document.getElementById('game1').innerHTML = _html5;
+        });
     });
 
     getRecommendGames(function(result){

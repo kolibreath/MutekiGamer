@@ -126,14 +126,17 @@
                 <div class="textList" style=" padding-left: 20px;">
                     <ul>
                         <li class="listTitle"><h1>热门话题</h1></li>
-                        <ol>
-                            <li>
-                                <a href="https://dazhe.blizzard.cn/">2020暴雪打折季12月20日盛大开启&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>539786<img
-                                    src="img/fire.png" style="float: right; height: 25px;width: 25px"></li>
-                            <li><a href="https://ow.blizzard.cn/article/news/1520">守望先锋主播跨年欢乐车队12月31日20点准时发车&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>418450<img
-                                    src="img/new.png" style="float: right; height: 30px;width: 30px"></li>
-                            <li><a href="https://hs.blizzard.cn/article/20/17107">1月1日暴雪游戏全民实力赛与你相约萤火虫&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>236203<img
-                                    src="img/happy.png" style="float: right; height: 25px;width: 25px"></li>
+                        <ol id="post_container">
+                            <!--<li>-->
+                                <!--<a href="https://dazhe.blizzard.cn/">2020暴雪打折季12月20日盛大开启&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>539786<img-->
+                                    <!--src="img/fire.png" style="float: right; height: 25px;width: 25px"></li>-->
+                            <!--<li>-->
+                                <!--<a href="https://ow.blizzard.cn/article/news/1520">守望先锋主播跨年欢乐车队12月31日20点准时发车&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>418450<img-->
+                                    <!--src="img/new.png" style="float: right; height: 30px;width: 30px"></li>-->
+                            <!--<li>-->
+                                <!--<a href="https://hs.blizzard.cn/article/20/17107">1月1日暴雪游戏全民实力赛与你相约萤火虫&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>236203<img-->
+                                    <!--src="img/happy.png" style="float: right; height: 25px;width: 25px">-->
+                            <!--</li>-->
                         </ol>
                     </ul>
                 </div>
@@ -177,11 +180,20 @@
         }
         $("#banner").html(_banner_html);
 
-
-        getRecommendUser(function(result){
-
+        getHotPost(function(result){
+            let _html = "";
+            let post  = result.data;
+            let pics = ["img/fire.png","img/new.png","img/happy.png"];
+            for (let i = 0; i < post.length; i++) {
+                _html += " <li>\n" +
+                    "                                <a href=\"https://hs.blizzard.cn/article/20/17107\">"+post[i].title+"</a>236203<img\n" +
+                    "                                    src=\""+pics[i % pics.length]+"\" style=\"float: right; height: 25px;width: 25px\">\n" +
+                    "                            </li>";
+            }
+            $("#post_container").html(_html);
         });
     });
+
 
 
 </script>

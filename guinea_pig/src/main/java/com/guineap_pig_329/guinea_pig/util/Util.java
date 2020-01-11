@@ -378,7 +378,8 @@ public class Util {
      * @param n  返回的数量
      * @return
      */
-    public static List<GameRank> recommend(int userId,int n, UserGameRepo userGameRepo){
+    public static List<GameRank> recommend(int userId,int n, UserGameRepo userGameRepo,GameRepo gameRepo,
+                                           GameAttributeRepo gameAttributeRepo){
 
         String platforms[] = {"windows","macos","linux","phone","station"};
         int platformHash[] = new int[platforms.length];

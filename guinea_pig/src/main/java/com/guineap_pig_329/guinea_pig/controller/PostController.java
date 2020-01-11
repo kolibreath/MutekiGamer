@@ -33,6 +33,8 @@ public class PostController {
     private UserGameRepo userGameRepo;
     @Autowired
     private GameRepo gameRepo;
+    @Autowired
+    private GameAttributeRepo gameAttributeRepo;
 
     @RequestMapping("/selected")
     public ResultBean getPosts() {
@@ -112,15 +114,17 @@ public class PostController {
         Post post = new Post(
                 userId, time, postContent, tag, postTitle, gameId
         );
+
         postRepo.save(post);
         return ResultBean.success(null);
     }
 
 
-    @PostMapping("/hot")
+    @RequestMapping("/hot")
     public ResultBean getHotPost(HttpSession session){
+
         UserSession userSession = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
-        List<Util.GameRank> gameRanks = Util.recommend(userSession.getId(),10,userGameRepo);
+        List<Util.GameRank> gameRanks = Util.recommend(userSession.getId(),10,userGameRepo,gameRepo,gameAttributeRepo);
 
         List<Post> posts = new LinkedList<>();
         for(Util.GameRank gameRank : gameRanks) {

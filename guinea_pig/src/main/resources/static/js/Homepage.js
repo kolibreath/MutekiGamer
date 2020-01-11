@@ -143,3 +143,29 @@ function getRecommendGames(call){
 
     $.when(post).done(() =>{call(allData)});
 }
+
+function search4content(content,call){
+    let allData = {};
+    let postbody = {"search":content};
+    let post =$.ajax(({
+        async:false,
+        url:"battle/game",
+        type:"GET",
+        contentType:'application/x-www-form-urlencoded',
+        dataType:"json",
+        data:postbody,
+        success:function(result){
+            allData = result;
+        },
+        //todo 错误处理
+        error:function (result) {
+
+        },
+        complete:function (result) {
+
+        }
+    }));
+
+    $.when(post).done(() =>{call(allData)});
+}
+

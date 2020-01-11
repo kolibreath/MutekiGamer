@@ -7,7 +7,6 @@ function recommend(call) {
             allData = result;
         },
         error:function () {
-            //todo 错误处理
         }
     });
     $.when(request).done( () => { call(allData) } );
