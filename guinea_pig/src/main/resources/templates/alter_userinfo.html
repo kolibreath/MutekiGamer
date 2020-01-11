@@ -156,12 +156,13 @@
     getUserInfo(function(result){
         //完成之后刷新
         let userInfo = result.data;
-        $("#id").val(userInfo.userDegree);
+
+        $("#id").val(userInfo.degree);
         $("#name").val(userInfo.userName);
-        $("#email").val(userInfo.userCity);
+        $("#email").val(userInfo.city);
         $("#age").val(userInfo.age);
         $("#occupation").val(userInfo.occupation);
-        $("#intro").val(userInfo)
+        $("#intro").val(userInfo.intro);
 
         $("#head_nickname").val(userInfo.userName);
 

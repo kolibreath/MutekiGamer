@@ -40,7 +40,7 @@ public class GameController {
             Game game = gameRepo.findById(userGame.getGameId()).get();
             List<Post> mypost = postRepo.findByGameIdAndUserId(userGame.getGameId(),userId);
             GamePostWrapper gamePostWrapper = new GamePostWrapper(userGame.getGameId()
-            ,game.getGameName(),game.getGameIntro(),game.getPicture(),mypost);
+                    ,game.getGameName(),game.getGameIntro(),game.getPicture(),mypost);
             games.add(gamePostWrapper);
         }
         //登陆用户关于这个游戏的所有帖子

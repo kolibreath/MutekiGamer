@@ -18,9 +18,17 @@ public class UserHomePageWrapper {
     private int postLength;
     private int followingNum;
     private String userAvatar;
+    private String intro;
     public UserHomePageWrapper(){}
     private List<Game> games;
 
+    public String getIntro() {
+        return intro;
+    }
+
+    public void setIntro(String intro) {
+        this.intro = intro;
+    }
 
     public int getAge() {
         return age;
