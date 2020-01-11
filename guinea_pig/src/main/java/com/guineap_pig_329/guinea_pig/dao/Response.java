@@ -23,6 +23,13 @@ public class Response {
     @Column
     private String userAvatar;
 
+    public Response(int userId, int postId, String content, String userName, String userAvatar) {
+        this.userId = userId;
+        this.postId = postId;
+        this.content = content;
+        this.userName = userName;
+        this.userAvatar = userAvatar;
+    }
 
     public String getUserName() {
         return userName;

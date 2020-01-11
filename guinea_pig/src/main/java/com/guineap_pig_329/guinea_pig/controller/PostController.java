@@ -105,12 +105,10 @@ public class PostController {
         } catch (Exception e) {
             return ResultBean.error(ResultBean.bad_request, "帖子不存在");
         }
-        Response response = new Response(userId, postId, responseContent);
+//        Response response = new Response(userId, postId, responseContent);
 
-        response.setUserName(user.getName());
         UserInfo u=userInfoRepo.findUserInfoByUserId(userId);
-        response.setUserAvatar(u.getUserAvatar());
-
+        Response response=new Response(userId,postId,responseContent,user.getName(),u.getUserAvatar());
         if (responseContent == null) {
             return ResultBean.error(ResultBean.resources_not_found, "回复内容不能为空");
         }
