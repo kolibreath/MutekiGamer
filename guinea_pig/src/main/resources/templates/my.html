@@ -63,16 +63,13 @@
             <!--<a href="login">Login</a>-->
             <!--</span>-->
             <div class="dropdown" style="float: right;margin: 5px 30px;">
-                <a href="/homepage/my">
-                    <!--下面的img插用户头像-->
-                    <img src="https://static.dingtalk.com/media/lADPDgQ9rbqFW6nNAQLNAQM_259_258.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222062145382217%22%7D&bizType=im&open_id=267508618"
-                         style="width: 50px;height: 50px;border-radius: 50%;">
+                <a href="/homepage/my" id="user_avatar_container">
                 </a>
                 <a class="dropdown-toggle" data-toggle="dropdown" style="text-decoration: none;">
                 </a>
                 <div class="dropdown-menu">
                     <!--两个跳转-->
-                    <a class="dropdown-item" href="#">修改信息</a>
+                    <a class="dropdown-item" href="/homepage/alter_userinfo">修改信息</a>
                     <a class="dropdown-item" href="#">退出</a>
                 </div>
             </div>
@@ -473,6 +470,8 @@ margin-left:200px;margin-top: 50px;">
     </div>
 </div>
 <!--渲染我的基本信息-->
+
+
 <script id="myinfo11" type="text/html">
     <img src="{{userAvatar}}" style="width: 120px;height: 120px">
 </script>
@@ -565,17 +564,17 @@ margin-left:200px;margin-top: 50px;">
     </ul>
 </script>
 <!--<script id="test2" type="text/html">-->
-    <!--<ul>-->
-        <!--{{each myPost}}-->
-        <!--<li>-->
+<!--<ul>-->
+<!--{{each myPost}}-->
+<!--<li>-->
 
-            <!--<a href="/homepage/bbspost/{{$value.postId}}">-->
-                <!--<div>{{$value.title}}</div>-->
-            <!--</a>-->
-            <!--{{$value.content}}-->
-        <!--</li>-->
-        <!--{{/each}}-->
-    <!--</ul>-->
+<!--<a href="/homepage/bbspost/{{$value.postId}}">-->
+<!--<div>{{$value.title}}</div>-->
+<!--</a>-->
+<!--{{$value.content}}-->
+<!--</li>-->
+<!--{{/each}}-->
+<!--</ul>-->
 <!--</script>-->
 <!--处理个人信息请求-->
 <script>
@@ -618,9 +617,9 @@ margin-left:200px;margin-top: 50px;">
         console.log(html);
         document.getElementById('navigation').innerHTML = html;
 
-            var h = template('test', result.post);
-            console.log(h);
-            document.getElementById('post').innerHTML = h;
+        var h = template('test', result.post);
+        console.log(h);
+        document.getElementById('post').innerHTML = h;
     })
 </script>
 <script>

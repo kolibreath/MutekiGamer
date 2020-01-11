@@ -18,6 +18,7 @@
 
 <script type="text/javascript" th:src="@{/js/template-web.js}"></script>
 <script type="text/javascript" th:src="@{/js/User.js}"></script>
+<script type="text/javascript" th:src="@{/js/News.js}"></script>
 <script type="text/javascript" th:src="@{/js/Homepage.js}"></script>
 </head>
 
@@ -48,7 +49,7 @@
                 </a>
                 <div class="dropdown-menu" >
                     <!--两个跳转-->
-                    <a class="dropdown-item" href="#">修改信息</a>
+                    <a class="dropdown-item" href="/homepage/alter_userinfo">修改信息</a>
                     <a class="dropdown-item" href="#">退出</a>
                 </div>
             </div>
@@ -66,16 +67,8 @@
             </ul>
 
             <!-- 轮播图片 -->
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="https://static.dingtalk.com/media/lALPDgQ9raEHz7bMy80DJQ_805_203.png?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222029248153781%22%7D&bizType=im&open_id=267544667">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://static.dingtalk.com/media/lALPDgQ9raEHz7DMkM0COQ_569_144.png_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222029248153460%22%7D&bizType=im&open_id=267544667">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://static.dingtalk.com/media/lALPDgQ9raEHz7jMy80DJQ_805_203.png_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222035921406135%22%7D&bizType=im&open_id=267544667">
-                </div>
+            <div class="carousel-inner" id="banner">
+
             </div>
 
             <!-- 左右切换按钮 -->
@@ -192,6 +185,27 @@
         $("#user_avatar_container").html(" <!--下面的img插用户头像-->\n" +
             "                    <img src=\""+userInfo.userAvatar+"\" style=\"width: 50px;height: 50px;border-radius: 50%;\">\n");
     });
+    getBanners(function(result){
+        let _banner_html = "";
+        let banners = result.data;
+        for (let i = 0; i < banners.length ; i++) {
+            if (i != 0) {
+                _banner_html += "<div class=\"carousel-item\">\n" +
+                    "    <a href=\""+banners[i].bannerContentId+"\">\n" +
+                    "    <img src=\"" + banners[i].bannerPicId + "\">\n" +
+                    "    </a>\n" +
+                    "</div>\n";
+            }else{
+                _banner_html += "<div class=\"carousel-item active\">\n" +
+                    "    <a href=\""+banners[i].bannerContentId+ "\">\n" +
+                    "    <img src=\"" + banners[i].bannerPicId + "\">\n" +
+                    "    </a>\n" +
+                    "</div>\n"
+            }
+        }
+        $("#banner").html(_banner_html);
+    });
+
 </script>
 
 <footer style="position: relative;height: 60px;background-color:#5E5E5E; color:  #EAEAEA;overflow: hidden;">

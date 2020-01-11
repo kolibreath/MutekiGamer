@@ -141,8 +141,7 @@
             console.log(options.text());
             let tag = options.text();
             //todo 必须是int 类型的gameId
-            let gameId = 3;
-            newPost(postContent, postTitle, tag, gameId, function (result) {
+            newPost(postContent, postTitle, tag, function (result) {
                 if (result.code == 200) {
                     alert("发送成功!")
                     //todo 把alert 弄好看一点!!!
