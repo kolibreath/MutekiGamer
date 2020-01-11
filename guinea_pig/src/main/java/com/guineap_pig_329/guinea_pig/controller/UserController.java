@@ -321,7 +321,7 @@ public class UserController {
             for (int i = 0; i < pStr.length ; i++) {
                 for (int j = 0; j < platforms.length ; j++) {
                     if(platforms[j].equals(pStr[i].toLowerCase())){
-                        divisionHash[i]++;
+                        platformHash[i]++;
                     }
                 }
             }
