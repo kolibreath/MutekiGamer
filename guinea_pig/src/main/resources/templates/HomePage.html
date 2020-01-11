@@ -19,6 +19,10 @@
     <script type="text/javascript" th:src="@{/js/Time.js}"></script>
 
     <style>
+        .homepagebanner{
+            background-image: url("/static/img/homepagebanner.jpg");
+            background-size: cover;
+        }
         .imgbox img{
             transition:all .4s;
             -moz-transition:all .4s;
@@ -165,8 +169,8 @@
 <script id="games" type="text/html">
 <ul style="height: 80px;">
     {{each data}}
-    <li style="width: 200px;height: 200px;padding-top: 25px;padding-left: 25px;float: left;margin-right: 5%;margin-top: 20px;background-color: #D3D3D3;overflow: hidden;border-radius: 50%;">
-        <img src="{{$value.picture}}" style="width: 150px; height: 150px; transition:all .4s;-moz-transition:all .4s;-webkit-transition:all .4s;-o-transition:all .4s;" >
+    <li style="width: 180px;height: 180px;float: left;margin-right: 6%;margin-top: 20px;background-color: #D3D3D3;overflow: hidden;border-radius: 50%;">
+        <img src="{{$value.picture}}" style="width: 180px; height: 180px; transition:all .4s;-moz-transition:all .4s;-webkit-transition:all .4s;-o-transition:all .4s;" >
     </li>
     {{/each}}
 </ul>

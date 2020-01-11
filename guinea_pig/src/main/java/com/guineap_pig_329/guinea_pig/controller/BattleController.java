@@ -68,6 +68,14 @@ public class BattleController {
        return ResultBean.success(battleSearchWrapper);
     }
 
+    @RequestMapping("/newsDefault")
+    public ResultBean getdefault(HttpSession session){
+        UserSession userSession=(UserSession)session.getAttribute(Constants.USE_SESSION_KEY);
+        int gameId=userSession.getGameId();
+        Official official=officialRepo.findByGameId(gameId);
+        List<Post>posts=postRepo.findAllByUserId(official.getUserId());
+        return ResultBean.success(posts);
+    }
 
     @RequestMapping("/match/{gameId}")
     public ResultBean getMatchRecord(@PathVariable("gameId") int gameId){
