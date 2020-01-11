@@ -226,11 +226,11 @@
 <script id="response1" type="text/html">
 <ul>
     {{each data}}
-    <li>
+    <li style="border-bottom: 1px solid #d5d2d2;padding-bottom: 20px;">
         <div>
-            <img src=" {{$value.userAvatar}}">
-            {{$value.userName}}
-            {{$value.content}}
+            <img src=" {{$value.userAvatar}}" style="float: left;">
+            <div style="font-size: 22px; color:#EC7259;">{{$value.userName}}</div>
+            <div style="margin-top: 20px;word-wrap: break-word;word-break: normal;margin-left: 65px;">{{$value.content}}</div>
         </div>
     </li>
     {{/each}}
