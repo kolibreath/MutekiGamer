@@ -257,10 +257,15 @@ margin-left:200px;margin-top: 50px;">
                 <!--</li>-->
                 <!--</ul>-->
             </nav>
-
-            <div class="col-sm-9 col-8">
                 <!--帖子-->
-                <div id="post" style="margin-left: 20px;"></div>
+            <div class="contextFrame" style=" height: auto; width: 55%;background: rgba(244,244,244,0.8);border-radius: 10px;">
+                <div class="innerFrame" style="border: 1px gray solid; margin: 3%;border-radius: 10px;">
+                    <div class="textList" style="border-color: gray;">
+                        <div id="post" style="width: 90%;margin-left: 5%;margin-top: 2%;"></div>
+                    </div>
+                    <div class="clearfloat"></div>
+                </div>
+            </div>
                 <!--<div id="section1">-->
                 <!--<ul>-->
                 <!--<li>-->
@@ -471,8 +476,6 @@ margin-left:200px;margin-top: 50px;">
                 <!--</li>-->
                 <!--</ul>-->
                 <!--</div>-->
-
-            </div>
         </div>
     </div>
 </div>
@@ -559,27 +562,44 @@ margin-left:200px;margin-top: 50px;">
         {{/each}}
     </ul>
 </script>
-
+<!--post-->
 <script id="test" type="text/html">
     <ul>
         {{each data}}
-        <li>
-
-            <div style="font-size: 20px; padding-top: 20px;margin-left: 20px;color:rgba(225,225,225,1); ">
-
-
+        <li style="border-bottom: 1px gray solid;padding-bottom: 10px;">
+            <div style="font-size: 20px; padding-top: 20px;margin-left: 20px;color: white ;">
+<!--                标题-->
                 <a href="/homepage/bbspost/{{$value.postId}}">
-                    <div style="font-size: 18px; margin-top: 20px;margin-bottom: 20px;color: white">
+                    <div style="float: left;width: 80%;color:#555;margin-left: 1%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
                         {{$value.title}}
                     </div>
                 </a>
-                <div>{{$value.time}}</div>
+<!--                时间-->
+                <div style="float: right;width: 10%;margin-left: 5%;font-weight: lighter;font-size: 14px;color:#555;">{{$value.time}}</div>
+<!--                内容-->
+                <div style="font-weight: lighter; overflow: hidden; height: 24px; white-space: nowrap; text-overflow: ellipsis; margin-bottom: 10px;width: 95%; margin-top: 5%;margin-left: 1%;color: #444;">{{$value.content}}</div>
 
-                <!--<div style="border: 0.5px solid gray;width:680px;height:1px"></div>-->
             </div>
         </li>
         {{/each}}
     </ul>
+
+<!--    <ul>-->
+<!--        {{each data}}-->
+<!--        <li style="padding: 10px 10px;border-bottom-color: gray;">-->
+<!--            &lt;!&ndash;发帖人头像&ndash;&gt;-->
+<!--            <div style="float:left;"><img src="{{$value.userAvatar}}" style="width: 50px;height: 50px"></div>-->
+<!--            &lt;!&ndash;发帖人昵称&ndash;&gt;-->
+<!--            <div style="float:left;width: 14%; font-weight: lighter; font-size: 14px; color:#EC7259;margin-left: 1%;">{{$value.userName}}</div>-->
+<!--            &lt;!&ndash;帖子时间&ndash;&gt;-->
+<!--            <div style="float: right; width:10%; margin-left: 5%;font-weight: lighter;font-size: 14px;color:#555;">{{$value.time}}</div>-->
+<!--            &lt;!&ndash;帖子标题&ndash;&gt;-->
+<!--            <a href="/homepage/bbspost/{{$value.postId}}"><div style="float: left; width: 90%; color: #555;margin-left: 1%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{$value.title}}</div></a>-->
+<!--            &lt;!&ndash;帖子内容&ndash;&gt;-->
+<!--            <div style="font-weight: lighter; overflow: hidden; height: 24px; white-space: nowrap; text-overflow: ellipsis; margin-bottom: 10px;width: 90%; margin-top: 5%;margin-left: 6%;">{{$value.content}}</div>-->
+<!--        </li>-->
+<!--        {{/each}}-->
+<!--    </ul>-->
 </script>
 
 <script>
