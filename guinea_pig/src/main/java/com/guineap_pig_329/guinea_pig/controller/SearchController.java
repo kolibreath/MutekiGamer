@@ -9,6 +9,4 @@ import org.springframework.web.bind.annotation.RestController;
 public class SearchController {
 
 
-    //todo 后面再写 过于复杂
-//    @RequestMapping("/game={gameKeyWord}/")
 }

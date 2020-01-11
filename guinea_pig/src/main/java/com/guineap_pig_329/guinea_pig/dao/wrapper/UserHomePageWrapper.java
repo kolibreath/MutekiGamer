@@ -10,12 +10,49 @@ import java.util.List;
  */
 public class UserHomePageWrapper {
     private String userName;
+    private int age;
+    private String city;
+    private String occupation;
+    private String degree;
     private int followerNum;
     private int postLength;
     private int followingNum;
     private String userAvatar;
     public UserHomePageWrapper(){}
     private List<Game> games;
+
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getOccupation() {
+        return occupation;
+    }
+
+    public void setOccupation(String occupation) {
+        this.occupation = occupation;
+    }
+
+    public String getDegree() {
+        return degree;
+    }
+
+    public void setDegree(String degree) {
+        this.degree = degree;
+    }
 
     public String getUserName() {
         return userName;

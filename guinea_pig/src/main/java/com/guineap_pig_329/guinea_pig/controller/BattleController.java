@@ -2,6 +2,7 @@ package com.guineap_pig_329.guinea_pig.controller;
 
 import com.guineap_pig_329.guinea_pig.Constants;
 import com.guineap_pig_329.guinea_pig.dao.*;
+import com.guineap_pig_329.guinea_pig.dao.wrapper.BattleSearchWrapper;
 import com.guineap_pig_329.guinea_pig.dao.wrapper.ContestWrapper;
 import com.guineap_pig_329.guinea_pig.repo.*;
 import com.guineap_pig_329.guinea_pig.util.Util;
@@ -54,12 +55,17 @@ public class BattleController {
 //
     @GetMapping("/game")
     public ResultBean search(@RequestParam String search){
-        List<Game> list = gameRepo.findByGameNameContaining(search);
-        ResultBean resultBean = new ResultBean();
-        resultBean.setCode(ResultBean.success_code);
-        resultBean.setMessage("查询成功");
-        resultBean.setData(list);
-       return resultBean;
+        List<Game> resultGames = gameRepo.findByGameNameContaining(search);
+
+        List<Post> resultPosts = new LinkedList<>();
+        List<Post> posts = postRepo.findAll();
+        for(Post post:posts){
+            if(post.getTitle().contains(search) || post.getContent().contains(search)){
+                resultPosts.add(post);
+            }
+        }
+        BattleSearchWrapper battleSearchWrapper = new BattleSearchWrapper(resultPosts, resultGames);
+       return ResultBean.success(battleSearchWrapper);
     }
 
 

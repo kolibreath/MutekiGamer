@@ -248,7 +248,6 @@
 
         $(".game").click(function () {
             let val = $(this).attr("id");
-            console.log(val);
             getPostByGameId(val, function (result) {
                 let p = result.post;
                 console.log(p);
