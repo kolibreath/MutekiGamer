@@ -2,7 +2,7 @@ package com.guineap_pig_329.guinea_pig.controller;
 
 
 import com.guineap_pig_329.guinea_pig.Constants;
-import com.guineap_pig_329.guinea_pig.Util;
+import com.guineap_pig_329.guinea_pig.util.Util;
 import com.guineap_pig_329.guinea_pig.dao.*;
 import com.guineap_pig_329.guinea_pig.dao.wrapper.PostWrapper;
 import com.guineap_pig_329.guinea_pig.repo.PostRepo;
@@ -106,6 +106,11 @@ public class PostController {
             return ResultBean.error(ResultBean.bad_request, "帖子不存在");
         }
         Response response = new Response(userId, postId, responseContent);
+
+        response.setUserName(user.getName());
+        UserInfo u=userInfoRepo.findUserInfoByUserId(userId);
+        response.setUserAvatar(u.getUserAvatar());
+
         if (responseContent == null) {
             return ResultBean.error(ResultBean.resources_not_found, "回复内容不能为空");
         }
