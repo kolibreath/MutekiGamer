@@ -1,9 +1,9 @@
 package com.guineap_pig_329.guinea_pig.controller;
 
 import com.guineap_pig_329.guinea_pig.Constants;
-import com.guineap_pig_329.guinea_pig.util.Util;
 import com.guineap_pig_329.guinea_pig.dao.*;
 import com.guineap_pig_329.guinea_pig.repo.*;
+import com.guineap_pig_329.guinea_pig.util.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -72,7 +72,8 @@ public class TestController {
 
 
 
-        UserInfo rickInfo = new UserInfo(rick.getUserId(), Constants.OVERWATCH_THUMBNAIL,"the universe destroyer", Constants.MALE,"Washington",70);
+        UserInfo rickInfo = new UserInfo(rick.getUserId(), Constants.OVERWATCH_THUMBNAIL,
+                "A universe destroyer",Constants.MALE,"Washington, USA",70,"大学本科","Travler");
         userInfoRepo.save(rickInfo);
 
         userRepo.save(rick);

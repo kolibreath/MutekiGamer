@@ -31,6 +31,8 @@ public class PostController {
     private UserInfoRepo userInfoRepo;
     @Autowired
     private UserGameRepo userGameRepo;
+    @Autowired
+    private GameRepo gameRepo;
 
     @RequestMapping("/selected")
     public ResultBean getPosts() {
@@ -57,8 +59,20 @@ public class PostController {
         UserSession user = (UserSession) session.getAttribute(Constants.USE_SESSION_KEY);
         user.setSelectedGameId(gameId);
         List<Post> posts = postRepo.findAllByGameId(gameId);
-        return ResultBean.success(Util.transform(posts,userRepo,userInfoRepo));
+        List<PostWrapper> postWrappers = new LinkedList<>();
+
+        Game game = gameRepo.findById(gameId).get();
+
+        for (Post post:posts){
+
+            User postUser = userRepo.findUserByUserId(post.getUserId());
+            PostWrapper postWrapper = new PostWrapper(post.getPostId(),postUser.getUserId(),game.getGameId(),
+                    post.getTag(), post.getTime(), post.getContent(), post.getTitle(), postUser.getUserName() ,game.getPicture());
+            postWrappers.add(postWrapper);
+        }
+        return ResultBean.success(postWrappers);
     }
+
     //通过游戏Id 用户id得到帖子
     @RequestMapping("/usergame/{gameid}")
     public ResultBean getPostByUserIdGameId(@PathVariable("gameid") Integer gameId,HttpSession session) {
