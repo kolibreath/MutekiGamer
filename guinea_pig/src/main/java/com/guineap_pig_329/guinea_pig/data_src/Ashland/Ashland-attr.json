@@ -5,6 +5,6 @@
   "gamePrice":67,
   "playerNumber":5,
   "playerAge":15,
-  "platform":"windows macos steamos+linux",
+  "platform":"windows macos linux",
   "time":"2019-11-09"
 }

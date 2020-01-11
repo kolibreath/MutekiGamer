@@ -7,7 +7,10 @@ import com.guineap_pig_329.guinea_pig.dao.wrapper.UserHomePageWrapper;
 import com.guineap_pig_329.guinea_pig.dao.wrapper.UserWrapper;
 import com.guineap_pig_329.guinea_pig.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
 import java.util.*;
@@ -364,12 +367,6 @@ public class UserController {
         playerRangeList = array2intList(playerRange,playerRangeHash);
         gamePriceList = array2intList(priceRange,priceRangeHash);
 
-        String topPlatform = platFormList.get(0);
-        String topDivision = divisionList.get(0);
-
-        int topPlayerRange = playerRangeList.get(0);
-        int topGamePrice = gamePriceList.get(0);
-
         Map<String,Integer> map = new TreeMap<>();
         List<Game> allGame = gameRepo.findAll();
 
@@ -377,10 +374,16 @@ public class UserController {
 
         for(Game game:allGame){
 
+            boolean flag = false;
             //跳过关注的游戏
             for (int i = 0; i < userGame.size(); i++) {
                 if(userGame.get(i).getGameId() == game.getGameId())
-                    continue;
+                    flag = true;
+                break;
+            }
+
+            if(flag){
+                continue;
             }
 
             GameAttribute allGameAttribute = gameAttributeRepo.findByGameId(game.getGameId());
@@ -434,7 +437,7 @@ public class UserController {
             }
 
             int score = Integer.parseInt(pRank +"" + dRank +"" + playerRank +"" + priceRank);
-            GameRank gameRank = new GameRank(game.getGameId(),score);
+            GameRank gameRank = new GameRank(game.getGameName(),game.getPicture(),game.getGameId(),score);
             sortedGame.add(gameRank);
         }
 
@@ -454,13 +457,15 @@ public class UserController {
             map.put(str[j],i[j]);
         }
 
-        List<Map.Entry<String,Integer>> list = new ArrayList<Map.Entry<String,Integer>>(map.entrySet());
-        Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
+        Comparator<Map.Entry<String, Integer>> valueComparator = new Comparator<Map.Entry<String,Integer>>() {
             @Override
-            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
-                return o1.getValue() - o2.getValue();
+            public int compare(Map.Entry<String, Integer> o1,
+                               Map.Entry<String, Integer> o2) {
+                return o2.getValue()-o1.getValue();
             }
-        });
+        };
+        List<Map.Entry<String,Integer>> list = new ArrayList<>(map.entrySet());
+        Collections.sort(list,valueComparator);
 
         List<String> result = new LinkedList<>();
         for(Map.Entry<String,Integer> mapping:list){
@@ -475,14 +480,15 @@ public class UserController {
             map.put(str[j],i[j]);
         }
 
-        List<Map.Entry<Integer,Integer>> list = new ArrayList<>(map.entrySet());
-        Collections.sort(list, new Comparator<Map.Entry<Integer, Integer>>() {
+        Comparator<Map.Entry<Integer, Integer>> valueComparator = new Comparator<Map.Entry<Integer, Integer>>() {
             @Override
             public int compare(Map.Entry<Integer, Integer> o1, Map.Entry<Integer, Integer> o2) {
-                return o1.getValue() - o2.getValue();
+                return o2.getValue() - o1.getValue();
             }
-        });
+        };
 
+        List<Map.Entry<Integer,Integer>> list = new ArrayList<>(map.entrySet());
+        Collections.sort(list,valueComparator);
 
         List<Integer> result = new LinkedList<>();
         for(Map.Entry<Integer,Integer> mapping:list){
@@ -495,6 +501,8 @@ public class UserController {
 
     // 游戏评分 进行推荐排序的一句
     private class GameRank{
+        private String gameName;
+        private String gameAvatar;
         private int gameId;
         private long rank;
 
@@ -514,7 +522,25 @@ public class UserController {
             this.rank = rank;
         }
 
-        public GameRank(int gameId, long rank) {
+        public String getGameName() {
+            return gameName;
+        }
+
+        public void setGameName(String gameName) {
+            this.gameName = gameName;
+        }
+
+        public String getGameAvatar() {
+            return gameAvatar;
+        }
+
+        public void setGameAvatar(String gameAvatar) {
+            this.gameAvatar = gameAvatar;
+        }
+
+        public GameRank(String gameName, String gameAvatar, int gameId, long rank) {
+            this.gameName = gameName;
+            this.gameAvatar = gameAvatar;
             this.gameId = gameId;
             this.rank = rank;
         }

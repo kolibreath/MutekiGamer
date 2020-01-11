@@ -17,7 +17,8 @@ public class GameAttribute {
     @Column
     private String paintingStyle;//游戏画风
 
-    @Column
+    @Lob
+    @Column(length = 10000)
     private String gameBackground;
 
     @Column
