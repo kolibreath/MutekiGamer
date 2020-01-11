@@ -122,3 +122,24 @@ function homepage1(call) {
     //todo 前端ajax filter
     $.when(  gamesRequest,postRequest).done(() => {call(allData)});
 }
+
+
+function getRecommendGames(call){
+    let allData = {};
+    let post =$.ajax(({
+        url:"game/hot",
+        type:"GET",
+        success:function(result){
+            allData.post = result;
+        },
+        //todo 错误处理
+        error:function (result) {
+
+        },
+        complete:function (result) {
+
+        }
+    }));
+
+    $.when(post).done(() =>{call(allData)});
+}
