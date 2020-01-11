@@ -321,7 +321,7 @@ public class UserController {
     @RequestMapping("/test_al")
     public ResultBean test(HttpSession httpSession){
         UserSession userSession = (UserSession) httpSession.getAttribute(Constants.USE_SESSION_KEY);
-        return ResultBean.success(Util.recommend(userSession.getId(),10,userGameRepo));
+        return ResultBean.success(Util.recommend(userSession.getId(),10,userGameRepo,gameRepo,gameAttributeRepo));
     }
 
     @RequestMapping("/followRecommend/{id}")
