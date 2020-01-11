@@ -283,6 +283,11 @@ public class UserController {
     }
 
 
+    @RequestMapping("/test_al")
+    public ResultBean test(HttpSession httpSession){
+        UserSession userSession = (UserSession) httpSession.getAttribute(Constants.USE_SESSION_KEY);
+        return ResultBean.success(recommend(userSession.getId(),10));
+    }
     /**
      * 推荐算法
      * @param userId 用户名
@@ -371,6 +376,13 @@ public class UserController {
         List<GameRank> sortedGame = new LinkedList<>();
 
         for(Game game:allGame){
+
+            //跳过关注的游戏
+            for (int i = 0; i < userGame.size(); i++) {
+                if(userGame.get(i).getGameId() == game.getGameId())
+                    continue;
+            }
+
             GameAttribute allGameAttribute = gameAttributeRepo.findByGameId(game.getGameId());
 
             String p[] = allGameAttribute.getPlatform().split(" ");
