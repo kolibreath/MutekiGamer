@@ -1,0 +1,10 @@
+{
+  "gameId":1,
+  "paintingStyle":"RPG",
+  "gameBackground":" ",
+  "gamePrice":48,
+  "playerNumber":6,
+  "playerAge":12,
+  "platform":"Windows MacOS Linux",
+  "time":"2020-01-02"
+}
