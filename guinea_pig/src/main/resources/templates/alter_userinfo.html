@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta name="keyword" content="HTML, CSS, image, navigation" />
+    <title>Userinfo</title>
+    <base th:href="@{/}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./static/css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="./static/css/login.css"/>
+    <meta name="referrer" content="no-referrer"/>
+    <script type="text/javascript" th:src="@{/js/User.js}"></script>
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+<body >
+<!-- Navigation Bar -->
+
+<div class="barContainer" >
+    <div class="nav-content" >
+        <div class="nav-title">
+                <span>
+                    <img src="https://static.dingtalk.com/media/lALPDgQ9rZl6KXPNAljNB0Q_1860_600.png?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222028145409841%22%7D&bizType=im&open_id=267508618" alt="MutekiGamer logo">
+                </span>
+        </div>
+        <div class="nav-text container-fluid">
+            <span style="float: left"><a href="HomePage.html">主页</a></span>
+            <span style="float: left"><a href="/homepage/community">社区</a></span>
+            <span style="float: left"><a href="/homepage/news">头条</a></span>
+            <span style="float: left"><a href="/homepage/battle">战场</a></span>
+
+            <div class="dropdown" style="float: right;margin: 5px 30px;">
+                <a href="/homepage/my" id="user_avatar_container">
+                </a>
+                <a class="dropdown-toggle"  data-toggle="dropdown" style="text-decoration: none;">
+                </a>
+                <div class="dropdown-menu" >
+                    <a class="dropdown-item" href="#">退出</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--mainbody-->
+<div class="container" style="padding-left: 100px;padding-right: 100px;">
+    <div class="row" style="background-color: white;margin-top: 80px;height:auto;margin-bottom: 40px;">
+
+        <div class="col-md-3">
+            <div id="alter_avatar_container">
+            </div>
+            <a class="btn btn-outline-primary" style="margin-left: 30%;margin-top: 20px;">
+                <form method="POST" enctype="multipart/form-data" onsubmit="return false" id="user_avatar_form">
+                    <input style="position: absolute;display: block !important;width: 82px;opacity: 0;"
+                           type="file" id="upload_pic" unselectable="on" name="file">更改头像
+                </form>
+            </a>
+
+        </div>
+
+
+        <div class="col-md-9" style="padding-left: 30px;">
+            <h1 style="margin-top: 50px;">昵称
+                <a href="my.html" type="button" class="btn  btn-link " style="margin-left: 60%">
+                    返回我的个人主页
+                </a>
+            </h1>
+            <from  class="form-inline" role="form" style="margin-top: 60px;">
+                <div class="form-group">
+                    <label for="id" class=" control-label" style="margin-right:100px;">学历:</label>
+                    <input type="text" class="form-control" style="margin-left: 25px; width: 250px; " placeholder="" id="id" name="id">
+                </div>
+            </from>
+
+            <from  class="form-inline" role="form" style="margin-top: 60px;">
+                <div class="form-group">
+                    <label for="name" class=" control-label" style="margin-right:100px;">昵称：</label>
+                    <input type="text" class="form-control" style="width: 250px;" placeholder="" id="name" name="name">
+                </div>
+            </from>
+
+            <from  class="form-inline" role="form" style="margin-top: 60px;">
+                <div class="form-group">
+                    <label for="email" class=" control-label" style="margin-right:100px;">城市：</label>
+                    <input type="text" class="form-control" style="width: 250px;" placeholder="" id="email" name="email">
+                </div>
+            </from>
+
+            <from  class="form-inline" role="form" style="margin-top: 60px;">
+                <div class="form-group">
+                    <label  class=" control-label" style="margin-right:100px;">性别：</label>
+
+                    <div class="radio ">
+                        <label class="radio-inline ">
+                            <input type="radio"  name="optionsRadiosinline" id="optionsRadios3" value="option1" checked> 男
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="optionsRadiosinline" id="optionsRadios4"  value="option2"> 女
+                        </label>
+
+                    </div>
+                </div>
+            </from>
+
+
+            <from  class="form-inline" role="form" style="margin-top: 60px;">
+                <div class="form-group">
+                    <label for="age" class=" control-label" style="margin-right:100px;">年龄：</label>
+                    <input type="text" class="form-control" style="width: 250px;" placeholder="" id="age" name="age">
+                </div>
+            </from>
+
+            <from  class="form-inline" role="form" style="margin-top: 60px;">
+                <div class="form-group">
+                    <label for="occupation" class=" control-label" style="margin-right:100px;">职业：</label>
+                    <input type="text" class="form-control" style="width: 250px;" placeholder="" id="occupation" name="occupation">
+                </div>
+            </from>
+
+            <from  class="form-inline" role="form" style="margin-top: 60px;">
+                <div class="form-group">
+                    <label for="intro" class=" control-label" style="margin-right:100px;padding-bottom: 120px;">简介：</label>
+
+                    <textarea class="form-control" style="width: 250px;" rows="5" id="intro"></textarea>
+                </div>
+            </from>
+
+            <button id="submit_info" type="submit" class="btn btn-primary" style="margin-top: 60px; margin-bottom: 30px; margin-left:15%;margin-right: 100px;">提交</button>
+            <button type="submit" class="btn btn-light" style="margin-top: 60px;margin-bottom: 30px; ">取消</button>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    getUserInfo(function(result){
+        let userInfo = result.data;
+        $("#user_avatar_container").html(" <!--下面的img插用户头像-->\n" +
+            "                    <img src=\""+userInfo.userAvatar+"\" style=\"width: 50px;height: 50px;border-radius: 50%;\">\n");
+        $("#alter_avatar_container").html("  <img style=\"border-radius: 50%; margin-top: 20px;margin-left:10px; height: 200px; width: 200px;\" src=\" "+userInfo.userAvatar+"\" >");
+    });
+
+    $("#upload_pic").click(function(){
+
+    });
+
+    function checkForm(){
+        let formData = new FormData($("#user_avatar")[0]);
+        $.ajax({
+           url:"/upload" ,
+           type:"POST",
+           data:formData,
+           cache:false,
+           async:false,
+           processData:false,
+           contentType:false,
+
+            success:function(data){
+               console.log(data);
+               return data.data;
+            },
+            error:function(data){
+
+            }
+        });
+    }
+
+
+    $("#submit_info").click( function () {
+        let degree = $("#id").val();
+        let nickName = $("#name").val();
+        let city = $("#email").val();
+        let sexStr = $("input[name='optionsRadiosinline'][checked]").val();
+        let sexInt = 1;
+        if (sexStr == "男") {
+            sexInt = 1;
+        } else {
+            sexInt = 0;
+        }
+        let age = $("#age").val();
+        let occupation = $("#occupation").val();
+        let intro = $("#intro").val();
+
+        let formdata = new FormData($("#user_avatar_form")[0]);
+        console.log(formdata);
+        $.ajax({
+            url: "/upload/img",
+            type: "POST",
+            data: formdata,
+            enctype: 'multipart/form-data',
+            processData: false,  // 告诉jQuery不要去处理发送的数据
+            contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+            success: function (res) {
+                console.log(res);
+                //上传头像完成
+                let userAvatar = res.data;
+                alterUserInfo(userAvatar,nickName,sexInt,age,city,occupation,intro,
+                    function(result){
+                    if(result.code == 200){
+                        //todo
+                        alert("修改成功");
+                    }
+                });
+            }
+
+        });
+    });
+
+</script>
+
+<footer style="position: relative;height: 60px;background-color:#5E5E5E; color:  #EAEAEA;overflow: hidden;">
+    <div style="height:50px;width: 180px;margin-left: 30%;float: left;">
+        <img src="https://static.dingtalk.com/media/lALPDgQ9rZmS1SDNAcLNB0Q_1860_450.png?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222028305227287%22%7D&bizType=im&open_id=267508618">
+    </div>
+    <div style="float: left; padding-top: 25px;padding-left: 80px;">
+        <p style="float: left;font-weight: 200;font-size: 14px;">@MutekiGamer 2020</p>
+        <p style="float: left;margin-left: 70px;font-weight: 200;font-size: 14px;">联系我们:&nbsp&nbspmuteki_gamer@163.com</p>
+    </div>
+</footer>
+
+</body>
+</html>

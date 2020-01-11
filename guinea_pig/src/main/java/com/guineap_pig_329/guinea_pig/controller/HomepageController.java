@@ -60,4 +60,9 @@ public class HomepageController {
         httpSession.setAttribute(Constants.USE_SESSION_KEY,userSession);
         return "teaminfo";
     }
+
+    @RequestMapping("/alter_userinfo")
+    public String alterUserInfo(){
+        return "alter_userinfo";
+    }
 }
