@@ -149,8 +149,8 @@
             //todo 必须是int 类型的gameId
             newPost(postContent, postTitle, tag, function (result) {
                 if (result.code == 200) {
-                    alert("发送成功!")
-                    //todo 把alert 弄好看一点!!!
+                    alert("发送成功!");
+                    location.reload();
                 }
             });
         }
