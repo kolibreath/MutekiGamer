@@ -7,8 +7,8 @@
     <base th:href="@{/}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="./static/css/index.css"/>
-    <link rel="stylesheet" type="text/css" href="./static/css/login.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="css/login.css"/>
     <meta name="referrer" content="no-referrer"/>
     <script type="text/javascript" th:src="@{/js/User.js}"></script>
     <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
@@ -22,10 +22,58 @@
 
 <style type="text/css">
     body{
-        background:url("http://www.waibao123.com/Uploads/photo/2014-07-04/0e97fb95bebea744edc4bc45e189be1b_big.jpg") no-repeat;
+        background:url("https://upload-images.jianshu.io/upload_images/20795783-4eee77b6a05a74b3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240") no-repeat;
     position: relative;
         background-size: cover;
         background-attachment: fixed;
+    }
+    .btn-outline-dark:hover{
+        color: #fff !important;
+    }
+    .col-md-3 form:hover{
+        color: #fff;
+    }
+    .radio +label{
+        position: relative;
+        display: inline-block;
+        z-index: 999;
+        width: 12px;
+        height: 25px;
+        padding: 3px 29px;
+    }
+
+    .radio+label:before{
+        content:"";
+        color:#fff;
+        width: 20px;
+        height: 20px;
+        background: #777980;
+        border-radius: 15px;
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        display:block;
+        box-shadow: 0px 0px 3px #A19797;
+    }
+    .radio:checked+label:before{
+        content:"";
+        background: #1caf9a;
+    }
+    .radio+label:after{
+        content: attr(title);
+        width: 8px;
+        height: 8px;
+        display:block;
+        border: 3px solid #F7F9F9;
+        position: absolute;
+        top: 7px;
+        left: 7px;
+        border-radius: 7px;
+        background: #777980;
+        box-shadow: 0px 0px 3px #F2EBEB;
+    }
+    .radio:checked+label:after{
+        background: #1caf9a;
     }
 </style>
 </head>
@@ -61,14 +109,13 @@
 
 <!--mainbody-->
 <div class="container" style="padding-left: 100px;padding-right: 100px;">
-    <div class="row" style="background-color: rgba(255,255,255,0.8);margin-top: 80px;height:auto;margin-bottom: 40px;">
-
+    <div class="row" style="background-color: rgb(255,255,255);margin-top: 60px;height:auto;margin-bottom: 40px;border-radius: 8px;box-shadow: 0 0 10px #fff;">
         <div class="col-md-3">
             <div id="alter_avatar_container">
             </div>
-            <a class="btn btn-outline-primary" style="margin-left: 30%;margin-top: 20px;">
+            <a class="btn btn-outline-dark" style="margin-left: 30%;margin-top: 20px;">
                 <form method="POST" enctype="multipart/form-data" onsubmit="return false" id="user_avatar_form">
-                    <input style="position: absolute;display: block !important;width: 82px;opacity: 0;"
+                    <input style="position: absolute;display: block !important;width: 82px;opacity: 0;cursor: pointer;"
                            type="file" id="upload_pic" unselectable="on" name="file">更改头像
                 </form>
             </a>
@@ -77,42 +124,36 @@
 
 
         <div class="col-md-9" style="padding-left: 30px;">
-            <h1 style="margin-top: 50px;">rick
-                <a href="/homepage/my" type="button" class="btn  btn-link " style="margin-left: 60%">
-                    返回我的个人主页
+            <h1 style="margin-top: 50px;font-weight: 550;">rick
+                <a href="/homepage/my" type="button" class="btn  btn-link " style="margin-left: 60%;text-decoration: none;">
+                    返回我的个人主页>>>
                 </a>
             </h1>
-            <from  class="form-inline" role="form" style="margin-top: 60px;">
-                <div class="form-group">
-                    <label for="id" class=" control-label" style="margin-right:100px;">学历:</label>
-                    <input type="text" class="form-control" style="margin-left: 10px; width: 250px; " placeholder="" id="id" name="id">
-                </div>
-            </from>
 
-            <from  class="form-inline" role="form" style="margin-top: 60px;">
+            <from  class="form-inline" role="form" style="width: 80%;margin-top: 40px;padding-bottom: 20px;border-bottom: 1px dashed #696969;">
                 <div class="form-group">
                     <label for="name" class=" control-label" style="margin-right:100px;">昵称：</label>
-                    <input type="text" class="form-control" style="width: 250px;" placeholder="" id="name" name="name">
+                    <input type="text" class="form-control" style="border: none;margin-left: 10px; width: 250px; background: none;" placeholder="" id="name" name="name">
                 </div>
             </from>
 
-            <from  class="form-inline" role="form" style="margin-top: 60px;">
+            <from  class="form-inline" role="form" style="width: 80%;margin-top: 40px;padding-bottom: 20px;border-bottom: 1px dashed #696969;">
                 <div class="form-group">
                     <label for="email" class=" control-label" style="margin-right:100px;">城市：</label>
-                    <input type="text" class="form-control" style="width: 250px;" placeholder="" id="email" name="email">
+                    <input type="text" class="form-control" style="border: none;margin-left: 10px; width: 250px; background: none;" placeholder="" id="email" name="email">
                 </div>
             </from>
 
-            <from  class="form-inline" role="form" style="margin-top: 60px;">
+            <from  class="form-inline" role="form" style="width: 80%;margin-top: 40px;padding-bottom: 20px;border-bottom: 1px dashed #696969;">
                 <div class="form-group">
                     <label  class=" control-label" style="margin-right:100px;">性别：</label>
 
-                    <div class="radio ">
-                        <label class="radio-inline ">
-                            <input type="radio"  name="optionsRadiosinline" id="optionsRadios3" value="option1" checked> 男
+                    <div>
+                        <label style="float: left;margin-left: 15px">
+                            <input type="radio" class="radio" style="margin:0 5px;"  name="optionsRadiosinline" id="optionsRadios3" value="option1" checked> 男
                         </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="optionsRadiosinline" id="optionsRadios4"  value="option2"> 女
+                        <label style="margin-left: 80px;">
+                            <input type="radio" class="radio" style="margin:0 5px;" name="optionsRadiosinline" id="optionsRadios4"  value="option2"> 女
                         </label>
 
                     </div>
@@ -120,30 +161,37 @@
             </from>
 
 
-            <from  class="form-inline" role="form" style="margin-top: 60px;">
+            <from  class="form-inline" role="form" style="width: 80%;margin-top: 40px;padding-bottom: 20px;border-bottom: 1px dashed #696969;">
                 <div class="form-group">
                     <label for="age" class=" control-label" style="margin-right:100px;">年龄：</label>
-                    <input type="text" class="form-control" style="width: 250px;" placeholder="" id="age" name="age">
+                    <input type="text" class="form-control" style="border: none;margin-left: 10px; width: 250px; background: none;" placeholder="" id="age" name="age">
                 </div>
             </from>
 
-            <from  class="form-inline" role="form" style="margin-top: 60px;">
+            <from  class="form-inline" role="form" style="width: 80%;margin-top: 40px;padding-bottom: 20px;border-bottom: 1px dashed #696969;">
+                <div class="form-group">
+                    <label for="id" class=" control-label" style="margin-right:100px;">学历:</label>
+                    <input type="text" class="form-control" style="border: none;margin-left: 20px; width: 250px; background: none;" placeholder="" id="id" name="id">
+                </div>
+            </from>
+
+            <from  class="form-inline" role="form" style="width: 80%;margin-top: 40px;padding-bottom: 20px;border-bottom: 1px dashed #696969;">
                 <div class="form-group">
                     <label for="occupation" class=" control-label" style="margin-right:100px;">职业：</label>
-                    <input type="text" class="form-control" style="width: 250px;" placeholder="" id="occupation" name="occupation">
+                    <input type="text" class="form-control" style="border: none;margin-left: 10px; width: 250px; background: none;" placeholder="" id="occupation" name="occupation">
                 </div>
             </from>
 
-            <from  class="form-inline" role="form" style="margin-top: 60px;">
+            <from  class="form-inline" role="form" style="width: 80%;margin-top: 40px;padding-bottom: 20px;border-bottom: 1px dashed #696969;">
                 <div class="form-group">
                     <label for="intro" class=" control-label" style="margin-right:100px;padding-bottom: 120px;">简介：</label>
 
-                    <textarea class="form-control" style="width: 250px;" rows="5" id="intro"></textarea>
+                    <textarea class="form-control" style="width: 380px;margin-left: 10px; background: none;border: 1px dashed" rows="5" id="intro"></textarea>
                 </div>
             </from>
 
-            <button id="submit_info" type="submit" class="btn btn-primary" style="margin-top: 60px; margin-bottom: 30px; margin-left:15%;margin-right: 100px;">提交</button>
-            <button type="submit" class="btn btn-light" style="margin-top: 60px;margin-bottom: 30px; ">取消</button>
+            <button id="submit_info" type="submit" class="btn btn-outline-dark" style="width:100px;margin-top: 60px; margin-bottom: 30px; margin-left:15%;margin-right: 100px;">提交</button>
+            <button type="submit" class="btn btn-outline-secondary" style="width:100px;margin-top: 60px;margin-bottom: 30px; ">取消</button>
 
 
         </div>
