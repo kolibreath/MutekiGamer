@@ -14,11 +14,7 @@
     <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
 
-    <script src="http://http://i.gtimg.cn/qzone/biz/gdt/lib/jquery/jquery-2.1.4.js?max_age=31536000"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 <style type="text/css">
     body{
@@ -252,9 +248,10 @@
                 alterUserInfo(userAvatar,nickName,sexInt,age,city,occupation,intro,
                     function(result){
                     if(result.code == 200){
-                        //todo
-                        // alert("修改成功");
-                        toastr.success("修改成功");
+                        alert("修改成功");
+                        // toastr.success("修改成功");
+                        location.reload();
+
                     }
                 });
             }

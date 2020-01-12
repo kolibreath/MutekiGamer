@@ -21,6 +21,7 @@
     <script type="text/javascript" th:src="@{/js/Homepage.js}"></script>
     <script type="text/javascript" th:src="@{/js/Time.js}"></script>
     <script type="text/javascript" th:src="@{/js/Team.js}"></script>
+    <script type="text/javascript" th:src="@{/js/User.js}"></script>
 
     <style>
         .teamintro h1:hover{
@@ -45,9 +46,7 @@
             <span style="float: left"><a href="/homepage/news">头条</a></span>
             <span style="float: left"><a href="/homepage/battle">战场</a></span>
             <div class="dropdown" style="float: right;margin: 5px 30px;">
-                <a href="/homepage/my">
-                    <!--下面的img插用户头像-->
-                    <img src="https://static.dingtalk.com/media/lADPDgQ9rbqFW6nNAQLNAQM_259_258.jpg_620x10000q90g.jpg?auth_bizType=IM&auth_bizEntity=%7B%22cid%22%3A%228737273277%22%2C%22msgId%22%3A%222062145382217%22%7D&bizType=im&open_id=267508618" style="width: 50px;height: 50px;border-radius: 50%;">
+                <a href="/homepage/my" id="user_avatar_container">
                 </a>
                 <a class="dropdown-toggle"  data-toggle="dropdown" style="text-decoration: none;">
                 </a>
@@ -89,8 +88,16 @@
             var html = template('teaminfo1', teaminfo.data);
             // console.log(html);
             document.getElementById('teaminfo').innerHTML = html;
-        })
+        });
+
+        getUserInfo(function(result){
+            let userInfo = result.data;
+            $("#user_avatar_container").html(" <!--下面的img插用户头像-->\n" +
+                "                    <img src=\""+userInfo.userAvatar+"\" style=\"width: 50px;height: 50px;border-radius: 50%;\">\n");
+        });
     </script>
+
+
     <!-- member -->
     <div class="member">
         <div class="teamsection">
@@ -147,8 +154,6 @@
             <!--没有数据-->
             <div id="section2" class="container-fluid bg-gray" style="padding-top:70px;padding-bottom:70px">
                 <div class="table-responsive teamdata">
-                    <div id="match"></div>
-                    <script id="match1" type="text/html">
                         <table class="table table-hover">
                             <thead class="thead-dark" style="width: 100%">
                             <tr>
@@ -157,20 +162,13 @@
                                 <th>L</th>
                                 <th>MAP W-L-T</th>
                                 <th>DIFF</th>
-                                <!--<th>总击杀(场均)</th>-->
-                                <!--<th>总死亡(场均)</th>-->
-                                <!--<th>场均插眼</th>-->
-                                <!--<th>场均排眼</th>-->
-                                <!--<th>场均金钱</th>-->
-                                <!--<th>场均小龙</th>-->
-                                <!--<th>场均大龙</th>-->
                             </tr>
                             </thead>
                             <tr>
                                 <td>PAC</td>
                                 <td>7</td>
                                 <td>0</td>
-                                <td>24-6-0</td>
+                                <td>26-6-0</td>
                                 <td>+18</td>
                             </tr>
                             <tr>
@@ -180,42 +178,37 @@
                                 <td>22-6-1</td>
                                 <td>+16</td>
                             </tr>
-
-                            <!--{{each test}}-->
-                            <!--<tr>-->
-                                <!--<th>{{$index+1}}</th>-->
-                                <!--<th>2</th>-->
-                                <!--<th>2</th>-->
-                                <!--<th>2</th>-->
-                                <!--<th>2</th>-->
-                            <!--</tr>-->
-                            <!--{{/each}}-->
-                            <!--&lt;!&ndash;<tbody id="teamdata">&ndash;&gt;-->
-                            <!--<tr>-->
-                            <!--<td class="mname" style="padding-left:0px;padding-right: 0px;">2019德玛西亚杯</td>-->
-                            <!--<td class="mname">淘汰赛</td>-->
-                            <!--<td>14</td>-->
-                            <!--<td>7/7</td>-->
-                            <!--<td>50.00%</td>-->
-                            <!--<td>223(15)</td>-->
-                            <!--<td>217(15)</td>-->
-                            <!--<td>121</td>-->
-                            <!--<td>49</td>-->
-                            <!--<td>58111</td>-->
-                            <!--<td>2</td>-->
-                            <!--<td>0</td>-->
-                            <!--</tr>-->
-                            <!--</tbody>-->
+                            <tr>
+                                <td>PAC</td>
+                                <td>5</td>
+                                <td>2</td>
+                                <td>16-11-1</td>
+                                <td>+14</td>
+                            </tr>
+                            <tr>
+                                <td>PAC</td>
+                                <td>6</td>
+                                <td>1</td>
+                                <td>21-7-0</td>
+                                <td>+16</td>
+                            </tr>
+                            <tr>
+                                <td>ATL</td>
+                                <td>7</td>
+                                <td>0</td>
+                                <td>23-4-1</td>
+                                <td>+19</td>
+                            </tr>
                         </table>
-                    </script>
                 </div>
             </div>
+
             <script>
                 var data = {
                     test: [
                         1, 2, 3, 4
                     ]
-                }
+                };
                 var html = template('match1', data);
                 document.getElementById('match').innerHTML = html;
             </script>
