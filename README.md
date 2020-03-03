@@ -1,2 +1,2 @@
 # MutekiGamer
-Muteki Gamer is platform for hard core gamers!
+Muteki Gamer is a platform for hard core gamers!
